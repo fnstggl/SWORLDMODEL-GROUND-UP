@@ -1,50 +1,64 @@
 # Handoff
 
-Mode `implementation`, phase `phase_4_stock_concordia_local_baseline`, branch
+Mode `implementation`, phase `compiler_to_concordia_adapter`, branch
 `claude/concordia-agentsociety-best-action-engine` (draft PR #9, unmerged by
-design). Everything through Phase 3 is committed and pushed with passing
-config-hashed receipts.
+design). Phases 0-8 + guard hardening COMPLETE with per-task completion
+evidence and receipts; phases 3-7 adversarial review findings all closed
+(reviews/PHASE_3_7_BOUNDARY_REVIEW.md).
 
 ## Position
 
-- Phases 0–3 + frozen fixtures: COMPLETE (task graph carries per-task
-  completion evidence with artifact-bearing commit SHAs and receipts).
-- Phases 0–2 adversarial boundary review: all claims HOLD; every actionable
-  finding fixed with regression tests same-session (verbatim report +
-  dispositions: docs/engine_migration/reviews/PHASE_0_2_BOUNDARY_REVIEW.md;
-  hook maintenance #3 recorded in DECISIONS.md — external checkouts now
-  hook-protected in every mode + continuous upstream_checkouts_integrity
-  validator check + audit_exempt mechanism for the protected lock file).
-- Fixture 3 had a syntax-only re-freeze (DECISIONS.md) — all three fixtures
-  are conforming YAML, hashes in tests/fixtures/best_action/FIXTURES.sha256.
-- IN FLIGHT: Phase 4 hard gate via implementation agent (sole writer:
-  sworldmodel/backends/** + tests/engine_baseline/**): planner
-  (CompiledDecisionWorld → ConcordiaInitializationPlan), builder (explicit GM
-  assembly, no narrative push, no LLM fallback observations, guard SEAM
-  reserved for Phase 5), runner, two manual scenarios, three clean runs,
-  canaries, subprocess import-graph proof of zero compiler imports.
+- Phase 8 (whole-branch checkpoint/restore, Stage B): complete; A=A'=B
+  signature equality under two seeds; p2/p7 Ray-suite receipts re-recorded
+  clean at the fold-in; worker-RNG distributed equivalence candidate landed
+  (review D5).
+- Agency-guard hardening (findings 6+7): complete at a4112f6 -- all four
+  evasion classes detected with nearby-shape non-over-block proofs;
+  hardcoding-guard allowlist narrowed to per-file word allowances.
+- IN FLIGHT: compiler-to-Concordia adapter (implementation subagent, sole
+  writer of sworldmodel/compilation/ + docs/engine_migration/
+  COMPILER_TO_CONCORDIA_MAPPING.md + tests/engine_compilation/). The agent
+  was paused 12:25-16:46Z by a rejected baseline command (see incident
+  below) and has been resumed with monitored-run instructions.
+
+## 2026-08-03 incident: "engine DoD baseline before changes"
+
+Diagnosis: the adapter subagent's pre-change engine-DoD baseline (bare
+foreground 5-suite pytest) was rejected by the permission layer at
+12:25:40Z; no process ever spawned (no PID/PGID, BACKGROUND_JOBS
+active=[], zero matching processes in ps, no log, no heartbeat); the
+subagent paused silently for 4h20m. There was nothing for run_monitored
+timeouts to stop because the monitor was never engaged -- multi-suite
+engine pytest matched no long-running pattern (hook maintenance #5 in
+DECISIONS.md fixed that classification, with regression tests), and a
+permission-paused subagent emits no completion signal (lead now arms a
+send_later liveness check when launching writer agents).
+
+Result: bounded baseline re-run through run_monitored.py with per-test
+strong progress (pytest -v teed into --progress-file), no-progress and
+total timeouts -- see BACKGROUND_JOBS.json `engine-dod-baseline-pre-adapter`
+for the record; the adapter agent resumed from durable state (no new
+worker, no new lead session).
 
 ## On wake / fresh session
 
-1. Validator; if the only failure is master-receipt staleness, re-record per
-   DECISIONS "Receipt re-record protocol" (python3
-   .claude/tools/record_receipt.py --task-id master-context-initialization
-   --quiet --config-hash master_directive=docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md
-   --run -- python3 tests/control_plane/test_gate.py).
-2. If the Phase 4 agent has reported: verify both interpreters
-   (engine: pytest tests/engine_baseline tests/engine_contracts; system:
-   pytest tests), record phase-4 receipts with config hashes, mark task-graph
-   complete with evidence, commit + push, then Phase 5 (agency guard as the
-   reserved final event_resolution_steps slot; assertion shape per
-   INTEGRATION_PLAN Phase 2 findings #4 — marker containment, never
-   full-string equality).
-3. Then Phase 6 counterfactual manager, compiler adapter, Phase 7 Stage A
-   (Option 2 primitives + custom agent under custom/agents with
-   WORKSPACE_PATH; batch_size=1; collect BranchResults from workspace files —
-   driver discards step results), Phase 8 checkpoint sidecar (rng, engine
-   cursor, premise='' on resume), Phases 9–11, then frozen acceptance.
+1. Read RUN_STATE.json; run the validator. If the only failure is
+   master-receipt SHA staleness, re-record per DECISIONS "Receipt
+   re-record protocol".
+2. If the adapter subagent is idle: check its transcript tail before
+   assuming it is working; resume it with a message rather than spawning a
+   second writer (single-writer rule).
+3. After the adapter folds in: Phase 9 individual vertical slice
+   (DEEPSEEK_API_KEY is set -- live-model smoke leg is feasible via
+   Concordia's OpenAI-compatible wrapper behind the model_builder seam),
+   then Phase 10 team slice, Phase 11 monitored scale proofs
+   (run_monitored is now MANDATORY for multi-suite engine batteries --
+   single-suite iteration stays direct), operational-robustness matrix,
+   final docs, Phase 12 frozen acceptance + remaining reviewer roles +
+   final adjudication.
 
-Suites at last verification: system 654+ passed / 7 skipped; engine
-contracts 39/39; contracts+loader 203 on 3.12. Upstream checkouts verified
-clean at pins by the continuous validator check. No background jobs. No open
+Suites at last verification: control plane 138/95/25 green; engine DoD 134
+at a4112f6 (guard receipt, clean worktree); system suite 681 passed / 25
+skipped + the known master-receipt staleness item. Upstream checkouts
+verified clean at pins continuously. No background jobs. No open
 critical/high findings.

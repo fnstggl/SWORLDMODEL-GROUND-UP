@@ -289,6 +289,61 @@ class TestPreToolUse(GateTestCase):
             with self.subTest(command=command):
                 self.assert_denied(self.gate(bash_event(command)), "run_monitored.py")
 
+    def test_multi_engine_suite_battery_requires_monitor(self):
+        """Regression for the silent-agent-pause incident: the engine DoD
+        battery ran as bare foreground pytest with no registry entry,
+        heartbeat, progress, or timeout. Two or more distinct engine suite
+        directories in one pytest invocation now require the monitor."""
+        self.project.set_mode("implementation")
+        dod = ("/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint "
+               "tests/engine_distributed tests/engine_counterfactuals "
+               "tests/engine_baseline tests/engine_contracts -q")
+        self.assert_denied(self.gate(bash_event(dod)), "run_monitored.py")
+        self.assert_denied(self.gate(bash_event(
+            "pytest tests/engine_baseline tests/engine_contracts -q")), "run_monitored.py")
+        # The exact rejected incident shape (trailing pipe) is still caught.
+        self.assert_denied(self.gate(bash_event(dod + " 2>&1 | tail -5")), "run_monitored.py")
+        # env-prefixed form is still caught.
+        self.assert_denied(self.gate(bash_event(
+            "env RAY_DEDUP_LOGS=0 python3 -m pytest tests/engine_baseline "
+            "tests/engine_contracts -q")), "run_monitored.py")
+
+    def test_single_engine_suite_pytest_stays_direct(self):
+        """Quick iteration must not be taxed: one suite directory, or many
+        files within one suite, is not a battery."""
+        self.project.set_mode("implementation")
+        self.assert_allowed(self.gate(bash_event(
+            "/home/user/engine-env/bin/python -m pytest tests/engine_baseline -q")))
+        self.assert_allowed(self.gate(bash_event(
+            "pytest tests/engine_baseline/test_agency_guard.py "
+            "tests/engine_baseline/test_builder_contracts.py -q")))
+
+    def test_monitored_or_bounded_receipt_battery_allowed(self):
+        self.project.set_mode("implementation")
+        self.assert_allowed(self.gate(bash_event(
+            "python3 .claude/tools/run_monitored.py --job-id dod --classification "
+            "exploratory --no-progress-timeout 240 --total-timeout 480 -- "
+            "/home/user/engine-env/bin/python -m pytest tests/engine_baseline "
+            "tests/engine_contracts -q")))
+        # record_receipt --run with an explicit --timeout is bounded and
+        # evidence-producing; the receipt protocol wraps the battery.
+        self.assert_allowed(self.gate(bash_event(
+            "python3 .claude/tools/record_receipt.py --task-id t --timeout 600 --run -- "
+            "/home/user/engine-env/bin/python -m pytest tests/engine_baseline "
+            "tests/engine_contracts -q")))
+
+    def test_receipt_exemption_is_per_segment_and_needs_timeout(self):
+        self.project.set_mode("implementation")
+        # A bounded receipt run cannot smuggle a bare battery behind ';'.
+        self.assert_denied(self.gate(bash_event(
+            "python3 .claude/tools/record_receipt.py --task-id t --timeout 5 --run -- true; "
+            "pytest tests/engine_baseline tests/engine_contracts -q")), "run_monitored.py")
+        # record_receipt's --timeout default is None: without the flag the
+        # child is unbounded, so the exemption must not apply.
+        self.assert_denied(self.gate(bash_event(
+            "python3 .claude/tools/record_receipt.py --task-id t --run -- "
+            "python3 -m pytest tests/engine_baseline tests/engine_contracts -q")), "run_monitored.py")
+
     def test_shell_redirection_into_protected_path_blocked(self):
         self.project.set_mode("implementation")
         for command in ("echo broken > .claude/settings.json",

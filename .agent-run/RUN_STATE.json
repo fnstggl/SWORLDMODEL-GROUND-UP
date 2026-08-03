@@ -5,7 +5,7 @@
   "phase": "compiler_to_concordia_adapter",
   "frozen_sha": null,
   "highest_leverage_blocker": "None open. Guard hardened; Phase 9 unblocked once the compiler adapter (its other dependency) lands.",
-  "next_action": "Compiler-to-Concordia adapter in flight (implementation-agent owns sworldmodel/compilation/ + mapping doc + canary tests): SceneCompileResult.manifest -> CompiledDecisionWorld, compared against the frozen manual fixtures per the directive integration order. Then Phase 9 individual vertical slice, Phase 10 team slice, Phase 11 monitored scale proofs, operational-robustness matrix, final docs, Phase 12 frozen acceptance + reviews + adjudication.",
+  "next_action": "Run the monitored engine-DoD baseline (engine-dod-baseline-pre-adapter), then resume the paused compiler-adapter subagent from durable state (no new worker). After the adapter folds in: Phase 9 individual slice, Phase 10 team slice, Phase 11 monitored scale proofs, robustness matrix, final docs, Phase 12 frozen acceptance + reviews + adjudication.",
   "open_critical_count": 0,
   "open_high_count": 0,
   "running_background_jobs": [],

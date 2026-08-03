@@ -928,11 +928,49 @@ def background_reason(command: str, tool_input: dict | None = None) -> str | Non
     return None
 
 
+#: pytest target under an engine suite directory (tests/engine_<name>/...)
+_ENGINE_SUITE_DIR = re.compile(r"(?:^|/)(tests/engine_[a-z0-9_]+)")
+
+
+def is_bounded_receipt_run(argv: list[str]) -> bool:
+    """True for a ``record_receipt.py --run`` invocation with an explicit
+    ``--timeout``: the receipt tool kills its child at the timeout, so the
+    execution is bounded and evidence-producing. Without ``--timeout`` the
+    tool's default is None (unbounded) and no exemption applies."""
+    return (any(Path(a).name == "record_receipt.py" for a in argv)
+            and "--run" in argv and "--timeout" in argv)
+
+
+def _multi_engine_suite_reason(command: str) -> str | None:
+    """A pytest invocation spanning two or more distinct engine suite
+    directories is the DoD battery, not quick iteration: it must be
+    observable and bounded (silent-agent-pause incident, FAILURE_LEDGER
+    ``silent-agent-pause-plus-unmonitored-long-suite``). Single-suite
+    pytest stays direct. The exemption is per shell segment so a bounded
+    receipt run cannot smuggle a bare battery behind a ``;``."""
+    for argv in _split_command(command or ""):
+        argv = _strip_env_assignments(argv)
+        if not argv:
+            continue
+        if is_bounded_receipt_run(argv):
+            continue
+        if not any(Path(token).name == "pytest" for token in argv):
+            continue
+        suites = set()
+        for token in argv:
+            match = _ENGINE_SUITE_DIR.search(token)
+            if match:
+                suites.add(match.group(1))
+        if len(suites) >= 2:
+            return "multi-suite engine test battery"
+    return None
+
+
 def long_running_reason(command: str) -> str | None:
     for pattern, label in _LONG_RUNNING_PATTERNS:
         if pattern.search(command or ""):
             return label
-    return None
+    return _multi_engine_suite_reason(command)
 
 
 def is_short_and_harmless(command: str) -> bool:

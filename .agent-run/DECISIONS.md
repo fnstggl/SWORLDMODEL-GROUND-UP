@@ -537,3 +537,41 @@ implementation.
   broad/stale/empty entries. guard.py's allowance is exactly
   {vote, voting}; "committee" was deliberately left off the guard's
   group-noun list to keep it that narrow.
+
+## Hook maintenance 2026-08-03 (#5) -- engine DoD battery becomes monitored
+
+Trigger: the "engine DoD baseline before changes" incident. The
+compiler-adapter subagent's baseline command (bare foreground 5-suite
+engine pytest, `... -q 2>&1 | tail -5`) was REJECTED by the permission
+layer at 12:25:40Z before any process spawned; the subagent paused
+awaiting direction and sat idle 4h20m. Externally this read as a job
+running four hours without progress; in fact there was never a PID, no
+BACKGROUND_JOBS entry, no heartbeat, no log -- and therefore also nothing
+that could prove the negative. Ledgered as
+`silent-agent-pause-plus-unmonitored-long-suite`.
+
+General cause: `_LONG_RUNNING_PATTERNS` classifies long jobs by semantic
+class (corpus/scale/load/bench/many-agent/frozen-acceptance); a
+multi-suite engine pytest battery matched none of them, so
+`requires_monitored_runner()` let it run as bare unbounded foreground
+Bash with no observability. Rule 5's "long test" intent did not cover the
+run the phases actually use as their DoD.
+
+Fix (smallest general): `long_running_reason` now classifies a pytest
+invocation naming two or more distinct `tests/engine_*` directories as a
+"multi-suite engine test battery" (monitored runner required). Bounded
+evidence runs stay legal: `record_receipt.py --run` with an explicit
+`--timeout` is exempt per shell segment (the tool kills its child at the
+timeout; its default is None, so the flag is mandatory for the
+exemption). Single-suite pytest and file-level iteration stay direct.
+Four regression tests added (battery denied incl. the exact incident
+shape and env-prefixed form; single-suite allowed; monitored/bounded
+receipt forms allowed; per-segment smuggling and timeout-less receipt
+runs denied). Suites: gate 138, validator 95, monitored-runner 25 -- all
+green. Mode restored to implementation.
+
+Operational protocol change (non-hook): when the lead launches a writer
+subagent it arms a `send_later` liveness check-in (~45 min) and verifies
+the agent's transcript is advancing when it fires, because a
+permission-paused subagent emits no completion signal. Recorded in
+HANDOFF.md.
