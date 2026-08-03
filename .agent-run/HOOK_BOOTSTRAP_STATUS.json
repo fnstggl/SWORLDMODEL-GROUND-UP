@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "overall": "STATIC_PASS_LIVE_PENDING",
+  "static_tests": "PASS",
+  "settings_validation": "PASS",
+  "monitored_runner_tests": "PASS",
+  "fresh_session_hooks_loaded": "PENDING",
+  "live_event_tests": "PENDING",
+  "verified_commit": null,
+  "static_verified_commit": null,
+  "notes": [
+    "verified_commit stays null until fresh-session live verification passes; see .claude/FRESH_SESSION_VERIFICATION.md",
+    "static_verified_commit records the commit whose static validation passed and is set in the follow-up commit"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "MASTER_DIRECTIVE_PENDING",
+  "task_schema": {
+    "id": "string, unique, required",
+    "subject": "string, short human subject, required",
+    "description": "string, required",
+    "owner": "string, teammate name or agent name, required",
+    "owner_type": "one of: lead | teammate | subagent | human",
+    "status": "one of: pending | in_progress | blocked | complete | abandoned",
+    "mandatory": "boolean, default true; false marks an optional task",
+    "dependencies": "array of task ids",
+    "required_artifacts": "array of repository-relative paths that must exist",
+    "required_receipts": "array of receipt selectors; see receipt_selector_schema",
+    "required_validation_commands": "array of exact commands that must appear in a passing receipt",
+    "blocking_critical_findings": "array of finding ids that must be empty to complete",
+    "required_review_artifacts": "array of repository-relative review report paths",
+    "worktree": "string or null; repository-relative worktree/branch identity",
+    "requires_clean_worktree": "boolean, default false",
+    "completion_evidence": "object written by the completion gate on success"
+  },
+  "receipt_selector_schema": {
+    "task_id": "string, required; must match the receipt task_id",
+    "command": "string, optional; exact command that must have been run",
+    "must_pass": "boolean, default true; requires receipt exit_code == 0 and valid == true"
+  },
+  "tasks": []
+}
