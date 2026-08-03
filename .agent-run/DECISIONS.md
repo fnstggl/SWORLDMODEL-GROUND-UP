@@ -695,3 +695,25 @@ refuted by F1.
   reconciliation CODE path has live small-N negative controls and the
   rollup chain is recomputed from committed summaries. DISPOSITION:
   accepted two-tier design, disclosed here and in the evidence doc.
+
+## Gate I notes 2026-08-03 (robustness matrix complete; finding dispositions)
+
+- G1 (matrix row 11): no in-branch model-call timeout seam for injected
+  engine models; a hung model call is bounded ONLY by the mandatory
+  monitored-runner layer (rule 5), which the matrix proves kills the
+  hang (exit 125, no survivors). DISPOSITION: ACCEPTED for this pass --
+  the outer bound is real and mandatory; adding an inner seam is a
+  post-acceptance improvement. The matrix pins the current seam surface
+  by signature assertion so any future seam forces a matrix rewrite.
+- F-R1 (row 14, low): the driver-channel error for a corrupted workspace
+  file is a raw JSONDecodeError repr naming the agent, not the file --
+  upstream pinned agentsociety2 behavior; the workspace-side structured
+  artifact names the file. DISPOSITION: ACCEPTED (disclosed; upstream
+  untouched by policy).
+- L1 (row 12): no engine-side size cap on injected model output; live
+  path bounded by transport (4MB/max_tokens). DISPOSITION: ACCEPTED for
+  scripted/deterministic paths; noted in KNOWN_LIMITATIONS for the docs
+  phase.
+- Clean-install evidence doubles as gate-A "reproducible from a clean
+  environment" (23.3s warm-cache, 151 packages, versions match the
+  phase-0 freeze).

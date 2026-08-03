@@ -699,7 +699,7 @@
       "description": "Gate I test matrix: clean installation, cold startup, repeated runs, interruption, resume, one actor failure, one branch failure, malformed candidate, malformed compiled input, missing model credentials, model timeout, model malformed output, Ray worker failure, partial workspace corruption. Failures must be explicit, bounded, and recoverable where possible.",
       "owner": "test-watchdog",
       "owner_type": "subagent",
-      "status": "pending",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-11-societal-infrastructure-proof"
@@ -718,7 +718,17 @@
       "requires_clean_worktree": false,
       "acceptance_gates": [
         "I_operational_robustness"
-      ]
+      ],
+      "completion_evidence": {
+        "completed_at_sha": "2404226 (suite + matrix + registry) / 2935ce7 (receipt); receipts re-verified at each subsequent HEAD per protocol",
+        "receipt": ".agent-run/receipts/operational-robustness-matrix__2404226fdc1c__20260803T2141340000.json",
+        "receipt_command": "tests/engine_robustness via record_receipt --timeout 600 (27 passed, clean tree, matrix doc content-hashed)",
+        "receipt_exit_code": 0,
+        "tests_passed": 284,
+        "summary": "All 14 gate-I scenarios evidenced in docs/engine_migration/OPERATIONAL_ROBUSTNESS_MATRIX.md: 27 new tests (clean-install monitored probe 23.3s/151 pkgs + fresh-venv smoke; cold start; SIGTERM/SIGKILL interruption with byte-identical resume; missing-credential boundaries; model timeout incl. hung-branch outer-bound proof; 7 malformed-output classes fail closed; Ray worker SIGKILL typed + exactly-once re-run + retry-budget auto-recovery; workspace corruption explicit + restore-last-good). Three honest findings recorded in the matrix: G1 no in-branch model-call timeout seam (bounded at the mandatory monitored-runner layer, signature-pinned), F-R1 raw JSONDecodeError channel names agent not file (upstream pinned behavior), L1 no engine-side size cap on injected model output (live path transport-bounded).",
+        "lead_verification": "independent run at 2935ce7: tests/engine_robustness 27 passed; ten-suite battery 284 at robustness-final-dod",
+        "acceptance_gate_notes": "Gate I fully evidenced; clean-install row doubles as gate-A reproducibility evidence."
+      }
     },
     {
       "id": "adversarial-review-cycle",
