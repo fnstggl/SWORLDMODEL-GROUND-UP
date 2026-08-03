@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-4-stock-concordia-local-baseline",
+  "git_sha": "14134b452897a9bea4ae387e28b1600362dffcf6",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_baseline tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T07:58:36+00:00",
+  "finished_at": "2026-08-03T07:59:20+00:00",
+  "artifact_paths": [
+    "sworldmodel/backends/concordia_local/planner.py",
+    "sworldmodel/backends/concordia_local/builder.py",
+    "sworldmodel/backends/concordia_local/runner.py",
+    "tests/engine_baseline/test_hard_gate_scenario_one.py",
+    "tests/engine_baseline/test_hard_gate_scenario_two.py"
+  ],
+  "configuration_hashes": {
+    "planner": "e2b34378c7455c6fce1c54be80fe16a0d41bd7b30bc4523b56aa319a3e0b51c2",
+    "builder": "7a814c399abe94094340a319ec68a4995a4e86f01e2086f903b8630a7e625ceb",
+    "runner": "75a08aa4725282b05cd64bbb06606efb66254ca32c3e7a82e7de199197bb6e55"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T07:59:20+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "................................................................         [100%]\n64 passed in 41.15s\n"
+}
