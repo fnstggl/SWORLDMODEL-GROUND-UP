@@ -1,0 +1,9 @@
+# Ephemeral monitored-job scratch: stdout/stderr logs, diagnostics, heartbeats.
+# The durable record of every job is kept in BACKGROUND_JOBS.json, which is
+# tracked. These directories are recreated by .claude/tools/run_monitored.py.
+jobs/
+BACKGROUND_JOBS.lock
+
+# Written by the StopFailure and ConfigChange hooks at runtime.
+RECOVERY_REQUEST.json
+CONFIG_CHANGES.jsonl

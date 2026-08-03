@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "control-plane-monitored-runner-tests",
+  "git_sha": "13e527b924fff0ee22ca28d5a8dc252ff85b4df0",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests/control_plane/test_run_monitored.py -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T00:57:19+00:00",
+  "finished_at": "2026-08-03T00:57:53+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T00:57:53+00:00",
+  "git_branch": "claude/hook-bootstrap-control-plane-5dfvzt",
+  "worktree_clean": false,
+  "output_tail": ".........................                                                [100%]\n25 passed in 34.50s\n"
+}

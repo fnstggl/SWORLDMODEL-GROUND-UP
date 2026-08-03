@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "mode": "hook_bootstrap",
+  "status": "STATIC_PASS_LIVE_PENDING",
+  "phase": "awaiting_fresh_session_verification",
+  "frozen_sha": null,
+  "highest_leverage_blocker": null,
+  "next_action": "start a fresh Claude Code session from this commit and run live hook verification",
+  "open_critical_count": 0,
+  "open_high_count": 0,
+  "running_background_jobs": [],
+  "passed_gates": [
+    "static_hook_tests",
+    "monitored_runner_tests"
+  ],
+  "remaining_gates": [
+    "fresh_session_live_verification"
+  ],
+  "completion_allowed": true,
+  "master_context_loaded": false,
+  "master_directive_path": null,
+  "master_directive_sha256": null,
+  "architecture_initialized": false,
+  "task_graph_initialized": false,
+  "acceptance_gates_initialized": false
+}

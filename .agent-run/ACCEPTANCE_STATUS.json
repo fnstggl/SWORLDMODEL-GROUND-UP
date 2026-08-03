@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "overall": "NOT_STARTED",
+  "final_frozen_sha": null,
+  "final_adjudicator": "NOT_RUN",
+  "open_critical_findings": [],
+  "open_mandatory_high_findings": [],
+  "gates": {}
+}
