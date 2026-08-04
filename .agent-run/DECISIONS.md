@@ -760,3 +760,31 @@ protocol updated. The spoof-fix worker was resumed from its transcript
 (SendMessage) and is actively editing production again -- the transient
 phase_receipt_discipline failure it causes mid-task resolves when it
 re-records receipts at its completion commit per its brief.
+
+## Reviewer-role wave 1 closed 2026-08-04 (fixes at c34ade6)
+
+- CRITICAL (Simulation Reality, anchor-spoofing narration): closed by
+  reserved-marker refusal -- RESERVED_EVENT_MARKER defined once in
+  planner.py (cites upstream event_resolution.py framing); refusal at the
+  planner chokepoint (shared_context, private_context, starting-event
+  descriptions, neutral premise) and the candidate belt (manager preflight
+  + decision_route user/generated candidates); case-insensitive,
+  whitespace-collapsed matching; collect-all typed ContractValidationError
+  code reserved_marker naming marker+field+index; no silent stripping;
+  contracts/guard/builder/runner untouched. Helper first-occurrence anchor
+  parsing proven sound post-fix (engine stamps first; embedded copies
+  guard-rewritten and shadowed). Reviewer reproductions flipped from
+  success to refusal; 15 discriminating tests verified failing pre-fix.
+- M1 (Best-Action reviewer): declared-order re-validation now pinned by
+  two tests verified by ACTUAL MUTATION of validation.py:342-367 (block
+  replaced with pass -> both fail; restored byte-identical, sha256 equal).
+- Upstream auditor L1/L2: matrix row-1 durable evidence pointers;
+  component map fourth honest note (inherited underscore members with
+  upstream-idiom mitigation). L3 (latent _resolve_chain private-callable
+  gap): ACCEPTED -- vacuous at the pin (zero private callables upstream,
+  checkouts write-blocked); becomes real only on a future re-pin.
+- Best-Action L2 (worker-internal-only leak residual): ACCEPTED --
+  signature equivalence + strict scripted models bound it; disclosed.
+  L3 + RNG observation: disclosed in KNOWN_LIMITATIONS section 4.
+- Battery at c34ade6: 300 passed (284 + 16 new). Slices re-verified
+  independently by the lead: 51 passed at 5c7b632.
