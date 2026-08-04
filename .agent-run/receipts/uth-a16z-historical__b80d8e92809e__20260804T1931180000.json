@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "uth-a16z-historical",
+  "git_sha": "b80d8e92809e05d07e1a139d41bcc161cef3fcf0",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/experiment_harness -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T19:31:01+00:00",
+  "finished_at": "2026-08-04T19:31:18+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "runner": "3f742403430e884e7f62519350d35168426ca70d661497ebc45673cc6d042916",
+    "problem": "2760b892286f975c3269d85b9df1e45493f2034cfb80b5c093ae0551b88976c6"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T19:31:18+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 63%]\n..........................................                               [100%]\n114 passed in 16.41s\n"
+}
