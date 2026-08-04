@@ -947,3 +947,40 @@ future run): (1) receipt the seed sweep next time; (2) exclude
 .agent-run/ from run_monitored frozen-integrity cleanliness or record
 dirty paths; (3) master receipt re-recorded at the completion SHA per
 protocol; (4) completion flow executed exactly as the verdict directed.
+
+## Under-the-hood validation: headline finding 2026-08-04
+
+Scenarios 1+2 (Peter Thiel, live DeepSeek, 51 recorded calls, zero
+bypassed) ran the full production path end to end and produced a
+finding that INVALIDATES their own rankings: the candidate text never
+reached the recipient actor. Lead-verified independently: exactly ONE
+distinct recipient first-turn prompt hash across all six branches
+(three supplied + three generated); zero candidate fragments in any
+recipient prompt. Recorded mechanism: (1) the compiled world's send
+event was visible_to the sender only; (2) the intervention boundary
+appends candidate text to the INSERTION actor's initial observations
+only; (3) the sender's live model, told the send already happened,
+chose to wait rather than restate the message, so the content never
+entered a committed event. The measured per-branch differences are
+live-model sampling variation on one identical prompt.
+
+Consequences recorded honestly rather than repaired: the harness agent
+did NOT re-run after discovering it (a re-run would overwrite frozen
+evidence) and did NOT widen the evaluator to match observed text
+(that would be tuning to the outcome); it published a labelled
+post-hoc second reading in measurement_audit.json instead. Zero guard
+interventions and zero information leaks were computed (not asserted)
+across both scenarios.
+
+Root-cause investigation launched (read-only) to classify: compiler
+visibility output vs adapter mapping loss vs engine intervention
+semantics (suggested-not-enacted) vs correct-by-design actor agency,
+with minimal-remedy ranking. Scenario 3 (a16z) launched in parallel
+and is REQUIRED to measure and publish the analogous offer-delivery
+question, whichever way it comes out.
+
+NOTE for the record: the accepted engine's gates were proven with
+SCRIPTED senders that echo the candidate text (cf_helpers). Causal
+effectiveness of an intervention under a FREE-CHOICE sender was never
+part of the acceptance evidence. That is a scope statement about the
+gates, pending the investigation's precise finding.
