@@ -1,0 +1,199 @@
+{
+  "status": "SUPERSEDED -- NOT PART OF THE MEASURED RUN",
+  "what_this_is": "the first live compile run, kept because hiding a failed attempt would make the accepted run look cleaner than it was. Three attempts, all refused; two HARNESS defects were found and fixed, the compiler inputs changed as a result, and the run was restarted from the corrected frozen input. No compiler output was ever edited.",
+  "defect_1_production_guard_read_the_knowledge_horizon_as_a_deadline": {
+    "symptom": "VALIDATION_FAILED: the question states the deadline 'before 1 July 2025' (2025-07-01), which is narrower than the compile cutoff 2025-07-10, but the resolution references neither: the cutoff must never silently replace the question's own window",
+    "cause": "the harness scope note said 'use only information available on or before 1 July 2025'. compiler.scene_guards.question_deadline scans question+context for 'before <date>' and correctly reported that the question stated a deadline narrower than the compile cutoff. The production guard was doing its documented job on bad harness input.",
+    "fix": "harness-side only: the scope note now states a KNOWLEDGE HORIZON ('use only information that already existed as of 2025-07-01') and says explicitly that it is not a decision deadline. No production code changed.",
+    "regression_test": "tests/experiment_harness/test_a16z_scenario.py::test_the_compiler_inputs_state_no_decision_deadline"
+  },
+  "defect_2_the_harness_acceptance_gate_could_not_read_a_negation": {
+    "symptom": "the harness rejected every attempt for a 'prewritten outcome' whose text was 'no offer has been made or discussed' -- the exact OPPOSITE of a prewritten outcome",
+    "cause": "the gate matched act phrases without a negation guard",
+    "fix": "harness-side only: scenario_a16z.NEGATION_BEFORE_RE, applied to the text preceding each match",
+    "regression_test": "tests/experiment_harness/test_a16z_scenario.py::test_the_compile_attempt_gate_does_not_fire_on_a_negated_statement"
+  },
+  "attempts": [
+    {
+      "accepted": false,
+      "compiler_status": "failed",
+      "compiler_reason": "VALIDATION_FAILED: the question states the deadline 'before 1 July 2025' (2025-07-01), which is narrower than the compile cutoff 2025-07-10, but the resolution references neither: the cutoff must never silently replace the question's own window",
+      "compiled_cast_in_declaration_order": [
+        "New Media Hiring Lead",
+        "New Media Strategy Partner",
+        "Creative Production Lead",
+        "People and Compensation Partner",
+        "Richard Zheng"
+      ],
+      "checks": {
+        "compiler_status_ok": false,
+        "cast_is_exactly_the_declared_five": true,
+        "no_prewritten_outcome_in_starting_events": false,
+        "historical_cutoff_clean": true
+      },
+      "prewritten_outcome_findings": [
+        {
+          "starting_event_index": 0,
+          "pattern": "\\boffer\\s+(?:has\\s+been|was|is)\\s+(?:made|issued|extended|sent|prepared|approved|authoriz\\w+|accepted|declined|rejected)",
+          "matched_text": "offer has been made",
+          "description": "The simulation begins with all actors aware of the situation: a potential hiring decision for Richard Zheng is under consideration, but no offer has been made or discussed."
+        }
+      ],
+      "rejection_reasons": [
+        "compiler_status_ok",
+        "no_prewritten_outcome_in_starting_events"
+      ],
+      "attempt": 1,
+      "wall_seconds": 8.36,
+      "compiler_metrics": {
+        "semantic_calls": 2,
+        "semantic_slots": [
+          "call_1_scene",
+          "call_2_review"
+        ],
+        "provider_requests": 2,
+        "total_prompt_tokens": 8169,
+        "total_completion_tokens": 752,
+        "per_slot": {
+          "call_1_scene": {
+            "attempts": 1,
+            "duration_s": 7.163,
+            "prompt_tokens": 4205,
+            "completion_tokens": 734
+          },
+          "call_2_review": {
+            "attempts": 1,
+            "duration_s": 1.194,
+            "prompt_tokens": 3964,
+            "completion_tokens": 18
+          }
+        },
+        "wall_s": 8.36,
+        "compiler_version": "minimal_scene_v1",
+        "evidence_mode": "evidence_package"
+      },
+      "artifact_dir": "artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler_attempts/attempt_1"
+    },
+    {
+      "accepted": false,
+      "compiler_status": "failed",
+      "compiler_reason": "VALIDATION_FAILED: the question states the deadline 'before 1 July 2025' (2025-07-01), which is narrower than the compile cutoff 2025-07-10, but the resolution references neither: the cutoff must never silently replace the question's own window",
+      "compiled_cast_in_declaration_order": [
+        "New Media Hiring Lead",
+        "New Media Strategy Partner",
+        "Creative Production Lead",
+        "People and Compensation Partner",
+        "Richard Zheng"
+      ],
+      "checks": {
+        "compiler_status_ok": false,
+        "cast_is_exactly_the_declared_five": true,
+        "no_prewritten_outcome_in_starting_events": false,
+        "historical_cutoff_clean": true
+      },
+      "prewritten_outcome_findings": [
+        {
+          "starting_event_index": 0,
+          "pattern": "\\boffer\\s+(?:has\\s+been|was|is)\\s+(?:made|issued|extended|sent|prepared|approved|authoriz\\w+|accepted|declined|rejected)",
+          "matched_text": "offer has been prepared",
+          "description": "The simulation begins with the hiring process in its initial state: no offer has been prepared, authorized, issued, or discussed with Richard Zheng. All actors are aware of the role's purpose and the candidate's background as of the cutoff."
+        }
+      ],
+      "rejection_reasons": [
+        "compiler_status_ok",
+        "no_prewritten_outcome_in_starting_events"
+      ],
+      "attempt": 2,
+      "wall_seconds": 11.11,
+      "compiler_metrics": {
+        "semantic_calls": 2,
+        "semantic_slots": [
+          "call_1_scene",
+          "call_2_review"
+        ],
+        "provider_requests": 2,
+        "total_prompt_tokens": 8399,
+        "total_completion_tokens": 982,
+        "per_slot": {
+          "call_1_scene": {
+            "attempts": 1,
+            "duration_s": 9.366,
+            "prompt_tokens": 4205,
+            "completion_tokens": 964
+          },
+          "call_2_review": {
+            "attempts": 1,
+            "duration_s": 1.743,
+            "prompt_tokens": 4194,
+            "completion_tokens": 18
+          }
+        },
+        "wall_s": 11.11,
+        "compiler_version": "minimal_scene_v1",
+        "evidence_mode": "evidence_package"
+      },
+      "artifact_dir": "artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler_attempts/attempt_2"
+    },
+    {
+      "accepted": false,
+      "compiler_status": "failed",
+      "compiler_reason": "VALIDATION_FAILED: the question states the deadline 'before 1 July 2025' (2025-07-01), which is narrower than the compile cutoff 2025-07-10, but the resolution references neither: the cutoff must never silently replace the question's own window",
+      "compiled_cast_in_declaration_order": [
+        "New Media Hiring Lead",
+        "New Media Strategy Partner",
+        "Creative Production Lead",
+        "People and Compensation Partner",
+        "Richard Zheng"
+      ],
+      "checks": {
+        "compiler_status_ok": false,
+        "cast_is_exactly_the_declared_five": true,
+        "no_prewritten_outcome_in_starting_events": false,
+        "historical_cutoff_clean": true
+      },
+      "prewritten_outcome_findings": [
+        {
+          "starting_event_index": 0,
+          "pattern": "\\boffer\\s+(?:has\\s+been|was|is)\\s+(?:made|issued|extended|sent|prepared|approved|authoriz\\w+|accepted|declined|rejected)",
+          "matched_text": "offer has been made",
+          "description": "The simulation begins with the hiring process in its current state: no offer has been made, and Richard Zheng has not been contacted regarding any offer."
+        }
+      ],
+      "rejection_reasons": [
+        "compiler_status_ok",
+        "no_prewritten_outcome_in_starting_events"
+      ],
+      "attempt": 3,
+      "wall_seconds": 8.52,
+      "compiler_metrics": {
+        "semantic_calls": 2,
+        "semantic_slots": [
+          "call_1_scene",
+          "call_2_review"
+        ],
+        "provider_requests": 2,
+        "total_prompt_tokens": 8130,
+        "total_completion_tokens": 713,
+        "per_slot": {
+          "call_1_scene": {
+            "attempts": 1,
+            "duration_s": 6.938,
+            "prompt_tokens": 4205,
+            "completion_tokens": 695
+          },
+          "call_2_review": {
+            "attempts": 1,
+            "duration_s": 1.581,
+            "prompt_tokens": 3925,
+            "completion_tokens": 18
+          }
+        },
+        "wall_s": 8.52,
+        "compiler_version": "minimal_scene_v1",
+        "evidence_mode": "evidence_package"
+      },
+      "artifact_dir": "artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler_attempts/attempt_3"
+    }
+  ],
+  "live_calls_spent_on_this_superseded_run": 6
+}

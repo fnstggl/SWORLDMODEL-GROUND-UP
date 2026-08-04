@@ -1,0 +1,83 @@
+{
+  "contract_type": "recommendation_result",
+  "schema_version": 1,
+  "best_candidate_id": "user_001",
+  "ranking": [
+    {
+      "candidate_id": "user_001",
+      "metric_values": {
+        "valid_offer_accepted": false,
+        "salary_savings_vs_300k": 300000.0
+      }
+    },
+    {
+      "candidate_id": "user_002",
+      "metric_values": {
+        "valid_offer_accepted": false,
+        "salary_savings_vs_300k": 200000.0
+      }
+    },
+    {
+      "candidate_id": "user_003",
+      "metric_values": {
+        "valid_offer_accepted": false,
+        "salary_savings_vs_300k": 150000.0
+      }
+    },
+    {
+      "candidate_id": "user_004",
+      "metric_values": {
+        "valid_offer_accepted": false,
+        "salary_savings_vs_300k": 100000.0
+      }
+    },
+    {
+      "candidate_id": "user_005",
+      "metric_values": {
+        "valid_offer_accepted": false,
+        "salary_savings_vs_300k": 50000.0
+      }
+    },
+    {
+      "candidate_id": "user_006",
+      "metric_values": {
+        "valid_offer_accepted": false,
+        "salary_savings_vs_300k": 0.0
+      }
+    }
+  ],
+  "metric_differences": {
+    "valid_offer_accepted": {
+      "user_001": 0.0,
+      "user_002": 0.0,
+      "user_003": 0.0,
+      "user_004": 0.0,
+      "user_005": 0.0,
+      "user_006": 0.0
+    },
+    "salary_savings_vs_300k": {
+      "user_001": 0.0,
+      "user_002": -100000.0,
+      "user_003": -150000.0,
+      "user_004": -200000.0,
+      "user_005": -250000.0,
+      "user_006": -300000.0
+    }
+  },
+  "downside_outcomes": {
+    "user_001": "measured secondary outcomes: salary_savings_vs_300k=300000.0 (strict maximum among candidates tested)",
+    "user_002": "measured secondary outcomes: salary_savings_vs_300k=200000.0",
+    "user_003": "measured secondary outcomes: salary_savings_vs_300k=150000.0",
+    "user_004": "measured secondary outcomes: salary_savings_vs_300k=100000.0",
+    "user_005": "measured secondary outcomes: salary_savings_vs_300k=50000.0",
+    "user_006": "measured secondary outcomes: salary_savings_vs_300k=0.0 (strict minimum among candidates tested)"
+  },
+  "run_limitations": "Result provenance: live_model. This result identifies the best-performing action among the candidates tested under the declared evaluator metrics, computed only from recorded simulation traces; it is not a guarantee of real-world outcome. Ranking uses the declared metrics only: the primary metric (valid_offer_accepted) first, then each secondary metric compared descending in declared order (highest value first; polarity not inferred); any remaining exact tie is broken by candidate_id in ascending lexicographic order (code-owned final tie-break; not needed in this ranking).",
+  "validation_status": {
+    "schema_validated": true,
+    "semantics_validated": true,
+    "ranked_by_declared_metrics_in_declared_order": true,
+    "all_branches_free_of_infrastructure_errors": true,
+    "decided_by_metric": "salary_savings_vs_300k"
+  }
+}

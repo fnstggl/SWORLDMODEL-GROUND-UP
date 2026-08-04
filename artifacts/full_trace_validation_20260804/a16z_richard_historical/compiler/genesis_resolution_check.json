@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will the following outcome occur before the cutoff? Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+  "resolution": "Resolve YES only if the persistent event history shows that, before 2025-07-10T12:00:00Z, the New Media Hiring Lead extended a valid offer to Richard Zheng with a specified annual base salary, the People and Compensation Partner approved that compensation, and Richard Zheng accepted that offer. Otherwise resolve NO at the cutoff.",
+  "cutoff": "2025-07-10T12:00:00Z",
+  "world_id": "w_d0f0cd090b1f"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

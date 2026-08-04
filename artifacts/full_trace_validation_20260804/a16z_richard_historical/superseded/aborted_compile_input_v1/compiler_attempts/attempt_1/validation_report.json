@@ -1,0 +1,6 @@
+{
+ "errors": [
+  "the question states the deadline 'before 1 July 2025' (2025-07-01), which is narrower than the compile cutoff 2025-07-10, but the resolution references neither: the cutoff must never silently replace the question's own window"
+ ],
+ "warnings": []
+}

@@ -1,0 +1,33 @@
+{
+  "actors": [
+    {
+      "name": "New Media Hiring Lead",
+      "private_context": "Owns the hiring action for a New Media role at a16z. Has access to Richard Zheng's public profile and user-supplied background. Must decide whether and how to extend an offer, subject to compensation approval. No offer has been prepared or authorized yet."
+    },
+    {
+      "name": "New Media Strategy Partner",
+      "private_context": "Advisory role in the hiring process. Can provide input on strategic fit but cannot issue an offer. Aware of the intended purpose of New Media (in-house creative production, owned-channel distribution, launch strategy, media support). No private information about compensation or offer terms."
+    },
+    {
+      "name": "Creative Production Lead",
+      "private_context": "Advisory role in the hiring process. Can provide input on creative fit but cannot issue an offer. Aware of Richard Zheng's creative and media background. No private information about compensation or offer terms."
+    },
+    {
+      "name": "People and Compensation Partner",
+      "private_context": "Owns compensation approval. Can approve or reject compensation terms but cannot decide whether Richard accepts. No offer has been submitted for approval yet. No knowledge of specific salary bands or budgets."
+    },
+    {
+      "name": "Richard Zheng",
+      "private_context": "Recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, independent creative and media operator, and worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Has reportedly earned approximately $100,000 per video shoot and managed eight shoots simultaneously (unverified, project revenue, not salary). No offer has been received. Will decide whether to accept, reject, counter, or delay any offer."
+    }
+  ],
+  "shared_context": "As of 2025-07-01, a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary may vary. All actors are available to act within the decision window from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+  "starting_events": [
+    {
+      "time": "2025-07-01T16:00:00Z",
+      "description": "The simulation begins with all actors aware of the situation: a potential hiring decision for Richard Zheng is under consideration, but no offer has been made or discussed.",
+      "visible_to": ["New Media Hiring Lead", "New Media Strategy Partner", "Creative Production Lead", "People and Compensation Partner", "Richard Zheng"]
+    }
+  ],
+  "resolution": "Resolve YES only if the persistent event history shows that, before 2025-07-10T12:00:00Z, the New Media Hiring Lead (with compensation approval from the People and Compensation Partner) actually extended a valid offer to Richard Zheng, and Richard Zheng actually accepted that offer, and the annual base salary in that accepted offer is the minimum among all offers that Richard Zheng would have accepted during the window. Resolve NO otherwise at the cutoff."
+}

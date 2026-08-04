@@ -1,0 +1,36 @@
+{
+  "experiment_id": "a16z_compile",
+  "ledger": {
+    "experiment_id": "a16z_compile",
+    "records_written": 6,
+    "distinct_call_ids": 6,
+    "per_role": {
+      "compiler": 6
+    },
+    "records_with_error": 0,
+    "records_that_were_retries": 0,
+    "master_ledger": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler_attempts/all_llm_calls.jsonl"
+  },
+  "network_boundary": {
+    "request_count": 6,
+    "per_role": {
+      "compiler": 6
+    }
+  },
+  "seams": {
+    "compiler_transport": {
+      "invocations": 6,
+      "attempts": 6,
+      "failed_attempts": 0
+    }
+  },
+  "seam_attempt_total": 6,
+  "equality_proof": {
+    "claim": "every provider request issued at the network boundary produced exactly one ledger record with a distinct call_id, and every ledger record corresponds to one wrapper attempt",
+    "ledger_records_written": 6,
+    "ledger_distinct_call_ids": 6,
+    "network_boundary_requests": 6,
+    "seam_attempt_total": 6,
+    "all_equal": true
+  }
+}

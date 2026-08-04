@@ -29,6 +29,20 @@ Modules
 ``scenario_peter`` frozen scenario data (never in ``sworldmodel/``).
 ``runner_peter``   the scenario driver.
 ``report``    the UNDER_THE_HOOD report generator.
+
+a16z historical counterfactual (scenario 3)
+-------------------------------------------
+``cutoff``    mechanical historical-cutoff enforcement (date arm + phrase
+              arm) with a canary the validator must reject.
+``scenario_a16z``   frozen scenario data: cast, scope note, evidence,
+              code-owned salary mapping, compile acceptance criteria.
+``predicates_a16z`` the declared metrics: an attribution-anchored
+              authority chain, plus the CODE-OWNED salary metric.
+``branch_diff``     proof that the salary branches differ in the salary
+              and in nothing else.
+``offer_delivery``  did the offer actually reach the subject's actor?
+``runner_a16z``     the scenario driver.
+``report_a16z``     the a16z UNDER_THE_HOOD report generator.
 """
 
 RUN_LABEL = "UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION"

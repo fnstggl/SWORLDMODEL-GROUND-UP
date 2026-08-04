@@ -1,0 +1,779 @@
+{
+  "label": "UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION",
+  "scenario_id": "a16z_richard_historical",
+  "window_start_utc": "2025-07-01T16:00:00Z",
+  "window_cutoff_utc": "2025-07-10T12:00:00Z",
+  "historical_cutoff": "2025-07-01",
+  "compiler_version": "minimal_scene_v1",
+  "compiler_status": "compiled",
+  "compiler_reason": "",
+  "compiler_out_dir": "artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler",
+  "compile_attempts": 1,
+  "accepted_attempt": 1,
+  "compiled_cast_in_declaration_order": [
+    "New Media Hiring Lead",
+    "New Media Strategy Partner",
+    "Creative Production Lead",
+    "People and Compensation Partner",
+    "Richard Zheng"
+  ],
+  "question": "Will the following outcome occur before the cutoff? Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+  "context": "This is a historical counterfactual frozen on July 1, 2025. The cast is: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The hiring lead owns the hiring action. The strategy and creative actors advise but cannot independently issue an offer. The compensation actor can approve or reject compensation terms but cannot decide whether Richard accepts. Richard alone decides whether to accept, reject, counter, or delay. Richard is described by user-supplied and publicly available pre-cutoff information as a recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, an independent creative and media operator, and a worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Preserve source dates and confidence. Do not include his later a16z employment or later a16z work. Public evidence indicates a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The exact real hiring committee and private internal facts are unknown.\n\nModelling scope for this simulation (a declared test setup, not a claim about the real world):\n1. This is a HISTORICAL COUNTERFACTUAL frozen on 2025-07-01. Your knowledge horizon is that instant: use only information that already existed as of 2025-07-01. Do not use, reference, or rely on anything published, announced, decided, or reported after 2025-07-01, including any later employment, later work, later campaign, or later announcement by any party. This is a knowledge horizon, NOT a deadline for the decision: the decision window is the simulation window given above.\n2. Model EXACTLY these five actors and no others, using exactly these names: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The first four are role-based stand-ins supplied by this test because the real committee is not public; they are given to you, not invented by you. Do not add, remove, rename, merge, or split actors. Do not add assistants, recruiters, lawyers, executives, board members, or intermediaries.\n3. Authority: the New Media Hiring Lead owns the hiring action; the People and Compensation Partner owns compensation approval; the New Media Strategy Partner and the Creative Production Lead advise and cannot issue an offer; Richard Zheng alone decides whether to accept, reject, counter, or delay.\n4. Do not invent a16z salary bands, internal budgets, compensation ceilings, private opinions, or hiring deliberations, and do not state any as fact. Nothing about anyone's private compensation, internal opinions, or exact internal authority is known.\n5. No starting event may state or imply that an offer has been prepared, authorized, issued, discussed with the candidate, accepted, rejected, or countered. The offer, if any, is what the simulation is for.\n6. Treat every claim in the evidence package at exactly the confidence its label gives it; do not elaborate an assumption into a fact.",
+  "evidence_package": "HISTORICAL EVIDENCE PACKAGE, frozen at 2025-07-01. Every item below is labelled with how well it is established. USER_SUPPLIED items are asserted by the person running this simulation and are to be treated as true inside it; they are NOT independently verified. TEST_ASSUMPTION items are modelling decisions with no source: do not elaborate them into facts. UNKNOWN items are recorded so their absence is visible; do not fill them in. There are no PUBLICLY_VERIFIED items in this package, because this run did not consult a dated public source. Nothing outside this package is established: do not invent salary bands, budgets, compensation ceilings, private opinions, internal deliberations, or decision authority, and do not use anything published after 2025-07-01.\n\n[1] (USER_SUPPLIED) Richard Zheng is a recent high-school graduate.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[2] (USER_SUPPLIED) Richard Zheng has been Head of Marketing at Aviato.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[3] (USER_SUPPLIED) Richard Zheng is the founder of UNHRD.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[4] (USER_SUPPLIED) Richard Zheng is an independent creative and media operator.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[5] (USER_SUPPLIED) Richard Zheng has worked on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[6] (USER_SUPPLIED) UNVERIFIED USER CLAIM, label preserved: Richard Zheng previously earned approximately $100,000 per video shoot and managed eight shoots simultaneously. This is reported project revenue and must NOT be treated as equivalent to an annual salary or to personal income.\n    source: user-supplied decision problem (data/a16z_problem.json) (explicitly flagged unverified by the user) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[7] (USER_SUPPLIED) a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies.\n    source: user-supplied decision problem (data/a16z_problem.json); the user attributes this to public evidence, which this harness did not independently check | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[8] (TEST_ASSUMPTION) This simulation models exactly five actors: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The first four are ROLE-BASED STAND-INS supplied by this test because the real hiring committee is not public. They are not real people and no claim is made that a16z has such roles.\n    source: harness modelling decision (experiments/full_trace_validation/scenario_a16z.py) | date: declared before the run | available on or before the 2025-07-01 cutoff: True\n[9] (TEST_ASSUMPTION) Declared authority model: the New Media Hiring Lead owns the hiring action; the People and Compensation Partner owns compensation approval; the strategy and creative actors advise only; Richard Zheng alone decides whether to accept, reject, counter, or delay. This is a test setup, not a description of a16z.\n    source: harness modelling decision (experiments/full_trace_validation/scenario_a16z.py) | date: declared before the run | available on or before the 2025-07-01 cutoff: True\n[10] (TEST_ASSUMPTION) The role package -- title, role scope, reporting line, benefits, equity treatment, creative autonomy, resources and start expectations -- is held FIXED and unspecified across every branch; only annual base salary varies.\n    source: harness modelling decision (experiments/full_trace_validation/scenario_a16z.py) | date: declared before the run | available on or before the 2025-07-01 cutoff: True\n[11] (TEST_ASSUMPTION) The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z, and every actor is available to act inside it (the simulation gives each one turns).\n    source: harness modelling decision (experiments/full_trace_validation/scenario_a16z.py) | date: declared before the run | available on or before the 2025-07-01 cutoff: True",
+  "compiler_metrics": {
+    "semantic_calls": 2,
+    "semantic_slots": [
+      "call_1_scene",
+      "call_2_review"
+    ],
+    "provider_requests": 2,
+    "total_prompt_tokens": 8214,
+    "total_completion_tokens": 721,
+    "per_slot": {
+      "call_1_scene": {
+        "attempts": 1,
+        "duration_s": 7.147,
+        "prompt_tokens": 4243,
+        "completion_tokens": 703
+      },
+      "call_2_review": {
+        "attempts": 1,
+        "duration_s": 1.731,
+        "prompt_tokens": 3971,
+        "completion_tokens": 18
+      }
+    },
+    "wall_s": 8.89,
+    "compiler_version": "minimal_scene_v1",
+    "evidence_mode": "evidence_package",
+    "repaired_compile": false,
+    "world_id": "w_d0f0cd090b1f"
+  },
+  "evidence_manifest_pre_compile": {
+    "manifest_version": "evidence_manifest_v1",
+    "experiment_id": "a16z_compile",
+    "window": {
+      "start": "2025-07-01T16:00:00Z",
+      "cutoff": "2025-07-10T12:00:00Z"
+    },
+    "actor_names": [],
+    "classification_counts": {
+      "USER_SUPPLIED": 7,
+      "PUBLICLY_VERIFIED": 0,
+      "TEST_ASSUMPTION": 5,
+      "UNKNOWN": 5
+    },
+    "classification_rules": {
+      "USER_SUPPLIED": "asserted by the user of this experiment; treated as true inside the simulation, not independently verified here",
+      "PUBLICLY_VERIFIED": "stated by a dated public source published before the window opens",
+      "TEST_ASSUMPTION": "needed for the scene to exist; no source establishes it",
+      "UNKNOWN": "not known to anyone in this experiment; recorded so the gap is visible"
+    },
+    "notes": "Written before compilation. The compiled cast is not yet known, so actor references are validated again after adaptation.",
+    "items": [
+      {
+        "claim": "Richard Zheng is a recent high-school graduate.",
+        "source": "user-supplied decision problem (data/a16z_problem.json)",
+        "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+        "available_before_cutoff": true,
+        "classification": "USER_SUPPLIED",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "Richard Zheng has been Head of Marketing at Aviato.",
+        "source": "user-supplied decision problem (data/a16z_problem.json)",
+        "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+        "available_before_cutoff": true,
+        "classification": "USER_SUPPLIED",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "Richard Zheng is the founder of UNHRD.",
+        "source": "user-supplied decision problem (data/a16z_problem.json)",
+        "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+        "available_before_cutoff": true,
+        "classification": "USER_SUPPLIED",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "Richard Zheng is an independent creative and media operator.",
+        "source": "user-supplied decision problem (data/a16z_problem.json)",
+        "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+        "available_before_cutoff": true,
+        "classification": "USER_SUPPLIED",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "Richard Zheng has worked on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX.",
+        "source": "user-supplied decision problem (data/a16z_problem.json)",
+        "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+        "available_before_cutoff": true,
+        "classification": "USER_SUPPLIED",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "UNVERIFIED USER CLAIM, label preserved: Richard Zheng previously earned approximately $100,000 per video shoot and managed eight shoots simultaneously. This is reported project revenue and must NOT be treated as equivalent to an annual salary or to personal income.",
+        "source": "user-supplied decision problem (data/a16z_problem.json) (explicitly flagged unverified by the user)",
+        "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+        "available_before_cutoff": true,
+        "classification": "USER_SUPPLIED",
+        "who_may_know": [
+          "Richard Zheng"
+        ],
+        "used_by_compiler": true,
+        "entered_context": "private:Richard Zheng"
+      },
+      {
+        "claim": "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies.",
+        "source": "user-supplied decision problem (data/a16z_problem.json); the user attributes this to public evidence, which this harness did not independently check",
+        "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+        "available_before_cutoff": true,
+        "classification": "USER_SUPPLIED",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "This simulation models exactly five actors: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The first four are ROLE-BASED STAND-INS supplied by this test because the real hiring committee is not public. They are not real people and no claim is made that a16z has such roles.",
+        "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+        "date": "declared before the run",
+        "available_before_cutoff": true,
+        "classification": "TEST_ASSUMPTION",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "Declared authority model: the New Media Hiring Lead owns the hiring action; the People and Compensation Partner owns compensation approval; the strategy and creative actors advise only; Richard Zheng alone decides whether to accept, reject, counter, or delay. This is a test setup, not a description of a16z.",
+        "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+        "date": "declared before the run",
+        "available_before_cutoff": true,
+        "classification": "TEST_ASSUMPTION",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "The role package -- title, role scope, reporting line, benefits, equity treatment, creative autonomy, resources and start expectations -- is held FIXED and unspecified across every branch; only annual base salary varies.",
+        "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+        "date": "declared before the run",
+        "available_before_cutoff": true,
+        "classification": "TEST_ASSUMPTION",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z, and every actor is available to act inside it (the simulation gives each one turns).",
+        "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+        "date": "declared before the run",
+        "available_before_cutoff": true,
+        "classification": "TEST_ASSUMPTION",
+        "who_may_know": "all",
+        "used_by_compiler": true,
+        "entered_context": "shared"
+      },
+      {
+        "claim": "Any internal compensation ceiling, budget limit, or salary band that appears anywhere in this run is a TEST ASSUMPTION authored inside the simulation, never a historical fact about a16z.",
+        "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+        "date": "declared before the run",
+        "available_before_cutoff": true,
+        "classification": "TEST_ASSUMPTION",
+        "who_may_know": "all",
+        "used_by_compiler": false,
+        "entered_context": "none"
+      },
+      {
+        "claim": "The real a16z New Media hiring committee, its membership, its internal authority chain, and its decision process.",
+        "source": "no source; not knowable from public biography",
+        "date": "n/a",
+        "available_before_cutoff": false,
+        "classification": "UNKNOWN",
+        "who_may_know": "all",
+        "used_by_compiler": false,
+        "entered_context": "none"
+      },
+      {
+        "claim": "a16z's actual salary bands, compensation budget, and any internal compensation ceiling for this role.",
+        "source": "no source; not knowable from public biography",
+        "date": "n/a",
+        "available_before_cutoff": false,
+        "classification": "UNKNOWN",
+        "who_may_know": "all",
+        "used_by_compiler": false,
+        "entered_context": "none"
+      },
+      {
+        "claim": "Richard Zheng's actual compensation expectations, reservation price, competing options, financial position, and private preferences in this window.",
+        "source": "no source; not knowable from public biography",
+        "date": "n/a",
+        "available_before_cutoff": false,
+        "classification": "UNKNOWN",
+        "who_may_know": [
+          "Richard Zheng"
+        ],
+        "used_by_compiler": false,
+        "entered_context": "none"
+      },
+      {
+        "claim": "The private opinions of any real person at a16z about Richard Zheng, and any real internal deliberation about hiring him.",
+        "source": "no source; not knowable from public biography",
+        "date": "n/a",
+        "available_before_cutoff": false,
+        "classification": "UNKNOWN",
+        "who_may_know": "all",
+        "used_by_compiler": false,
+        "entered_context": "none"
+      },
+      {
+        "claim": "Whether any employment offer was in fact made to Richard Zheng on or before 2025-07-01, and on what terms.",
+        "source": "no source; not knowable from public biography",
+        "date": "n/a",
+        "available_before_cutoff": false,
+        "classification": "UNKNOWN",
+        "who_may_know": "all",
+        "used_by_compiler": false,
+        "entered_context": "none"
+      }
+    ]
+  },
+  "decision_problem_payload": {
+    "contract_type": "decision_problem",
+    "schema_version": 1,
+    "problem_id": "a16z_richard_zheng_historical_hiring_test",
+    "decision_owner": "New Media Hiring Lead",
+    "desired_outcome": "Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+    "success_criteria": "Success occurs only if the required internal approvers authorize the offer, the New Media Hiring Lead issues the offer, and Richard Zheng's own actor explicitly accepts it before the cutoff. Richard's acceptance may not be narrated by the Game Master or decided by another actor. Among successful branches, the branch with the greatest salary savings relative to a $300,000 annual base salary ranks first.",
+    "constraints": [
+      "Use only information available on or before July 1, 2025.",
+      "Use exactly five actors.",
+      "The same title, role scope, reporting line, benefits, equity treatment, creative autonomy, resources, and start expectations must remain constant across every salary branch.",
+      "Only annual base salary may differ across the salary branches.",
+      "The no-offer branch is the baseline.",
+      "An offer is invalid unless the People and Compensation Partner and New Media Hiring Lead authorize it.",
+      "Only Richard Zheng's actor may accept, reject, or counter the offer.",
+      "Do not treat reported independent project revenue as equivalent to annual salary or personal income.",
+      "The claim that Richard previously earned approximately $100,000 per video shoot and managed eight shoots simultaneously is user-supplied and unverified; preserve that label.",
+      "Do not invent actual a16z salary bands, internal budgets, private opinions, or hiring deliberations.",
+      "Any necessary internal compensation ceiling must be labeled as a test assumption rather than a historical fact."
+    ],
+    "time_horizon": {
+      "start": "2025-07-01T16:00:00Z",
+      "cutoff": "2025-07-10T12:00:00Z"
+    },
+    "relevant_context": "This is a historical counterfactual frozen on July 1, 2025. The cast is: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The hiring lead owns the hiring action. The strategy and creative actors advise but cannot independently issue an offer. The compensation actor can approve or reject compensation terms but cannot decide whether Richard accepts. Richard alone decides whether to accept, reject, counter, or delay. Richard is described by user-supplied and publicly available pre-cutoff information as a recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, an independent creative and media operator, and a worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Preserve source dates and confidence. Do not include his later a16z employment or later a16z work. Public evidence indicates a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The exact real hiring committee and private internal facts are unknown.",
+    "candidate_interventions": [
+      "Do not make Richard Zheng an employment offer during the simulation window.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000."
+    ],
+    "candidate_generation_permission": false
+  },
+  "pre_compile_cutoff_report": {
+    "cutoff_date": "2025-07-01",
+    "simulation_window_end": "2025-07-10",
+    "arms": {
+      "date": "every date-shaped token is resolved to a calendar day; a day after the window end is a violation",
+      "phrase": "narrow completed-state phrasings that presuppose the post-cutoff outcome"
+    },
+    "phrase_patterns": [
+      "\\b(?:has|had|have)\\s+(?:already\\s+)?joined\\b[^.!?]{0,40}a16z",
+      "\\balready\\s+(?:works?|working|joined|joins|employed)\\b[^.!?]{0,40}a16z",
+      "\\b(?:now|currently|today|since)\\s+(?:works?|working|employed|leads?|heads?|runs?|is\\s+(?:at|with|part\\s+of))\\b[^.!?]{0,40}a16z",
+      "\\bwas\\s+hired\\s+by\\b[^.!?]{0,40}a16z",
+      "\\b(?:has|had)\\s+been\\s+hired\\b[^.!?]{0,40}a16z",
+      "\\ba16z\\s+(?:hired|announced\\s+the\\s+hire\\s+of|brought\\s+on)\\b[^.!?]{0,40}(?:richard|zheng)",
+      "\\b(?:accepted|signed)\\s+(?:the\\s+)?a16z\\s+offer\\b",
+      "\\bhis\\s+(?:role|job|position|work)\\s+at\\s+a16z\\b",
+      "POST-CUTOFF\\s+CANARY"
+    ],
+    "surfaces_scanned": [
+      "decision_problem",
+      "evidence_manifest",
+      "compiler_question",
+      "compiler_context",
+      "compiler_evidence_package",
+      "harness_scope_note"
+    ],
+    "surface_count": 6,
+    "per_surface": [
+      {
+        "surface": "decision_problem",
+        "characters_scanned": 3576,
+        "violations": [],
+        "window_references": [],
+        "pre_cutoff_date_tokens": [
+          {
+            "surface": "decision_problem",
+            "matched_text": "July 1, 2025",
+            "span": [
+              716,
+              728
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "decision_problem",
+            "matched_text": "July 1, 2025",
+            "span": [
+              1820,
+              1832
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          }
+        ],
+        "clean": true
+      },
+      {
+        "surface": "evidence_manifest",
+        "characters_scanned": 7755,
+        "violations": [],
+        "window_references": [],
+        "pre_cutoff_date_tokens": [
+          {
+            "surface": "evidence_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              919,
+              929
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "evidence_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              1274,
+              1284
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "evidence_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              1616,
+              1626
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "evidence_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              1980,
+              1990
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "evidence_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              2431,
+              2441
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "evidence_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              3044,
+              3054
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "evidence_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              3621,
+              3631
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "evidence_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              7549,
+              7559
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          }
+        ],
+        "clean": true
+      },
+      {
+        "surface": "compiler_question",
+        "characters_scanned": 134,
+        "violations": [],
+        "window_references": [],
+        "pre_cutoff_date_tokens": [],
+        "clean": true
+      },
+      {
+        "surface": "compiler_context",
+        "characters_scanned": 3172,
+        "violations": [],
+        "window_references": [],
+        "pre_cutoff_date_tokens": [
+          {
+            "surface": "compiler_context",
+            "matched_text": "2025-07-01",
+            "span": [
+              1355,
+              1365
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_context",
+            "matched_text": "2025-07-01",
+            "span": [
+              1455,
+              1465
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_context",
+            "matched_text": "2025-07-01",
+            "span": [
+              1559,
+              1569
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_context",
+            "matched_text": "July 1, 2025",
+            "span": [
+              46,
+              58
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          }
+        ],
+        "clean": true
+      },
+      {
+        "surface": "compiler_evidence_package",
+        "characters_scanned": 5321,
+        "violations": [],
+        "window_references": [],
+        "pre_cutoff_date_tokens": [
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              39,
+              49
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              755,
+              765
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              968,
+              978
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              1050,
+              1060
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              1278,
+              1288
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              1360,
+              1370
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              1575,
+              1585
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              1657,
+              1667
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              1894,
+              1904
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              1976,
+              1986
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              2300,
+              2310
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              2382,
+              2392
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              2868,
+              2878
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              2950,
+              2960
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              3375,
+              3385
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              3457,
+              3467
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              4008,
+              4018
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              4516,
+              4526
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              4937,
+              4947
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "compiler_evidence_package",
+            "matched_text": "2025-07-01",
+            "span": [
+              5298,
+              5308
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          }
+        ],
+        "clean": true
+      },
+      {
+        "surface": "harness_scope_note",
+        "characters_scanned": 1961,
+        "violations": [],
+        "window_references": [],
+        "pre_cutoff_date_tokens": [
+          {
+            "surface": "harness_scope_note",
+            "matched_text": "2025-07-01",
+            "span": [
+              144,
+              154
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "harness_scope_note",
+            "matched_text": "2025-07-01",
+            "span": [
+              244,
+              254
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "harness_scope_note",
+            "matched_text": "2025-07-01",
+            "span": [
+              348,
+              358
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          }
+        ],
+        "clean": true
+      }
+    ],
+    "violations": [],
+    "violation_count": 0,
+    "window_references": [],
+    "clean": true
+  }
+}

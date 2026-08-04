@@ -1,0 +1,39 @@
+{
+ "actors": [
+  {
+   "name": "New Media Hiring Lead",
+   "private_context": "Owns the hiring action for a New Media role at a16z. Has access to Richard Zheng's public and user-supplied background as of 2025-07-01: recent high-school graduate, Head of Marketing at Aviato, founder of UNHRD, independent creative and media operator, and project work involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Also aware of an unverified claim that Richard previously earned approximately $100,000 per video shoot and managed eight shoots simultaneously, but this is not treated as equivalent to annual salary. The role package (title, scope, reporting, benefits, equity, etc.) is fixed and unspecified; only annual base salary may vary. No offer has been prepared or authorized yet."
+  },
+  {
+   "name": "New Media Strategy Partner",
+   "private_context": "Advisory role in the New Media hiring process. Can provide input on strategy and fit but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private compensation information or internal deliberations are known."
+  },
+  {
+   "name": "Creative Production Lead",
+   "private_context": "Advisory role in the New Media hiring process. Can provide input on creative production needs and candidate fit but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private compensation information or internal deliberations are known."
+  },
+  {
+   "name": "People and Compensation Partner",
+   "private_context": "Owns compensation approval for the New Media role. Can approve or reject compensation terms but cannot decide whether Richard accepts. Aware of Richard Zheng's background as described in the evidence package. No specific salary bands, budgets, or ceilings are known; the role package is fixed and unspecified except that annual base salary may vary."
+  },
+  {
+   "name": "Richard Zheng",
+   "private_context": "Recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, independent creative and media operator, and project work involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Has an unverified claim of earning approximately $100,000 per video shoot and managing eight shoots simultaneously, but this is not equivalent to annual salary. No offer has been received yet. Richard alone decides whether to accept, reject, counter, or delay any offer."
+  }
+ ],
+ "shared_context": "As of 2025-07-01, a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a New Media role is underway, with the New Media Hiring Lead owning the hiring action, the People and Compensation Partner owning compensation approval, and the New Media Strategy Partner and Creative Production Lead advising. The role package (title, scope, reporting, benefits, equity, etc.) is fixed and unspecified; only annual base salary may vary. No offer has been prepared, authorized, issued, or discussed with the candidate. All actors are available to act within the decision window from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+ "starting_events": [
+  {
+   "time": "2025-07-01T16:00:00Z",
+   "description": "The simulation begins with the hiring process in its initial state: no offer has been prepared, authorized, issued, or discussed with Richard Zheng. All actors are aware of the role's purpose and the candidate's background as of the cutoff.",
+   "visible_to": [
+    "New Media Hiring Lead",
+    "New Media Strategy Partner",
+    "Creative Production Lead",
+    "People and Compensation Partner",
+    "Richard Zheng"
+   ]
+  }
+ ],
+ "resolution": "Resolve YES only if the persistent event history shows that, before 2025-07-10T12:00:00Z, the New Media Hiring Lead (with compensation approval from the People and Compensation Partner) actually issued a valid offer to Richard Zheng, and Richard Zheng actually accepted that offer, and the annual base salary in that accepted offer is the minimum among all offers that Richard Zheng would have accepted during the window (i.e., the offer minimizes annual base salary while still being accepted). Resolve NO if no such accepted offer with minimized salary occurs before the cutoff, or if the cutoff is reached without that outcome."
+}
