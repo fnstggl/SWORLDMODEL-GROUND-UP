@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frozen replay viewer -- UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-title">
+    <strong>Frozen replay viewer</strong>
+    <span class="muted">read-only presentation layer over
+      <code>artifacts/full_trace_validation_20260804</code></span>
+  </div>
+  <div class="controls">
+    <label>run
+      <select id="run-select"></select>
+    </label>
+    <label>branch / candidate
+      <select id="branch-select"></select>
+    </label>
+    <span class="playback">
+      <button id="btn-first" type="button" title="first entry">|&lt;</button>
+      <button id="btn-prev" type="button" title="previous (left arrow)">&lt;</button>
+      <button id="btn-play" type="button" title="play / pause (space)">&#9654;</button>
+      <button id="btn-next" type="button" title="next (right arrow)">&gt;</button>
+      <button id="btn-last" type="button" title="last entry">&gt;|</button>
+      <input id="scrub" type="range" min="0" max="0" value="0">
+      <span id="position" class="mono">0 / 0</span>
+      <label class="speed">speed
+        <select id="speed">
+          <option value="2500">slow</option>
+          <option value="1200" selected>normal</option>
+          <option value="500">fast</option>
+        </select>
+      </label>
+    </span>
+  </div>
+</header>
+
+<div id="insecure-warning" class="problems bad" hidden>
+  <h3>This page was opened without a secure context.</h3>
+  <p><code>crypto.subtle</code> is unavailable, so the published hashes
+  cannot be recomputed and most browsers will refuse to fetch the artifact
+  JSON at all. Serve the repository over <code>http://localhost</code>
+  instead: <code>python3 viewer/serve.py</code></p>
+</div>
+
+<main id="app">
+  <p class="loading">Loading the frozen artifacts...</p>
+</main>
+
+<footer class="footer">
+  <p><strong>This viewer is a presentation layer.</strong> It reads the
+  committed artifact files directly and never regenerates, rewrites,
+  summarises over, or becomes the source of truth for any simulation data.
+  Where an artifact is missing, malformed, or hash-inconsistent it says so
+  and names the file. Where the artifacts record a field as
+  <code>unavailable</code>, the recorded reason is shown as-is.</p>
+  <p><strong>Auditor-only labelling.</strong>
+  <code>branches/*/step_ledger.jsonl</code> deliberately places every
+  actor's private context and every prompt side by side; no actor ever saw
+  that view. Every block derived from another actor's slice of a step is
+  wrapped in a red <em>AUDITOR-ONLY</em> band. The actor-prompt pane shows
+  only the active actor's own prompt.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
