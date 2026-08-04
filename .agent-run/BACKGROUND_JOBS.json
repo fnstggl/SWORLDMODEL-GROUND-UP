@@ -3170,6 +3170,69 @@
       "stdout_tail": "..ake_me_in_minutes\": set a number only if you genuinely want to revisit\\n  the situation later without any new trigger.'\nuser = 'You are Bob Okafor, finance lead on the West Coast. You personally locked the final Q2 pipeline total of $4.2M on Mar... to (actor id), channel, content, data (optional dict). Composing takes time; delivery latency comes from the channel.'\n\n    def _call_api(self, system: str, user: str) -> str:\n        api_key = os.environ.get(\"DEEPSEEK_API_KEY\", \"\")\n        if not api_key:\n            raise LLMUnavailable(\"DEEPSEEK_API_KEY is not set\")\n        payload = {\n            \"model\": self.model,\n            \"temperature\": self.temperature,\n            \"max_tokens\": 900,\n            \"response_format\": {\"type\": \"json_object\"},\n            \"messages\": [{\"role\": \"system\", \"content\": system},\n                         {\"role\": \"user\", \"content\": user}],\n        }\n        try:\n            out = _http_json(DEEPSEEK_URL, payload, api_key)\n        except (urllib.error.URLError, OSError, TimeoutError) as e:\n>           raise LLMUnavailable(f\"Deepseek API unreachable: {e}\") from e\nE           sworldmodel.llm_mind.LLMUnavailable: Deepseek API unreachable: HTTP Error 503: Service Unavailable\n\nsworldmodel/llm_mind.py:115: LLMUnavailable\n=========================== short test summary info ============================\nFAILED tests/test_llm_phase_b.py::test_live_deepseek_actor - sworldmodel.llm_...\n1 failed, 714 passed, 56 skipped, 157 subtests passed in 61.15s (0:01:01)\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "phase12-legacy-live-releg",
+      "classification": "frozen_acceptance",
+      "state": "finished",
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "tests/test_llm_phase_b.py",
+        "-q"
+      ],
+      "command_string": "python3 -m pytest tests/test_llm_phase_b.py -q",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "96b6476c6954b1dfcca767ee6f3bf77937334661",
+      "git_branch": "claude/concordia-agentsociety-best-action-engine",
+      "worktree_clean_at_start": true,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-04T03:18:24+00:00",
+      "no_progress_timeout_s": 120.0,
+      "total_timeout_s": 300.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 119.743,
+      "hard_deadline_at": 299.743,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase12-legacy-live-releg",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase12-legacy-live-releg/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/phase12-legacy-live-releg/stderr.log",
+      "progress_file": null,
+      "pid": 2559,
+      "pgid": 2559,
+      "heartbeat_at": "2026-08-04T03:18:24+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 0.49,
+      "exit_code": 0,
+      "finished_at": "2026-08-04T03:18:33+00:00",
+      "elapsed_s": 8.966,
+      "seconds_since_progress": 0.257,
+      "completed_units": null,
+      "cpu_cores_recent": 0.0,
+      "process_group_size": 1,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-04T03:18:24+00:00",
+          "elapsed_s": 0.257,
+          "until_elapsed_s": 8.764,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.257
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "....                                                                     [100%]\n4 passed in 7.25s\n",
+      "stderr_tail": "",
+      "recoverable": true
     }
   ]
 }

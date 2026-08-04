@@ -918,3 +918,19 @@ Adversarial-review-cycle task complete: two receipts (c34ade6 batch,
 e575b85 batch), six written role reports, two re-verification reports,
 every CRITICAL/HIGH/MEDIUM closed with discriminating tests, every LOW
 dispositioned in this log.
+
+## Legacy-live leg adjudication 2026-08-04 (frozen acceptance)
+
+ADJUDICATED EXTERNAL-TRANSIENT per the pre-freeze protocol. Record:
+DeepSeek flapped 200/503 at sub-minute granularity 02:37-03:03Z (probe
+timeline in the watchdog report; lead probes 503/503/200 at 03:03Z).
+The system-suite leg and the sanctioned immediate rerun both hit 503s
+mid-flap through the product's clean LLMUnavailable path; the engine
+live smoke -- the actual gate-C live evidence -- ran 10 green live
+executions in the phase12-frozen-battery-retry job at the same SHA.
+Stable-window re-leg (3/3 probes 200 at 03:18Z): monitored job
+phase12-legacy-live-releg, classification frozen_acceptance, exit 0,
+4 passed, 9.0s. No code, fixture, prompt, or evaluator changed at any
+point (frozen mode held throughout; validator no_production_changes
+green vs frozen_sha). The failure signature was exclusively
+provider-side; the acceptance evidence is unambiguous.
