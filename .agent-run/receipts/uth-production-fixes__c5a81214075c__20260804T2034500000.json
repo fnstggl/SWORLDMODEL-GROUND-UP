@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "uth-production-fixes",
+  "git_sha": "c5a81214075cb62cc55ae7973141c1eb0b725b32",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest /home/user/SWORLDMODEL-GROUND-UP/tests/engine_individual /home/user/SWORLDMODEL-GROUND-UP/tests/engine_counterfactuals -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T20:34:08+00:00",
+  "finished_at": "2026-08-04T20:34:50+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "guard": "949d67e2ee6c194c7d99f2a426fe6d79116e63eca0ac6cecb5b538f68b23be0e",
+    "builder": "907e3f6291cb6273f8b041592a9281db3e0ac1df8b05de22d9c3ea8ac8b7788f",
+    "ranking": "9fee5d98228286ff34dd61662cc3f7ba86e72efc526fdc8cddc7fb92341c1094",
+    "contracts": "dc3b7cd3f1e47fd753f44ca0389dd7ffb0d96c50ee77621d3e3cf835e69a88e3"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T20:34:50+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 86%]\n...........                                                              [100%]\n83 passed in 40.60s\n"
+}
