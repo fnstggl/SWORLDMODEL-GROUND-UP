@@ -661,6 +661,33 @@ def _findings(art):
         "whether replay results transfer -- despite the sender's own "
         "private context flagging exactly that weakness.",
     ]
+    if art.generated:
+        with_email_body = [entry["candidate_id"] for entry in art.candidates
+                           if "Subject:" in entry["action"]]
+        off_channel_re = __import__("re").compile(
+            r"\btwitter\b|\bdirect message\b|\bDM\b|\bpublic post\b"
+            r"|\bsocial media\b|\btag(?:ging)?\s+@", __import__("re").I)
+        off_channel = [entry["candidate_id"] for entry in art.candidates
+                       if off_channel_re.search(entry["action"])]
+        lines += [
+            "- **The generator did not write emails.** "
+            f"{len(with_email_body)} of {len(art.candidates)} generated "
+            "candidates contain an actual email body; the rest are "
+            "descriptions of an action (\"Draft and send an email … "
+            "ensuring the body is 45-85 words\"). The route's fixed "
+            "prompt asks for \"one concrete action the decision owner "
+            "could take\", not for message text, so scenario 2 does not "
+            "compare three emails -- it compares three plans. Comparing "
+            "it to scenario 1 on that axis would be a category error."]
+        if off_channel:
+            lines += [
+                "- **One generated candidate changes the channel "
+                "entirely.** "
+                + ", ".join(f"`{cid}`" for cid in off_channel)
+                + " proposes a public post plus a direct message rather "
+                "than the email the problem is about. No declared "
+                "constraint forbids it, which is itself a finding: the "
+                "constraint list governs the message, not the medium."]
     if gm_reply_self_only:
         candidate_id, step, text = gm_reply_self_only[0]
         lines += [

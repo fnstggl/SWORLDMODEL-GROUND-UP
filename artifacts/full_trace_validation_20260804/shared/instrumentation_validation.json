@@ -1,6 +1,6 @@
 {
   "label": "Transparent recording of every live model call the run makes.",
-  "generated_at": "2026-08-04T18:25:10Z",
+  "generated_at": "2026-08-04T18:33:36Z",
   "per_phase": {
     "compile": {
       "experiment_id": "peter_compile",

@@ -3558,6 +3558,72 @@
       "stdout_tail": "atorEndToEnd.test_structural_checks_pass_for_this_repository (check='initialization_level') _\n\nself = <test_validate_control_plane.TestValidatorEndToEnd testMethod=test_structural_checks_pass_for_this_repository>\n\n    def test_structural_checks_pass_for_this_repository(self):\n        checks = {c[\"check\"]: c for c in self.payload[\"checks\"]}\n        for name in (\"required_files_exist\", \"json_files_parse\", \"settings_has_required_events\",\n                     \"settings_hook_shape\", \"settings_script_paths_exist\", \"python_sources_compile\",\n                     \"agent_definitions_parse\", \"no_production_files_changed\", \"claude_md_preserved\",\n                     \"run_state_valid\", \"bootstrap_status_consistent\", \"initialization_level\"):\n            with self.subTest(check=name):\n>               self.assertTrue(checks[name][\"ok\"], f\"{name}: {checks[name]['detail']}\")\nE               AssertionError: False is not true : initialization_level: mode is 'implementation' but the master-context handshake is incomplete: no valid passing receipt exists for task 'master-context-initialization' at the current SHA\n\ntests/control_plane/test_validate_control_plane.py:1067: AssertionError\n=========================== short test summary info ============================\nSUBFAILED(check='initialization_level') tests/control_plane/test_validate_control_plane.py::TestValidatorEndToEnd::test_structural_checks_pass_for_this_repository\n1 failed, 750 passed, 58 skipped, 297 subtests passed in 69.71s (0:01:09)\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "uth-final-suites",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "/home/user/engine-env/bin/python",
+        "-m",
+        "pytest",
+        "tests/engine_individual",
+        "tests/engine_compilation",
+        "tests/engine_counterfactuals",
+        "tests/experiment_harness",
+        "-q"
+      ],
+      "command_string": "/home/user/engine-env/bin/python -m pytest tests/engine_individual tests/engine_compilation tests/engine_counterfactuals tests/experiment_harness -q",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "d3e747d9aa89edd3d28f7628058f08f2dd53a7dd",
+      "git_branch": "claude/full-under-hood-simulation-audit",
+      "worktree_clean_at_start": false,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-04T18:34:00+00:00",
+      "no_progress_timeout_s": 900.0,
+      "total_timeout_s": 1800.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 900.0,
+      "hard_deadline_at": 1754.7,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/uth-final-suites",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/uth-final-suites/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/uth-final-suites/stderr.log",
+      "progress_file": null,
+      "pid": 8443,
+      "pgid": 8443,
+      "heartbeat_at": "2026-08-04T18:34:45+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 22.88,
+      "exit_code": 0,
+      "finished_at": "2026-08-04T18:34:53+00:00",
+      "elapsed_s": 52.813,
+      "seconds_since_progress": 0.0,
+      "completed_units": null,
+      "cpu_cores_recent": 1.155,
+      "process_group_size": 1,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-04T18:34:00+00:00",
+          "elapsed_s": 0.038,
+          "until_elapsed_s": 52.611,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.038
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "........................................................................ [ 43%]\n........................................................................ [ 86%]\n.......................                                                  [100%]\n167 passed in 51.65s\n",
+      "stderr_tail": "",
+      "recoverable": true
     }
   ]
 }
