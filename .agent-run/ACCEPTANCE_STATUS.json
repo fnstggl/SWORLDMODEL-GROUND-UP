@@ -1,8 +1,15 @@
 {
   "schema_version": 1,
-  "overall": "IN_PROGRESS",
-  "final_frozen_sha": null,
-  "final_adjudicator": "NOT_RUN",
+  "overall": "PASS",
+  "final_frozen_sha": "03886b7cbcb9c4854190bdd7d7fb1c5ca397b144",
+  "final_adjudicator": {
+    "verdict": "PASS",
+    "adjudicated_at": "2026-08-04T03:5xZ (report committed with this entry)",
+    "frozen_sha": "03886b7cbcb9c4854190bdd7d7fb1c5ca397b144",
+    "evidence_head": "e19b73a3a766e737c19f83f975ffc8a40fe4c285",
+    "adjudication_head": "39ea1aced62cca1ba58f2cff05ef37efb9fb84c9",
+    "summary": "All ten gates verified on artifacts (not summaries); independent re-execution 64+148+95 subtests+30/30/30; all seven directive completion categories clear; honesty bar uncontradicted; four non-blocking advisories recorded in DECISIONS."
+  },
   "open_critical_findings": [],
   "open_mandatory_high_findings": [],
   "master_directive": {

@@ -934,3 +934,16 @@ phase12-legacy-live-releg, classification frozen_acceptance, exit 0,
 point (frozen mode held throughout; validator no_production_changes
 green vs frozen_sha). The failure signature was exclusively
 provider-side; the acceptance evidence is unambiguous.
+
+## FINAL ADJUDICATION 2026-08-04: PASS
+
+Verdict PASS at frozen_sha 03886b7 (evidence e19b73a, re-leg 96b6476,
+adjudicated at 39ea1ac). All ten gates verified on artifacts; independent
+re-execution by the adjudicator (64 engine tests incl. both CRITICAL
+closures and live smokes, 148 gate tests + 95 subtests, 30/30/30 seed
+sweep); all seven directive completion categories cleared item by item;
+honesty bar uncontradicted. Advisories (non-blocking, recorded for any
+future run): (1) receipt the seed sweep next time; (2) exclude
+.agent-run/ from run_monitored frozen-integrity cleanliness or record
+dirty paths; (3) master receipt re-recorded at the completion SHA per
+protocol; (4) completion flow executed exactly as the verdict directed.
