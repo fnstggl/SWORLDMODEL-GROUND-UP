@@ -1115,3 +1115,78 @@ Harness weakness also found: delivery.private_context_leak_check
 over-reports when a cast shares compiler boilerplate (36 reported, 0
 real). Additive distinctive-context check exists in offer_delivery.py;
 promote it into the shared module during the fix batch.
+
+## Settling experiment verdict 2026-08-04: R1-strong REFUTED, R3 survives
+
+Two arms on the frozen Peter world, identical except the starting
+event; same candidate (user_001), same seed, same model config, live
+sender, GM observer forced to broadcast in BOTH arms; n=3 per arm.
+
+  Arm A (pre-narrated send, as compiled): sender enacted candidate
+    verbatim 0/3; candidate text in recipient prompts 0/3;
+    intervention_delivered = not_delivered x3; ranking REFUSED x3.
+  Arm B (starting_events: []):             identical outcome: 0/3,
+    0/3, not_delivered x3, REFUSED x3.
+
+The nuance that decides the remedy: removing the pre-narration DID
+change the sender's behaviour -- arm A waits 3/3 ("waits for a reply,
+checking his inbox periodically"), arm B sends 3/3 ("reviews the draft
+one final time... then clicks send") -- and content-blind overlap rose
+(mean candidate/turn token overlap 0.085 -> 0.153; longest shared run
+7.7 -> 17.0 chars). But the sender writes ITS OWN message every time.
+Verbatim enactment stayed at exactly zero.
+
+CONCLUSIONS:
+1. The pre-narrated sender-only send event IS a real world-construction
+   defect (it suppresses the send entirely) -- R2/compiler hygiene is
+   still worth having, and the settling data now proves it changes
+   behaviour.
+2. It is NOT why the candidate fails to reach the recipient. R1 in
+   BOTH forms is refuted by direct live measurement.
+3. Only R3+R4a (enact the intervention as a committed event authored
+   by the insertion actor) would make an intervention causally
+   effective independent of model compliance.
+Honest limit recorded in the artifact: n=3 per arm; 0/3 is consistent
+with any true rate below ~0.6 at 95%.
+
+LEAD DECISION on R3: still NOT implemented in this pass. It changes
+what a counterfactual MEANS here -- the insertion actor would lose the
+freedom to decline the intervention. That is a product-semantics
+decision with two technically valid answers (enacted vs suggested
+intervention), so it is surfaced as the top recommendation rather than
+taken unilaterally, consistent with the directive's "do not redesign
+in this pass".
+
+## Post-fix re-runs 2026-08-04 (frozen inputs, pre-fix artifacts intact)
+
+All frozen-input hashes re-verified against the pre-fix freeze
+manifests before any live call; every entry byte-identical; pre-fix
+directories untouched (additions only).
+
+  peter_supplied:   guard 1->3, unresolved observers now recorded (0),
+                    delivery not_delivered x3, ranking PRODUCED
+                    (user_002) -> REFUSED.
+  peter_generated:  guard 2->1, delivery not_delivered x3, ranking
+                    PRODUCED (gen_001) -> REFUSED.
+  a16z_historical:  guard 20 -> 0 (the content-destroying rewrites are
+                    GONE, exactly as D3 predicted), 39 unresolved
+                    observer names now RECORDED where the pre-fix run
+                    had no trace at all (24x "Hiring Lead", 15x
+                    "hiring lead", all no_roster_match -- the events
+                    were dropped before AND after; the fix makes the
+                    loss visible, it does not guess a recipient),
+                    delivery not_delivered x6, ranking PRODUCED
+                    (user_001) -> REFUSED, terminals unchanged.
+
+The Peter guard counts rising is NOT a regression: a computed class
+census shows every one is the possessive-nominalization class
+("reads <Name>'s reply"), a conservatism the guard's own docstring
+documents deliberately; the determined-recipient class is 0 before and
+after in both Peter scenarios. The census marks records unclassifiable
+from the stored excerpt rather than guessing.
+
+Task 3 (no-prenarration variant with all three candidates) CANCELLED
+by its own premise failing measurement -- recorded in writing rather
+than quietly dropped. 261 recorded provider calls this pass, 0 errors,
+0 retries, counters agree; provider served deepseek-v4-flash for
+requested deepseek-chat throughout.
