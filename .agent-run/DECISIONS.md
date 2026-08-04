@@ -1190,3 +1190,72 @@ by its own premise failing measurement -- recorded in writing rather
 than quietly dropped. 261 recorded provider calls this pass, 0 errors,
 0 retries, counters agree; provider served deepseek-v4-flash for
 requested deepseek-chat throughout.
+
+## Independent adversarial audit 2026-08-04 (read-only, all artifacts)
+
+Verdict per claim: complete call capture, private-context containment,
+same-world matching, actor-owned decisions (core), trace-only
+measurement, candidate-source isolation, salary-only isolation, and all
+three headline findings -- COULD NOT DISPROVE, each recomputed from raw
+ledgers rather than summaries (1,146 records, every request/response
+sha256 recomputed with 0 mismatches; 666 files scanned with a live key
+in the environment and 0 credential occurrences; six salary branch
+plans re-derived and re-hashed independently). Historical cutoff
+enforcement FALSIFIED in its stated scope. Report honesty: two real
+overclaims.
+
+Auditor's one-line summary, recorded verbatim because it is the fairest
+statement of what this run produced: "a rigorous, self-incriminating
+engineering-transparency artifact whose machine-generated layer holds
+up under attack, and whose hand-written summary layer contains two
+claims that its own machine-generated layer disproves."
+
+FINDINGS AND LEAD DISPOSITIONS:
+- F1 HIGH: both pre-fix Peter reports state the agency guard "recorded
+  zero interventions"; the guard fired 1 (supplied) and 2 (generated)
+  and the same files render intervened=True 500 lines earlier. FIX:
+  root-cause the report generator (not just the prose), add ERRATA with
+  the ledger evidence, preserve the original text.
+- F2 HIGH: a post-cutoff sentence reached the a16z compiler prompt --
+  "Do not include his later a16z employment or later a16z work", which
+  asserts the outcome of the counterfactual being simulated. It came
+  from the USER-SUPPLIED relevant_context, and the phrase arm missed it
+  by word order. It did NOT propagate (0 violations across 360 prompts
+  and 180 responses in both runs, independently re-scanned). FIX:
+  widen the validator pattern with a discriminating test; record the
+  scope correction; the artifact record stands with the caveat.
+- F3 MEDIUM: production ranking refusal reason claims "every branch ran
+  the independent variable at the same (undelivered) value" -- false
+  for a16z, where the salary varied in the compensation partner's own
+  prompt. The refusal DECISION is right; the justification is not. FIX
+  the production string + test.
+- F4 MEDIUM: the pre/post document's one verbatim proof of the D3 fix
+  is a possessive case the fix does not cover (classifier tests the
+  dangling-determiner pattern before the possessive test). FIX the
+  classifier ordering + errata.
+- F5 MEDIUM (negative space, PRE-EXISTING): the guard's protected verb
+  list has no approve/authorize -- the single most load-bearing proxy
+  attribution this scenario invites passes untouched (executed control
+  confirms, pre- AND post-fix). ADOPTED as a demonstrated defect: add
+  the verbs with discriminating tests.
+- F6 LOW: 20 guard interventions attributed to the determiner cause;
+  replay shows 19 explained by D3 and 1 by sampling. Errata.
+- F7 LOW: no receipt at HEAD. Re-record at closeout.
+- F8 LOW: three disclosed scope edges (health probes bypass the
+  recorder by design and carry no simulation content; settling arms
+  recorded 0 live GM calls so "falls through to the live path" is
+  vacuously true; one shakedown README lacks the banner). Accept +
+  banner fix.
+
+JUDGMENT (recorded, not repaired -- per the directive, an unfavourable
+realism judgment is never edited away): grounded reasoning does appear
+(an arm-B sender tightened its own subject line to "(replay only, not
+prod-validated)" and its opening to "I'm not asking for money -- I want
+your criticism", both satisfying PRIVATE constraints absent from the
+candidate text; a recipient conditioned acceptance on the specific
+epistemic weakness of the pitch). Role-play dominates quantitatively:
+34-40% of a16z actor turns are exact self-duplicates, one Peter
+recipient turn is cited twice by the evaluator as evidence for the same
+metric, calendar facts classified UNKNOWN were invented at run time,
+and no_explicit_decline is true 6/6. Every report already says this
+about itself in its own section 16.
