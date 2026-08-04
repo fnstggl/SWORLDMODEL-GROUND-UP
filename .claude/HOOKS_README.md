@@ -398,3 +398,23 @@ gate fails *closed*.
 Static tests prove the scripts behave. They do **not** prove Claude Code
 actually loads and fires them. That requires a new session started after the
 commit — see `.claude/FRESH_SESSION_VERIFICATION.md`.
+
+## 10. Continuation guarantee (worker_silent_death)
+
+A worker that dies mid-turn without a clean stop emits no event; nothing
+wakes the lead. Correction (2026-08-04): while acceptance is incomplete and
+mode is `implementation` or `frozen_acceptance`, the `Stop` hook refuses to
+let a turn end unless `.agent-run/CONTINUATION.json` holds an unexpired
+`armed_until`. Arm it with the sanctioned tool immediately after scheduling
+the real wakeup, with the same deadline:
+
+```bash
+python3 .claude/tools/arm_continuation.py --minutes 45 \
+    --reason "watching spoof-fix worker" --trigger-id trig_xxx --workers spoof-fix
+```
+
+`SessionStart` surfaces the armed window (`CONTINUATION: armed until ...`)
+or the gap (`CONTINUATION: NOT ARMED`); the validator check
+`continuation_armed` fails whenever the requirement is unmet. The record is
+informational state, not a scheduler — arming without scheduling the
+matching wakeup bounds nothing. Acceptance `PASS` lifts the requirement.

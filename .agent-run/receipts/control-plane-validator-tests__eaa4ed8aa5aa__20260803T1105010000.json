@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "control-plane-validator-tests",
+  "git_sha": "eaa4ed8aa5aad0fb8090cb01e66c1da8d0307624",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 tests/control_plane/test_validate_control_plane.py",
+  "exit_code": 1,
+  "started_at": "2026-08-03T11:04:57+00:00",
+  "finished_at": "2026-08-03T11:05:01+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T11:05:01+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "..............................................................................................F\n======================================================================\nFAIL: test_structural_checks_pass_for_this_repository (__main__.TestValidatorEndToEnd.test_structural_checks_pass_for_this_repository) (check='initialization_level')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/home/user/SWORLDMODEL-GROUND-UP/tests/control_plane/test_validate_control_plane.py\", line 1023, in test_structural_checks_pass_for_this_repository\n    self.assertTrue(checks[name][\"ok\"], f\"{name}: {checks[name]['detail']}\")\nAssertionError: False is not true : initialization_level: mode is 'implementation' but the master-context handshake is incomplete: no valid passing receipt exists for task 'master-context-initialization' at the current SHA\n\n----------------------------------------------------------------------\nRan 95 tests in 3.249s\n\nFAILED (failures=1)\n"
+}

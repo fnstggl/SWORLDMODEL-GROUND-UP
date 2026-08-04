@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-0-freeze-and-baseline",
+  "git_sha": "03ca54fa1c12f64c99d1e076ec1b13e313b0f7c8",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T05:41:55+00:00",
+  "finished_at": "2026-08-03T05:43:00+00:00",
+  "artifact_paths": [
+    "docs/engine_migration/PHASE0_BASELINE.md",
+    "docs/engine_migration/phase0_engine_env_freeze.txt",
+    ".agent-run/jobs/phase0-sworldmodel-baseline-suite-2/job.json",
+    ".agent-run/jobs/phase0-concordia-baseline-suite-3/job.json",
+    ".agent-run/jobs/phase0-agentsociety-baseline-suite-2/job.json"
+  ],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-03T05:43:00+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": ".............................. [  6%]\n................................................................................................. [ 25%]\n........................................................... [ 37%]\n............................................................. [ 50%]\n........................................................................ [ 65%]\n........................................................................ [ 79%]\n........................................................................ [ 94%]\n...........................                                              [100%]\n490 passed, 185 subtests passed in 64.92s (0:01:04)\n"
+}

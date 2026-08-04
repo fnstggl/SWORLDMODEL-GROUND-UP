@@ -1,0 +1,110 @@
+# Frozen manual best-action fixture 1 (directive: "Required fixture 1: individual reply").
+# The world/candidates/evaluator blocks reproduce the directive's minimal fixture
+# format verbatim. Immutable once committed; changes require a DECISIONS.md entry
+# and are prohibited outright after the final acceptance run begins.
+
+fixture_id: individual_reply
+
+world:
+  start_time: "2026-08-03T14:00:00Z"
+  cutoff: "2026-08-10T14:00:00Z"
+
+  actors:
+    - id: sender
+      name: Alex
+      private_context: >
+        Alex wants to arrange an introductory meeting with Morgan.
+
+    - id: recipient
+      name: Morgan
+      private_context: >
+        Morgan is busy, has no prior relationship with Alex, dislikes
+        pressure and generic pitches, but responds to short messages
+        containing clear relevance and a low-effort request.
+
+  shared_context: >
+    Alex has Morgan's email address. No message has been sent yet.
+
+  starting_events: []
+
+candidates:
+  - id: long_generic
+    actor_id: sender
+    time: "2026-08-03T14:05:00Z"
+    action: >
+      Send a long general description of Alex's background and ask for
+      a one-hour meeting.
+
+  - id: concise_relevant
+    actor_id: sender
+    time: "2026-08-03T14:05:00Z"
+    action: >
+      Send a short message explaining one concrete reason the work is
+      relevant to Morgan and ask for a fifteen-minute conversation.
+
+  - id: urgent_pressure
+    actor_id: sender
+    time: "2026-08-03T14:05:00Z"
+    action: >
+      Send an urgent message implying that Morgan should respond today.
+
+evaluator:
+  primary_metric: recipient_reply_sent
+  secondary_metrics:
+    - meeting_scheduled
+    - explicit_decline
+
+# --- Deterministic engineering-test version (directive: "Deterministic version").
+# Scripted recipient behavior for the engineering test ONLY; this block must
+# never enter production simulation logic. The script keys on which candidate's
+# message the recipient observes.
+deterministic_script:
+  recipient:
+    long_generic:
+      response: none                # no reply by cutoff
+      reply_sent: false
+      meeting_scheduled: false
+      explicit_decline: false
+    concise_relevant:
+      response: >
+        Reply agreeing to a fifteen-minute conversation next week.
+      reply_sent: true
+      meeting_scheduled: true
+      explicit_decline: false
+    urgent_pressure:
+      response: >
+        Reply declining and asking not to be contacted with urgent demands.
+      reply_sent: true
+      meeting_scheduled: false
+      explicit_decline: true
+
+expected_deterministic:
+  ranking_first: concise_relevant   # required result: concise_relevant ranks first
+  per_candidate:
+    long_generic:
+      recipient_reply_sent: false
+      meeting_scheduled: false
+      explicit_decline: false
+      terminal_status: cutoff
+    concise_relevant:
+      recipient_reply_sent: true
+      meeting_scheduled: true
+      explicit_decline: false
+      terminal_status: success
+    urgent_pressure:
+      recipient_reply_sent: true
+      meeting_scheduled: false
+      explicit_decline: true
+      terminal_status: failure
+
+# --- Live-model realism assertions (directive: "Live-model version").
+# A fixed winner is NOT required across stochastic runs; these structural
+# assertions are.
+live_model_assertions:
+  - Morgan makes Morgan's own decision (the reply event is emitted by the
+    recipient's actor turn, never by the Game Master or the sender).
+  - The decision refers to Morgan's stated incentives and constraints.
+  - No branch receives information from another branch.
+  - The resulting outcome is read from the trace.
+  - No final judge overrides the measured outcome.
+  - The trajectory contains no obviously impossible or contradictory behavior.

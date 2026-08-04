@@ -195,6 +195,27 @@ class Project:
         target.write_text(content, encoding="utf-8")
         return target
 
+    def arm_continuation(self, minutes: float = 45, reason: str = "test wakeup",
+                         expired: bool = False, **extra):
+        """Write a CONTINUATION.json armed ``minutes`` into the future (or the
+        past, with ``expired=True``) — the worker_silent_death sentinel record."""
+        import datetime as dt
+
+        now = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
+        delta = dt.timedelta(minutes=minutes)
+        until = now - delta if expired else now + delta
+        payload = {
+            "schema_version": 1,
+            "armed_at": now.isoformat(),
+            "armed_until": until.isoformat(),
+            "minutes": minutes,
+            "reason": reason,
+            "trigger_id": None,
+            "workers": [],
+        }
+        payload.update(extra)
+        self.write_state("CONTINUATION.json", payload)
+
     def add_active_job(self, job_id: str, classification="exploratory", state="progressing", **extra):
         registry = self.read_state("BACKGROUND_JOBS.json")
         job = {"job_id": job_id, "classification": classification, "state": state}

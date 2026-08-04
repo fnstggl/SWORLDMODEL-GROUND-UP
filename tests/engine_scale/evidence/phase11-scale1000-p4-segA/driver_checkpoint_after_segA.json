@@ -1,0 +1,10 @@
+{
+  "failed_agents": {},
+  "last_completed_tick": 6,
+  "next_tick": 7,
+  "partition_id": "p4",
+  "schema_version": 1,
+  "spec_sha256": "79c003aa838df7dab631799086569994a85f9b68e22352a3ad085633bf897fcc",
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "unix": 1785785278.3602128
+}

@@ -1,6 +1,52 @@
 {
   "schema_version": 1,
-  "status": "MASTER_DIRECTIVE_PENDING",
-  "repositories": [],
-  "protected_paths": []
+  "status": "INITIALIZED_FROM_MASTER_DIRECTIVE",
+  "repositories": [
+    {
+      "name": "SWORLDMODEL-GROUND-UP",
+      "role": "product repository (this repo)",
+      "upstream_url": "https://github.com/fnstggl/SWORLDMODEL-GROUND-UP",
+      "implementation_base_sha": "87f8c3d29cc7901d0d7d6ed835190cbde6fb3059",
+      "note": "Latest main containing the merged verified control plane; recorded at master-context initialization."
+    },
+    {
+      "name": "concordia",
+      "role": "upstream local simulation engine",
+      "upstream_url": "https://github.com/google-deepmind/concordia",
+      "fork_url": "https://github.com/fnstggl/concordia",
+      "local_checkout": "/home/user/concordia",
+      "baseline_sha_at_initialization": "7779a4c9f96bad10816d88c54e4cb17d53ac5222",
+      "note": "Phase 0 re-records the audited SHA; Phase 1 pins the immutable integration SHA in third_party/UPSTREAM_LOCK.json, which then becomes the pin of record."
+    },
+    {
+      "name": "agentsociety",
+      "role": "upstream distributed orchestration layer (AgentSociety 2)",
+      "upstream_url": "https://github.com/tsinghua-fib-lab/agentsociety",
+      "fork_url": "https://github.com/fnstggl/agentsociety2",
+      "local_checkout": "/home/user/agentsociety2",
+      "baseline_sha_at_initialization": "6e9fc2e79f89f65a3e3d0d7899e380f7394099be",
+      "note": "Phase 0 re-records the audited SHA; Phase 1 pins the immutable integration SHA in third_party/UPSTREAM_LOCK.json, which then becomes the pin of record."
+    }
+  ],
+  "protected_paths": [
+    {
+      "path": "third_party/concordia/",
+      "reason": "Planned location for pinned Concordia upstream source if vendoring/submodule is chosen in Phase 1. Upstream source must remain a complete, unchanged unit: no in-place edits, no monkey-patching, no selected-file pseudo-fork."
+    },
+    {
+      "path": "third_party/agentsociety/",
+      "reason": "Planned location for pinned AgentSociety 2 upstream source if vendoring/submodule is chosen in Phase 1. Upstream source must remain a complete, unchanged unit: no in-place edits, no monkey-patching, no selected-file pseudo-fork."
+    },
+    {
+      "path": "third_party/UPSTREAM_LOCK.json",
+      "reason": "The pin of record. Adversarial-review finding: it classified as freely-editable production. Changing a pin is an architecture decision requiring a DECISIONS.md entry and the documented exception procedure.",
+      "audit_exempt": true,
+      "audit_exempt_reason": "Born on the implementation branch; PreToolUse blocks edits in every mode, but its presence in the branch diff vs main is its legitimate creation."
+    }
+  ],
+  "import_procedure": "Phase 1 initial import only: record a decision entry in .agent-run/DECISIONS.md naming the exact upstream SHA being imported; temporarily remove the affected protected_paths entry in the same session; perform the pristine import (submodule add or complete snapshot copy at the pinned SHA); verify integrity against third_party/UPSTREAM_LOCK.json checksums; restore the protected_paths entry immediately; record the completed import window in DECISIONS.md. Any later change to pinned upstream source requires the directive's fork-or-patch conditions (failing contract test, smallest isolated patch, line-by-line documentation in third_party/PATCHES.md, adversarial-reviewer agreement) and an explicit exception recorded here plus in DECISIONS.md.",
+  "notes": [
+    "PreToolUse denies writes under protected_paths (prefix and glob match).",
+    "If Phase 1 instead selects pinned git dependencies (no vendored tree), the planned third_party/<name>/ source directories may stay absent; the entries above still protect against accidental creation of divergent local copies, and third_party/UPSTREAM_LOCK.json remains mandatory either way."
+  ]
 }

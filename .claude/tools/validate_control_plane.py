@@ -139,9 +139,34 @@ AGENT_FILES = (
 HOOK_TEST_TASK = "control-plane-hook-tests"
 RUNNER_TEST_TASK = "control-plane-monitored-runner-tests"
 
-#: Path categories that must never appear in this branch's diff. The control
-#: plane is allowed to add its own files and its own tests, and nothing else.
-FORBIDDEN_CHANGE_CATEGORIES = frozenset({"production", "upstream_protected", "evaluator", "fixture", "prompt"})
+#: Path categories that must never appear in the audited diff, by run mode.
+#: During hook bootstrap the branch may only add control-plane material.
+#: Once the master-context handshake has passed (``implementation`` and the
+#: modes that follow it), changing production, evaluator, fixture, and prompt
+#: code is the point of the run and only pinned upstream source stays
+#: inviolable. A ``frozen_acceptance`` batch is measured against the frozen
+#: SHA instead of the branch base and freezes tests too (HOOKS_README §5).
+BOOTSTRAP_FORBIDDEN_CATEGORIES = frozenset(
+    {"production", "upstream_protected", "evaluator", "fixture", "prompt"}
+)
+IMPLEMENTATION_FORBIDDEN_CATEGORIES = frozenset({"upstream_protected"})
+FROZEN_FORBIDDEN_CATEGORIES = frozenset(
+    {"production", "upstream_protected", "evaluator", "fixture", "prompt", "test"}
+)
+#: Back-compat alias for the original bootstrap-era constant name.
+FORBIDDEN_CHANGE_CATEGORIES = BOOTSTRAP_FORBIDDEN_CATEGORIES
+
+_POST_HANDSHAKE_MODES = frozenset(
+    {"implementation", "hook_maintenance", "complete", "external_blocker"}
+)
+
+
+def _forbidden_categories_for_mode(mode: str) -> frozenset:
+    if mode in _POST_HANDSHAKE_MODES:
+        return IMPLEMENTATION_FORBIDDEN_CATEGORIES
+    if mode == "frozen_acceptance":
+        return FROZEN_FORBIDDEN_CATEGORIES
+    return BOOTSTRAP_FORBIDDEN_CATEGORIES
 
 
 class Result:
@@ -222,10 +247,12 @@ def check_json_parses(root: Path, result: Result):
         try:
             json.loads(raw)
         except json.JSONDecodeError as exc:
+            # A strict parse failure also covers every comment form: the json
+            # module rejects // and /* */ outright, so a file that parses here
+            # provably contains no comments. Scanning the raw text for those
+            # character pairs is redundant and false-positives on URLs inside
+            # legitimate string values (e.g. monitored-job commands).
             bad.append(f"{rel} (line {exc.lineno}: {exc.msg})")
-            continue
-        if "//" in raw or "/*" in raw:
-            bad.append(f"{rel} (contains comment syntax; JSON forbids comments)")
     result.add("json_files_parse", not bad, "all parse as strict JSON" if not bad else "; ".join(bad))
 
     ledger = root / ".agent-run/FAILURE_LEDGER.jsonl"
@@ -436,10 +463,33 @@ def check_tests(root: Path, result: Result, run_tests: bool):
 
 
 def check_no_production_changes(root: Path, result: Result, base: str | None):
-    base_ref = base or _default_base(root)
+    try:
+        state = hs.read_run_state(root)
+    except hs.StateError:
+        state = {}
+    mode = str(state.get("mode") or "")
+    forbidden = _forbidden_categories_for_mode(mode)
+
+    base_ref = base
+    if base_ref is None and mode == "frozen_acceptance":
+        frozen = state.get("frozen_sha")
+        if not frozen:
+            result.add(
+                "no_production_files_changed",
+                False,
+                "mode is 'frozen_acceptance' but RUN_STATE.frozen_sha is not set; "
+                "the frozen scope cannot be verified",
+                mode=mode,
+                forbidden_categories=sorted(forbidden),
+            )
+            return
+        base_ref = str(frozen)
+    if base_ref is None:
+        base_ref = _default_base(root)
     if base_ref is None:
         result.add("no_production_files_changed", True,
-                   "no comparable base ref found; skipped", severity="warning")
+                   "no comparable base ref found; skipped", severity="warning",
+                   mode=mode, forbidden_categories=sorted(forbidden))
         return
 
     changed = set()
@@ -451,16 +501,25 @@ def check_no_production_changes(root: Path, result: Result, base: str | None):
     offenders = []
     for path in sorted(changed):
         category = hs.classify_path(path, root)
-        if category in FORBIDDEN_CHANGE_CATEGORIES:
+        if category in forbidden:
+            # Metadata entries explicitly marked audit_exempt (e.g. the
+            # upstream lock, born on this branch) are write-protected by the
+            # hook but legitimately present in the branch diff.
+            if category == "upstream_protected" and hs.is_upstream_audit_exempt(path, root):
+                continue
             offenders.append(f"{path} ({category})")
 
     result.add(
         "no_production_files_changed",
         not offenders,
-        f"compared against {base_ref}; only control-plane, .agent-run, test and doc paths changed"
+        f"mode={mode or 'unknown'}: compared against {base_ref}; "
+        f"no {'/'.join(sorted(forbidden))} paths changed"
         if not offenders
-        else "these non-control-plane paths changed: " + ", ".join(offenders),
+        else f"mode={mode or 'unknown'}: these forbidden-category paths changed "
+             f"(forbidden: {'/'.join(sorted(forbidden))}): " + ", ".join(offenders),
         base_ref=base_ref,
+        mode=mode,
+        forbidden_categories=sorted(forbidden),
         changed_paths=sorted(changed),
     )
 
@@ -493,6 +552,164 @@ def check_claude_md_preserved(root: Path, result: Result, base: str | None):
     result.add("claude_md_preserved", not missing,
                "every preexisting CLAUDE.md line is still present"
                if not missing else f"{len(missing)} preexisting line(s) were removed, e.g. {missing[0][:120]!r}")
+
+
+def check_phase_receipt_discipline(root: Path, result: Result):
+    """A completed task's newest passing receipt must be completion-grade.
+
+    Committed receipts are inherently one commit behind HEAD (a receipt can
+    never live inside the commit it attests to), so SHA equality alone cannot
+    be the bar. The real bar (adversarial-review finding H2): the newest
+    passing receipt for every complete task must either have been recorded on
+    a clean worktree, or carry ``configuration_hashes`` that all match the
+    CURRENT files — proving it certifies these exact bytes. The
+    master-context task keeps its own stricter SHA-exact check.
+    """
+    try:
+        graph = hs.read_task_graph(root)
+    except hs.StateError as exc:
+        result.add("phase_receipt_discipline", False, f"TASK_GRAPH.json unusable: {exc}")
+        return
+    problems: list[str] = []
+    checked = 0
+    for task in graph.get("tasks", []):
+        if task.get("status") != "complete" or not task.get("required_receipts"):
+            continue
+        task_id = task.get("id")
+        if task_id == hs.MASTER_INIT_TASK_ID:
+            continue
+        receipts = [r for r in hs.load_receipts(task_id, root) if not r.get("_error")]
+        passing = [r for r in receipts if hs.receipt_is_passing(r)]
+        if not passing:
+            problems.append(f"{task_id}: no passing receipt exists")
+            continue
+        # "Newest" must be chronological: receipt FILE order sorts by the
+        # embedded SHA prefix, so a lexicographically-late old SHA would
+        # otherwise shadow a genuinely newer clean receipt.
+        newest = max(passing, key=lambda r: str(r.get("recorded_at")
+                                                or r.get("finished_at") or ""))
+        checked += 1
+        if newest.get("worktree_clean") is True:
+            continue
+        hashes = newest.get("configuration_hashes") or {}
+        if not hashes:
+            problems.append(
+                f"{task_id}: newest passing receipt is dirty-worktree and carries no "
+                "configuration_hashes to prove content continuity"
+            )
+            continue
+        verified = 0
+        mismatched = False
+        for name, recorded in hashes.items():
+            candidate = root / name if not Path(name).is_absolute() else Path(name)
+            # config-hash keys may be labels rather than paths; only keys that
+            # resolve to real files count as continuity evidence.
+            current = hs.sha256_file(candidate)
+            if current is None:
+                continue
+            verified += 1
+            if current != recorded:
+                mismatched = True
+                problems.append(
+                    f"{task_id}: configuration hash for {name} no longer matches "
+                    f"({str(recorded)[:12]} recorded); the completed work changed after its receipt"
+                )
+        if verified == 0 and not mismatched:
+            problems.append(
+                f"{task_id}: newest passing receipt is dirty-worktree and none of its "
+                "configuration_hashes keys resolve to files — no content-continuity proof"
+            )
+    result.add(
+        "phase_receipt_discipline",
+        not problems,
+        f"{checked} completed task(s) have completion-grade receipts"
+        if not problems else "; ".join(problems),
+        checked=checked,
+    )
+
+
+def check_upstream_checkout_integrity(root: Path, result: Result):
+    """Continuously verify the pinned upstream checkouts, when present.
+
+    The lock's integrity guarantee must not be point-in-time only (adversarial
+    review finding): each recorded ``local_checkout`` that exists must sit
+    exactly at its recorded SHA with zero local modifications. An absent
+    checkout is noted, not failed — fresh clones without the engine
+    environment are legitimate.
+    """
+    data = hs.read_json(hs.agent_run_dir(root) / "UPSTREAM_PROTECTED_PATHS.json", default=None)
+    repos = (data or {}).get("repositories") or []
+    problems: list[str] = []
+    notes: list[str] = []
+    checked = 0
+    for entry in repos:
+        if not isinstance(entry, dict):
+            continue
+        checkout = entry.get("local_checkout")
+        if not checkout:
+            continue
+        name = entry.get("name", "?")
+        pinned = entry.get("pinned_sha") or entry.get("baseline_sha_at_initialization")
+        path = Path(checkout)
+        if not path.is_dir():
+            notes.append(f"{name}: checkout absent ({checkout}); skipped")
+            continue
+        head = hs._git(path, "rev-parse", "HEAD")
+        if not head:
+            problems.append(f"{name}: {checkout} is not a usable git checkout")
+            continue
+        checked += 1
+        if pinned and head.strip() != str(pinned):
+            problems.append(
+                f"{name}: HEAD {head.strip()[:12]} does not match the recorded pin {str(pinned)[:12]}"
+            )
+        dirty = hs._git(path, "status", "--porcelain")
+        if dirty and dirty.strip():
+            problems.append(
+                f"{name}: checkout has local modifications ({len(dirty.strip().splitlines())} path(s))"
+            )
+    ok = not problems
+    if ok:
+        detail = f"{checked} pinned checkout(s) verified clean at their recorded SHAs"
+        if notes:
+            detail += "; " + "; ".join(notes)
+    else:
+        detail = "; ".join(problems + notes)
+    result.add("upstream_checkouts_integrity", ok, detail, checked=checked)
+
+
+def check_continuation_armed(root: Path, result: Result):
+    """While acceptance is incomplete in implementation/frozen_acceptance, an
+    unexpired continuation wakeup must be armed (worker_silent_death class,
+    FAILURE_LEDGER 2026-08-04): a silently dead worker must never strand the
+    run past a bounded, recorded deadline."""
+    try:
+        state = hs.read_run_state(root)
+    except hs.StateError:
+        return  # run_state_valid already reports this
+    mode = state.get("mode")
+    if mode not in {"implementation", "frozen_acceptance"}:
+        result.add("continuation_armed", True, f"not required in mode '{mode}'")
+        return
+    try:
+        acceptance = hs.read_acceptance_status(root)
+    except hs.StateError as exc:
+        result.add("continuation_armed", False, f"ACCEPTANCE_STATUS.json unusable -- {exc}")
+        return
+    if str(acceptance.get("overall", "")) == "PASS":
+        result.add("continuation_armed", True,
+                   "acceptance is PASS; a continuation is no longer required")
+        return
+    word, detail = hs.continuation_status(root)
+    detail_text = {
+        "armed": f"continuation armed {detail}",
+        "unarmed": "no continuation is armed while acceptance is incomplete -- schedule a "
+                   "wakeup and record it with .claude/tools/arm_continuation.py",
+        "expired": f"continuation expired at {detail} -- re-arm now or continue the "
+                   "highest-leverage in_progress task",
+        "malformed": f"CONTINUATION.json unusable -- {detail}",
+    }[word]
+    result.add("continuation_armed", word == "armed", detail_text)
 
 
 def check_git_context(root: Path, result: Result):
@@ -673,10 +890,13 @@ def run(root: Path, run_tests: bool, base: str | None) -> Result:
     check_agents(root, result)
     check_tests(root, result, run_tests)
     check_no_production_changes(root, result, base)
+    check_phase_receipt_discipline(root, result)
+    check_upstream_checkout_integrity(root, result)
     check_claude_md_preserved(root, result, base)
     check_git_context(root, result)
     check_bootstrap_status_consistent(root, result)
     check_initialization_level(root, result)
+    check_continuation_armed(root, result)
     return result
 
 

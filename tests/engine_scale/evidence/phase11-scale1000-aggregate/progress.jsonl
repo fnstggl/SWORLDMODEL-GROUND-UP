@@ -1,0 +1,7 @@
+{"event": "job_start", "mode": "aggregate", "partitions": ["p1", "p2", "p3", "p4"], "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.", "unix": 1785785339.813555}
+{"actions": 600, "event": "partition_aggregated", "partition": "p1", "unix": 1785785339.8289788}
+{"actions": 596, "event": "partition_aggregated", "partition": "p2", "unix": 1785785339.847276}
+{"actions": 599, "event": "partition_aggregated", "partition": "p3", "unix": 1785785339.8637857}
+{"actions": 600, "event": "partition_aggregated", "partition": "p4", "unix": 1785785339.8867874}
+{"actions_total": 2395, "event": "aggregate_done", "ok": true, "unix": 1785785339.8977382}
+{"actions_total": 2395, "equal": true, "event": "job_done", "mode": "aggregate", "unix": 1785785339.8983855}

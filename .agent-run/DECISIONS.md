@@ -204,3 +204,746 @@ accepts `PASS_WITH_DOCUMENTED_LIMITATION`, and only when the limitation is
 explicitly declared -- naming a registered hook event, carrying a reason, and
 leaving every other live check at `PASS`. The rule was loosened in exactly one
 place and made stricter about evidence in three.
+
+## Master-context initialization 2026-08-03
+
+- **The master implementation directive is loaded and authoritative.** Saved
+  verbatim (no summarizing, no rewriting) at
+  `docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md`, sha256
+  `ac863c8355fab544fc79c8a440ed643b8b0879147209134868985dec67a0cdbb`, recorded
+  in `RUN_STATE.json.master_directive_sha256`. Where any `.agent-run` summary
+  and the directive disagree, the directive wins.
+- **Branch authority.** This initialization was performed, per the operator's
+  explicit branch designation for this session, on
+  `claude/engine-migration-setup-j5d0ti` (created from main
+  `87f8c3d29cc7901d0d7d6ed835190cbde6fb3059`, the latest main containing the
+  merged verified control plane). The directive's implementation branch
+  `claude/concordia-agentsociety-best-action-engine` is to be created from
+  updated main once this initialization lands there (directive: "Begin from
+  the latest remote main after the verified control-plane PR has been merged"
+  + mandatory first action 4); the draft PR into main is opened from that
+  implementation branch and not merged during the run. If the master run
+  starts before this setup branch is merged, it continues from this
+  initialized branch state rather than re-deriving it.
+- **Upstream baselines recorded at initialization.** Local fork checkouts:
+  concordia `7779a4c9f96bad10816d88c54e4cb17d53ac5222`
+  (fnstggl/concordia, upstream google-deepmind/concordia); agentsociety2
+  `6e9fc2e79f89f65a3e3d0d7899e380f7394099be` (fnstggl/agentsociety2, upstream
+  tsinghua-fib-lab/agentsociety). These are baselines for the audit; Phase 1
+  pins the immutable integration SHAs in `third_party/UPSTREAM_LOCK.json`,
+  which then becomes the pin of record.
+- **Protected upstream paths registered ahead of import.**
+  `third_party/concordia/` and `third_party/agentsociety/` are protected now,
+  before they exist, so no divergent local copy can appear by accident. The
+  sanctioned Phase 1 import window procedure is documented in
+  `UPSTREAM_PROTECTED_PATHS.json.import_procedure`.
+- **Receipt re-record protocol.** A `master-context-initialization` receipt is
+  valid only at the exact SHA it records; committing the receipt necessarily
+  moves HEAD past it (`.claude/HOOKS_README.md` §4: re-record after committing
+  or rebasing). Every fresh session in `implementation` mode therefore starts
+  by running the validator and, if the only failure is a stale
+  `master-context-initialization` receipt, re-records it at the current SHA
+  via `python3 .claude/tools/record_receipt.py --task-id
+  master-context-initialization --run -- python3 -m pytest
+  tests/control_plane -q` (when pytest is absent, the equivalent fallback the
+  validator itself uses: `... --run -- python3
+  tests/control_plane/test_gate.py`) followed by a validator re-run, and
+  optionally a second receipt recording the validator PASS itself. This is
+  re-verification at the new SHA, not new authority. Applied at
+  initialization: transition receipt at 87f8c3d29cc79, re-recorded suite +
+  validator-PASS receipts at the initialization commit that followed it.
+- **TeammateIdle remains UNAVAILABLE_IN_CLAUDE_CODE_WEB** (inherited from
+  bootstrap, unchanged): rely on TaskCompleted, selective SubagentStop,
+  explicit task ownership in TASK_GRAPH.json, and lead review at phase
+  boundaries, exactly as the directive's fallback list requires.
+- **Phase 0 baseline artifact path fixed as**
+  `docs/engine_migration/PHASE0_BASELINE.md` so the phase's completion
+  contract is machine-checkable from the task graph.
+
+## Hook maintenance 2026-08-03 -- change audit was bootstrap-only; docs misclassified as evaluators
+
+Entered `hook_maintenance` from `implementation` (previous mode kept in
+`phase`) because the Phase 0 receipt run demonstrated two validator defects.
+
+**Defect 1 (blocking by design, wrongly).** `validate_control_plane.py::
+check_no_production_changes` unconditionally forbade `production`,
+`evaluator`, `fixture`, and `prompt` categories in the branch diff versus
+main. That rule encodes the *hook-bootstrap* discipline ("the control plane
+may add its own files and its own tests, and nothing else"). Once the
+master-context handshake has passed and the mode is `implementation`,
+changing production/evaluator/fixture/prompt code is the entire point of the
+run -- with the check as it stood, the validator could never PASS on any
+commit that adds engine code, making every downstream current-SHA receipt
+unattainable. Demonstrated live: the full suite failed on
+`docs/engine_migration/ACCEPTANCE_GATES.md (evaluator)` -- a documentation
+file whose creation is directive-mandated.
+
+**Defect 2.** `hook_state.classify_path` ran the evaluator/fixture/prompt
+filename heuristics *before* the `docs/` prefix rule, so any documentation
+path containing words like "acceptance" or "evaluation" classified as
+`evaluator` material. Documentation is explicitly editable even during a
+frozen acceptance batch (HOOKS_README §5), so this order is wrong in general.
+
+**Smallest general causes and fixes.**
+1. `classify_path` now classifies `docs/` (and root-level `*.md`) as `doc`
+   before applying the evaluator/fixture/prompt heuristics. Non-doc paths
+   (`evaluation/score.py`, `acceptance/gate.py`, `worlds/*.json`,
+   `*/prompts/*`) classify exactly as before.
+2. `check_no_production_changes` is now mode-aware, with the forbidden set
+   reported in its payload (`forbidden_categories`): bootstrap modes keep the
+   original strict set; `implementation` (and hook_maintenance / complete /
+   external_blocker) forbid only `upstream_protected`; `frozen_acceptance`
+   forbids production/evaluator/fixture/prompt/test changes measured against
+   `RUN_STATE.frozen_sha` (and fails outright if frozen_sha is unset). Pinned
+   upstream source stays inviolable in every mode.
+
+**Regression coverage added.** `tests/control_plane/
+test_validate_control_plane.py`: docs-over-heuristics classification tests;
+a git-backed mode-awareness suite proving (a) implementation mode accepts a
+production diff, (b) implementation mode still rejects a pinned-upstream
+diff, (c) bootstrap mode still rejects a production diff, (d) frozen
+acceptance passes when nothing changed since frozen_sha and fails on a
+production change after it, and (e) frozen acceptance without frozen_sha
+fails. The end-to-end repository test now derives the allowed categories from
+the check's own reported `forbidden_categories` instead of hardcoding the
+bootstrap set.
+
+Also cleaned: a stray `argv.json` written into the repo root by the
+AgentSociety baseline suite (their tests write it to the invoking cwd);
+future upstream-suite runs cd into the upstream checkout first. Recorded in
+FAILURE_LEDGER.jsonl.
+
+**Outcome.** A third defect of the same naive-text-scan class surfaced during
+revalidation and was fixed in the same window: `check_json_parses` flagged any
+`//` or `/*` in the raw file as "comment syntax", which false-positived on
+URLs inside legitimate JSON string values (live case: monitored-job commands
+in `BACKGROUND_JOBS.json` carrying `http://localhost:9`). Since the strict
+`json.loads` parse already rejects every real comment form, the raw-text scan
+was removed and a regression test added (`test_urls_inside_string_values_are_
+not_comments`); `UPSTREAM_PROTECTED_PATHS.json` URLs were restored to full
+`https://` form. Revalidation: validator suite 81 tests OK, gate suite OK,
+`validate_control_plane.py --run-tests` PASS (hook suite 131 passed + 93
+subtests; runner suite 25 passed). Mode restored to `implementation`.
+
+
+## Hook maintenance 2026-08-03 (#3) -- external checkouts entered the enforcement perimeter
+
+Trigger: Phases 0-2 adversarial review (verbatim report + per-finding
+disposition: docs/engine_migration/reviews/PHASE_0_2_BOUNDARY_REVIEW.md).
+Its HIGH finding demonstrated live that the pinned upstream checkouts
+classified `external`, which no mode blocks -- an editable-install source
+edit would silently change the engine under contract.
+
+Changes (all with discriminating regression tests, suites green,
+`validate_control_plane.py --run-tests` PASS):
+1. `classify_path` returns `upstream_protected` for any path inside a
+   recorded `repositories[].local_checkout` tree -- blocked in EVERY mode.
+2. New validator check `upstream_checkouts_integrity`: every recorded
+   checkout that exists must sit at its recorded SHA with zero local
+   modifications, on every validator run (absent checkouts are noted, not
+   failed).
+3. `third_party/UPSTREAM_LOCK.json` is now write-protected via
+   `protected_paths` with the new explicit `audit_exempt` flag: PreToolUse
+   blocks edits in every mode, while the branch-diff audit skips its
+   legitimate creation on this branch. Pin changes require the documented
+   exception procedure.
+4. Frozen-mode gate coverage for `tests/**` paths added (reviewer LOW).
+
+## Phase 0-2 boundary review outcome 2026-08-03
+
+All six reviewed claims HOLD; no Phase 4 blocker. Non-maintenance fixes
+applied in the same session: three weak engine-contract tests strengthened
+(steady-state overlap == 2 after a warm-up round -- cold-start serialization
+was real and is now measured around; rng-restoration tautology replaced with
+a real restore assertion; token_stats exact-empty + shape contract);
+provenance corrected (ScriptedByEntityModel is upstream commit 1372a37; the
+pinned fork SHAs equal upstream main -- pure mirrors); baseline
+dirty-worktree disclosure added; receipt-discipline policy hardened
+(completed_at_sha backfilled to artifact-bearing commits; phase receipts
+carry --config-hash going forward). ACCEPTED items: ACCEPTANCE_GATES.md
+stays a doc, mitigated by hashing gate-definition docs into the Phase 12
+freeze record; the historical exit-1 phase-0 receipt is kept deliberately as
+evidence of the defect it exposed.
+
+## Fixture 3 syntax re-freeze 2026-08-03
+
+Phase 3 found `population_offer.yaml` unparseable by conforming YAML
+parsers: a plain-scalar bullet ended with a line-final colon (illegal
+multi-line mapping key). Adjudication: syntax-only re-freeze -- the colon
+became ", meaning" with zero semantic change (rules, counts, expectations
+byte-identical otherwise); new sha256
+93537342df26761bc67cb6cbb6aedc89531a9ab8719040be283047928b418985 recorded in
+FIXTURES.md + FIXTURES.sha256; the loader test now asserts ALL fixtures are
+conforming YAML and that the textual prose-block layer agrees with YAML's
+own parse. Rationale: the wart would compound forever; the immutability rule
+targets semantic gaming, not syntax validity; final acceptance has not
+begun. The frozen-manual-fixtures receipt is re-recorded against the new
+hashes.
+
+
+## Phase 5 notes 2026-08-03
+
+- Guard plan-shape deviation (forced by the frozen Phase 3 contract):
+  `gm_config` is validated as a scalar map, so the agency-guard block is the
+  scalar `agency_guard_enabled: bool` + `guard_slot` string rather than a
+  nested object. Accepted; revisit only if gm_config ever needs structured
+  values for other reasons.
+- `PLANNER_VERSION` bumped v1 -> v2 (default-enabled guard changes the
+  emitted mapping; same-input plan identities must not collide across
+  versions).
+- Detector v1 documented under-detections (modals/perfects/negations/
+  passives) are conservative-by-design for a "minimum" guard; the optional
+  single yes/no live-model confirmation may relax the reported-speech
+  borderline class later. Gate H's semantics reviewer weighs these.
+
+
+## Phase 6 notes 2026-08-03
+
+- Ranking semantics (lead adjudication of the agent's deviation): rank key is
+  the user-DECLARED metric sequence -- primary, then secondaries in declared
+  order, all descending, polarity never inferred; candidate_id lexicographic
+  is only the final code-owned tie-break and is FLAGGED in validation_status
+  when it actually decided an ordering. Fixture-1's winner is measured
+  (meeting_scheduled True vs False), not tie-broken -- proven by the flag's
+  asserted absence.
+- Terminal-status mapping: the runner reports only cutoff/incomplete (R3);
+  success/failure verdicts come from the evaluator layer via a caller
+  status_rule over measured metrics, refused on infrastructure-errored
+  branches.
+- guard_interventions have no BranchResult field (frozen contract): they ride
+  the runner diagnostics record; Phase 7's distributed executor persists that
+  record as an artifact file referenced from BranchResult.artifact_paths.
+
+
+## Phase 7 notes 2026-08-03
+
+- Stage A gate PASSED with byte-identical local/distributed branch
+  signatures (sha256 per candidate) and the measured fixture winner
+  reproduced over the distributed leg; file-authoritative collection with
+  CollectionIntegrityError on any driver/file disagreement.
+- Model seam key is `model_builder` (dotted-name + JSON params) -- the
+  hardcoding guard forbids the bare word the brief suggested; same seam for
+  future live models.
+- Distributed escalation semantics: runner-captured mid-branch errors are
+  escalated to step failures AFTER persisting the partial result, so
+  branch_error.json and the driver record agree (dual channel); the local
+  manager returns such branches without raising. Documented divergence.
+- Upstream discoveries recorded in test docstrings: a warm-up round must
+  HOLD worker slots with the same blocking delay as the timed round (a
+  zero-cost warm-up is absorbed by one worker); the Ray job env snapshot is
+  frozen at first init_dispatchers -- later WORKSPACE_PATH/PYTHONPATH
+  exports never reach workers, so one Ray owner per process segment and the
+  executor adopts an existing init's workspace rather than repointing it.
+- Private imports from counterfactuals.manager (_preflight,
+  _seeded_branch_scope, _result_from_runner) are the accepted
+  reuse-over-duplication tradeoff; promote to public names during the
+  documentation phase if churn appears.
+
+
+## Hook maintenance 2026-08-03 (#4) -- completion receipts become completion-grade
+
+Trigger: Phases 3-7 adversarial review finding H2 -- every phase receipt was
+a dirty-worktree run at the completion commit's parent SHA, and the
+validator never checked phase-task receipts, making CLAUDE.md rule 7
+("a receipt against another SHA cannot satisfy completion") decorative.
+
+Fix (smallest general): new validator check `phase_receipt_discipline` --
+for every TASK_GRAPH task with status=complete and required_receipts, the
+newest passing receipt must satisfy clean-worktree OR content continuity:
+every file named in the receipt's configuration_hashes must currently hash
+to the recorded value (a receipt then certifies exact bytes regardless of
+the inherent one-commit SHA staleness of committed receipts). A receipt
+with neither property, a failed/missing receipt, or a hash mismatch fails
+the check. Master-context task excluded (its own stricter SHA-exact check
+stands). Phases 3-7 receipts re-recorded at the clean post-fix HEAD with
+config hashes over each phase's key artifacts.
+
+Companion non-maintenance fixes from the same review: the ~1/8 flaky
+upstream state round-trip test made hash-order-insensitive (stored_hashes
+is set-derived; PYTHONHASHSEED 5/13 reproduced; ledgered); contract
+JSON-tree fields (terminal_world_state, concordia_checkpoint) defensively
+deep-copied at ingest and egress so content_hash cannot be mutated from
+outside; ranking validation_status gains decided_by_metric and the module
+docstring states the descending-order imposition honestly; recommendation
+re-validation now checks the full declared-order key, not primary-only
+monotonicity.
+
+**Outcome (#4).** Control-plane suites green (93 validator tests incl. 6 new; gate suite OK); validator run below records the two honestly-deferred Ray-suite receipts (p2/p7) as the only red until the Phase 8 fold-in. Companion fixes verified: flake killed under reproducing seeds; contracts deep-copy; decided_by_metric + full declared-order re-validation (validation_status widened to short strings). Reviews: docs/engine_migration/reviews/PHASE_3_7_BOUNDARY_REVIEW.md. Mode restored to implementation.
+
+**Amendment (#4a), same day — "newest" made chronological.** After the
+clean-HEAD re-record, the validator STILL flagged phases 3/5/6/fixtures:
+`phase_receipt_discipline` picked "newest" as `passing[-1]`, which is file
+order, and receipt file names embed the git SHA prefix — so a
+lexicographically-late OLD SHA (9e7609d... > 254bbb8...) shadowed the
+genuinely newer clean receipts. Fixed inside the same maintenance window:
+newest passing receipt is now `max()` by `recorded_at`/`finished_at`. Two
+discriminating tests added (both stash-verified to fail on the old code):
+an old dirty receipt sorting late must not create a false red over a newer
+clean receipt, and an old clean receipt sorting late must not mask a newer
+proof-less receipt (false green — the dangerous direction). Suites green:
+validator 95, gate 134, monitored-runner 25. Validator now names exactly
+the two deferred Ray-suite receipts (p2/p7). Mode restored to
+implementation.
+
+
+## Phase 8 notes 2026-08-03 (fold-in)
+
+- Stage B gate PASSED: whole-branch checkpoint/restore with three-way
+  full-signature equality (A=A'=B, two seeds), RNG stream continuity
+  proven by a divergence discriminator (naive re-seed control visibly
+  diverges; proper restore matches byte-for-byte), and distributed
+  interrupted-resume byte-equal to the uninterrupted run with live RNG
+  draws crossing the worker boundary through the blob.
+- Upstream repairs entirely through public API: ListMemory.set_state
+  re-points its bank at the argument list (refill the original handle and
+  hand it back); EntityAgent.set_state swallows component exceptions, so
+  restore_branch enforces post-restore get_state() byte-equality
+  (canonicalized stored_hashes) as the only trusted success signal.
+- Restore requires behaviorally prompt-pure models (model internals are
+  never serialized) -- documented in checkpoint.py, enforced structurally
+  in the checkpoint suite's model spec.
+- Fold-in items closed: p2/p7 Ray-suite receipts re-recorded clean
+  (p7 with path-labeled config hashes after the batch-ordering effect --
+  a receipt recorded mid-batch sees earlier receipts as untracked and
+  loses worktree_clean; commit between records or carry hashes); the
+  worker-RNG distributed equivalence proof (finding D5) landed as
+  test_worker_rng_equivalence.py with non-vacuity assertions.
+- Known pre-existing issue (reported by the phase-8 writer, reproduced at
+  db41689 pre-phase): engine-env `pytest tests/engine_contracts
+  tests/engine_distributed` in ONE session fails via frozen Ray env
+  snapshot + worker registry cache when the distributed suite adopts the
+  contracts suite's workspace; DoD-ordered command avoids it. Candidate
+  for the operational-robustness matrix, not a product defect.
+
+## Guard hardening notes 2026-08-03 (findings 6+7 closed)
+
+- Unresolved-subject policy: pronoun/collective subjects that cannot be
+  resolved to a roster name conservatively bind every non-active roster
+  actor (each receives an availability sentence) -- errs toward agency
+  preservation; verbose on large rosters by design.
+- Reference resolution is deterministic and gender-blind: singular
+  pronouns bind the nearest preceding roster name; bare "they" binds the
+  distinct preceding roster names with an all-non-active fallback.
+- Documented residuals (guard docstring): second-person/"it" subjects,
+  do-support emphatics, bare-modal futures, pronoun-possessive
+  nominalizations, collective possessives, multi-comma asides; asyndetic
+  serial-verb tails over-rewrite in the recoverable direction. Stateless
+  nominal trade-off: references to genuinely past acts are
+  indistinguishable from invented ones without history and are
+  conservatively rewritten.
+- Hardcoding-guard allowlist mechanism upgraded during the sanctioned
+  remedy: whole-file skips replaced by per-file word allowances (files
+  stay scanned for every other word), with an exactness test rejecting
+  broad/stale/empty entries. guard.py's allowance is exactly
+  {vote, voting}; "committee" was deliberately left off the guard's
+  group-noun list to keep it that narrow.
+
+## Hook maintenance 2026-08-03 (#5) -- engine DoD battery becomes monitored
+
+Trigger: the "engine DoD baseline before changes" incident. The
+compiler-adapter subagent's baseline command (bare foreground 5-suite
+engine pytest, `... -q 2>&1 | tail -5`) was REJECTED by the permission
+layer at 12:25:40Z before any process spawned; the subagent paused
+awaiting direction and sat idle 4h20m. Externally this read as a job
+running four hours without progress; in fact there was never a PID, no
+BACKGROUND_JOBS entry, no heartbeat, no log -- and therefore also nothing
+that could prove the negative. Ledgered as
+`silent-agent-pause-plus-unmonitored-long-suite`.
+
+General cause: `_LONG_RUNNING_PATTERNS` classifies long jobs by semantic
+class (corpus/scale/load/bench/many-agent/frozen-acceptance); a
+multi-suite engine pytest battery matched none of them, so
+`requires_monitored_runner()` let it run as bare unbounded foreground
+Bash with no observability. Rule 5's "long test" intent did not cover the
+run the phases actually use as their DoD.
+
+Fix (smallest general): `long_running_reason` now classifies a pytest
+invocation naming two or more distinct `tests/engine_*` directories as a
+"multi-suite engine test battery" (monitored runner required). Bounded
+evidence runs stay legal: `record_receipt.py --run` with an explicit
+`--timeout` is exempt per shell segment (the tool kills its child at the
+timeout; its default is None, so the flag is mandatory for the
+exemption). Single-suite pytest and file-level iteration stay direct.
+Four regression tests added (battery denied incl. the exact incident
+shape and env-prefixed form; single-suite allowed; monitored/bounded
+receipt forms allowed; per-segment smuggling and timeout-less receipt
+runs denied). Suites: gate 138, validator 95, monitored-runner 25 -- all
+green. Mode restored to implementation.
+
+Operational protocol change (non-hook): when the lead launches a writer
+subagent it arms a `send_later` liveness check-in (~45 min) and verifies
+the agent's transcript is advancing when it fires, because a
+permission-paused subagent emits no completion signal. Recorded in
+HANDOFF.md.
+
+## Compiler-adapter notes 2026-08-03 (task complete; lead dispositions)
+
+- Contract-expressiveness finding: the compiler schema permits a starting
+  event with EMPTY visible_to (observer-less ledger fact); frozen
+  StartingEvent requires >=1 observer. Disposition: the adapter's loud
+  refusal STANDS. No frozen fixture or acceptance scenario needs
+  observer-less pre-start facts; if one ever does, that is a
+  contract-version change decided then, not a silent widening now.
+- The compile question has no CompiledDecisionWorld slot. Disposition:
+  identity-hash + provenance + sidecar treatment ACCEPTED as the
+  permanent Stage-A/B answer; DecisionProblem is the question's semantic
+  home. Canary-proven never to reach prompts. Revisit only if a future
+  contract version is opened for other reasons.
+- Undecodable actor names (empty slug / non-letter-leading) are refused,
+  not fabricated -- deliberate divergence from legacy scene_adapter.slug
+  under the no-invented-identities rule. ACCEPTED.
+- Route surface (prepare_decision_inputs / build_user_candidates /
+  generate_candidates + one-fixed-schema generator, duck-typed
+  sample_text seam, exactly one call per generation) is the Phase 9
+  entry seam.
+
+## Phase 9 notes 2026-08-03 (individual vertical slice complete)
+
+- reporting/common.py is a third module beyond the directive's two named
+  files (shared canonical serialization) -- sanctioned by the directive's
+  "cleaner structure" clause; responsibilities stay separated.
+- The frozen contract embedded by the report document is
+  RecommendationResult (computed only via outcomes.rank_branches); the
+  report round-trips every embedded contract through strict from_dict/
+  content_hash. Design note, not a gap: full BranchResult dicts are NOT
+  embedded because content_hash covers wall-clock runtime_stats; the
+  report embeds the deterministic evaluation core and documents the
+  exclusion. BranchResult remains the contract of record.
+- Evaluator predicates for the slice are attribution-anchored (require
+  the resolved-actor-turn wrapper), which is what defeats GM-narration
+  satisfaction of success criteria; recorded as the pattern for Phase 10
+  team predicates.
+- Live smoke: requested deepseek-chat; endpoint serves deepseek-v4-flash.
+  Retry-once policy with LIVE_ENDPOINT_UNREACHABLE infrastructure-error
+  distinction. openai 2.52.0 was already in the engine env.
+- Monitored DoD job ran pre-commit (exploratory, dirty tree); the
+  SHA-exact clean-tree proof is the receipt battery at the completion
+  commit. This ordering (monitored battery -> commit -> bounded receipt
+  battery at clean HEAD) is the accepted per-phase pattern.
+
+## Phase 10 notes 2026-08-03 (team vertical slice complete)
+
+- Every gate-D clause was expressible through EXISTING configuration:
+  meeting = plan defaults (fixed acting order, notify_observers) with the
+  scripted GM answering the observer question with the full roster;
+  private follow-ups = GM observer-subset answers keyed to turn-unique
+  needles (sound because the aware-question prompt carries only the
+  current event text in this build); authority = attribution-anchored
+  evaluator predicates keyed to the fixture's authority holder (the
+  Phase 9 pattern), proven by an identical-utterance flip probe. No
+  surgical concordia_local addition was needed.
+- Mechanical note for future team scenarios (and reviewers): a branch's
+  FINAL-step event is queued to observers but never delivered (the run
+  ends before the next fan-out) -- last-step turns exist in the world
+  record but reach no actor memory. Team assertions must be designed
+  around delivered steps.
+- Phase-5 receipt re-recorded at the current HEAD: the content-continuity
+  check correctly flagged that guard.py changed after phase-5's receipt
+  -- the change is the SANCTIONED guard hardening (a4112f6, its own
+  completed task). New receipt hashes the hardened guard.py + its test
+  file; the guard+builder suites pass with the hardened content.
+
+## Phase 11 notes 2026-08-03 (societal infrastructure proof complete)
+
+- The 600s Bash ceiling made partition-chunked monitored jobs the design:
+  4x250 agents x 2 segments with a declared tick-6 checkpoint boundary,
+  segment B resuming in a fresh process + fresh Ray runtime from
+  persisted workspaces + a spec-hash-bound driver checkpoint. The
+  chunking IS the partitions/checkpoint-resume/aggregation demonstration,
+  not a workaround.
+- run_monitored semantics observation (documented, no hook change
+  needed): progress_source records the most recent signal per poll, so a
+  trailing stdout write can leave it at log_movement even when
+  completed_units advanced; durable strong-progress evidence is the
+  completed_units field, which the verification tier asserts.
+- Raw run roots retained outside the repo at /home/user/scale_runs/
+  phase11/ for post-hoc inspection; durable evidence committed under
+  tests/engine_scale/evidence/ (52 files, sha256 manifest).
+- No substrate defects at scale: per-agent failure isolation held at
+  250-agent partitions; 4-digit agent ids safe.
+
+## Phases 8-11 adversarial review 2026-08-03 -- verdicts and dispositions
+
+Reviewer verdicts: D1 checkpoint holds-with-findings; D2 guard
+holds-with-findings; D3 adapter HOLDS (no silent-discard input could be
+crafted); D4 slice evidence holds-with-findings; D5 scale evidence HOLDS
+(52/52 hashes reverified); D6 hygiene holds-with-findings. Nine-suite
+battery independently reproduced at 235. Gate H: 6 clauses confirmed, 2
+refuted by F1.
+
+- F1 (HIGH, blocks freeze): `Name:` / `Name --` attribution -- upstream
+  EventResolution's own separators -- evades the guard's
+  whitespace-adjacent subject detector, and the slice evaluators'
+  "attribution anchors" accept substring co-occurrence anywhere in a row.
+  One actor can cast another's reply/vote/veto and have it counted.
+  DISPOSITION: FIX (in flight): guard treats colon/dash as
+  subject-attribution boundaries for non-active roster names (active
+  player's own leading attribution passes); evaluator anchors bind to the
+  row's OWN leading attribution == the predicate-named actor;
+  discriminating tests reproduce all reviewer probes both directions;
+  guard-hashing receipts re-recorded. Committed example artifacts must
+  stay byte-identical (scripted runs contain no proxy forms).
+- F2 (LOW): checkpoint stored_hashes canonicalization inert against
+  current objects and untested. DISPOSITION: unit test added with the F1
+  fix (permutation-identity + passthrough); the defensive branch stays.
+- F3 (MEDIUM): validator FAIL at HEAD is the documented one-commit
+  master-receipt staleness. DISPOSITION: mechanical; the Phase 12 freeze
+  sequence ends with the master receipt re-recorded at the frozen SHA so
+  the validator PASSES at the SHA being adjudicated.
+- F4 (LOW): big-run scale reconciliation trusts committed self-attested
+  equality fields (raw unit ledgers live outside the repo); the
+  reconciliation CODE path has live small-N negative controls and the
+  rollup chain is recomputed from committed summaries. DISPOSITION:
+  accepted two-tier design, disclosed here and in the evidence doc.
+
+## Gate I notes 2026-08-03 (robustness matrix complete; finding dispositions)
+
+- G1 (matrix row 11): no in-branch model-call timeout seam for injected
+  engine models; a hung model call is bounded ONLY by the mandatory
+  monitored-runner layer (rule 5), which the matrix proves kills the
+  hang (exit 125, no survivors). DISPOSITION: ACCEPTED for this pass --
+  the outer bound is real and mandatory; adding an inner seam is a
+  post-acceptance improvement. The matrix pins the current seam surface
+  by signature assertion so any future seam forces a matrix rewrite.
+- F-R1 (row 14, low): the driver-channel error for a corrupted workspace
+  file is a raw JSONDecodeError repr naming the agent, not the file --
+  upstream pinned agentsociety2 behavior; the workspace-side structured
+  artifact names the file. DISPOSITION: ACCEPTED (disclosed; upstream
+  untouched by policy).
+- L1 (row 12): no engine-side size cap on injected model output; live
+  path bounded by transport (4MB/max_tokens). DISPOSITION: ACCEPTED for
+  scripted/deterministic paths; noted in KNOWN_LIMITATIONS for the docs
+  phase.
+- Clean-install evidence doubles as gate-A "reproducible from a clean
+  environment" (23.3s warm-cache, 151 packages, versions match the
+  phase-0 freeze).
+
+## Gate J notes 2026-08-03 (documentation complete; stale plan-era docs)
+
+- Nine docs landed at b1bc347; RUNBOOK verified by executing its own
+  worked examples (a standalone-script sys.path drift found and fixed
+  during verification -- the committed snippet is self-contained).
+- Doc-vs-code discrepancies recorded (older docs deliberately unedited;
+  the code and the new as-built docs win): OWNERSHIP_MAP /
+  INTEGRATION_PLAN Phase 8 / CONTRACTS_DESIGN describe a
+  make_checkpoint_data()-based checkpoint -- as built, checkpoint.py
+  uses the public component get_state()/set_state() API with the same
+  payload shape (prefab-wrapper-only upstream helpers; rationale in
+  FINAL_ARCHITECTURE section 4). INTEGRATION_PLAN Phase 7 plans an
+  EnvBase module + hand-written custom agent -- as built, env=None and
+  the agent is materialized from branch_agent_template.py (the plan's
+  own findings addendum superseded it). OWNERSHIP_AND_REPLACEMENT_MAP
+  reachability status "PENDING implementation" predates the proofs that
+  now exist.
+
+## Hook maintenance #5 -- 2026-08-04 (continuation-guarantee sentinel)
+
+Reason: the spoof-fix worker died silently mid-turn at 23:32:51Z (no
+SubagentStop, no notification, no processes); the session idled ~40 min
+bounded only by the lead's manually armed one-shot wakeup. FAILURE_LEDGER
+category worker_silent_death. General correction (smallest that closes the
+class): while acceptance is incomplete, every lead turn-end must have an
+unexpired continuation armed -- enforced by the Stop hook, surfaced by
+SessionStart, checked by the validator, recorded via a new
+arm_continuation.py tool writing .agent-run/CONTINUATION.json. Regression
+test proves the pre-fix dispatcher allowed an idle stop with nothing armed.
+
+Outcome of hook maintenance #5: continuation sentinel landed. Regression
+proof: the 10 new tests failed 7/10 against the pre-fix dispatcher (the
+three passers are the vacuous directions) and pass 10/10 after; full gate
+suite 148 passed + 95 subtests; monitored-runner 25; validator suite green
+with the new continuation_armed check (6 new validator tests). New tool
+.claude/tools/arm_continuation.py writes .agent-run/CONTINUATION.json;
+Stop blocks unarmed idle turn-ends in implementation/frozen_acceptance
+until acceptance is PASS; SessionStart surfaces the window; HANDOFF.md
+protocol updated. The spoof-fix worker was resumed from its transcript
+(SendMessage) and is actively editing production again -- the transient
+phase_receipt_discipline failure it causes mid-task resolves when it
+re-records receipts at its completion commit per its brief.
+
+## Reviewer-role wave 1 closed 2026-08-04 (fixes at c34ade6)
+
+- CRITICAL (Simulation Reality, anchor-spoofing narration): closed by
+  reserved-marker refusal -- RESERVED_EVENT_MARKER defined once in
+  planner.py (cites upstream event_resolution.py framing); refusal at the
+  planner chokepoint (shared_context, private_context, starting-event
+  descriptions, neutral premise) and the candidate belt (manager preflight
+  + decision_route user/generated candidates); case-insensitive,
+  whitespace-collapsed matching; collect-all typed ContractValidationError
+  code reserved_marker naming marker+field+index; no silent stripping;
+  contracts/guard/builder/runner untouched. Helper first-occurrence anchor
+  parsing proven sound post-fix (engine stamps first; embedded copies
+  guard-rewritten and shadowed). Reviewer reproductions flipped from
+  success to refusal; 15 discriminating tests verified failing pre-fix.
+- M1 (Best-Action reviewer): declared-order re-validation now pinned by
+  two tests verified by ACTUAL MUTATION of validation.py:342-367 (block
+  replaced with pass -> both fail; restored byte-identical, sha256 equal).
+- Upstream auditor L1/L2: matrix row-1 durable evidence pointers;
+  component map fourth honest note (inherited underscore members with
+  upstream-idiom mitigation). L3 (latent _resolve_chain private-callable
+  gap): ACCEPTED -- vacuous at the pin (zero private callables upstream,
+  checkouts write-blocked); becomes real only on a future re-pin.
+- Best-Action L2 (worker-internal-only leak residual): ACCEPTED --
+  signature equivalence + strict scripted models bound it; disclosed.
+  L3 + RNG observation: disclosed in KNOWN_LIMITATIONS section 4.
+- Battery at c34ade6: 300 passed (284 + 16 new). Slices re-verified
+  independently by the lead: 51 passed at 5c7b632.
+
+## Simulation Reality re-verdict 2026-08-04 (at 0aa5b7a)
+
+Original reproductions re-run by the finding reviewer: both REFUSED at plan
+build (collect-all reserved_marker errors), previously-forged success now
+unreachable. Seven fresh evasions attempted (zero-width space, fullwidth
+colon, Cyrillic homoglyph, marker split across events, marker in candidate
+constraint/action, runtime actor emitting the exact marker): none spoofs a
+metric end-to-end -- refused where the parser could honor the form, INERT
+where it slips (byte-exact downstream parse fails; guard + first-occurrence
+shadow covers the runtime-actor channel). Verdicts: both F1-era gate-H
+clauses RESTORED; gate H can pass at the freeze from this role's scope.
+
+LOW (latent coupling, accepted): the refusal normalizes case/whitespace
+while the downstream anchor parser is byte-exact -- obfuscated forms that
+slip the refusal are inert ONLY because of that exactness. INVARIANT: the
+refusal matcher must always match a SUPERSET of what leading_attribution
+recognizes; never "harden" the parser's normalization without widening the
+refusal in lockstep. Pinned by
+test_production_marker_constant_matches_the_suite_anchor.
+
+## Reviewer wave 2 verdicts 2026-08-04 (three reports + re-verdict)
+
+- AgentSociety Scale: gate G CAN PASS. MEDIUM-1 (scale evidence provenance:
+  dirty worktree at a SHA lacking the harness) closed at 180caa3 with a
+  committed caveat block in PHASE11_SCALE_EVIDENCE; MEDIUM-2 (resume
+  refusal guards never negatively exercised) closed at 180caa3 with four
+  negative-control tests (engine_scale now 20); LOW-1 same-process resume
+  test renamed honestly. LOW-2 (no 1000-scale in-worker overlap
+  measurement) and LOW-3 (F4 trust boundary) already disclosed/accepted.
+- Integration Reliability: gate F CAN PASS with conditions. HIGH-1 ==
+  scale MEDIUM-1 (closed). MEDIUM-1 (bare ray.remote inherits silent
+  max_retries=3; "exactly-once" phrasing overreach), MEDIUM-2 (executor
+  crash arm zero-coverage), MEDIUM-3 (run_dir guard TOCTOU + untested)
+  -> wave2-fix batch. LOW-1 (idle-point kill) and LOW-4 (model purity
+  unverifiable at restore) disclosed by the matrix/checkpoint docs.
+  LOW-2: /tmp/ray session-dir accumulation -- freeze prep will clean.
+  LOW-3: phase11-system-suite failed job record (exit 1, artifacts
+  gitignored-gone) DISPOSITION: that run was the class instance of the
+  master-receipt staleness reproduced and fixed per the receipt
+  protocol; the passing phase11-final-dod + system reruns at later SHAs
+  supersede it. Also corrected reviewer-brief naming: the crash test is
+  test_ray_worker_failure.py and the typed error is
+  ray.exceptions.WorkerCrashedError.
+- Concordia Semantics: gate B CAN PASS; gate C BLOCKED by a NEW CRITICAL
+  (putative-row leak, runner.py substring filter admits unguarded
+  [putative_event] rows when actor text embeds the literal [event]
+  bracket; end-to-end success with silent recipient). Supersedes the
+  Simulation Reality re-verdict's runtime-actor-channel claim -- that
+  re-verdict's INERT finding for the marker-only actor channel remains
+  true; the [event]-bracket vector was outside its probe set. Fix in
+  flight (wave2-fix): prefix-based committed-stream discrimination.
+  LOW (Instructions component omitted vs canonical prefabs -- deliberate
+  minimal-actor choice) and LOW (get_state symmetric-omission blind spot
+  bounded by the Stage-B equivalence gate) recorded as disclosures.
+
+## Wave-2 fix batch closed 2026-08-04 (e575b85; receipts b4069b5)
+
+- CRITICAL (putative-row leak) closed: committed stream now defined by
+  engine-stamp PREFIX (is_engine_committed_row: strip one
+  '[observation] ' framing, body must start '[event]' + separator;
+  '[putative_event]'-prefixed rows never commit). Reviewer probes
+  flipped (success -> cutoff, zero spoof citations); import-time
+  pin-sanity assertion refuses prefix-confusable tags on re-pin.
+- DISCOVERED during the fix (worker-reported): a worse sibling vector --
+  actor text embedding '\n\n\n[event] ...' is split by
+  ObservationToMemory into a MINTED row byte-identical to a genuine
+  committed row (post-hoc shape discrimination provably impossible).
+  Closed in-owner at the runner with a count-structure invariant
+  (_verify_committed_stream_integrity: putative-shaped rows == actor
+  turns, committed-shaped rows == baseline + turns; violation raises
+  typed CommittedStreamIntegrityError failing the branch loudly through
+  the existing failure channels; benign multiline text untagged ->
+  uncounted). LEAD DECISION: the runner-level count invariant is the
+  accepted architecture for this pass -- an observe-boundary capture in
+  builder.py would be a broader change during endgame; revisit
+  post-acceptance if ever needed.
+- Integration MEDIUMs closed: executor submits with
+  .options(max_retries=0) (fail-loud-once, aligned with
+  reported-never-hidden; docstring + matrix row 13 rephrased honestly);
+  executor-level worker-crash test (discrimination proven by TWO run
+  mutations: deleted harvest arm -> fail, removed retries pin -> Ray
+  silently heals -> fail); atomic run_dir claim (mkdir exist_ok=False ->
+  typed refusal) + reuse-refusal tests with byte-level no-overwrite
+  proof.
+- Battery wave2-fix-dod: 315 passed (304+11). Lead re-verified
+  engine_individual+engine_distributed independently at b4069b5 (44).
+- LEAD DISPOSITIONS of the worker's handoff items: (1) DeepSeek 503s
+  (~01:50Z onward) coin-flip the LEGACY live test
+  tests/test_llm_phase_b.py::test_live_deepseek_actor (no client
+  retries; unchanged legacy file) -- freeze protocol: probe provider
+  health before the system-suite acceptance leg; a 503-class failure
+  there is external-transient, verified by an immediate single-test
+  rerun; persistent failure blocks. The engine live smoke (the actual
+  gate evidence) has client-side retries and stayed green. (2) The
+  evaluate_branches wholesale-raise on pre-runner failure shapes is a
+  pre-existing documented API contract (failures are consumed at the
+  BranchResult layer everywhere); disclosed in KNOWN_LIMITATIONS now.
+  (3) Split-vector architecture: decided above.
+
+## Concordia Semantics re-verdict 2026-08-04 (fix verified at e575b85)
+
+Finder re-ran all four probes: e2e spoof CLOSED (cutoff, metrics False,
+leaked row gone), control pair identical, event-tag probe clean, split
+vector REFUSED with exact counts. Seven fresh evasions 0/7 spoofed
+(incl. double-frame, no-space tag, decoy rebalance, leading-split);
+three false-positive probes 0/3 spurious refusals; manager-level
+poisoned branch fails gracefully (typed error in infrastructure_errors,
+no outcome_metrics, sibling survives). Checklist item 5 FAIL -> PASS;
+gate C CAN PASS at the freeze. LOW (pre-existing evaluate_branches
+wholesale-raise on infra-failed branches) already disclosed in
+KNOWN_LIMITATIONS at 43285d5 -- confirmed pre-existing by the reviewer
+via a RaisingModel reproduction predating this fix.
+
+## All six reviewer roles final verdicts (pre-freeze)
+
+A upstream integrity: CAN PASS (Upstream Preservation Auditor).
+B stock baseline: CAN PASS (Concordia Semantics).
+C individual slice: CAN PASS (Concordia Semantics re-verdict).
+E counterfactual correctness: CAN PASS (Best-Action reviewer; M1 closed).
+F distributed equivalence/failure evidence: CAN PASS (Integration
+  Reliability; MEDIUMs closed at e575b85).
+G scale infrastructure: CAN PASS (AgentSociety Scale; MEDIUMs closed at
+  180caa3).
+H simulation semantics: CAN PASS (Simulation Reality re-verdict at
+  0aa5b7a; runtime-actor channel further hardened at e575b85).
+Adversarial-review-cycle task complete: two receipts (c34ade6 batch,
+e575b85 batch), six written role reports, two re-verification reports,
+every CRITICAL/HIGH/MEDIUM closed with discriminating tests, every LOW
+dispositioned in this log.
+
+## Legacy-live leg adjudication 2026-08-04 (frozen acceptance)
+
+ADJUDICATED EXTERNAL-TRANSIENT per the pre-freeze protocol. Record:
+DeepSeek flapped 200/503 at sub-minute granularity 02:37-03:03Z (probe
+timeline in the watchdog report; lead probes 503/503/200 at 03:03Z).
+The system-suite leg and the sanctioned immediate rerun both hit 503s
+mid-flap through the product's clean LLMUnavailable path; the engine
+live smoke -- the actual gate-C live evidence -- ran 10 green live
+executions in the phase12-frozen-battery-retry job at the same SHA.
+Stable-window re-leg (3/3 probes 200 at 03:18Z): monitored job
+phase12-legacy-live-releg, classification frozen_acceptance, exit 0,
+4 passed, 9.0s. No code, fixture, prompt, or evaluator changed at any
+point (frozen mode held throughout; validator no_production_changes
+green vs frozen_sha). The failure signature was exclusively
+provider-side; the acceptance evidence is unambiguous.
+
+## FINAL ADJUDICATION 2026-08-04: PASS
+
+Verdict PASS at frozen_sha 03886b7 (evidence e19b73a, re-leg 96b6476,
+adjudicated at 39ea1ac). All ten gates verified on artifacts; independent
+re-execution by the adjudicator (64 engine tests incl. both CRITICAL
+closures and live smokes, 148 gate tests + 95 subtests, 30/30/30 seed
+sweep); all seven directive completion categories cleared item by item;
+honesty bar uncontradicted. Advisories (non-blocking, recorded for any
+future run): (1) receipt the seed sweep next time; (2) exclude
+.agent-run/ from run_monitored frozen-integrity cleanliness or record
+dirty paths; (3) master receipt re-recorded at the completion SHA per
+protocol; (4) completion flow executed exactly as the verdict directed.

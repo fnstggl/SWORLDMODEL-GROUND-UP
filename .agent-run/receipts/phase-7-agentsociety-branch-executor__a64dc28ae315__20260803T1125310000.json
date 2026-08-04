@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-7-agentsociety-branch-executor",
+  "git_sha": "a64dc28ae31515d1ed58ab53a361ef24f7f8381f",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T11:24:09+00:00",
+  "finished_at": "2026-08-03T11:25:31+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "sworldmodel/backends/agentsociety/__init__.py": "eadb8f71e066bb432c51fce1857336726ca2b7c6b123c299261c14503891ff44",
+    "sworldmodel/backends/agentsociety/branch_agent_template.py": "e5baf0280947e1a20384a8f3a490581bf37874369dc006dff18f2d774493e967",
+    "sworldmodel/backends/agentsociety/branch_executor.py": "5f12503600e6d97f83dd980ed104dd6dcee4dfab03ac311ab878f62ef152531f",
+    "tests/engine_distributed/distributed_model_specs.py": "aa43e73ea4ee06e94a27f5d185ffe04889950352d456fd14c516ec714a2e44db",
+    "tests/engine_distributed/distributed_helpers.py": "c78107a1233b587c9429800dd864df9fec20ea2b48e41bfe86e9a416e35c8a03",
+    "tests/engine_distributed/test_stage_a_equivalence.py": "31f1b6641b765288272015dfc4f037952c5dc17a564af2edea160dfc3c0efeae",
+    "tests/engine_distributed/test_worker_rng_equivalence.py": "f1f91c1a220946379f498e17e742ede8c5f1bc9e32d30bc26dab10fe200eef99"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T11:25:31+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 66%]\n....................................                                     [100%]\n108 passed in 78.54s (0:01:18)\n"
+}

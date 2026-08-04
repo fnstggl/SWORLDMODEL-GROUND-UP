@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "agency-guard-hardening",
+  "git_sha": "1f8404baa837edcb97f4c5e16640a42c79c1f691",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_scale tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T20:47:52+00:00",
+  "finished_at": "2026-08-03T20:50:03+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "sworldmodel/backends/concordia_local/guard.py": "0eab5aca8ef848ba2aefb527d228d5df6b35e0e2e9b4a598bb81fbcd48fbb5c6",
+    "tests/engine_baseline/test_agency_guard.py": "25a60ad54460135a10d7a61547ef67ec17f940c35d2a7e5bf4b165581289b514"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T20:50:03+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 28%]\n........................................................................ [ 56%]\n........................................................................ [ 85%]\n......................................                                   [100%]\n254 passed in 129.47s (0:02:09)\n"
+}

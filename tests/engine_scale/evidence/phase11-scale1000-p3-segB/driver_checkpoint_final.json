@@ -1,0 +1,15 @@
+{
+  "failed_agents": {
+    "3014": {
+      "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_3014_tick_11')",
+      "tick": 11
+    }
+  },
+  "last_completed_tick": 12,
+  "next_tick": 13,
+  "partition_id": "p3",
+  "schema_version": 1,
+  "spec_sha256": "232bbb8f0642ec71cd0736467cfb732df55e2ec37ab61a4869bfcd2d128040a4",
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "unix": 1785785246.0282617
+}

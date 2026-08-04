@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-3-decision-and-branch-contracts",
+  "git_sha": "9e7609daf8eba3ea6d3374903703f4073b564bc4",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests -q",
+  "exit_code": 0,
+  "started_at": "2026-08-03T07:20:15+00:00",
+  "finished_at": "2026-08-03T07:21:18+00:00",
+  "artifact_paths": [
+    "sworldmodel/decision/contracts.py",
+    "sworldmodel/decision/registry.py",
+    "sworldmodel/decision/validation.py",
+    "sworldmodel/decision/fixture_loader.py"
+  ],
+  "configuration_hashes": {
+    "contracts": "c5c42ab0bfff8212b9ab1d51c1bda971857984bb638c28a33fb78d426c59c3f0",
+    "validation": "cd4e7c10c854dcc01ca13786888bc89d8b3009962c06d928659e5d8685a90678",
+    "fixture_loader": "8ae1fadb3d41da919ab2de6d718591fffcb9a9ad969600fb05e53531f7b28680"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T07:21:18+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "............................ [  4%]\n................................................................................................. [ 18%]\n......................................................................................................... [ 34%]\n................................................. [ 42%]\n........................................................................ [ 52%]\n........................................................................ [ 63%]\n........................................................................ [ 74%]\n........................................................................ [ 85%]\n........................................................................ [ 96%]\n.........................                                                [100%]\n664 passed, 7 skipped, 225 subtests passed in 62.55s (0:01:02)\n"
+}

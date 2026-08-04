@@ -208,6 +208,52 @@ class TestPreToolUse(GateTestCase):
         self.assert_denied(self.gate(edit_event("vendor/concordia/engine.py")), "upstream")
         self.assert_denied(self.gate(edit_event("vendor/agentsociety/sim/core.py")), "upstream")
 
+    def test_external_upstream_checkout_write_blocked_in_every_mode(self):
+        """Pinned checkouts OUTSIDE the repo are inviolable too.
+
+        Regression for the adversarial-review HIGH finding: the real engine
+        checkouts classified as 'external', which no mode blocks, so an
+        editable-install source edit produced no repo diff and fired no hook.
+        """
+        import tempfile
+        checkout = tempfile.mkdtemp(prefix="fake-upstream-")
+        self.addCleanup(lambda: __import__("shutil").rmtree(checkout, ignore_errors=True))
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED",
+            "repositories": [
+                {"name": "concordia", "local_checkout": checkout,
+                 "baseline_sha_at_initialization": "abc123"}
+            ],
+            "protected_paths": [],
+        })
+        for mode in ("implementation", "frozen_acceptance"):
+            with self.subTest(mode=mode):
+                if mode == "frozen_acceptance":
+                    self.project.set_mode(mode, frozen_sha="deadbeef")
+                else:
+                    self.project.set_mode(mode)
+                self.assert_denied(
+                    self.gate(edit_event(f"{checkout}/concordia/engine.py")), "upstream")
+        # No over-blocking: an unrelated external path stays allowed.
+        self.project.set_mode("implementation")
+        self.assert_allowed(self.gate(edit_event("/tmp/unrelated-scratch.txt")))
+
+    def test_audit_exempt_protected_path_still_blocked_for_writes(self):
+        """audit_exempt affects only the validator's branch-diff audit."""
+        self.project.set_mode("implementation")
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED", "repositories": [],
+            "protected_paths": [{"path": "third_party/LOCK.json", "audit_exempt": True}],
+        })
+        self.assert_denied(self.gate(edit_event("third_party/LOCK.json")), "upstream")
+
+    def test_frozen_acceptance_blocks_test_edits(self):
+        """Tests (including tests/fixtures/**) are frozen during acceptance."""
+        self.project.set_mode("frozen_acceptance", frozen_sha="deadbeef")
+        self.assert_denied(self.gate(edit_event("tests/test_semantics.py")), "frozen")
+        self.assert_denied(
+            self.gate(edit_event("tests/fixtures/best_action/individual_reply.yaml")), "frozen")
+
     def test_hook_control_edit_blocked_outside_maintenance_modes(self):
         self.project.set_mode("implementation")
         self.assert_denied(self.gate(edit_event(".claude/hooks/gate.py")), "hook-control")
@@ -242,6 +288,61 @@ class TestPreToolUse(GateTestCase):
                         "pytest tests/ --load-test"):
             with self.subTest(command=command):
                 self.assert_denied(self.gate(bash_event(command)), "run_monitored.py")
+
+    def test_multi_engine_suite_battery_requires_monitor(self):
+        """Regression for the silent-agent-pause incident: the engine DoD
+        battery ran as bare foreground pytest with no registry entry,
+        heartbeat, progress, or timeout. Two or more distinct engine suite
+        directories in one pytest invocation now require the monitor."""
+        self.project.set_mode("implementation")
+        dod = ("/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint "
+               "tests/engine_distributed tests/engine_counterfactuals "
+               "tests/engine_baseline tests/engine_contracts -q")
+        self.assert_denied(self.gate(bash_event(dod)), "run_monitored.py")
+        self.assert_denied(self.gate(bash_event(
+            "pytest tests/engine_baseline tests/engine_contracts -q")), "run_monitored.py")
+        # The exact rejected incident shape (trailing pipe) is still caught.
+        self.assert_denied(self.gate(bash_event(dod + " 2>&1 | tail -5")), "run_monitored.py")
+        # env-prefixed form is still caught.
+        self.assert_denied(self.gate(bash_event(
+            "env RAY_DEDUP_LOGS=0 python3 -m pytest tests/engine_baseline "
+            "tests/engine_contracts -q")), "run_monitored.py")
+
+    def test_single_engine_suite_pytest_stays_direct(self):
+        """Quick iteration must not be taxed: one suite directory, or many
+        files within one suite, is not a battery."""
+        self.project.set_mode("implementation")
+        self.assert_allowed(self.gate(bash_event(
+            "/home/user/engine-env/bin/python -m pytest tests/engine_baseline -q")))
+        self.assert_allowed(self.gate(bash_event(
+            "pytest tests/engine_baseline/test_agency_guard.py "
+            "tests/engine_baseline/test_builder_contracts.py -q")))
+
+    def test_monitored_or_bounded_receipt_battery_allowed(self):
+        self.project.set_mode("implementation")
+        self.assert_allowed(self.gate(bash_event(
+            "python3 .claude/tools/run_monitored.py --job-id dod --classification "
+            "exploratory --no-progress-timeout 240 --total-timeout 480 -- "
+            "/home/user/engine-env/bin/python -m pytest tests/engine_baseline "
+            "tests/engine_contracts -q")))
+        # record_receipt --run with an explicit --timeout is bounded and
+        # evidence-producing; the receipt protocol wraps the battery.
+        self.assert_allowed(self.gate(bash_event(
+            "python3 .claude/tools/record_receipt.py --task-id t --timeout 600 --run -- "
+            "/home/user/engine-env/bin/python -m pytest tests/engine_baseline "
+            "tests/engine_contracts -q")))
+
+    def test_receipt_exemption_is_per_segment_and_needs_timeout(self):
+        self.project.set_mode("implementation")
+        # A bounded receipt run cannot smuggle a bare battery behind ';'.
+        self.assert_denied(self.gate(bash_event(
+            "python3 .claude/tools/record_receipt.py --task-id t --timeout 5 --run -- true; "
+            "pytest tests/engine_baseline tests/engine_contracts -q")), "run_monitored.py")
+        # record_receipt's --timeout default is None: without the flag the
+        # child is unbounded, so the exemption must not apply.
+        self.assert_denied(self.gate(bash_event(
+            "python3 .claude/tools/record_receipt.py --task-id t --run -- "
+            "python3 -m pytest tests/engine_baseline tests/engine_contracts -q")), "run_monitored.py")
 
     def test_shell_redirection_into_protected_path_blocked(self):
         self.project.set_mode("implementation")
@@ -800,6 +901,87 @@ class TestStop(GateTestCase):
         result = self.gate(stop_event())
         self.assertEqual(result.decision, "block")
         self.assertIn("overall", result.reason)
+
+
+class TestStopContinuationSentinel(GateTestCase):
+    """Regression for the worker_silent_death class (FAILURE_LEDGER 2026-08-04).
+
+    A worker died mid-turn with no SubagentStop event, no completion
+    notification, and no running processes; the session idled ~40 minutes,
+    bounded only by a manually scheduled wakeup. The corrected dispatcher
+    refuses to let a turn end in implementation/frozen_acceptance while
+    acceptance is incomplete unless an unexpired continuation wakeup is
+    armed in .agent-run/CONTINUATION.json — so a silent worker death can
+    never strand the run past a bounded, recorded deadline.
+    """
+
+    def setUp(self):
+        super().setUp()
+        self.project.set_mode("implementation")
+        self.project.set_acceptance(overall="IN_PROGRESS")
+
+    def test_idle_stop_without_armed_continuation_names_the_gap(self):
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("no continuation trigger is armed", result.reason)
+        self.assertIn("arm_continuation.py", result.reason)
+
+    def test_armed_continuation_silences_the_continuation_blocker(self):
+        self.project.arm_continuation(minutes=45)
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block",
+                         "incomplete acceptance still blocks the stop")
+        self.assertNotIn("arm_continuation.py", result.reason)
+
+    def test_expired_continuation_blocks_with_rearm_guidance(self):
+        self.project.arm_continuation(minutes=45, expired=True)
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("expired", result.reason)
+        self.assertIn("arm_continuation.py", result.reason)
+
+    def test_malformed_continuation_is_explicit(self):
+        self.project.write_raw("CONTINUATION.json", "{ not json")
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("CONTINUATION.json", result.reason)
+
+    def test_missing_armed_until_field_is_malformed_not_armed(self):
+        self.project.write_state("CONTINUATION.json", {"schema_version": 1, "reason": "x"})
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("CONTINUATION.json", result.reason)
+
+    def test_acceptance_pass_does_not_require_a_continuation(self):
+        self.project.set_acceptance(overall="PASS")
+        self.assertIsNone(self.gate(stop_event()).decision)
+
+    def test_frozen_acceptance_requires_a_continuation_too(self):
+        self.project.set_mode("frozen_acceptance")
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("arm_continuation.py", result.reason)
+
+
+class TestSessionStartContinuationLine(GateTestCase):
+    EVENT = {"hook_event_name": "SessionStart", "source": "startup", "session_id": "s1"}
+
+    def test_unarmed_continuation_is_surfaced_in_implementation(self):
+        self.project.set_mode("implementation")
+        context = self.gate(self.EVENT).additional_context
+        self.assertIn("CONTINUATION: NOT ARMED", context)
+        self.assertIn("arm_continuation.py", context)
+
+    def test_armed_continuation_is_reported_with_deadline_and_reason(self):
+        self.project.set_mode("implementation")
+        self.project.arm_continuation(minutes=45, reason="watching spoof-fix worker")
+        context = self.gate(self.EVENT).additional_context
+        self.assertIn("CONTINUATION: armed until", context)
+        self.assertIn("watching spoof-fix worker", context)
+
+    def test_bootstrap_mode_context_omits_the_continuation_line(self):
+        context = self.gate(self.EVENT).additional_context
+        self.assertNotIn("CONTINUATION:", context)
 
 
 # ---------------------------------------------------------------------------

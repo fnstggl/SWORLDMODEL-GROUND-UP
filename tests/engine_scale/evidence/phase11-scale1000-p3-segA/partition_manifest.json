@@ -1,0 +1,44 @@
+{
+  "agent_class": "ScaleUnitAgent",
+  "created_total": 250,
+  "created_unix": 1785785194.1463394,
+  "partition_id": "p3",
+  "schema_version": 1,
+  "spec": {
+    "agent_count": 250,
+    "batch_size": 5,
+    "delay_ticks": {},
+    "fail_at": {
+      "3014": 11
+    },
+    "first_agent_id": 3001,
+    "full_ticks": [],
+    "overlap_assert_tick": null,
+    "partition_id": "p3",
+    "probe_tick": 5,
+    "schema_version": 1,
+    "segments": {
+      "A": [
+        1,
+        6
+      ],
+      "B": [
+        7,
+        12
+      ]
+    },
+    "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+    "stride": 5,
+    "ticks_from": 1,
+    "ticks_to": 12,
+    "window": 4
+  },
+  "spec_sha256": "232bbb8f0642ec71cd0736467cfb732df55e2ec37ab61a4869bfcd2d128040a4",
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "units_root": "/home/user/scale_runs/phase11/p3/units",
+  "worker_probe": {
+    "agent_class": "ok",
+    "pid": 5731,
+    "workspace_env": "/home/user/scale_runs/phase11/p3"
+  }
+}

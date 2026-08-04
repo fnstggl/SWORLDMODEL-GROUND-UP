@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "generated": "2026-08-03",
+  "integration_method_doc": "third_party/INTEGRATION_METHOD.md",
+  "upstreams": [
+    {
+      "name": "concordia",
+      "repository": "https://github.com/google-deepmind/concordia",
+      "fork_repository": "https://github.com/fnstggl/concordia",
+      "pinned_commit_sha": "7779a4c9f96bad10816d88c54e4cb17d53ac5222",
+      "package": "gdm-concordia",
+      "package_version": "2.4.0",
+      "python_requires": ">=3.12",
+      "installation_method": "editable install from the pinned local checkout (/home/user/concordia); reproducible alternative: pip install git+https://github.com/fnstggl/concordia@<pinned_commit_sha>",
+      "integrity": "installed editable from the checkout at the pinned SHA; upstream source unmodified (git status clean at install; verified by gate A integrity check against the pinned checkout)",
+      "license": "Apache-2.0",
+      "license_file": "/home/user/concordia/LICENSE",
+      "date_imported": "2026-08-03",
+      "known_issues": [
+        "Upstream commit 1372a37 (present at the pinned HEAD, which is byte-identical to upstream main at audit time) adds ScriptedByEntityModel, whose required constructor args break the no-arg prefab enumeration used by examples/ tests (20 examples-only failures; core library green). We never enumerate prefabs package-wide."
+      ],
+      "upstream_equivalence": "pinned fork SHA verified equal to google-deepmind/concordia main HEAD via ls-remote (Phases 0-2 adversarial review)"
+    },
+    {
+      "name": "agentsociety2",
+      "repository": "https://github.com/tsinghua-fib-lab/agentsociety",
+      "fork_repository": "https://github.com/fnstggl/agentsociety2",
+      "pinned_commit_sha": "6e9fc2e79f89f65a3e3d0d7899e380f7394099be",
+      "package": "agentsociety2 (packages/agentsociety2)",
+      "package_version": "2.8.4",
+      "python_requires": ">=3.11,<3.14",
+      "installation_method": "editable install from the pinned local checkout subdirectory (/home/user/agentsociety2/packages/agentsociety2); reproducible alternative: pip install 'git+https://github.com/fnstggl/agentsociety2@<pinned_commit_sha>#subdirectory=packages/agentsociety2'",
+      "integrity": "installed editable from the checkout at the pinned SHA; upstream source unmodified",
+      "license": "Apache-2.0",
+      "license_file": "/home/user/agentsociety2/LICENSE",
+      "date_imported": "2026-08-03",
+      "environment_pins": [
+        "mcp>=1.13.1,<2  (upstream's floating lower bound resolves to mcp 2.x, which removed mcp.server.fastmcp and breaks import; the pin preserves upstream source unchanged)"
+      ],
+      "known_issues": [
+        "import agentsociety2 requires AGENTSOCIETY_LLM_API_KEY set at module import (dummy value is sufficient for offline use)"
+      ],
+      "upstream_equivalence": "pinned fork SHA verified equal to tsinghua-fib-lab/agentsociety main HEAD via ls-remote (Phases 0-2 adversarial review)"
+    }
+  ],
+  "environment": {
+    "python": "3.12.3 (/home/user/engine-env, created with uv venv --python /usr/bin/python3.12)",
+    "freeze": "docs/engine_migration/phase0_engine_env_freeze.txt",
+    "test_only_additions": [
+      "pytest",
+      "pytest-xdist",
+      "pytest-timeout",
+      "pytest-asyncio",
+      "anyio"
+    ]
+  },
+  "integrity_enforcement": "Continuous: validate_control_plane.py check 'upstream_checkouts_integrity' verifies each recorded local_checkout sits at its recorded SHA with zero modifications on every validator run; PreToolUse blocks writes into the checkouts in every mode (classify_path -> upstream_protected)."
+}

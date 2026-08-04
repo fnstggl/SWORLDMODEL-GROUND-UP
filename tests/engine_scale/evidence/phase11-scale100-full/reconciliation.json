@@ -1,0 +1,67 @@
+{
+  "aggregate_sha256": {
+    "action_ids_from_files": "bc2ee5bd52feb52b041d690fb9b33af522702fee8199479bba01c830cc0930b9",
+    "action_ids_from_ledger": "bc2ee5bd52feb52b041d690fb9b33af522702fee8199479bba01c830cc0930b9",
+    "equal": true
+  },
+  "batch_size": 4,
+  "concurrency_bound": 12,
+  "counts": {
+    "actions_total": 394,
+    "agents": 100,
+    "expected_actions_total": 394,
+    "failed_agents": [
+      7,
+      42,
+      87
+    ],
+    "ledger_ok_records": 394,
+    "per_tick_actions": {
+      "1": 100,
+      "10": 20,
+      "11": 20,
+      "12": 20,
+      "2": 100,
+      "3": 17,
+      "4": 20,
+      "5": 20,
+      "6": 20,
+      "7": 20,
+      "8": 17,
+      "9": 20
+    }
+  },
+  "driver_max_in_flight": 3,
+  "ok": true,
+  "overlap_by_tick": {
+    "1": {
+      "delay_s": 0.25,
+      "distinct_pids": 3,
+      "max_overlap": 4,
+      "n_windows": 100,
+      "span_s": 8.215291261672974
+    },
+    "2": {
+      "delay_s": 0.25,
+      "distinct_pids": 3,
+      "max_overlap": 12,
+      "n_windows": 100,
+      "span_s": 2.3412041664123535
+    }
+  },
+  "partition_id": "s100",
+  "schema_version": 1,
+  "sparse_probe": {
+    "event": "sparse_probe_result",
+    "inactive_count": 80,
+    "mismatched_ids": [],
+    "partition": "s100",
+    "tick": 5,
+    "unchanged": true,
+    "unix": 1785784988.3298223
+  },
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "unix": 1785784988.453921,
+  "violations": [],
+  "window": 3
+}

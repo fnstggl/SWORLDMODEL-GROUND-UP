@@ -89,6 +89,38 @@ def jobs_dir(root: Path | None = None) -> Path:
     return agent_run_dir(root) / "jobs"
 
 
+def continuation_path(root: Path | None = None) -> Path:
+    return agent_run_dir(root) / "CONTINUATION.json"
+
+
+def continuation_status(root: Path | None = None) -> tuple[str, str | None]:
+    """Classify the continuation sentinel (worker_silent_death correction).
+
+    Returns ``(word, detail)`` where word is one of ``armed`` / ``unarmed`` /
+    ``expired`` / ``malformed``. While acceptance is incomplete, every idle
+    wait must be bounded by an armed wakeup recorded here; a worker that dies
+    silently then strands the run no longer than the recorded deadline.
+    """
+    path = continuation_path(root)
+    try:
+        cont = read_json(path, required=False, default=None)
+    except StateError as exc:
+        return "malformed", str(exc)
+    if cont is None:
+        return "unarmed", None
+    if not isinstance(cont, dict):
+        return "malformed", f"{path}: expected a JSON object"
+    armed_until = parse_iso(str(cont.get("armed_until", "")))
+    if armed_until is None:
+        return "malformed", f"{path}: 'armed_until' is missing or not ISO-8601"
+    if armed_until.tzinfo is None:
+        armed_until = armed_until.replace(tzinfo=_dt.timezone.utc)
+    if armed_until <= _dt.datetime.now(_dt.timezone.utc):
+        return "expired", str(cont.get("armed_until"))
+    reason = str(cont.get("reason") or "no reason recorded")
+    return "armed", f"until {cont.get('armed_until')} ({reason})"
+
+
 # --------------------------------------------------------------------------
 # Time
 # --------------------------------------------------------------------------
@@ -680,6 +712,12 @@ def classify_path(path_like, root: Path | None = None) -> str:
     if not rel:
         return "production"
     if rel.startswith("../") or Path(rel).is_absolute():
+        # Pinned upstream checkouts live OUTSIDE the repository but are still
+        # inviolable in every mode: an edit there silently changes the engine
+        # under contract while producing no repo diff (adversarial review
+        # finding, Phases 0-2 boundary).
+        if _is_external_upstream_checkout(path_like, root):
+            return "upstream_protected"
         return "external"
 
     if rel in CONTROL_PLANE_FILES or _under_any(rel, CONTROL_PLANE_PREFIXES):
@@ -690,14 +728,17 @@ def classify_path(path_like, root: Path | None = None) -> str:
         return "upstream_protected"
     if rel in TEST_FILES or _under_any(rel, TEST_PREFIXES):
         return "test"
+    # Documentation wins over the evaluator/fixture/prompt filename heuristics:
+    # a doc named "ACCEPTANCE_GATES.md" is prose about evaluators, not an
+    # evaluator, and docs stay editable even during a frozen acceptance batch.
+    if _under_any(rel, DOC_PREFIXES) or (rel.endswith(".md") and "/" not in rel):
+        return "doc"
     if _EVALUATOR_RE.search(rel):
         return "evaluator"
     if _FIXTURE_RE.search(rel):
         return "fixture"
     if _PROMPT_RE.search(rel):
         return "prompt"
-    if _under_any(rel, DOC_PREFIXES) or (rel.endswith(".md") and "/" not in rel):
-        return "doc"
     return "production"
 
 
@@ -716,6 +757,73 @@ def upstream_protected_paths(root: Path | None = None) -> list[str]:
         elif isinstance(entry, dict) and isinstance(entry.get("path"), str):
             out.append(entry["path"])
     return out
+
+
+def upstream_audit_exempt_paths(root: Path | None = None) -> list[str]:
+    """Protected paths whose *presence in the branch diff* is legitimate.
+
+    Metadata files born on the implementation branch (e.g. the upstream lock)
+    are write-protected by ``PreToolUse`` in every mode, but the branch-diff
+    change audit must not flag their own creation. Exemption is explicit and
+    per-entry (``"audit_exempt": true``); pinned source trees never carry it.
+    """
+    root = root or project_dir()
+    data = read_json(agent_run_dir(root) / "UPSTREAM_PROTECTED_PATHS.json", default=None)
+    if not isinstance(data, dict):
+        return []
+    out: list[str] = []
+    for entry in data.get("protected_paths") or []:
+        if isinstance(entry, dict) and entry.get("audit_exempt") and isinstance(entry.get("path"), str):
+            out.append(entry["path"])
+    return out
+
+
+def is_upstream_audit_exempt(rel_path: str, root: Path | None = None) -> bool:
+    rel = _strip_leading_dot_slash(rel_path)
+    for exempt in upstream_audit_exempt_paths(root):
+        pat = _strip_leading_dot_slash(exempt).rstrip("/")
+        if not pat:
+            continue
+        if rel == pat or rel.startswith(pat + "/"):
+            return True
+        if any(ch in pat for ch in "*?[") and _glob_match(rel, pat):
+            return True
+    return False
+
+
+def upstream_local_checkouts(root: Path | None = None) -> list[str]:
+    """Absolute paths of the pinned upstream checkouts recorded in
+    ``UPSTREAM_PROTECTED_PATHS.json`` ``repositories[].local_checkout``."""
+    root = root or project_dir()
+    data = read_json(agent_run_dir(root) / "UPSTREAM_PROTECTED_PATHS.json", default=None)
+    if not isinstance(data, dict):
+        return []
+    out: list[str] = []
+    for entry in data.get("repositories") or []:
+        if isinstance(entry, dict):
+            checkout = entry.get("local_checkout")
+            if isinstance(checkout, str) and checkout.strip():
+                out.append(checkout)
+    return out
+
+
+def _is_external_upstream_checkout(path_like, root: Path | None = None) -> bool:
+    """True when ``path_like`` resolves inside a recorded upstream checkout."""
+    try:
+        raw = Path(str(path_like))
+        base_root = (root or project_dir()).resolve()
+        target = raw if raw.is_absolute() else (base_root / raw)
+        target = target.resolve(strict=False)
+    except (OSError, ValueError):
+        return False
+    for checkout in upstream_local_checkouts(root):
+        try:
+            base = Path(checkout).resolve(strict=False)
+        except (OSError, ValueError):
+            continue
+        if target == base or str(target).startswith(str(base) + os.sep):
+            return True
+    return False
 
 
 def _strip_leading_dot_slash(path: str) -> str:
@@ -852,11 +960,49 @@ def background_reason(command: str, tool_input: dict | None = None) -> str | Non
     return None
 
 
+#: pytest target under an engine suite directory (tests/engine_<name>/...)
+_ENGINE_SUITE_DIR = re.compile(r"(?:^|/)(tests/engine_[a-z0-9_]+)")
+
+
+def is_bounded_receipt_run(argv: list[str]) -> bool:
+    """True for a ``record_receipt.py --run`` invocation with an explicit
+    ``--timeout``: the receipt tool kills its child at the timeout, so the
+    execution is bounded and evidence-producing. Without ``--timeout`` the
+    tool's default is None (unbounded) and no exemption applies."""
+    return (any(Path(a).name == "record_receipt.py" for a in argv)
+            and "--run" in argv and "--timeout" in argv)
+
+
+def _multi_engine_suite_reason(command: str) -> str | None:
+    """A pytest invocation spanning two or more distinct engine suite
+    directories is the DoD battery, not quick iteration: it must be
+    observable and bounded (silent-agent-pause incident, FAILURE_LEDGER
+    ``silent-agent-pause-plus-unmonitored-long-suite``). Single-suite
+    pytest stays direct. The exemption is per shell segment so a bounded
+    receipt run cannot smuggle a bare battery behind a ``;``."""
+    for argv in _split_command(command or ""):
+        argv = _strip_env_assignments(argv)
+        if not argv:
+            continue
+        if is_bounded_receipt_run(argv):
+            continue
+        if not any(Path(token).name == "pytest" for token in argv):
+            continue
+        suites = set()
+        for token in argv:
+            match = _ENGINE_SUITE_DIR.search(token)
+            if match:
+                suites.add(match.group(1))
+        if len(suites) >= 2:
+            return "multi-suite engine test battery"
+    return None
+
+
 def long_running_reason(command: str) -> str | None:
     for pattern, label in _LONG_RUNNING_PATTERNS:
         if pattern.search(command or ""):
             return label
-    return None
+    return _multi_engine_suite_reason(command)
 
 
 def is_short_and_harmless(command: str) -> bool:

@@ -1,0 +1,23 @@
+{
+  "failed_agents": {
+    "42": {
+      "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_42_tick_3')",
+      "tick": 3
+    },
+    "7": {
+      "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_7_tick_3')",
+      "tick": 3
+    },
+    "87": {
+      "error": "RuntimeError('SCALE_INJECTED_UNIT_FAILURE_87_tick_3')",
+      "tick": 3
+    }
+  },
+  "last_completed_tick": 12,
+  "next_tick": 13,
+  "partition_id": "s100",
+  "schema_version": 1,
+  "spec_sha256": "682f9a0a8246cea51a688d25cbd1a3f24ee65afe24bf22160d8871f28a7537cb",
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "unix": 1785784988.4337995
+}

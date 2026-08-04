@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "adversarial-review-cycle",
+  "git_sha": "e575b8545e6aa951264aac5dabd3920a28d16012",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_individual tests/engine_team -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T01:53:02+00:00",
+  "finished_at": "2026-08-04T01:57:57+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "sworldmodel/backends/concordia_local/runner.py": "b76e1475e73332f3e34daebc36233dbea74da208af30e4ff709199390f6a04bd",
+    "sworldmodel/backends/agentsociety/branch_executor.py": "904b4d319fd2ece0cc4c6e348421638cac319048e60cf89e98a0d3cbf48e323a"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T01:57:57+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "...........................................................              [100%]\n59 passed in 294.51s (0:04:54)\n"
+}

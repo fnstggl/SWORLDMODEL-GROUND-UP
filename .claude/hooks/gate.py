@@ -231,6 +231,21 @@ def handle_session_start(event: dict, root: Path) -> int:
     else:
         lines.append("ACTIVE BACKGROUND JOBS: none")
 
+    if state and state.get("mode") in {"implementation", "frozen_acceptance"}:
+        word, detail = hs.continuation_status(root)
+        if word == "armed":
+            lines.append(f"CONTINUATION: armed {detail}")
+        elif word == "malformed":
+            warnings.append(f"WARNING: CONTINUATION.json unusable -- {detail}")
+            lines.append(
+                "CONTINUATION: MALFORMED -- repair and re-arm with .claude/tools/arm_continuation.py"
+            )
+        else:
+            lines.append(
+                "CONTINUATION: NOT ARMED -- bound every idle wait: schedule a wakeup and "
+                "record it with .claude/tools/arm_continuation.py"
+            )
+
     branch = hs.git_branch(root)
     sha = hs.git_sha(root)
     clean = hs.git_is_clean(root)
@@ -930,6 +945,31 @@ def _stop_blockers(state: dict, root: Path) -> list[str]:
             ]
             if unmet:
                 blockers.append("unmet acceptance gates: " + ", ".join(unmet[:8]))
+            # Continuation guarantee (worker_silent_death class): while
+            # acceptance is incomplete, a turn may only end if an unexpired
+            # wakeup is armed — a silently dead worker must never strand the
+            # run past a bounded, recorded deadline.
+            word, detail = hs.continuation_status(root)
+            if word == "malformed":
+                blockers.append(
+                    f"CONTINUATION.json is unusable -- {detail}; repair it and re-arm with "
+                    ".claude/tools/arm_continuation.py --minutes N --reason '...'"
+                )
+            elif word == "expired":
+                blockers.append(
+                    f"the armed continuation expired at {detail} -- every idle wait must be "
+                    "bounded while acceptance is incomplete: schedule the next wakeup and "
+                    "record it with .claude/tools/arm_continuation.py, or continue the "
+                    "highest-leverage in_progress task now"
+                )
+            elif word == "unarmed":
+                blockers.append(
+                    "no continuation trigger is armed (.agent-run/CONTINUATION.json) -- every "
+                    "idle wait must be bounded while acceptance is incomplete: schedule a "
+                    "wakeup, record it with .claude/tools/arm_continuation.py --minutes N "
+                    "--reason '...', and keep at least one valid continuation armed until "
+                    "acceptance is PASS"
+                )
         running = [
             j
             for j in active_jobs(root)

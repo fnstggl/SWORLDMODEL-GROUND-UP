@@ -1,0 +1,48 @@
+{
+  "aggregate_sha256": {
+    "action_ids_from_files": "8b1589e6dabf15f318ad76c9a50d4d7103765cc3a73cd33ae24cea4d6342fadc",
+    "action_ids_from_ledger": "8b1589e6dabf15f318ad76c9a50d4d7103765cc3a73cd33ae24cea4d6342fadc",
+    "equal": true
+  },
+  "batch_size": 5,
+  "concurrency_bound": 20,
+  "counts": {
+    "actions_total": 600,
+    "agents": 250,
+    "expected_actions_total": 600,
+    "failed_agents": [],
+    "ledger_ok_records": 600,
+    "per_tick_actions": {
+      "1": 50,
+      "10": 50,
+      "11": 50,
+      "12": 50,
+      "2": 50,
+      "3": 50,
+      "4": 50,
+      "5": 50,
+      "6": 50,
+      "7": 50,
+      "8": 50,
+      "9": 50
+    }
+  },
+  "driver_max_in_flight": 4,
+  "ok": true,
+  "overlap_by_tick": {},
+  "partition_id": "p1",
+  "schema_version": 1,
+  "sparse_probe": {
+    "event": "sparse_probe_result",
+    "inactive_count": 200,
+    "mismatched_ids": [],
+    "partition": "p1",
+    "tick": 5,
+    "unchanged": true,
+    "unix": 1785785045.553145
+  },
+  "statement": "INFRASTRUCTURE TEST ONLY: scripted/shallow scale exercise of the AgentSociety execution substrate -- infrastructure rather than calibrated societal simulation; no population realism claim.",
+  "unix": 1785785085.215124,
+  "violations": [],
+  "window": 4
+}

@@ -152,6 +152,26 @@ class TestJsonChecks(ValidatorCheckTestCase):
         checks = self.run_check(vcp.check_json_parses)
         self.assertFalse(checks["json_files_parse"]["ok"])
 
+    def test_urls_inside_string_values_are_not_comments(self):
+        """Regression: '//' inside a JSON string value is data, not a comment.
+
+        Monitored-job records legitimately carry commands and URLs like
+        'http://localhost:9'; the audit failed live on BACKGROUND_JOBS.json
+        because the old raw-text scan could not tell values from syntax.
+        """
+        self.write_settings(self.good_settings())
+        self.project.write_state("BACKGROUND_JOBS.json", {
+            "schema_version": 1,
+            "active_jobs": [],
+            "completed_jobs": [{
+                "job_id": "j1",
+                "command": "env API_BASE=http://localhost:9 pytest /* glob */",
+                "url": "https://example.com/path",
+            }],
+        })
+        checks = self.run_check(vcp.check_json_parses)
+        self.assertTrue(checks["json_files_parse"]["ok"], checks["json_files_parse"]["detail"])
+
     def test_invalid_jsonl_ledger_is_detected(self):
         (self.project.agent_run / "FAILURE_LEDGER.jsonl").write_text(
             '{"ok": 1}\nnot json\n', encoding="utf-8")
@@ -506,6 +526,50 @@ class TestInitializationLevels(ValidatorCheckTestCase):
         self.assertFalse(self.run_check(vcp.check_initialization_level)["initialization_level"]["ok"])
 
 
+class TestContinuationArmed(ValidatorCheckTestCase):
+    """worker_silent_death regression at the validator layer: an idle run in
+    implementation mode with nothing armed must be flagged, so the failure
+    class is visible to `validate everything` and not only at turn end."""
+
+    def test_armed_continuation_passes_in_implementation(self):
+        self.project.set_mode("implementation")
+        self.project.arm_continuation(minutes=30, reason="watching worker-x")
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertTrue(checks["continuation_armed"]["ok"])
+        self.assertIn("watching worker-x", checks["continuation_armed"]["detail"])
+
+    def test_missing_continuation_fails_in_implementation(self):
+        self.project.set_mode("implementation")
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertFalse(checks["continuation_armed"]["ok"])
+        self.assertIn("arm_continuation.py", checks["continuation_armed"]["detail"])
+
+    def test_expired_continuation_fails(self):
+        self.project.set_mode("implementation")
+        self.project.arm_continuation(minutes=30, expired=True)
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertFalse(checks["continuation_armed"]["ok"])
+        self.assertIn("expired", checks["continuation_armed"]["detail"])
+
+    def test_malformed_continuation_fails_explicitly(self):
+        self.project.set_mode("frozen_acceptance")
+        self.project.write_raw("CONTINUATION.json", "{ nope")
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertFalse(checks["continuation_armed"]["ok"])
+        self.assertIn("CONTINUATION.json", checks["continuation_armed"]["detail"])
+
+    def test_not_required_outside_implementation_modes(self):
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertTrue(checks["continuation_armed"]["ok"])
+        self.assertIn("not required", checks["continuation_armed"]["detail"])
+
+    def test_acceptance_pass_lifts_the_requirement(self):
+        self.project.set_mode("implementation")
+        self.project.set_acceptance(overall="PASS")
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertTrue(checks["continuation_armed"]["ok"])
+
+
 class TestPathClassification(unittest.TestCase):
     """Git reports untracked trees as 'dir/'; a bare directory must classify like its contents."""
 
@@ -538,6 +602,289 @@ class TestPathClassification(unittest.TestCase):
         self.assertEqual(self.classify("acceptance/gate.py"), "evaluator")
         self.assertEqual(self.classify("worlds/committee.json"), "fixture")
         self.assertEqual(self.classify("pkg/prompts/system.txt"), "prompt")
+
+    def test_docs_take_precedence_over_evaluator_fixture_prompt_heuristics(self):
+        """A doc named after evaluators is prose, not an evaluator.
+
+        Regression for the live failure where the directive-mandated
+        docs/engine_migration/ACCEPTANCE_GATES.md classified as 'evaluator'
+        and the change audit rejected it. Docs are editable even during a
+        frozen acceptance batch (HOOKS_README §5).
+        """
+        for path in ("docs/engine_migration/ACCEPTANCE_GATES.md",
+                     "docs/evaluation/notes.md",
+                     "docs/prompts_overview.md",
+                     "docs/fixtures_guide.md",
+                     "ACCEPTANCE_NOTES.md"):
+            with self.subTest(path=path):
+                self.assertEqual(self.classify(path), "doc")
+
+
+class TestChangeAuditModeAwareness(ValidatorCheckTestCase):
+    """The change audit's forbidden set follows the run mode.
+
+    Bootstrap keeps the original strictness; implementation forbids only
+    pinned upstream paths (adding engine code is the point of the run);
+    frozen acceptance is measured against RUN_STATE.frozen_sha rather than
+    the branch base. Regression for the live defect where the validator
+    could never PASS on an implementation commit that added production or
+    evaluator-named files.
+    """
+
+    def audit(self, base=None):
+        return self.run_check(vcp.check_no_production_changes, base)["no_production_files_changed"]
+
+    def test_bootstrap_mode_still_rejects_production_changes(self):
+        (self.project.path / "engine_core.py").write_text("x = 1\n", encoding="utf-8")
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("engine_core.py", check["detail"])
+
+    def test_implementation_mode_accepts_production_and_evaluator_changes(self):
+        self.project.set_mode("implementation")
+        (self.project.path / "engine_core.py").write_text("x = 1\n", encoding="utf-8")
+        evaluator_dir = self.project.path / "acceptance"
+        evaluator_dir.mkdir()
+        (evaluator_dir / "gate.py").write_text("y = 2\n", encoding="utf-8")
+        check = self.audit()
+        self.assertTrue(check["ok"], check["detail"])
+        self.assertEqual(check["forbidden_categories"], ["upstream_protected"])
+
+    def test_implementation_mode_still_rejects_pinned_upstream_changes(self):
+        self.project.set_mode("implementation")
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED",
+            "repositories": [], "protected_paths": [{"path": "third_party/concordia/"}],
+        })
+        target = self.project.path / "third_party" / "concordia" / "core.py"
+        target.parent.mkdir(parents=True)
+        target.write_text("hacked = True\n", encoding="utf-8")
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("third_party/concordia/core.py", check["detail"])
+
+    def test_frozen_acceptance_measures_against_frozen_sha(self):
+        self.project._git("checkout", "-q", "-b", "impl")
+        (self.project.path / "engine_core.py").write_text("x = 1\n", encoding="utf-8")
+        self.project._git("add", "-A")
+        self.project._git("commit", "-q", "-m", "engine code")
+        frozen = self.project.head_sha()
+        self.project.set_mode("frozen_acceptance", frozen_sha=frozen)
+        check = self.audit()
+        # The production diff versus main predates the freeze; nothing changed
+        # since frozen_sha, so the frozen scope is intact.
+        self.assertTrue(check["ok"], check["detail"])
+        (self.project.path / "engine_core.py").write_text("x = 2\n", encoding="utf-8")
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("engine_core.py", check["detail"])
+
+    def test_frozen_acceptance_without_frozen_sha_fails(self):
+        self.project.set_mode("frozen_acceptance", frozen_sha=None)
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("frozen_sha", check["detail"])
+
+
+class TestPhaseReceiptDiscipline(ValidatorCheckTestCase):
+    """Completed tasks need completion-grade receipts (review finding H2)."""
+
+    def complete_task(self, task_id="phase-x"):
+        self.project.set_tasks([{
+            "id": task_id, "subject": "s", "description": "d",
+            "owner": "implementation-agent", "owner_type": "subagent",
+            "status": "complete",
+            "required_receipts": [{"task_id": task_id, "must_pass": True}],
+        }], status="INITIALIZED")
+        return task_id
+
+    def check(self):
+        return self.run_check(vcp.check_phase_receipt_discipline)["phase_receipt_discipline"]
+
+    def test_clean_worktree_receipt_passes(self):
+        task = self.complete_task()
+        self.project.add_receipt(task, worktree_clean=True)
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+        self.assertEqual(result["checked"], 1)
+
+    def test_dirty_receipt_without_content_proof_fails(self):
+        task = self.complete_task()
+        self.project.add_receipt(task, worktree_clean=False)
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("no configuration_hashes to prove content continuity", result["detail"])
+
+    def test_dirty_receipt_with_matching_config_hashes_passes(self):
+        task = self.complete_task()
+        artifact = self.project.path / "module.py"
+        artifact.write_text("x = 1\n", encoding="utf-8")
+        digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+        self.project.add_receipt(task, worktree_clean=False,
+                                 configuration_hashes={"module.py": digest})
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+
+    def test_content_drift_after_receipt_fails(self):
+        task = self.complete_task()
+        artifact = self.project.path / "module.py"
+        artifact.write_text("x = 1\n", encoding="utf-8")
+        digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+        self.project.add_receipt(task, worktree_clean=False,
+                                 configuration_hashes={"module.py": digest})
+        artifact.write_text("x = 2\n", encoding="utf-8")
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("no longer matches", result["detail"])
+
+    def test_label_only_hashes_are_not_continuity_proof(self):
+        task = self.complete_task()
+        self.project.add_receipt(task, worktree_clean=False,
+                                 configuration_hashes={"a_label": "0" * 64})
+        result = self.check()
+        self.assertFalse(result["ok"])
+
+    def test_missing_passing_receipt_fails_and_incomplete_tasks_are_ignored(self):
+        task = self.complete_task()
+        self.project.add_receipt(task, exit_code=1)
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("no passing receipt", result["detail"])
+        self.project.set_tasks([{
+            "id": "wip", "subject": "s", "description": "d",
+            "owner": "implementation-agent", "owner_type": "subagent",
+            "status": "in_progress",
+            "required_receipts": [{"task_id": "wip", "must_pass": True}],
+        }], status="INITIALIZED")
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+        self.assertEqual(result["checked"], 0)
+
+    def test_newest_is_chronological_not_file_order(self):
+        """Regression: receipt file names embed the SHA prefix, so file order
+        is lexicographic-by-SHA. An OLD dirty receipt whose SHA sorts late
+        must not shadow a genuinely newer clean receipt."""
+        task = self.complete_task()
+        # Old dirty receipt; sha "fff..." sorts lexicographically LAST.
+        self.project.add_receipt(task, sha="f" * 40, worktree_clean=False,
+                                 finished_at="2026-01-01T00:00:10+00:00")
+        # Newer clean receipt; sha "222..." sorts lexicographically FIRST.
+        self.project.add_receipt(task, sha="2" * 40, worktree_clean=True,
+                                 finished_at="2026-01-02T00:00:10+00:00")
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+
+    def test_chronologically_newest_dirty_receipt_is_not_masked_by_old_clean_one(self):
+        """The inverse direction: a stale clean receipt sorting late by file
+        name must not hide that the actual newest receipt lacks proof."""
+        task = self.complete_task()
+        # Old clean receipt; sha "fff..." sorts lexicographically LAST.
+        self.project.add_receipt(task, sha="f" * 40, worktree_clean=True,
+                                 finished_at="2026-01-01T00:00:10+00:00")
+        # Newer dirty no-proof receipt; sha "222..." sorts FIRST by file name.
+        self.project.add_receipt(task, sha="2" * 40, worktree_clean=False,
+                                 finished_at="2026-01-02T00:00:10+00:00")
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("no configuration_hashes", result["detail"])
+
+
+class TestAuditExemptProtectedMetadata(ValidatorCheckTestCase):
+    """audit_exempt entries skip the branch-diff audit but stay write-protected."""
+
+    def audit(self, base=None):
+        return self.run_check(vcp.check_no_production_changes, base)["no_production_files_changed"]
+
+    def test_exempt_metadata_not_flagged_but_source_trees_still_are(self):
+        self.project.set_mode("implementation")
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED", "repositories": [],
+            "protected_paths": [
+                {"path": "third_party/LOCK.json", "audit_exempt": True},
+                {"path": "third_party/vendor/"},
+            ],
+        })
+        lock = self.project.path / "third_party" / "LOCK.json"
+        lock.parent.mkdir(parents=True)
+        lock.write_text("{}\n", encoding="utf-8")
+        check = self.audit()
+        self.assertTrue(check["ok"], check["detail"])
+        # The gate category is unchanged: writes are still blocked by PreToolUse.
+        self.assertEqual(hs.classify_path("third_party/LOCK.json", self.project.path),
+                         "upstream_protected")
+        vendor = self.project.path / "third_party" / "vendor" / "x.py"
+        vendor.parent.mkdir(parents=True)
+        vendor.write_text("x = 1\n", encoding="utf-8")
+        check = self.audit()
+        self.assertFalse(check["ok"])
+        self.assertIn("third_party/vendor/x.py", check["detail"])
+
+
+class TestUpstreamCheckoutIntegrity(ValidatorCheckTestCase):
+    """The pinned checkouts are continuously verified, not point-in-time.
+
+    Regression for the adversarial-review finding that nothing enforced the
+    external checkouts staying at their recorded SHAs.
+    """
+
+    def make_checkout(self):
+        checkout = Project.create()
+        self.addCleanup(checkout.destroy)
+        return checkout
+
+    def register(self, checkout, pinned=None, path=None):
+        self.project.write_state("UPSTREAM_PROTECTED_PATHS.json", {
+            "schema_version": 1, "status": "INITIALIZED",
+            "repositories": [{
+                "name": "fake-upstream",
+                "local_checkout": path if path is not None else str(checkout.path),
+                "baseline_sha_at_initialization":
+                    pinned if pinned is not None else checkout.head_sha(),
+            }],
+            "protected_paths": [],
+        })
+
+    def check(self):
+        return self.run_check(vcp.check_upstream_checkout_integrity)[
+            "upstream_checkouts_integrity"]
+
+    def test_clean_checkout_at_pinned_sha_passes(self):
+        checkout = self.make_checkout()
+        self.register(checkout)
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+        self.assertEqual(result["checked"], 1)
+
+    def test_local_modification_is_detected(self):
+        checkout = self.make_checkout()
+        self.register(checkout)
+        (checkout.path / "hacked.py").write_text("x = 1\n", encoding="utf-8")
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("local modifications", result["detail"])
+
+    def test_sha_drift_is_detected(self):
+        checkout = self.make_checkout()
+        self.register(checkout, pinned="0" * 40)
+        result = self.check()
+        self.assertFalse(result["ok"])
+        self.assertIn("does not match", result["detail"])
+
+    def test_absent_checkout_is_noted_not_failed(self):
+        checkout = self.make_checkout()
+        self.register(checkout, path=str(checkout.path / "does-not-exist"))
+        result = self.check()
+        self.assertTrue(result["ok"], result["detail"])
+        self.assertIn("absent", result["detail"])
+        self.assertEqual(result["checked"], 0)
+
+    def test_absolute_checkout_paths_classify_as_upstream_protected(self):
+        checkout = self.make_checkout()
+        self.register(checkout)
+        inside = str(checkout.path / "engine" / "core.py")
+        self.assertEqual(hs.classify_path(inside, self.project.path), "upstream_protected")
+        self.assertEqual(hs.classify_path("/somewhere/else/file.py", self.project.path),
+                         "external")
 
 
 class TestPorcelainParsing(unittest.TestCase):
@@ -729,11 +1076,20 @@ class TestValidatorEndToEnd(unittest.TestCase):
         if "changed_paths" not in check:
             self.assertIn("skipped", check["detail"])
             self.skipTest(f"no comparable base ref: {check['detail']}")
+        # The forbidden set is mode-dependent (bootstrap discipline vs
+        # implementation vs frozen acceptance); the check reports the set it
+        # enforced, and that report is the single source of truth here.
+        forbidden = set(check.get("forbidden_categories") or [])
+        self.assertTrue(forbidden, "the check must report its forbidden categories")
+        self.assertIn("upstream_protected", forbidden,
+                      "pinned upstream source must be inviolable in every mode")
         for path in check["changed_paths"]:
             with self.subTest(path=path):
-                self.assertIn(hs.classify_path(path, REPO_ROOT),
-                              {"control_plane", "agent_run", "test", "doc"},
-                              f"{path} is not a control-plane path")
+                category = hs.classify_path(path, REPO_ROOT)
+                if category == "upstream_protected" and hs.is_upstream_audit_exempt(path, REPO_ROOT):
+                    continue  # write-protected metadata born on this branch
+                self.assertNotIn(category, forbidden,
+                                 f"{path} is in a category forbidden for this mode")
 
 
 if __name__ == "__main__":

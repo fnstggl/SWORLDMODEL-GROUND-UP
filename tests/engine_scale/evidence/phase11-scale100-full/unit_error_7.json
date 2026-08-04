@@ -1,0 +1,19 @@
+{
+  "agent_id": 7,
+  "error": "SCALE_INJECTED_UNIT_FAILURE_7_tick_3",
+  "error_type": "RuntimeError",
+  "fail_at_tick": 3,
+  "partition_id": "s100",
+  "schema_version": 1,
+  "statement": "infrastructure test only -- injected scripted failure; no population realism claim",
+  "tick": 3,
+  "traceback_tail": "  File \"/home/user/scale_runs/phase11/s100/custom/agents/scale_unit_agent.py\", line 255, in _write_error_artifact\n    \"traceback_tail\": traceback.format_stack()[-1][:2000],\n",
+  "worker_execution": {
+    "agent_id": 7,
+    "pid": 32357,
+    "started_unix": 1785784988.2279449,
+    "step_count": 3,
+    "stopped_unix": 1785784988.2294674,
+    "tick": 3
+  }
+}

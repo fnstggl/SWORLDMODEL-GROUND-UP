@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-8-concordia-actor-workspace-adapter",
+  "git_sha": "3b79d9155be8dfa611266bb5f1e0265e83eb431c",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests -q",
+  "exit_code": 1,
+  "started_at": "2026-08-03T11:09:46+00:00",
+  "finished_at": "2026-08-03T11:10:53+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "sworldmodel/backends/concordia_local/checkpoint.py": "5ddcd198cccc23f39d03076db3c5a662c0a338a78a357db9176507236eb6fc36",
+    "sworldmodel/counterfactuals/snapshot.py": "43b6ce417f8b53dd54ed28456efb57ce293d58044a3d27baf3881100520d71e0"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T11:10:53+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": true,
+  "output_tail": " [ 49%]\n........................................................................ [ 60%]\n........................................................................ [ 70%]\n........................................................................ [ 81%]\n........................................................................ [ 92%]\n......................................................                   [100%]\n=================================== FAILURES ===================================\n_ TestValidatorEndToEnd.test_structural_checks_pass_for_this_repository (check='initialization_level') _\n\nself = <test_validate_control_plane.TestValidatorEndToEnd testMethod=test_structural_checks_pass_for_this_repository>\n\n    def test_structural_checks_pass_for_this_repository(self):\n        checks = {c[\"check\"]: c for c in self.payload[\"checks\"]}\n        for name in (\"required_files_exist\", \"json_files_parse\", \"settings_has_required_events\",\n                     \"settings_hook_shape\", \"settings_script_paths_exist\", \"python_sources_compile\",\n                     \"agent_definitions_parse\", \"no_production_files_changed\", \"claude_md_preserved\",\n                     \"run_state_valid\", \"bootstrap_status_consistent\", \"initialization_level\"):\n            with self.subTest(check=name):\n>               self.assertTrue(checks[name][\"ok\"], f\"{name}: {checks[name]['detail']}\")\nE               AssertionError: False is not true : initialization_level: mode is 'implementation' but the master-context handshake is incomplete: no valid passing receipt exists for task 'master-context-initialization' at the current SHA\n\ntests/control_plane/test_validate_control_plane.py:1023: AssertionError\n=========================== short test summary info ============================\nSUBFAILED(check='initialization_level') tests/control_plane/test_validate_control_plane.py::TestValidatorEndToEnd::test_structural_checks_pass_for_this_repository\n1 failed, 680 passed, 24 skipped, 309 subtests passed in 66.63s (0:01:06)\n"
+}

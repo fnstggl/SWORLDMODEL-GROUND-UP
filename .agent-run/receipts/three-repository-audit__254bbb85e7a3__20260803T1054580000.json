@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "three-repository-audit",
+  "git_sha": "254bbb85e7a3b6e6c8c741191ab46a3eba6b5c14",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests -q --ignore=tests/control_plane",
+  "exit_code": 0,
+  "started_at": "2026-08-03T10:54:50+00:00",
+  "finished_at": "2026-08-03T10:54:58+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "docs/engine_migration/UPSTREAM_AUDIT.md": "3a8e619d4fe3b9efdc5a7efcc58a47f56a7a535a80b6e019dac931baea380595",
+    "docs/engine_migration/OWNERSHIP_AND_REPLACEMENT_MAP.md": "99ed5af912d09a48692f7ff664e052454512a2b35b099039829050435b4d99a6"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-03T10:54:58+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "........................................................................ [ 16%]\n........................................................................ [ 33%]\n........................................................................ [ 50%]\n........................................................................ [ 67%]\n........................................................................ [ 84%]\n..................................................................       [100%]\n426 passed, 24 skipped in 7.97s\n"
+}

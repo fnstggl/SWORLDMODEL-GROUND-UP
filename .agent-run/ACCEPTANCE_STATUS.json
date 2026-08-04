@@ -1,9 +1,68 @@
 {
   "schema_version": 1,
-  "overall": "NOT_STARTED",
-  "final_frozen_sha": null,
-  "final_adjudicator": "NOT_RUN",
+  "overall": "PASS",
+  "final_frozen_sha": "03886b7cbcb9c4854190bdd7d7fb1c5ca397b144",
+  "final_adjudicator": {
+    "verdict": "PASS",
+    "adjudicated_at": "2026-08-04T03:5xZ (report committed with this entry)",
+    "frozen_sha": "03886b7cbcb9c4854190bdd7d7fb1c5ca397b144",
+    "evidence_head": "e19b73a3a766e737c19f83f975ffc8a40fe4c285",
+    "adjudication_head": "39ea1aced62cca1ba58f2cff05ef37efb9fb84c9",
+    "summary": "All ten gates verified on artifacts (not summaries); independent re-execution 64+148+95 subtests+30/30/30; all seven directive completion categories clear; honesty bar uncontradicted; four non-blocking advisories recorded in DECISIONS."
+  },
   "open_critical_findings": [],
   "open_mandatory_high_findings": [],
-  "gates": {}
+  "master_directive": {
+    "path": "docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md",
+    "sha256": "ac863c8355fab544fc79c8a440ed643b8b0879147209134868985dec67a0cdbb"
+  },
+  "gates": {
+    "A_upstream_integrity": "PASS",
+    "B_baseline_reliability": "PASS",
+    "C_individual_simulation": "PASS",
+    "D_team_simulation": "PASS",
+    "E_counterfactual_correctness": "PASS",
+    "F_agentsociety_integration": "PASS",
+    "G_societal_infrastructure": "PASS",
+    "H_simulation_semantics": "PASS",
+    "I_operational_robustness": "PASS",
+    "J_documentation": "PASS"
+  },
+  "gate_definitions": {
+    "A_upstream_integrity": "Exact commit SHAs recorded; upstream source complete and unchanged; no selected-file pseudo-fork; PATCHES.md accurately lists every deviation; upstream smoke tests or runnable examples pass; integration code lives outside upstream packages; dependency installation reproducible from a clean environment.",
+    "B_baseline_reliability": "Existing compiler tests remain green; retained SWORLDMODEL tests green or failures proven unrelated and replaced with equivalent coverage; new tests pass on three consecutive clean runs; no flaky test ignored/retried-until-green/xfailed without justification; no silent exception swallowing in the core path; every branch failure produces a structured error artifact.",
+    "C_individual_simulation": "Two-person scenario proves: private context private, shared context shared, observations reach only intended actors, actor memory persists across turns, no actor chooses another actor's voluntary response, the Game Master cannot satisfy the success criterion by narration, trajectory ends in success/failure/cutoff/explicit incomplete, artifacts contain the complete causal trace, repeated executions do not fail mechanically. Deterministic scripted + deterministic mock-model tests, plus live-model smoke runs when credentials are available.",
+    "D_team_simulation": "At least five actors; private and shared interactions; authority differences; actor-owned votes or commitments; persistent memory; multiple rounds; no omniscient actor context; no Game-Master-forced coalition; explicit final outcome from actor/world events.",
+    "E_counterfactual_correctness": "Every branch starts from the same frozen snapshot; only the intervention changes; no state leaks between branches; identical interventions give identical deterministic outcomes; candidate ordering does not change deterministic results; serial and parallel branch execution both work; ranking comes from explicit metrics; no final-LLM override; reports 'best among tested candidates', never a global optimum.",
+    "F_agentsociety_integration": "AgentSociety's real worker and dispatcher code exercised; workspaces persist and reconstruct state; bounded concurrency demonstrated; agent failures isolated; token and runtime accounting collected; distributed branch result matches local result under deterministic models; shutdown/cleanup leaves no corrupted state; checkpoint/resume works.",
+    "G_societal_infrastructure": "100-agent test succeeds; 1,000-agent scripted/shallow test succeeds; actors not all activated every tick without cause; sparse activation inspectable; no action dropped or duplicated; injected failures do not terminate unaffected partitions; aggregate outcomes equal underlying recorded actions; cross-partition communication explicit and traceable; clearly labeled infrastructure, not calibrated societal simulation.",
+    "H_simulation_semantics": "Adversarial reviewer confirms: actors reason from qualitative incentives/goals/beliefs/relationships/constraints; voluntary decisions belong to the affected actor; the Game Master is not an arbitrary final outcome decider; no unexplained social weights; no actor receives unobservable information; no outcome counted unless it occurred in the trace or world state; no irrelevant daily-life simulation for appearance; the simulation remains intervention-centered.",
+    "I_operational_robustness": "Clean installation; cold startup; repeated runs; interruption; resume; one actor failure; one branch failure; malformed candidate; malformed compiled input; missing model credentials; model timeout; model malformed output; Ray worker failure; partial workspace corruption \u2014 all explicit, bounded, and recoverable where possible.",
+    "J_documentation": "docs/engine_migration/{FINAL_ARCHITECTURE, RESPONSIBILITY_OWNERSHIP, UPSTREAM_COMPONENT_MAP, IMPLEMENTATION_LOG, TEST_MATRIX, SOCIETAL_SCALING_PATH, KNOWN_LIMITATIONS, NEXT_REALISM_PHASE, RUNBOOK}.md produced and explaining ownership, upstream vs adapter vs legacy code, request flow, what is and is not proven, and the later grounding/calibration phase."
+  },
+  "gate_status_values": [
+    "NOT_STARTED",
+    "IN_PROGRESS",
+    "PASS",
+    "FAIL"
+  ],
+  "rules": [
+    "overall may be set to PASS only when every gate above is PASS, no open critical findings remain, no acceptance job is still running, and the final adjudicator has returned PASS against the frozen SHA.",
+    "Gate evidence must be current-SHA receipts and artifacts produced at the frozen SHA under .claude/tools/run_monitored.py for long-running batches.",
+    "Do not edit gate values to release the Stop hook; gate values change only with the evidence that justifies them."
+  ],
+  "gate_evidence": {
+    "A_upstream_integrity": "Pins clean at 7779a4c/6e9fc2e (validator upstream_checkouts_integrity at e19b73a); zero patches (third_party/PATCHES.md); clean-install row green inside engine_robustness 27 (phase12-frozen-battery-retry, 315 passed); Upstream Preservation Auditor verdict: all eight checklist items pass.",
+    "B_baseline_reliability": "engine_baseline 64 + engine_contracts 39 + engine_compilation 50 green at the frozen SHA (battery-retry job); Concordia Semantics verdict: stock upstream paths genuine, installed engine byte-identical to the pin.",
+    "C_individual_simulation": "engine_individual 34 green incl. 2 live-smoke tests (10 live executions) in the frozen battery; Concordia Semantics re-verdict after the putative-row fix: gate C can pass; legacy live leg adjudicated external-transient with a green stable-window re-leg (phase12-legacy-live-releg exit 0).",
+    "D_team_simulation": "engine_team 25 green at the frozen SHA incl. proxy-attribution, authority, vote and [event]-forgery discrimination tests.",
+    "E_counterfactual_correctness": "engine_counterfactuals 30 green + PYTHONHASHSEED 0/5/13 = 30/30/30 at the frozen SHA; Best-Action reviewer verdict: matched worlds, isolation, explicit criteria, no LLM override, best-among-tested only; M1 closed by mutation-verified tests.",
+    "F_agentsociety_integration": "engine_distributed 10 + engine_checkpoint 16 green at the frozen SHA; Integration Reliability verdict: gate F can pass; MEDIUMs closed (max_retries=0 fail-loud-once, executor crash test mutation-verified, atomic run_dir claim).",
+    "G_societal_infrastructure": "engine_scale 20 green (incl. 4 resume-refusal negative controls); 100/1000-agent evidence recomputed independently by the AgentSociety Scale reviewer; provenance caveat committed; infrastructure-only labeling test-enforced.",
+    "H_simulation_semantics": "Simulation Reality re-verdict: both F1-era clauses RESTORED; anchor-spoofing closed at c34ade6 (15 discriminating tests) and the putative-row/split-mint vectors closed at e575b85 (11 more); finder re-verification 0/7 evasions, 0/3 false positives; hardcoding guard 3+3 both interpreters at the freeze.",
+    "I_operational_robustness": "engine_robustness 27 green at the frozen SHA; 14-scenario matrix complete with three dispositioned findings (G1, F-R1, L1); interruption/resume, worker-crash exactly-once, workspace-corruption recovery all frozen evidence.",
+    "J_documentation": "Nine mandated docs present at frozen_sha 03886b7 (2,142 lines, RUNBOOK verified by execution); TEST_MATRIX + OPERATIONAL_ROBUSTNESS_MATRIX + ACCEPTANCE_GATES hashed into the phase-12 receipt at e19b73a."
+  },
+  "frozen_sha": "03886b7cbcb9c4854190bdd7d7fb1c5ca397b144",
+  "evidence_head": "e19b73a3a766e737c19f83f975ffc8a40fe4c285"
 }

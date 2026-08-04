@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-12-frozen-final-acceptance",
+  "git_sha": "e19b73a3a766e737c19f83f975ffc8a40fe4c285",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/test_hardcoding_guard.py -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T02:47:33+00:00",
+  "finished_at": "2026-08-04T02:47:34+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    ".agent-run/BACKGROUND_JOBS.json": "0d5dc4319592213fd287ce4f08ea5764e69e8adaf7d6c8cffe417364a1b519cd",
+    "docs/engine_migration/ACCEPTANCE_GATES.md": "ef195c56a02fe2cffbdcd40f91fff3f08f293ed78daf257a05aaa1fb24c50956",
+    "docs/engine_migration/OPERATIONAL_ROBUSTNESS_MATRIX.md": "ee416050e109bfe81d38de37f5fd958357db5eb32d417ae4cf1d2798a1aaa45d",
+    "docs/engine_migration/TEST_MATRIX.md": "1720aa19285605f259e5aa81eaa3b391e07c351cc29d634659480d9a8a4afc79"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T02:47:34+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "...                                                                      [100%]\n3 passed in 0.65s\n"
+}
