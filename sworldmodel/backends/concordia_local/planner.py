@@ -58,6 +58,12 @@ Code-owned mapping rules (v1):
 Unknown actor references (insertion actor or ``visible_to`` names) must
 already have failed Phase 3 schema+semantic validation; this module
 re-checks them defensively and raises -- it never repairs.
+
+Reserved-marker refusal: world-authored text carrying upstream's
+resolved-turn framing string (:data:`RESERVED_EVENT_MARKER`) is refused
+loudly at plan build -- see :func:`_refuse_reserved_marker` for the full
+threat model and the soundness argument.  Refusal, never sanitization:
+author text is never stripped or reworded.
 """
 
 from __future__ import annotations
@@ -89,6 +95,103 @@ GUARD_SLOT_IDENTITY = "identity"
 #: fixed game-master identity and actor call-to-action (generic by design)
 GM_NAME = "rules"
 ACTOR_CALL_TO_ACTION = "What does {name} do next?"
+
+#: upstream's RESERVED resolved-turn framing string.  The pinned
+#: Concordia event-resolution component stamps every resolved actor turn
+#: with exactly this prefix before commit
+#: (concordia/components/game_master/event_resolution.py:
+#: ``putative_action = f'Putative event to resolve: {putative_action}'``),
+#: and downstream attribution -- which actor OWNS a committed row --
+#: anchors on it.  It is engine structural machinery, never author
+#: vocabulary: world-authored or candidate text carrying it is refused
+#: loudly before any simulation (:func:`_refuse_reserved_marker`;
+#: candidate belt in ``sworldmodel.counterfactuals.manager._preflight``
+#: and ``sworldmodel.compilation.decision_route``).  This constant is
+#: THE single production definition; test suites cross-check their
+#: anchor against it.
+RESERVED_EVENT_MARKER = "Putative event to resolve:"
+
+#: conservative comparison form of the marker: casefolded, interior
+#: whitespace runs collapsed to single spaces -- so trivial obfuscations
+#: ("Putative  event to resolve:", case changes, newlines/tabs between
+#: the words) are refused too
+_RESERVED_MARKER_COLLAPSED = " ".join(
+    RESERVED_EVENT_MARKER.split()).casefold()
+
+
+def contains_reserved_event_marker(text) -> bool:
+    """True when ``text`` carries :data:`RESERVED_EVENT_MARKER` in any
+    trivially obfuscated form: matching is case-insensitive and every
+    run of whitespace collapses to one space before comparison.
+    Non-strings never match (type gates live at the contract layer)."""
+    if not isinstance(text, str):
+        return False
+    return _RESERVED_MARKER_COLLAPSED in " ".join(text.split()).casefold()
+
+
+def _refuse_reserved_marker(world, neutral_premise, issues) -> None:
+    """Refuse (never sanitize) authored text carrying the reserved
+    upstream resolved-turn framing string.
+
+    Threat model.  The committed event stream has an unguarded narration
+    channel: starting-event descriptions are committed verbatim through
+    ``game_master.observe(...)`` (builder pre-start seeding) and the
+    agency guard rides only ``event_resolution_steps``, so it never sees
+    them.  A world-authored description embedding
+    ``<marker> <Name>: <deed>`` would be indistinguishable, to any
+    marker-anchored attribution, from the named actor's own resolved
+    turn -- success could be narrated into existence with zero actor
+    participation (the Simulation Reality review CRITICAL).  The marker
+    has NO legitimate use in authored text, so the fix is refusal at
+    this chokepoint, pre-simulation, naming the marker, the offending
+    field, and its index -- never silent stripping, which would alter
+    author text and hide the attack.
+
+    Coverage.  The scanned sources -- the shared context, every actor's
+    private context, every starting-event description, plus the
+    code-owned neutral premise (defensive: it is derived only from the
+    start time) -- are the COMPLETE origin set of every plan text
+    destined for the committed stream or actor delivery:
+    ``shared_init_data`` and ``private_init_data`` are those contexts
+    end-trimmed; ``gm_initial_events`` and ``initial_observations`` are
+    fixed ``[<canonical time>] <description>`` framings of the same
+    scanned texts (a canonical timestamp cannot carry the marker).
+    Candidate text enters later, at the insertion boundary, and is
+    refused by the candidate preflight
+    (``counterfactuals.manager._preflight``) and the decision route.
+
+    Soundness of first-occurrence anchor parsing (downstream).  With
+    both chokepoints in place the marker cannot enter a committed row
+    from authored narration or candidate text; the only remaining
+    writers of committed rows are the engine itself and actor free-text
+    actions.  The engine stamps the marker at the head framing of every
+    resolved turn, so in any committed row that contains the marker the
+    FIRST occurrence is the engine's own stamp; an actor's action may
+    embed a copy, but only strictly AFTER that stamp (and actor text
+    asserting another actor's voluntary act is guard-rewritten before
+    commit).  First-occurrence anchor parsing therefore always binds to
+    the row's true active player.
+    """
+    scan = [("shared_context", world.shared_context),
+            ("neutral_premise", neutral_premise)]
+    for index, actor in enumerate(world.actors):
+        scan.append((f"actors[{index}].private_context",
+                     actor.private_context))
+    for index, event in enumerate(world.starting_events):
+        scan.append((f"starting_events[{index}].description",
+                     event.description))
+    for path, text in scan:
+        if contains_reserved_event_marker(text):
+            issues.add(
+                path, "reserved_marker",
+                "authored text carries the reserved upstream "
+                f"resolved-turn framing string {RESERVED_EVENT_MARKER!r} "
+                "(matched case-insensitively with whitespace runs "
+                "collapsed); that marker is stamped by the engine's "
+                "event resolution on every resolved actor turn and "
+                "anchors actor attribution, so world-authored text may "
+                "never carry it -- refused before any simulation; "
+                "remove the marker from this field")
 
 #: component roster entries (comma-joined into ``gm_config``); order is the
 #: prompt-assembly order of the assembled game master
@@ -168,6 +271,15 @@ def build_initialization_plan(
 
     start_iso = canonical_time(world.start_time)
     cutoff_iso = canonical_time(world.cutoff)
+    neutral_premise = f"The simulation window opens at {start_iso}."
+
+    # Reserved-marker refusal (Simulation Reality CRITICAL): no authored
+    # text destined for the committed stream or actor delivery may carry
+    # upstream's resolved-turn framing string.  Loud, collected, and
+    # pre-simulation; see _refuse_reserved_marker for the full argument.
+    _refuse_reserved_marker(world, neutral_premise, issues)
+    issues.raise_if_any()
+
     shared = world.shared_context.strip()
     shared_present = bool(shared)
 
@@ -225,8 +337,7 @@ def build_initialization_plan(
             for actor in world.actors],
         "shared_init_data": shared,
         "gm_config": gm_config,
-        "neutral_premise": (
-            f"The simulation window opens at {start_iso}."),
+        "neutral_premise": neutral_premise,
         "initial_observations": initial_observations,
         "gm_initial_events": [framed for _event, framed in framed_events],
         "run_limits": {"max_steps": max_steps},

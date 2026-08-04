@@ -195,7 +195,23 @@ def _failure_result(branch_id: str, candidate_id: str, world_id: str,
 def _preflight(world, candidates, model_factory, seed,
                registry) -> ContractRegistry:
     """Validate the whole request and bind identifiers BEFORE any branch
-    executes; collects every defect into one refusal."""
+    executes; collects every defect into one refusal.
+
+    Includes the candidate-side reserved-marker belt: a candidate whose
+    summary, action, or constraint text carries upstream's resolved-turn
+    framing string (``planner.RESERVED_EVENT_MARKER``) is refused here,
+    before any plan is derived -- candidate text is inserted verbatim
+    into the insertion actor's initial observations, and the reserved
+    marker has no legitimate use in candidate text.  The world-side
+    chokepoint (and the full threat model / soundness argument) lives in
+    ``backends.concordia_local.planner._refuse_reserved_marker``.  The
+    planner module is pure stdlib and imported lazily, matching this
+    package's documented lazy-backend idiom (``snapshot.build_base_plan``).
+    """
+    # Lazy import: pure stdlib, importable wherever sworldmodel is.
+    from sworldmodel.backends.concordia_local.planner import (
+        RESERVED_EVENT_MARKER, contains_reserved_event_marker)
+
     issues = IssueCollector()
     if not isinstance(world, CompiledDecisionWorld):
         issues.add("world", "wrong_type",
@@ -228,6 +244,24 @@ def _preflight(world, candidates, model_factory, seed,
                    "candidate identifiers must be unique within one run; "
                    "an identical candidate re-run is a new call, not a "
                    "duplicate list entry")
+    for index, candidate in enumerate(candidates):
+        texts = [("summary", candidate.summary),
+                 ("action", candidate.action)]
+        texts.extend(
+            (f"constraints[{constraint_index}]", constraint)
+            for constraint_index, constraint
+            in enumerate(candidate.constraints))
+        for field, text in texts:
+            if contains_reserved_event_marker(text):
+                issues.add(
+                    f"candidates[{index}].{field}", "reserved_marker",
+                    "candidate text carries the reserved upstream "
+                    "resolved-turn framing string "
+                    f"{RESERVED_EVENT_MARKER!r} (matched "
+                    "case-insensitively with whitespace runs collapsed); "
+                    "the marker is engine machinery that anchors actor "
+                    "attribution and has no legitimate use in candidate "
+                    "text -- refused before any branch executes")
     issues.raise_if_any()
 
     registry = registry if registry is not None else ContractRegistry()

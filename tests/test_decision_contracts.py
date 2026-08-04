@@ -872,3 +872,72 @@ def test_downside_outcomes_must_reference_ranked_candidates():
     exc = err(validate_semantics, RecommendationResult.from_dict(data),
               registry)
     assert "unknown_reference" in exc.codes()
+
+
+def _two_entry_ranking(head_metrics, tail_metrics, *,
+                       head="cand_one", tail="cand_two"):
+    """A reco dict whose two ranking entries carry the given metric
+    maps, with the consistency-bound sibling fields re-keyed to match."""
+    data = reco_dict(best_candidate_id=head)
+    data["ranking"] = [
+        {"candidate_id": head, "metric_values": dict(head_metrics)},
+        {"candidate_id": tail, "metric_values": dict(tail_metrics)},
+    ]
+    data["metric_differences"] = {}
+    data["downside_outcomes"] = {head: "No downside observed.",
+                                 tail: "No downside observed."}
+    return data
+
+
+def test_ranking_inverting_a_declared_secondary_is_rejected():
+    """M1 (Best-Action reviewer): the full declared-order re-validation
+    (validation.py, D4-low block) must refuse a ranking that honors the
+    primary metric but INVERTS a declared secondary -- the primary-only
+    check cannot see it (both keys tie on the primary)."""
+    registry, _ = make_registry()
+    spec = EvaluatorSpec(primary_metric="outcome_reached",
+                         secondary_metrics=("response_received",))
+
+    # Control: the honoring order passes under the SAME declared spec.
+    honoring = _two_entry_ranking(
+        {"outcome_reached": True, "response_received": True},
+        {"outcome_reached": True, "response_received": False})
+    validate_semantics(RecommendationResult.from_dict(honoring),
+                       registry, evaluator_spec=spec)
+
+    # Same primary everywhere, declared secondary inverted: refused.
+    inverted = _two_entry_ranking(
+        {"outcome_reached": True, "response_received": False},
+        {"outcome_reached": True, "response_received": True})
+    exc = err(validate_semantics,
+              RecommendationResult.from_dict(inverted), registry,
+              evaluator_spec=spec)
+    assert "inconsistent_ranking" in exc.codes()
+    assert "violates the declared metric order" in str(exc)
+    assert "response_received" in str(exc)  # names the declared sequence
+
+
+def test_ranking_tie_break_order_violation_is_rejected():
+    """M1 companion: with EVERY declared metric tied, the final
+    tie-break is candidate_id ascending -- a descending pair must be
+    refused by the same declared-order block."""
+    registry, _ = make_registry()
+    spec = EvaluatorSpec(primary_metric="outcome_reached",
+                         secondary_metrics=())
+
+    # Control: ascending candidate_id order passes on full ties.
+    ascending = _two_entry_ranking({"outcome_reached": True},
+                                   {"outcome_reached": True})
+    validate_semantics(RecommendationResult.from_dict(ascending),
+                       registry, evaluator_spec=spec)
+
+    # Identical metrics, candidate_id order inverted: refused.
+    descending = _two_entry_ranking({"outcome_reached": True},
+                                    {"outcome_reached": True},
+                                    head="cand_two", tail="cand_one")
+    exc = err(validate_semantics,
+              RecommendationResult.from_dict(descending), registry,
+              evaluator_spec=spec)
+    assert "inconsistent_ranking" in exc.codes()
+    assert "violates the declared metric order" in str(exc)
+    assert "tie-break" in str(exc)

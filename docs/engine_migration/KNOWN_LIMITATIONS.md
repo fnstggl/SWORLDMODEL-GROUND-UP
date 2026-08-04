@@ -104,6 +104,33 @@ From `OPERATIONAL_ROBUSTNESS_MATRIX.md`:
 - **Planner end-trim rule**: carried texts lose leading/trailing
   whitespace only (upstream reserves the three-newline observation
   delimiter); interior bytes verbatim.
+- **Candidate-generator prompt carries problem-side success criteria by
+  design** (`decision_route.GENERATOR_PROMPT_TEMPLATE`): the generator
+  sees `DecisionProblem.success_criteria` (problem-side prose, never the
+  world's evaluator-side criteria or any world-private text), so a
+  GENERATED action's text may echo criteria-derived wording — and that
+  text is then inserted verbatim as the decision owner's own t0
+  insertion observation. This is the documented information flow of
+  generation, not a leak of evaluator internals; user-supplied
+  candidates are unaffected.
+- **`_seeded_default_rng` is per-branch deterministic, not
+  stream-independent** (`counterfactuals/manager.py`): inside one
+  branch's seeded scope, EVERY no-argument `numpy.random.default_rng()`
+  call returns a fresh generator seeded with the SAME branch seed —
+  upstream's per-document generators therefore draw identical streams
+  within a branch rather than statistically independent ones. Chosen for
+  reproducibility and branch isolation (each branch has its own derived
+  seed); callers needing independent streams pass explicit seeds.
+- **Reserved-marker refusal (Simulation Reality CRITICAL, fixed)**:
+  upstream's resolved-turn framing string (`Putative event to resolve:`,
+  stamped by event resolution and anchoring actor attribution) is
+  RESERVED — world-authored text (premise, contexts, starting-event
+  descriptions/observations) and candidate text carrying it, in any
+  case/whitespace-obfuscated form, is refused loudly pre-simulation at
+  the planner chokepoint plus the candidate preflight/route
+  (`planner.RESERVED_EVENT_MARKER`; error code `reserved_marker`).
+  Narration can therefore never spoof a resolved actor turn; the
+  refusal is a hard authoring constraint, never a silent rewrite.
 
 ## 5. Evidence trust boundaries (disclosed, accepted)
 

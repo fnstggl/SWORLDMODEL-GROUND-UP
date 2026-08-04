@@ -29,10 +29,17 @@ action-search algorithm is out of scope.
 Refused loudly (never repaired): a problem whose decision owner does not
 resolve to the world's single insertion actor; generation without the
 problem's explicit permission; a request yielding zero candidates;
-malformed generator output.  This module performs no LLM calls of its own
-(the injected model object is called exactly once per generation) and is
-pure stdlib -- it never imports Concordia, the compiler, or any engine
-backend.
+malformed generator output; candidate text (user-supplied or generated)
+carrying the reserved upstream resolved-turn framing string
+(``planner.RESERVED_EVENT_MARKER`` -- engine machinery that anchors actor
+attribution; the full threat model lives in
+``backends.concordia_local.planner._refuse_reserved_marker``).  This
+module performs no LLM calls of its own (the injected model object is
+called exactly once per generation) and is pure stdlib -- it never
+imports Concordia, the compiler, or any engine-DEPENDENT module (the one
+backend import below is the planner's reserved-marker constant pair; the
+planner is documented pure stdlib, importable everywhere ``sworldmodel``
+is).
 """
 
 from __future__ import annotations
@@ -42,6 +49,8 @@ import json
 from dataclasses import dataclass
 from typing import Mapping
 
+from sworldmodel.backends.concordia_local.planner import (
+    RESERVED_EVENT_MARKER, contains_reserved_event_marker)
 from sworldmodel.decision.contracts import (CompiledDecisionWorld,
                                             ContractValidationError,
                                             DecisionProblem, EvaluatorSpec,
@@ -122,6 +131,21 @@ def _fail(path: str, code: str, message: str) -> None:
     raise ContractValidationError([ValidationIssue(path, code, message)])
 
 
+def _refuse_marker_text(path: str, text, issues) -> None:
+    """Collect a reserved-marker refusal for one candidate text field
+    (route half of the candidate belt; the world-side chokepoint and the
+    full threat model live in the planner)."""
+    if contains_reserved_event_marker(text):
+        issues.add(
+            path, "reserved_marker",
+            "candidate text carries the reserved upstream resolved-turn "
+            f"framing string {RESERVED_EVENT_MARKER!r} (matched "
+            "case-insensitively with whitespace runs collapsed); the "
+            "marker is engine machinery that anchors actor attribution "
+            "and has no legitimate use in candidate text -- refused "
+            "before any simulation")
+
+
 def _derive_summary(action: str) -> str:
     collapsed = " ".join(action.split())
     return collapsed[:_SUMMARY_LIMIT]
@@ -158,6 +182,11 @@ def build_user_candidates(problem: DecisionProblem,
         issues.add("world", "wrong_type",
                    "expected a CompiledDecisionWorld instance, got "
                    f"{type(world).__name__}")
+    issues.raise_if_any()
+
+    for index, action in enumerate(problem.candidate_interventions):
+        _refuse_marker_text(f"candidate_interventions[{index}]", action,
+                            issues)
     issues.raise_if_any()
 
     owner = world.intervention_insertion_point.actor_id
@@ -339,6 +368,11 @@ def generate_candidates(problem: DecisionProblem,
     prompt = build_generator_prompt(problem, max_candidates)
     raw = sample(prompt)
     entries = parse_generator_response(raw, max_candidates)
+    for index, entry in enumerate(entries):
+        path = f"generator_response.candidates[{index}]"
+        _refuse_marker_text(f"{path}.summary", entry["summary"], issues)
+        _refuse_marker_text(f"{path}.action", entry["action"], issues)
+    issues.raise_if_any()
     config_hash = generator_config_hash(max_candidates)
     owner = world.intervention_insertion_point.actor_id
     timing = canonical_time(world.start_time)

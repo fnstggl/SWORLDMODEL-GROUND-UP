@@ -99,7 +99,7 @@ gate-A baseline (Concordia core 560 passed; AgentSociety2 387 passed —
 **No upstream private API is imported anywhere in production code.** Every
 upstream reference above is a documented public class, function, default
 key constant, or constructor parameter, inspected against the pinned
-commit during the audit. Three related notes, recorded honestly:
+commit during the audit. Four related notes, recorded honestly:
 
 1. **The one private-name reuse is SWORLDMODEL-internal, not upstream.**
    `backends/agentsociety/branch_executor.py` imports
@@ -126,6 +126,22 @@ commit during the audit. Three related notes, recorded honestly:
    workspace driver-channel error names the agent, not the file (pinned
    `agentsociety2` behavior; finding F-R1,
    `OPERATIONAL_ROBUSTNESS_MATRIX.md`); recorded, not patched.
+4. **The branch-agent template touches inherited `_`-prefixed AgentBase
+   members.** `backends/agentsociety/branch_agent_template.py` reads and
+   writes `_workspace_root`, `_bind_workspace`, `_current_time`,
+   `_step_count`, and `_config` — underscore-named attributes/methods it
+   INHERITS from upstream's `AgentBase`. Mitigation, verified against the
+   pinned checkout: upstream's own subclass `PersonAgent`
+   (`agentsociety2/agent/person.py`) uses the identical idiom
+   line-for-line (e.g. `if self._workspace_root is None:
+   self._bind_workspace(workspace_path)`, `self._step_count += 1`,
+   `self._current_time = t`, reading `self._config` in its config
+   helper); upstream's base-class comment explicitly anticipates
+   subclass use ("Generic counters / state — set by restore / subclass
+   restore", `agent/base/agent.py`); and no public accessors for these
+   members exist upstream, so the underscore idiom IS the supported
+   subclassing surface. Disclosed here rather than hidden behind a
+   wrapper that would only rename the same access.
 
 Continuous enforcement: the pinned checkouts are write-blocked in every
 mode and integrity-checked on every validator run

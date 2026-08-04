@@ -62,9 +62,10 @@ NEW `tests/engine_robustness/test_clean_install_evidence.py` (3 tests)
 validates the committed structured evidence
 `tests/engine_robustness/evidence/clean_install.json`, produced by
 `tests/engine_robustness/clean_install_probe.py` under monitored job
-`robustness-clean-install` (record:
-`.agent-run/jobs/robustness-clean-install/job.json`, state `finished`,
-exit 0).  The probe rebuilds the engine environment FROM AN EMPTY VENV
+`robustness-clean-install` (durable records: the `completed_jobs` entry
+for `robustness-clean-install` in `.agent-run/BACKGROUND_JOBS.json`,
+state `finished`, exit 0, plus the committed evidence file itself;
+`.agent-run/jobs/` is gitignored runner scratch and is not evidence).  The probe rebuilds the engine environment FROM AN EMPTY VENV
 following `third_party/INTEGRATION_METHOD.md` step for step: pinned
 checkouts verified at their `third_party/UPSTREAM_LOCK.json` SHAs and
 clean; `uv venv --python /usr/bin/python3.12`; editable installs of both
