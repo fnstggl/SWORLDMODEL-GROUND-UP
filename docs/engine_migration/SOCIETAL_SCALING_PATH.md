@@ -32,7 +32,7 @@ ten monitored jobs with 52 committed evidence files.
 | Bounded concurrency | Code-enforced window (driver in-flight ≤ window; in-worker overlap ceiling == configured bound), recomputed from committed windows |
 | Sparse activation | Declared modular schedule (stride 5 → 20/100 and 50/250 per tick); activation/exclusion lists ledgered per tick; non-activated workspaces hash-identical across a probe tick |
 | Persistent workspaces | Agents reconstructed from workspace files every step; tamper-evident per-agent hash chains recompute from genesis across ticks, segments, AND processes |
-| Checkpoint/resume | Segment B resumed in a fresh process with a fresh Ray runtime from persisted workspaces + a spec-hash-bound driver checkpoint; resume refused on spec mismatch |
+| Checkpoint/resume | Segment B resumed in a fresh process with a fresh Ray runtime from persisted workspaces + a spec-hash-bound driver checkpoint; resume refusal negatively proven for spec mismatch, wrong continuation tick, missing units root, and workspace-count mismatch (`test_scale_fast_tier.py::test_resume_refuses_*`) |
 | Failure isolation | Injected per-agent failures (incl. across the resume boundary) produce dual-channel structured evidence; batch mates and other partitions complete byte-exactly |
 | No lost/duplicated actions | Exact reconciliation both directions (driver ledger ↔ workspace files), plus negative controls proving the reconciliation REFUSES a dropped and a duplicated action |
 | Aggregation | Aggregate outcomes recomputed equal to the underlying recorded actions (hash equality, both directions) |

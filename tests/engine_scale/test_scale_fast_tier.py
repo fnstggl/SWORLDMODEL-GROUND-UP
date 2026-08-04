@@ -17,6 +17,7 @@ window / the ledger / the reconciliation exactly as the 100- and
 
 from __future__ import annotations
 
+import dataclasses
 import json
 import shutil
 import sys
@@ -38,6 +39,7 @@ from scale_harness import (ACTIONS_FILE, DRIVER_DIRNAME, ERROR_FILE,
                            FAILURE_MARKER_PREFIX, INFRA_ONLY_STATEMENT,
                            LEDGER_FILE, CHECKPOINT_FILE, PartitionSpec,
                            RECONCILIATION_FILE, SUMMARY_FILE, STATE_FILE,
+                           ScaleHarnessError,
                            ScaleReconciliationError, aggregate_partitions,
                            genesis_chain, max_overlap, next_chain,
                            read_jsonl, reconcile_partition, run_partition,
@@ -305,11 +307,15 @@ def test_injected_failure_is_isolated_and_dual_channel(fast_run):
     assert reconciliation["counts"]["failed_agents"] == [failing]
 
 
-def test_checkpoint_resume_across_driver_restart(fast_run):
+def test_checkpoint_resume_second_invocation_same_process(fast_run):
     """Segment A stopped at the checkpoint boundary; segment B resumed
     from the persisted workspaces + driver checkpoint (fresh
-    run_partition invocation) and agents carried their hash-chain state
-    across the boundary seamlessly."""
+    run_partition invocation IN THE SAME PROCESS) and agents carried
+    their hash-chain state across the boundary seamlessly.  Live
+    cross-process resume is evidenced by the committed monitored segB
+    jobs (separate run_monitored processes with ``resume: true``), not
+    by this test — the old name overstated that boundary (AgentSociety
+    Scale review LOW-1)."""
     assert fast_run["stats_a"]["ticks_completed"] == [1, 2, 3, 4]
     assert fast_run["stats_b"]["resume"] is True
     assert fast_run["stats_b"]["ticks_completed"] == [5, 6]
@@ -333,6 +339,68 @@ def test_checkpoint_resume_across_driver_restart(fast_run):
     for action in actions:
         chain = next_chain(chain, action["action_id"], action["tick"])
     assert actions[-1]["chain"] == chain
+
+
+def _copied_run_root(fast_run, tmp_path, *, next_tick=None) -> Path:
+    """A disposable copy of the completed fa run, so refusal probes can
+    tamper freely without harming the module-scoped fixture.  The
+    completed run's checkpoint records ``next_tick == 7`` (past the
+    spec's last tick), so probes that must get PAST the tick guard
+    rewind the copied checkpoint to an in-range tick first."""
+    root = tmp_path / "fa_copy"
+    shutil.copytree(fast_run["fa_root"], root)
+    if next_tick is not None:
+        path = _driver(root) / CHECKPOINT_FILE
+        checkpoint = json.loads(path.read_text(encoding="utf-8"))
+        checkpoint["next_tick"] = next_tick
+        path.write_text(json.dumps(checkpoint), encoding="utf-8")
+    return root
+
+
+def test_resume_refuses_a_spec_hash_mismatch(fast_run, tmp_path, scale_engine):
+    """Negative control for the resume guard (AgentSociety Scale review
+    MEDIUM-2): the guards are worth exactly what they refuse.  Deleting
+    the spec-hash check in run_partition would let a checkpoint written
+    for one spec silently drive a different spec; this test fails if
+    that raise disappears."""
+    root = _copied_run_root(fast_run, tmp_path)
+    tampered = dataclasses.replace(FA_SPEC, stride=FA_SPEC.stride + 1)
+    assert tampered.content_sha256() != FA_SPEC.content_sha256()
+    with pytest.raises(ScaleHarnessError, match="resume spec mismatch"):
+        run_partition(tampered, registry_root=scale_engine["registry_root"],
+                      partition_root=root, tick_from=5, tick_to=6,
+                      resume=True)
+
+
+def test_resume_refuses_a_wrong_continuation_tick(fast_run, tmp_path,
+                                                  scale_engine):
+    root = _copied_run_root(fast_run, tmp_path)  # checkpoint says 7
+    with pytest.raises(ScaleHarnessError,
+                       match="resume expected to continue at tick"):
+        run_partition(FA_SPEC, registry_root=scale_engine["registry_root"],
+                      partition_root=root, tick_from=6, tick_to=6,
+                      resume=True)
+
+
+def test_resume_refuses_a_missing_units_root(fast_run, tmp_path,
+                                             scale_engine):
+    root = _copied_run_root(fast_run, tmp_path, next_tick=5)
+    shutil.rmtree(root / "units")
+    with pytest.raises(ScaleHarnessError, match="does not exist"):
+        run_partition(FA_SPEC, registry_root=scale_engine["registry_root"],
+                      partition_root=root, tick_from=5, tick_to=6,
+                      resume=True)
+
+
+def test_resume_refuses_a_workspace_count_mismatch(fast_run, tmp_path,
+                                                   scale_engine):
+    root = _copied_run_root(fast_run, tmp_path, next_tick=5)
+    units = sorted(p for p in (root / "units").iterdir() if p.is_dir())
+    shutil.rmtree(units[-1])
+    with pytest.raises(ScaleHarnessError, match="unit workspaces, expected"):
+        run_partition(FA_SPEC, registry_root=scale_engine["registry_root"],
+                      partition_root=root, tick_from=5, tick_to=6,
+                      resume=True)
 
 
 def test_reconciliation_catches_lost_and_duplicated_actions(fast_run,

@@ -193,7 +193,7 @@ state.
   workspace-based interrupt/resume and checkpoint-and-continue through
   the real distributed substrate.
 - `tests/engine_scale/test_scale_fast_tier.py::
-  test_checkpoint_resume_across_driver_restart` and the committed
+  test_checkpoint_resume_second_invocation_same_process` and the committed
   1000-agent evidence (`test_scale_verification.py::
   test_1000_agent_partitions_reconciled_and_resumed`) -- segment B
   resumed in a FRESH PROCESS with a fresh Ray runtime from persisted

@@ -12,6 +12,19 @@ under `.claude/tools/run_monitored.py` (classification `exploratory`,
 `--no-progress-timeout 240`, `--total-timeout 540`), with a per-job
 `--progress-file` the driver appends per-chunk/per-tick records to
 (strong progress; the runner counted them as `completed_units`).
+
+> **Provenance caveat (recorded 2026-08-04, AgentSociety Scale
+> review MEDIUM-1).** Every job record carries
+> `worktree_clean_at_start: false`, and at `05938a3` the harness tree
+> (`tests/engine_scale/`) was not yet in git — it was first committed
+> one commit later (`9c0b75b`). The committed harness is therefore not
+> git-provably the exact bytes that produced these artifacts. Bounds on
+> that gap, each re-verifiable at HEAD: the run specs are hash-bound
+> (`spec_sha256` is recomputed from the committed specs by the
+> verification tier), the dirty flag is itself committed evidence, and
+> the fast tier re-executes the identical harness code paths live
+> (16+ tests). This caveat is part of the recorded F4 trust-boundary
+> disposition.
 Durable per-job proof is committed under
 `tests/engine_scale/evidence/<job-id>/` (`.agent-run/jobs/` is
 gitignored runner scratch); `tests/engine_scale/evidence/hashes_manifest.json`
@@ -121,7 +134,7 @@ strong-progress evidence is `completed_units`.
 | Cross-partition communication is explicit and traceable | This run used **isolated partitions by design**: `aggregate_summary.json` `isolation` block records `mode: isolated_partitions_by_design`, `cross_partition_channels: []`, disjoint agent-id ranges, disjoint workspace roots, globally unique action ids — the explicit record that nothing was exchanged |
 | System labels this as infrastructure, not calibrated societal simulation | The statement rides in EVERY artifact: specs, unit `config.json`, manifests, checkpoints, ledgers' companion summaries, reconciliations, aggregates, progress `job_start` lines, this document, and the suite docstrings; enforced by `test_infrastructure_only_labeling_everywhere` |
 | Bounded concurrency (Phase 11 list) | Configured bound 12 == observed ceiling, recomputed from committed windows (`test_100_agent_bounded_concurrency_from_recorded_windows`) |
-| Persistent workspaces (Phase 11 list) | Agents are reconstructed from workspace files every step; hash chains recompute across ticks, segments, AND processes (`test_checkpoint_resume_across_driver_restart`, resumed monitored jobs); `AGENT.json` `step_count` == recorded actions per agent |
+| Persistent workspaces (Phase 11 list) | Agents are reconstructed from workspace files every step; hash chains recompute across ticks, segments, AND processes (`test_checkpoint_resume_second_invocation_same_process` for the in-process boundary; the resumed monitored segB jobs for the process boundary); `AGENT.json` `step_count` == recorded actions per agent; resume-refusal guards negatively proven (`test_resume_refuses_a_spec_hash_mismatch`, `..._wrong_continuation_tick`, `..._missing_units_root`, `..._workspace_count_mismatch`) |
 | Checkpoint/resume (Phase 11 list) | `driver_checkpoint_after_segA.json` (`next_tick: 7`, carried failure state) per partition + segB jobs resuming with `--resume` in fresh processes; spec-hash-bound resume refusal on mismatch |
 | AgentSociety distributed execution (Phase 11 list) | Stock `init_dispatchers` Ray bring-up, stock `create_agents_batch`/`step_agent_batch` Ray tasks, stock registry scanner resolving the custom agent inside workers (worker probe in each `partition_manifest.json`) |
 
