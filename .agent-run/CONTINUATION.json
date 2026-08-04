@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "armed_at": "2026-08-04T00:59:35+00:00",
-  "armed_until": "2026-08-04T01:47:35+00:00",
+  "armed_at": "2026-08-04T01:46:34+00:00",
+  "armed_until": "2026-08-04T02:34:34+00:00",
   "minutes": 48.0,
-  "reason": "watching wave2-fix worker (putative-row leak + executor hardening)",
-  "trigger_id": "trig_012jLydyLMNTcFckxtWTh8zP",
+  "reason": "watching wave2-fix worker (mid-batch: executor test + doc edits landed, battery pending)",
+  "trigger_id": "trig_01GUPhmSGQdkRBcH14wA4Ckz",
   "workers": [
     "wave2-fix"
   ]
