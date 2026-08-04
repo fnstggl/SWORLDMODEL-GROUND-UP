@@ -1259,3 +1259,52 @@ recipient turn is cited twice by the evaluator as evidence for the same
 metric, calendar facts classified UNKNOWN were invented at run time,
 and no_explicit_decline is true 6/6. Every report already says this
 about itself in its own section 16.
+
+## Replay viewer 2026-08-04 (presentation layer only)
+
+Landed at 1f4baedb (receipt d2185be3). Self-contained static HTML/CSS/JS
+over the committed artifacts; one command:
+  python3 viewer/serve.py
+A local HTTP origin is REQUIRED, not preferred: browsers block
+cross-origin file:// fetches of the artifact JSON and crypto.subtle
+(used to recompute published hashes) needs a secure context. Opening
+index.html directly shows a red band saying so rather than a silently
+unverified replay -- correct fail-loud behaviour.
+
+All 14 runs load with 0 problems and 1,840 published hashes recomputed
+and matched across 32 branches. Equivalence test (86 passed) drives the
+viewer's OWN JS through node and reads committed events, call ids and
+metric citations back out of the RENDERED HTML; discrimination proved
+by five executed mutations (reorder rows, drop a step record, drop a
+committed row, rename a call id, rewrite a metric citation) -- each
+fails its assertion, and the reorder also trips two independent
+in-viewer errors and two hash mismatches. Fail-loud fixtures cover
+missing/malformed/truncated/tampered artifacts, always on temp copies;
+artifacts/ never touched.
+
+Two fidelity bugs the agent caught rather than shipped, both of which
+would have produced FALSE evidence: JSON.parse rounds the 63-bit
+branch_seed (would have displayed ...196000 for ...196392), and
+JSON.stringify writes 0 where the harness hashed 0.0, which would have
+falsely accused intact artifacts of hash mismatch. Hence
+viewer/lib/canonical_json.js and exact-literal seed reading.
+
+Genuinely absent fields are rendered as RECORDED AS UNAVAILABLE with
+the recorded reason verbatim (simulation_time and
+full_engine_state_hash in all 260 step records; the pre-guard excerpt
+truncation note; the settling arms' absent scenario files) -- never as
+a value, never hidden.
+
+## F2 lead guidance issued 2026-08-04 (to the closeout worker)
+
+The widened cutoff patterns now flag the user-supplied verbatim
+relevant_context sentence, failing ~7 a16z harness tests. Ruled: this
+is the corrected validator telling the truth, not a regression. Do NOT
+weaken the patterns; do NOT edit or sanitize the user's verbatim
+frozen input; DO update the affected tests to assert the corrected
+behaviour (pin the specific expected violation so the leak can never
+silently disappear) while separately asserting that the propagation
+surfaces -- actor prompts, model responses, plans, compiled world --
+stay clean. If a harness gate consequently refuses to run the a16z
+scenario end to end, that is an acceptable and correct outcome: record
+it, do not re-run, do not relax the gate.
