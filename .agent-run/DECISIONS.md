@@ -808,3 +808,38 @@ refusal matcher must always match a SUPERSET of what leading_attribution
 recognizes; never "harden" the parser's normalization without widening the
 refusal in lockstep. Pinned by
 test_production_marker_constant_matches_the_suite_anchor.
+
+## Reviewer wave 2 verdicts 2026-08-04 (three reports + re-verdict)
+
+- AgentSociety Scale: gate G CAN PASS. MEDIUM-1 (scale evidence provenance:
+  dirty worktree at a SHA lacking the harness) closed at 180caa3 with a
+  committed caveat block in PHASE11_SCALE_EVIDENCE; MEDIUM-2 (resume
+  refusal guards never negatively exercised) closed at 180caa3 with four
+  negative-control tests (engine_scale now 20); LOW-1 same-process resume
+  test renamed honestly. LOW-2 (no 1000-scale in-worker overlap
+  measurement) and LOW-3 (F4 trust boundary) already disclosed/accepted.
+- Integration Reliability: gate F CAN PASS with conditions. HIGH-1 ==
+  scale MEDIUM-1 (closed). MEDIUM-1 (bare ray.remote inherits silent
+  max_retries=3; "exactly-once" phrasing overreach), MEDIUM-2 (executor
+  crash arm zero-coverage), MEDIUM-3 (run_dir guard TOCTOU + untested)
+  -> wave2-fix batch. LOW-1 (idle-point kill) and LOW-4 (model purity
+  unverifiable at restore) disclosed by the matrix/checkpoint docs.
+  LOW-2: /tmp/ray session-dir accumulation -- freeze prep will clean.
+  LOW-3: phase11-system-suite failed job record (exit 1, artifacts
+  gitignored-gone) DISPOSITION: that run was the class instance of the
+  master-receipt staleness reproduced and fixed per the receipt
+  protocol; the passing phase11-final-dod + system reruns at later SHAs
+  supersede it. Also corrected reviewer-brief naming: the crash test is
+  test_ray_worker_failure.py and the typed error is
+  ray.exceptions.WorkerCrashedError.
+- Concordia Semantics: gate B CAN PASS; gate C BLOCKED by a NEW CRITICAL
+  (putative-row leak, runner.py substring filter admits unguarded
+  [putative_event] rows when actor text embeds the literal [event]
+  bracket; end-to-end success with silent recipient). Supersedes the
+  Simulation Reality re-verdict's runtime-actor-channel claim -- that
+  re-verdict's INERT finding for the marker-only actor channel remains
+  true; the [event]-bracket vector was outside its probe set. Fix in
+  flight (wave2-fix): prefix-based committed-stream discrimination.
+  LOW (Instructions component omitted vs canonical prefabs -- deliberate
+  minimal-actor choice) and LOW (get_state symmetric-omission blind spot
+  bounded by the Stage-B equivalence gate) recorded as disclosures.

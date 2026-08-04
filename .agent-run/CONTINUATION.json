@@ -1,14 +1,11 @@
 {
   "schema_version": 1,
-  "armed_at": "2026-08-04T00:38:23+00:00",
-  "armed_until": "2026-08-04T01:26:23+00:00",
+  "armed_at": "2026-08-04T00:59:35+00:00",
+  "armed_until": "2026-08-04T01:47:35+00:00",
   "minutes": 48.0,
-  "reason": "watching reviewer wave 2 (integration, scale, concordia, sim-reality re-verdict)",
-  "trigger_id": "trig_015sk6DbDPV4CcMS4VvXYLyA",
+  "reason": "watching wave2-fix worker (putative-row leak + executor hardening)",
+  "trigger_id": "trig_012jLydyLMNTcFckxtWTh8zP",
   "workers": [
-    "role-integration",
-    "role-scale",
-    "role-concordia",
-    "sim-reality-reverdict"
+    "wave2-fix"
   ]
 }
