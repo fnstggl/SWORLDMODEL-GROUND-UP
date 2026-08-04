@@ -1,0 +1,38 @@
+{
+  "provider": "deepseek",
+  "base_url": "https://api.deepseek.com",
+  "model": "deepseek-chat",
+  "model_identity_caveat": "the harness records the model id it REQUESTED. The provider may serve a different build under that id; the pre-run and post-run probes in provider_probe.json record what the provider itself reported.",
+  "roles": {
+    "compiler": {
+      "transport": "compiler.scene_llm.SceneCaller(transport=)",
+      "temperature": 0.0,
+      "max_tokens": 8000,
+      "response_format": "json_object",
+      "semantic_call_budget": 3
+    },
+    "actor": {
+      "seam": "counterfactuals.manager.run_candidates_detailed(model_factory=)",
+      "temperature": 0.0,
+      "max_tokens": 400,
+      "response_format": null
+    },
+    "game_master": {
+      "seam": "counterfactuals.manager.run_candidates_detailed(model_factory=)",
+      "temperature": 0.0,
+      "max_tokens": 400,
+      "response_format": null
+    }
+  },
+  "candidate_generator_not_used": "candidate_generation_permission is false in this contract: all six candidates are the user's own declared interventions, so the generator seam issues zero calls",
+  "retry_policy": {
+    "max_attempts_per_call": 4,
+    "backoff_seconds": [
+      2.0,
+      6.0,
+      15.0
+    ],
+    "every_attempt_recorded": true
+  },
+  "sampling_note": "temperature 0 is a bounded policy, not a determinism claim: the provider does not guarantee reproducible completions"
+}

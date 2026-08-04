@@ -43,6 +43,26 @@ a16z historical counterfactual (scenario 3)
 ``offer_delivery``  did the offer actually reach the subject's actor?
 ``runner_a16z``     the scenario driver.
 ``report_a16z``     the a16z UNDER_THE_HOOD report generator.
+
+Settling experiment (does a live sender enact its candidate?)
+-------------------------------------------------------------
+``settling``        the two-arm design: arm construction (as compiled vs
+              ``starting_events: []``), the forced roster-broadcast
+              observer control, and the verbatim enactment reading.
+``runner_settling`` the per-rep driver and the aggregate summary.
+``report_settling`` README + SETTLING_RESULT.md, verdict computed from
+              the two arms' enactment rates.
+
+Post-fix re-runs
+----------------
+``rerun``       frozen-input verification (a re-run must reuse the
+              pre-fix inputs) and the pre/post comparison facts.
+``runner_rerun_compare`` writes ``PRE_VS_POST_FIX.md`` per scenario.
+
+Both scenario runners take ``--rerun``, which redirects everything they
+WRITE into ``<scenario>/post_fix_rerun/`` while they keep READING the
+frozen compiler artifacts and window.  The pre-fix artifact set is the
+before half of the record and is never moved, deleted, or rewritten.
 """
 
 RUN_LABEL = "UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION"

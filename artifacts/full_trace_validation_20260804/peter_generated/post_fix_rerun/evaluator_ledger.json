@@ -1,0 +1,333 @@
+{
+  "label": "UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION",
+  "scenario_id": "peter_generated",
+  "evaluator_spec": {
+    "primary_metric": "call_agreed",
+    "secondary_metrics": [
+      "positive_reply",
+      "no_explicit_decline"
+    ]
+  },
+  "status_rule": "call_agreed -> success; an explicit decline -> failure; neither by the cutoff -> the runner's default (cutoff when the step budget was exhausted, incomplete for a technical stop)",
+  "attribution_anchor": "Putative event to resolve:",
+  "recipient_actor": "Peter Thiel",
+  "measurement_limitation": "agreement is measured by explicit surface patterns over free live-model text; a recipient who agrees in wording no pattern covers is scored cutoff, not success",
+  "branches": [
+    {
+      "candidate_id": "gen_001",
+      "branch_id": "br_3f0bba61fe192370",
+      "committed_trace_ref": "branches/gen_001/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "positive_reply": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, notes the explicit caveat about replay-test results not being production-proven, and replies with a short, direct email: “Send me the replay logs and the failure modes you’ve seen. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, notes the explicit caveat about replay-test results not being production-proven, and replies with a short, direct email: “Send me the replay logs and the failure modes you’ve seen. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [],
+            "value": false
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [],
+            "value": false
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    },
+    {
+      "candidate_id": "gen_002",
+      "branch_id": "br_e3fb8b9ecc232cea",
+      "committed_trace_ref": "branches/gen_002/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "success",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003",
+            "event:ev_0005"
+          ],
+          "cited_event_texts": [
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, notes the explicit caveat that the replay-test results are not production-proven, and replies within the day with a short, direct email: “Beckett—I’ll take the call. Send me three specific technical claims you want me to attack, plus the one failure mode you think I’ll miss. Thursday 3pm Pacific works. —Peter.”\n",
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, notes the explicit caveat that the replay-test results are not production-proven, and replies within the day with a short, direct email: “Beckett—I’ll take the call. Send me three specific technical claims you want me to attack, plus the one failure mode you think I’ll miss. Thursday 3pm Pacific works. —Peter.”\n"
+          ]
+        },
+        "positive_reply": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003",
+            "event:ev_0005"
+          ],
+          "cited_event_texts": [
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, notes the explicit caveat that the replay-test results are not production-proven, and replies within the day with a short, direct email: “Beckett—I’ll take the call. Send me three specific technical claims you want me to attack, plus the one failure mode you think I’ll miss. Thursday 3pm Pacific works. —Peter.”\n",
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, notes the explicit caveat that the replay-test results are not production-proven, and replies within the day with a short, direct email: “Beckett—I’ll take the call. Send me three specific technical claims you want me to attack, plus the one failure mode you think I’ll miss. Thursday 3pm Pacific works. —Peter.”\n"
+          ]
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, notes the explicit caveat that the replay-test results are not production-proven, and replies within the day with a short, direct email: “Beckett—I’ll take the call. Send me three specific technical claims you want me to attack, plus the one failure mode you think I’ll miss. Thursday 3pm Pacific works. —Peter.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, notes the explicit caveat that the replay-test results are not production-proven, and replies within the day with a short, direct email: “Beckett—I’ll take the call. Send me three specific technical claims you want me to attack, plus the one failure mode you think I’ll miss. Thursday 3pm Pacific works. —Peter.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [
+              {
+                "index": 3,
+                "pattern": "\\bi(?:'|’)?(?:ll| will)\\s+(?:take|do|join|make time for)\\s+(?:the|a|that|this)\\s*(?:20|twenty)?[-\\s]*(?:minute\\s*)?(?:call|conversation|chat)",
+                "matched_text": "I’ll take the call"
+              },
+              {
+                "index": 5,
+                "pattern": "\\bi(?:'|’)?(?:ll| will)\\s+(?:take|do|join|make time for)\\s+(?:the|a|that|this)\\s*(?:20|twenty)?[-\\s]*(?:minute\\s*)?(?:call|conversation|chat)",
+                "matched_text": "I’ll take the call"
+              }
+            ],
+            "value": true
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [
+              {
+                "index": 3,
+                "pattern": "\\bi(?:'|’)?(?:ll| will)\\s+(?:take|do|join|make time for)\\s+(?:the|a|that|this)\\s*(?:20|twenty)?[-\\s]*(?:minute\\s*)?(?:call|conversation|chat)",
+                "matched_text": "I’ll take the call"
+              },
+              {
+                "index": 5,
+                "pattern": "\\bi(?:'|’)?(?:ll| will)\\s+(?:take|do|join|make time for)\\s+(?:the|a|that|this)\\s*(?:20|twenty)?[-\\s]*(?:minute\\s*)?(?:call|conversation|chat)",
+                "matched_text": "I’ll take the call"
+              }
+            ],
+            "value": true
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    },
+    {
+      "candidate_id": "gen_003",
+      "branch_id": "br_f5e425ea50233d7f",
+      "committed_trace_ref": "branches/gen_003/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "success",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003",
+            "event:ev_0005"
+          ],
+          "cited_event_texts": [
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me the replay-test details and your core assumptions beforehand—I’ll come with questions, not praise.”\n",
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me the replay-test details and your core assumptions beforehand—I’ll come with questions, not praise.”\n"
+          ]
+        },
+        "positive_reply": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003",
+            "event:ev_0005"
+          ],
+          "cited_event_texts": [
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me the replay-test details and your core assumptions beforehand—I’ll come with questions, not praise.”\n",
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me the replay-test details and your core assumptions beforehand—I’ll come with questions, not praise.”\n"
+          ]
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me the replay-test details and your core assumptions beforehand—I’ll come with questions, not praise.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me the replay-test details and your core assumptions beforehand—I’ll come with questions, not praise.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [
+              {
+                "index": 3,
+                "pattern": "\\b(?:happy|glad|willing|open|delighted)\\s+to\\s+(?:talk|speak|chat|connect|do\\s+(?:a|the)\\s+call|take\\s+(?:a|the)\\s+call|hop\\s+on)",
+                "matched_text": "Happy to take the call"
+              },
+              {
+                "index": 5,
+                "pattern": "\\b(?:happy|glad|willing|open|delighted)\\s+to\\s+(?:talk|speak|chat|connect|do\\s+(?:a|the)\\s+call|take\\s+(?:a|the)\\s+call|hop\\s+on)",
+                "matched_text": "Happy to take the call"
+              }
+            ],
+            "value": true
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [
+              {
+                "index": 3,
+                "pattern": "\\b(?:happy|glad|willing|open|delighted)\\s+to\\s+(?:talk|speak|chat|connect|do\\s+(?:a|the)\\s+call|take\\s+(?:a|the)\\s+call|hop\\s+on)",
+                "matched_text": "Happy to take the call"
+              },
+              {
+                "index": 5,
+                "pattern": "\\b(?:happy|glad|willing|open|delighted)\\s+to\\s+(?:talk|speak|chat|connect|do\\s+(?:a|the)\\s+call|take\\s+(?:a|the)\\s+call|hop\\s+on)",
+                "matched_text": "Happy to take the call"
+              }
+            ],
+            "value": true
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    }
+  ],
+  "ranking": {
+    "declared_order": [
+      "call_agreed",
+      "positive_reply",
+      "no_explicit_decline"
+    ],
+    "refused": true,
+    "error_type": "InterventionNotDeliveredError",
+    "reason": "refusing to rank: not one of the 3 measured branches delivered its intervention to any actor other than the insertion actor, so every branch ran the counterfactual's independent variable at the same (undelivered) value and the measured differences cannot have been caused by the candidates. A winner computed from these branches would be an artifact of model sampling on identical downstream context, not a comparison. Per-branch delivery: gen_001: not_delivered (no_distinctive_fragment_reached_any_other_actor); gen_002: not_delivered (no_distinctive_fragment_reached_any_other_actor); gen_003: not_delivered (no_distinctive_fragment_reached_any_other_actor). Resolve the delivery failure (or run branches whose intervention reaches the world) and rank again; nothing is repaired or ranked silently here.",
+    "what_this_means": "the counterfactual's independent variable never varied downstream: no branch's candidate text reached any actor other than the insertion actor, so the branches cannot be compared and no winner is reported",
+    "per_branch_delivery": {
+      "gen_001": {
+        "status": "not_delivered",
+        "reason": "no_distinctive_fragment_reached_any_other_actor",
+        "insertion_actor": "beckett_zahedi",
+        "reached_actors": [],
+        "fragments_tested": 1,
+        "fragments_found": 0,
+        "reached_committed_world": false,
+        "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+      },
+      "gen_002": {
+        "status": "not_delivered",
+        "reason": "no_distinctive_fragment_reached_any_other_actor",
+        "insertion_actor": "beckett_zahedi",
+        "reached_actors": [],
+        "fragments_tested": 1,
+        "fragments_found": 0,
+        "reached_committed_world": false,
+        "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+      },
+      "gen_003": {
+        "status": "not_delivered",
+        "reason": "no_distinctive_fragment_reached_any_other_actor",
+        "insertion_actor": "beckett_zahedi",
+        "reached_actors": [],
+        "fragments_tested": 1,
+        "fragments_found": 0,
+        "reached_committed_world": false,
+        "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+      }
+    }
+  }
+}

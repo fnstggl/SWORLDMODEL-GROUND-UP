@@ -1,0 +1,28 @@
+{
+  "claim": "this re-run reuses the pre-fix run's frozen inputs; every hash below was recomputed now and compared against the entry the pre-fix freeze manifest recorded",
+  "pre_fix_manifest": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/freeze_manifest.json",
+  "checks": [
+    {
+      "entry": "compiler_artifact_dir_aggregate",
+      "recorded_by_the_pre_fix_run": "e550183449afce143735afe37115f9faa881df131194a1e1b2ccfb456c3d1961",
+      "recomputed_now": "e550183449afce143735afe37115f9faa881df131194a1e1b2ccfb456c3d1961",
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler",
+      "match": true
+    },
+    {
+      "entry": "decision_problem",
+      "recorded_by_the_pre_fix_run": "60fb4a87770875fb9bbdd7a2f3949bca051ffbb32258d2eb72d55284ce9fad14",
+      "recomputed_now": "60fb4a87770875fb9bbdd7a2f3949bca051ffbb32258d2eb72d55284ce9fad14",
+      "source": "the payload this re-run is about to run",
+      "match": true
+    },
+    {
+      "entry": "evidence_manifest",
+      "recorded_by_the_pre_fix_run": "08e85f0b1dee9ec32d4d153c22fa043a9ee30c92b3ea37edb7e6524afe4f612a",
+      "recomputed_now": "08e85f0b1dee9ec32d4d153c22fa043a9ee30c92b3ea37edb7e6524afe4f612a",
+      "source": "the manifest this re-run is about to run",
+      "match": true
+    }
+  ],
+  "all_match": true
+}

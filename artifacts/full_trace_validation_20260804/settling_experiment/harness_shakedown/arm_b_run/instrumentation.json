@@ -1,0 +1,42 @@
+{
+  "experiment_id": "settling_arm_b_rep_1",
+  "ledger": {
+    "experiment_id": "settling_arm_b_rep_1",
+    "records_written": 4,
+    "distinct_call_ids": 4,
+    "per_role": {
+      "actor": 4
+    },
+    "records_with_error": 0,
+    "records_that_were_retries": 0,
+    "master_ledger": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/arm_b/rep_1/all_llm_calls.jsonl"
+  },
+  "network_boundary": {
+    "request_count": 4,
+    "per_role": {
+      "actor": 4
+    }
+  },
+  "seams": {
+    "actor:beckett_zahedi": {
+      "invocations": 2,
+      "attempts": 2,
+      "failed_attempts": 0
+    },
+    "actor:peter_thiel": {
+      "invocations": 2,
+      "attempts": 2,
+      "failed_attempts": 0
+    }
+  },
+  "seam_attempt_total": 4,
+  "equality_proof": {
+    "claim": "every provider request issued at the network boundary produced exactly one ledger record with a distinct call_id, and every ledger record corresponds to one wrapper attempt",
+    "ledger_records_written": 4,
+    "ledger_distinct_call_ids": 4,
+    "network_boundary_requests": 4,
+    "seam_attempt_total": 4,
+    "all_equal": true
+  },
+  "wall_seconds": 9.62
+}

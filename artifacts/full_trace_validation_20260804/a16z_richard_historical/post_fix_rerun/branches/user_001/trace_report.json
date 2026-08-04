@@ -1,0 +1,235 @@
+{
+  "candidate_id": "user_001",
+  "branch_id": "br_2db163e3d45c2c04",
+  "branch_seed": 3730100026622196392,
+  "branch_plan_id": "p_94ddfcb342b412f6",
+  "branch_plan_content_hash": "7c0cc3103a2885ef82d8544037cfee63d0fef2cb23006fd1661504373fd0ba51",
+  "terminal_status": "cutoff",
+  "steps_completed": 15,
+  "runner_record_available": true,
+  "committed_events": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] [2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] The simulation window opens at 2025-07-01T16:00:00Z."
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the candidate file for Richard Zheng and drafts a preliminary offer memo with a proposed base salary, but does not send or extend any offer, instead flagging it for the People and Compensation Partner to review compensation parameters before any formal step is taken.\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”\n"
+    },
+    {
+      "event_id": "ev_0005",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the preliminary offer memo, notes that no salary bands or budget are known, and sends a message to the New Media Hiring Lead: \"I’ve received the draft offer memo for Richard Zheng. Before I can approve any compensation parameters, I need the role’s fixed package details and any relevant market or budget context—please share the title, scope, reporting line, benefits, equity, and the proposed base salary rationale so I can assess it against internal equity and affordability.\"\n"
+    },
+    {
+      "event_id": "ev_0006",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng reviews the a16z New Media role description and the hiring timeline, then drafts a concise, direct email to the hiring lead—cc’ing no one—asking for a 30-minute call before the decision window closes, writing: “I’m aware the role is being finalized this week. I’d like to discuss scope and how my production and distribution experience maps to it—happy to align on any specifics you need from me before you lock terms.”\n"
+    },
+    {
+      "event_id": "ev_0007",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews Richard Zheng’s candidate file and drafts a preliminary offer memo with a proposed base salary, but does not send or extend any offer, instead flagging it for the People and Compensation Partner to review compensation parameters before any formal step is taken.\n"
+    },
+    {
+      "event_id": "ev_0008",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”\n"
+    },
+    {
+      "event_id": "ev_0009",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”\n"
+    },
+    {
+      "event_id": "ev_0010",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner sends a follow-up message to the New Media Hiring Lead: \"I still haven’t received the fixed package details or the proposed base salary rationale for Richard Zheng—please send the title, scope, reporting line, benefits, equity, and any market or budget context so I can review the compensation parameters before any offer moves forward.\"\n"
+    },
+    {
+      "event_id": "ev_0011",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng opens his email draft, re-reads it once for tone, and hits send to the hiring lead with no cc, then immediately checks his calendar to block a 30-minute slot on July 8th, noting in the invite subject: “a16z New Media – Scope Alignment Call.”\n"
+    },
+    {
+      "event_id": "ev_0012",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews Richard Zheng’s file and the People and Compensation Partner’s follow-up, then sends a concise reply: “Understood—I’ll hold off on any offer. I’m pulling the fixed package details (title, scope, reporting line, benefits, equity) and will send you the proposed base salary rationale with market context by end of day, but no formal offer will be extended until you approve the compensation parameters.”\n"
+    },
+    {
+      "event_id": "ev_0013",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”\n"
+    },
+    {
+      "event_id": "ev_0014",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”\n"
+    },
+    {
+      "event_id": "ev_0015",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner acknowledges the Hiring Lead’s commitment and sends a brief confirmation: “Thanks—I’ll wait for the package details and salary rationale before reviewing. Once I have the title, scope, reporting line, benefits, equity, and market context, I’ll assess internal equity and affordability and get back to you with approval or specific adjustments.”\n"
+    },
+    {
+      "event_id": "ev_0016",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng sends the email to the hiring lead with no cc, then blocks a 30-minute slot on July 8th, titling the invite “a16z New Media – Scope Alignment Call,” and adds a private note to prep talking points on his production and distribution track record.\n"
+    }
+  ],
+  "guard_interventions": [],
+  "actor_records": {
+    "new_media_hiring_lead": {
+      "name": "New Media Hiring Lead",
+      "observations": [
+        "[observation] a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+        "[observation] [2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved.",
+        "[observation] [2025-07-01T16:00:00Z] Do not make Richard Zheng an employment offer during the simulation window.",
+        "[observation] Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the candidate file for Richard Zheng and drafts a preliminary offer memo with a proposed base salary, but does not send or extend any offer, instead flagging it for the People and Compensation Partner to review compensation parameters before any formal step is taken.",
+        "[observation] Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the preliminary offer memo, notes that no salary bands or budget are known, and sends a message to the New Media Hiring Lead: \"I’ve received the draft offer memo for Richard Zheng. Before I can approve any compensation parameters, I need the role’s fixed package details and any relevant market or budget context—please share the title, scope, reporting line, benefits, equity, and the proposed base salary rationale so I can assess it against internal equity and affordability.\"",
+        "[observation] Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews Richard Zheng’s candidate file and drafts a preliminary offer memo with a proposed base salary, but does not send or extend any offer, instead flagging it for the People and Compensation Partner to review compensation parameters before any formal step is taken.",
+        "[observation] Putative event to resolve:  People and Compensation Partner: People and Compensation Partner sends a follow-up message to the New Media Hiring Lead: \"I still haven’t received the fixed package details or the proposed base salary rationale for Richard Zheng—please send the title, scope, reporting line, benefits, equity, and any market or budget context so I can review the compensation parameters before any offer moves forward.\"",
+        "[observation] Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews Richard Zheng’s file and the People and Compensation Partner’s follow-up, then sends a concise reply: “Understood—I’ll hold off on any offer. I’m pulling the fixed package details (title, scope, reporting line, benefits, equity) and will send you the proposed base salary rationale with market context by end of day, but no formal offer will be extended until you approve the compensation parameters.”"
+      ],
+      "attempts": [
+        {
+          "step": 1,
+          "attempt": "New Media Hiring Lead reviews the candidate file for Richard Zheng and drafts a preliminary offer memo with a proposed base salary, but does not send or extend any offer, instead flagging it for the People and Compensation Partner to review compensation parameters before any formal step is taken."
+        },
+        {
+          "step": 6,
+          "attempt": "New Media Hiring Lead reviews Richard Zheng’s candidate file and drafts a preliminary offer memo with a proposed base salary, but does not send or extend any offer, instead flagging it for the People and Compensation Partner to review compensation parameters before any formal step is taken."
+        },
+        {
+          "step": 11,
+          "attempt": "New Media Hiring Lead reviews Richard Zheng’s file and the People and Compensation Partner’s follow-up, then sends a concise reply: “Understood—I’ll hold off on any offer. I’m pulling the fixed package details (title, scope, reporting line, benefits, equity) and will send you the proposed base salary rationale with market context by end of day, but no formal offer will be extended until you approve the compensation parameters.”"
+        }
+      ]
+    },
+    "new_media_strategy_partner": {
+      "name": "New Media Strategy Partner",
+      "observations": [
+        "[observation] a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+        "[observation] [2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved.",
+        "[observation] Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”",
+        "[observation] Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”",
+        "[observation] Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”"
+      ],
+      "attempts": [
+        {
+          "step": 2,
+          "attempt": "New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”"
+        },
+        {
+          "step": 7,
+          "attempt": "New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”"
+        },
+        {
+          "step": 12,
+          "attempt": "New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move forward with an offer at the approved base range, but I’ll defer to you on final terms.”"
+        }
+      ]
+    },
+    "creative_production_lead": {
+      "name": "Creative Production Lead",
+      "observations": [
+        "[observation] a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+        "[observation] [2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved.",
+        "[observation] Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”",
+        "[observation] Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”",
+        "[observation] Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”"
+      ],
+      "attempts": [
+        {
+          "step": 3,
+          "attempt": "Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”"
+        },
+        {
+          "step": 8,
+          "attempt": "Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”"
+        },
+        {
+          "step": 13,
+          "attempt": "Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to test his hands-on editing speed before we move forward. Happy to run a quick practical exercise if useful.”"
+        }
+      ]
+    },
+    "people_and_compensation_partner": {
+      "name": "People and Compensation Partner",
+      "observations": [
+        "[observation] a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+        "[observation] [2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved.",
+        "[observation] Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the candidate file for Richard Zheng and drafts a preliminary offer memo with a proposed base salary, but does not send or extend any offer, instead flagging it for the People and Compensation Partner to review compensation parameters before any formal step is taken.",
+        "[observation] Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the preliminary offer memo, notes that no salary bands or budget are known, and sends a message to the New Media Hiring Lead: \"I’ve received the draft offer memo for Richard Zheng. Before I can approve any compensation parameters, I need the role’s fixed package details and any relevant market or budget context—please share the title, scope, reporting line, benefits, equity, and the proposed base salary rationale so I can assess it against internal equity and affordability.\"",
+        "[observation] Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews Richard Zheng’s candidate file and drafts a preliminary offer memo with a proposed base salary, but does not send or extend any offer, instead flagging it for the People and Compensation Partner to review compensation parameters before any formal step is taken.",
+        "[observation] Putative event to resolve:  People and Compensation Partner: People and Compensation Partner sends a follow-up message to the New Media Hiring Lead: \"I still haven’t received the fixed package details or the proposed base salary rationale for Richard Zheng—please send the title, scope, reporting line, benefits, equity, and any market or budget context so I can review the compensation parameters before any offer moves forward.\"",
+        "[observation] Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews Richard Zheng’s file and the People and Compensation Partner’s follow-up, then sends a concise reply: “Understood—I’ll hold off on any offer. I’m pulling the fixed package details (title, scope, reporting line, benefits, equity) and will send you the proposed base salary rationale with market context by end of day, but no formal offer will be extended until you approve the compensation parameters.”",
+        "[observation] Putative event to resolve:  People and Compensation Partner: People and Compensation Partner acknowledges the Hiring Lead’s commitment and sends a brief confirmation: “Thanks—I’ll wait for the package details and salary rationale before reviewing. Once I have the title, scope, reporting line, benefits, equity, and market context, I’ll assess internal equity and affordability and get back to you with approval or specific adjustments.”"
+      ],
+      "attempts": [
+        {
+          "step": 4,
+          "attempt": "People and Compensation Partner reviews the preliminary offer memo, notes that no salary bands or budget are known, and sends a message to the New Media Hiring Lead: \"I’ve received the draft offer memo for Richard Zheng. Before I can approve any compensation parameters, I need the role’s fixed package details and any relevant market or budget context—please share the title, scope, reporting line, benefits, equity, and the proposed base salary rationale so I can assess it against internal equity and affordability.\""
+        },
+        {
+          "step": 9,
+          "attempt": "People and Compensation Partner sends a follow-up message to the New Media Hiring Lead: \"I still haven’t received the fixed package details or the proposed base salary rationale for Richard Zheng—please send the title, scope, reporting line, benefits, equity, and any market or budget context so I can review the compensation parameters before any offer moves forward.\""
+        },
+        {
+          "step": 14,
+          "attempt": "People and Compensation Partner acknowledges the Hiring Lead’s commitment and sends a brief confirmation: “Thanks—I’ll wait for the package details and salary rationale before reviewing. Once I have the title, scope, reporting line, benefits, equity, and market context, I’ll assess internal equity and affordability and get back to you with approval or specific adjustments.”"
+        }
+      ]
+    },
+    "richard_zheng": {
+      "name": "Richard Zheng",
+      "observations": [
+        "[observation] a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+        "[observation] [2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved.",
+        "[observation] Putative event to resolve:  Richard Zheng: Richard Zheng reviews the a16z New Media role description and the hiring timeline, then drafts a concise, direct email to the hiring lead—cc’ing no one—asking for a 30-minute call before the decision window closes, writing: “I’m aware the role is being finalized this week. I’d like to discuss scope and how my production and distribution experience maps to it—happy to align on any specifics you need from me before you lock terms.”",
+        "[observation] Putative event to resolve:  Richard Zheng: Richard Zheng opens his email draft, re-reads it once for tone, and hits send to the hiring lead with no cc, then immediately checks his calendar to block a 30-minute slot on July 8th, noting in the invite subject: “a16z New Media – Scope Alignment Call.”"
+      ],
+      "attempts": [
+        {
+          "step": 5,
+          "attempt": "Richard Zheng reviews the a16z New Media role description and the hiring timeline, then drafts a concise, direct email to the hiring lead—cc’ing no one—asking for a 30-minute call before the decision window closes, writing: “I’m aware the role is being finalized this week. I’d like to discuss scope and how my production and distribution experience maps to it—happy to align on any specifics you need from me before you lock terms.”"
+        },
+        {
+          "step": 10,
+          "attempt": "Richard Zheng opens his email draft, re-reads it once for tone, and hits send to the hiring lead with no cc, then immediately checks his calendar to block a 30-minute slot on July 8th, noting in the invite subject: “a16z New Media – Scope Alignment Call.”"
+        },
+        {
+          "step": 15,
+          "attempt": "Richard Zheng sends the email to the hiring lead with no cc, then blocks a 30-minute slot on July 8th, titling the invite “a16z New Media – Scope Alignment Call,” and adds a private note to prep talking points on his production and distribution track record."
+        }
+      ]
+    }
+  },
+  "unattributed_attempts": [],
+  "terminal_world_state": {
+    "steps_completed": 15,
+    "committed_event_count": 17,
+    "actor_memory_counts": {
+      "new_media_hiring_lead": 8,
+      "new_media_strategy_partner": 5,
+      "creative_production_lead": 5,
+      "people_and_compensation_partner": 8,
+      "richard_zheng": 4
+    }
+  },
+  "infrastructure_errors": [],
+  "evaluation_citations": {
+    "valid_offer_accepted": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "salary_savings_vs_300k": {
+      "value": 300000.0,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "adapter_version": "existing_compiler_adapter_v1",
+  "warnings": [],
+  "warning_counts": {
+    "heuristic_visibility_incoherence": 0
+  },
+  "compile_inputs": {
+    "question": "Will the following outcome occur before the cutoff? Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+    "start": "2025-07-01T16:00:00Z",
+    "cutoff": "2025-07-10T12:00:00Z",
+    "compiler_version": "minimal_scene_v1",
+    "evidence_mode": "evidence_package"
+  },
+  "canonical": {
+    "world_id": "w_d53492bb3ba4",
+    "start_time": "2025-07-01T16:00:00Z",
+    "cutoff": "2025-07-10T12:00:00Z",
+    "manifest_canonical_sha256": "eb3f3cd768cb3de58f9d4278ce9153c4c2e3ec1ebda64fb5d708a76c107de09a",
+    "question_sha256": "936211acb7580025d815d9d53767b62263aa930b06ea515bf253616d28b69655"
+  },
+  "actor_id_by_name": {
+    "New Media Hiring Lead": "new_media_hiring_lead",
+    "New Media Strategy Partner": "new_media_strategy_partner",
+    "Creative Production Lead": "creative_production_lead",
+    "People and Compensation Partner": "people_and_compensation_partner",
+    "Richard Zheng": "richard_zheng"
+  },
+  "insertion_actor_reference": "New Media Hiring Lead",
+  "insertion_actor_id": "new_media_hiring_lead",
+  "artifact_files": {
+    "input.json": {
+      "question": "Will the following outcome occur before the cutoff? Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+      "start": "2025-07-01T16:00:00Z",
+      "cutoff": "2025-07-10T12:00:00Z",
+      "context": "This is a historical counterfactual frozen on July 1, 2025. The cast is: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The hiring lead owns the hiring action. The strategy and creative actors advise but cannot independently issue an offer. The compensation actor can approve or reject compensation terms but cannot decide whether Richard accepts. Richard alone decides whether to accept, reject, counter, or delay. Richard is described by user-supplied and publicly available pre-cutoff information as a recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, an independent creative and media operator, and a worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Preserve source dates and confidence. Do not include his later a16z employment or later a16z work. Public evidence indicates a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The exact real hiring committee and private internal facts are unknown.\n\nModelling scope for this simulation (a declared test setup, not a claim about the real world):\n1. This is a HISTORICAL COUNTERFACTUAL frozen on 2025-07-01. Your knowledge horizon is that instant: use only information that already existed as of 2025-07-01. Do not use, reference, or rely on anything published, announced, decided, or reported after 2025-07-01, including any later employment, later work, later campaign, or later announcement by any party. This is a knowledge horizon, NOT a deadline for the decision: the decision window is the simulation window given above.\n2. Model EXACTLY these five actors and no others, using exactly these names: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The first four are role-based stand-ins supplied by this test because the real committee is not public; they are given to you, not invented by you. Do not add, remove, rename, merge, or split actors. Do not add assistants, recruiters, lawyers, executives, board members, or intermediaries.\n3. Authority: the New Media Hiring Lead owns the hiring action; the People and Compensation Partner owns compensation approval; the New Media Strategy Partner and the Creative Production Lead advise and cannot issue an offer; Richard Zheng alone decides whether to accept, reject, counter, or delay.\n4. Do not invent a16z salary bands, internal budgets, compensation ceilings, private opinions, or hiring deliberations, and do not state any as fact. Nothing about anyone's private compensation, internal opinions, or exact internal authority is known.\n5. No starting event may state or imply that an offer has been prepared, authorized, issued, discussed with the candidate, accepted, rejected, or countered. The offer, if any, is what the simulation is for.\n6. Treat every claim in the evidence package at exactly the confidence its label gives it; do not elaborate an assumption into a fact.",
+      "evidence": "HISTORICAL EVIDENCE PACKAGE, frozen at 2025-07-01. Every item below is labelled with how well it is established. USER_SUPPLIED items are asserted by the person running this simulation and are to be treated as true inside it; they are NOT independently verified. TEST_ASSUMPTION items are modelling decisions with no source: do not elaborate them into facts. UNKNOWN items are recorded so their absence is visible; do not fill them in. There are no PUBLICLY_VERIFIED items in this package, because this run did not consult a dated public source. Nothing outside this package is established: do not invent salary bands, budgets, compensation ceilings, private opinions, internal deliberations, or decision authority, and do not use anything published after 2025-07-01.\n\n[1] (USER_SUPPLIED) Richard Zheng is a recent high-school graduate.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[2] (USER_SUPPLIED) Richard Zheng has been Head of Marketing at Aviato.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[3] (USER_SUPPLIED) Richard Zheng is the founder of UNHRD.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[4] (USER_SUPPLIED) Richard Zheng is an independent creative and media operator.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[5] (USER_SUPPLIED) Richard Zheng has worked on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX.\n    source: user-supplied decision problem (data/a16z_problem.json) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[6] (USER_SUPPLIED) UNVERIFIED USER CLAIM, label preserved: Richard Zheng previously earned approximately $100,000 per video shoot and managed eight shoots simultaneously. This is reported project revenue and must NOT be treated as equivalent to an annual salary or to personal income.\n    source: user-supplied decision problem (data/a16z_problem.json) (explicitly flagged unverified by the user) | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[7] (USER_SUPPLIED) a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies.\n    source: user-supplied decision problem (data/a16z_problem.json); the user attributes this to public evidence, which this harness did not independently check | date: asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here | available on or before the 2025-07-01 cutoff: True\n[8] (TEST_ASSUMPTION) This simulation models exactly five actors: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The first four are ROLE-BASED STAND-INS supplied by this test because the real hiring committee is not public. They are not real people and no claim is made that a16z has such roles.\n    source: harness modelling decision (experiments/full_trace_validation/scenario_a16z.py) | date: declared before the run | available on or before the 2025-07-01 cutoff: True\n[9] (TEST_ASSUMPTION) Declared authority model: the New Media Hiring Lead owns the hiring action; the People and Compensation Partner owns compensation approval; the strategy and creative actors advise only; Richard Zheng alone decides whether to accept, reject, counter, or delay. This is a test setup, not a description of a16z.\n    source: harness modelling decision (experiments/full_trace_validation/scenario_a16z.py) | date: declared before the run | available on or before the 2025-07-01 cutoff: True\n[10] (TEST_ASSUMPTION) The role package -- title, role scope, reporting line, benefits, equity treatment, creative autonomy, resources and start expectations -- is held FIXED and unspecified across every branch; only annual base salary varies.\n    source: harness modelling decision (experiments/full_trace_validation/scenario_a16z.py) | date: declared before the run | available on or before the 2025-07-01 cutoff: True\n[11] (TEST_ASSUMPTION) The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z, and every actor is available to act inside it (the simulation gives each one turns).\n    source: harness modelling decision (experiments/full_trace_validation/scenario_a16z.py) | date: declared before the run | available on or before the 2025-07-01 cutoff: True",
+      "compiler_version": "minimal_scene_v1"
+    },
+    "final_scene_manifest.json": {
+      "actors": [
+        {
+          "name": "New Media Hiring Lead",
+          "private_context": "Owns the hiring action for a New Media role at a16z. Has authority to extend an offer to a candidate, but any offer requires compensation approval from the People and Compensation Partner. Aware that Richard Zheng is a candidate under consideration. No offer has been prepared or authorized yet."
+        },
+        {
+          "name": "New Media Strategy Partner",
+          "private_context": "Advisory role in the hiring process. Can provide input on strategic fit but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private information about compensation or internal deliberations."
+        },
+        {
+          "name": "Creative Production Lead",
+          "private_context": "Advisory role in the hiring process. Can provide input on creative and production capabilities but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private information about compensation or internal deliberations."
+        },
+        {
+          "name": "People and Compensation Partner",
+          "private_context": "Owns compensation approval for the role. Can approve or reject compensation terms but cannot decide whether Richard accepts. No specific salary bands or budgets are known. No offer has been submitted for approval yet."
+        },
+        {
+          "name": "Richard Zheng",
+          "private_context": "Recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, independent creative and media operator, and worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Has reportedly earned approximately $100,000 per video shoot and managed eight shoots simultaneously (unverified, project revenue, not salary). Aware of a16z New Media's intended purpose. Has not received any offer from a16z as of the start time."
+        }
+      ],
+      "shared_context": "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+      "starting_events": [
+        {
+          "time": "2025-07-01T16:00:00+00:00",
+          "description": "The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved.",
+          "visible_to": [
+            "New Media Hiring Lead",
+            "New Media Strategy Partner",
+            "Creative Production Lead",
+            "People and Compensation Partner",
+            "Richard Zheng"
+          ]
+        }
+      ],
+      "resolution": "Resolve YES only if the persistent event history shows that, before 2025-07-10T12:00:00Z, the New Media Hiring Lead extended a valid offer to Richard Zheng with a specified annual base salary, the People and Compensation Partner approved that compensation, and Richard Zheng accepted that offer. Otherwise resolve NO at the cutoff."
+    },
+    "compiler_metrics.json": {
+      "semantic_calls": 2,
+      "semantic_slots": [
+        "call_1_scene",
+        "call_2_review"
+      ],
+      "provider_requests": 2,
+      "total_prompt_tokens": 8214,
+      "total_completion_tokens": 721,
+      "per_slot": {
+        "call_1_scene": {
+          "attempts": 1,
+          "duration_s": 7.147,
+          "prompt_tokens": 4243,
+          "completion_tokens": 703
+        },
+        "call_2_review": {
+          "attempts": 1,
+          "duration_s": 1.731,
+          "prompt_tokens": 3971,
+          "completion_tokens": 18
+        }
+      },
+      "wall_s": 8.89,
+      "compiler_version": "minimal_scene_v1",
+      "evidence_mode": "evidence_package",
+      "repaired_compile": false,
+      "world_id": "w_d0f0cd090b1f"
+    },
+    "scene_manifest.json": {
+      "actors": [
+        {
+          "name": "New Media Hiring Lead",
+          "private_context": "Owns the hiring action for a New Media role at a16z. Has authority to extend an offer to a candidate, but any offer requires compensation approval from the People and Compensation Partner. Aware that Richard Zheng is a candidate under consideration. No offer has been prepared or authorized yet."
+        },
+        {
+          "name": "New Media Strategy Partner",
+          "private_context": "Advisory role in the hiring process. Can provide input on strategic fit but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private information about compensation or internal deliberations."
+        },
+        {
+          "name": "Creative Production Lead",
+          "private_context": "Advisory role in the hiring process. Can provide input on creative and production capabilities but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private information about compensation or internal deliberations."
+        },
+        {
+          "name": "People and Compensation Partner",
+          "private_context": "Owns compensation approval for the role. Can approve or reject compensation terms but cannot decide whether Richard accepts. No specific salary bands or budgets are known. No offer has been submitted for approval yet."
+        },
+        {
+          "name": "Richard Zheng",
+          "private_context": "Recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, independent creative and media operator, and worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Has reportedly earned approximately $100,000 per video shoot and managed eight shoots simultaneously (unverified, project revenue, not salary). Aware of a16z New Media's intended purpose. Has not received any offer from a16z as of the start time."
+        }
+      ],
+      "shared_context": "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+      "starting_events": [
+        {
+          "time": "2025-07-01T16:00:00Z",
+          "description": "The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved.",
+          "visible_to": [
+            "New Media Hiring Lead",
+            "New Media Strategy Partner",
+            "Creative Production Lead",
+            "People and Compensation Partner",
+            "Richard Zheng"
+          ]
+        }
+      ],
+      "resolution": "Resolve YES only if the persistent event history shows that, before 2025-07-10T12:00:00Z, the New Media Hiring Lead extended a valid offer to Richard Zheng with a specified annual base salary, the People and Compensation Partner approved that compensation, and Richard Zheng accepted that offer. Otherwise resolve NO at the cutoff."
+    },
+    "scene_review.json": {
+      "verdict": "APPROVE",
+      "defects": []
+    },
+    "normalization_report.json": {
+      "notes": [],
+      "merged_or_collapsed": 0,
+      "actor_count": 5,
+      "event_count": 1
+    },
+    "validation_report.json": {
+      "errors": [],
+      "warnings": []
+    },
+    "genesis_resolution_check.json": {
+      "resolution": {
+        "question": "Will the following outcome occur before the cutoff? Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+        "resolution": "Resolve YES only if the persistent event history shows that, before 2025-07-10T12:00:00Z, the New Media Hiring Lead extended a valid offer to Richard Zheng with a specified annual base salary, the People and Compensation Partner approved that compensation, and Richard Zheng accepted that offer. Otherwise resolve NO at the cutoff.",
+        "cutoff": "2025-07-10T12:00:00Z",
+        "world_id": "w_d0f0cd090b1f"
+      },
+      "value_at_genesis": null,
+      "false_at_genesis": true
+    },
+    "runtime_bindings.json": {
+      "world_id": "w_d0f0cd090b1f",
+      "actor_ids": {
+        "New Media Hiring Lead": "new_media_hiring_lead",
+        "New Media Strategy Partner": "new_media_strategy_partner",
+        "Creative Production Lead": "creative_production_lead",
+        "People and Compensation Partner": "people_and_compensation_partner",
+        "Richard Zheng": "richard_zheng"
+      },
+      "event_records": [
+        {
+          "event_id": "se1",
+          "ledger_seq": 20,
+          "at": "2025-07-01T16:00:00+00:00",
+          "visible_to_ids": [
+            "new_media_hiring_lead",
+            "new_media_strategy_partner",
+            "creative_production_lead",
+            "people_and_compensation_partner",
+            "richard_zheng"
+          ],
+          "description": "The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+        }
+      ],
+      "code_owned_defaults": {
+        "actor_role": "actor",
+        "actor_tz": "UTC",
+        "scene_channel_latency": "0s (directly experienced)"
+      },
+      "personas": {
+        "new_media_hiring_lead": {
+          "name": "New Media Hiring Lead",
+          "persona_brief": "You are New Media Hiring Lead.\nOwns the hiring action for a New Media role at a16z. Has authority to extend an offer to a candidate, but any offer requires compensation approval from the People and Compensation Partner. Aware that Richard Zheng is a candidate under consideration. No offer has been prepared or authorized yet."
+        },
+        "new_media_strategy_partner": {
+          "name": "New Media Strategy Partner",
+          "persona_brief": "You are New Media Strategy Partner.\nAdvisory role in the hiring process. Can provide input on strategic fit but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private information about compensation or internal deliberations."
+        },
+        "creative_production_lead": {
+          "name": "Creative Production Lead",
+          "persona_brief": "You are Creative Production Lead.\nAdvisory role in the hiring process. Can provide input on creative and production capabilities but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private information about compensation or internal deliberations."
+        },
+        "people_and_compensation_partner": {
+          "name": "People and Compensation Partner",
+          "persona_brief": "You are People and Compensation Partner.\nOwns compensation approval for the role. Can approve or reject compensation terms but cannot decide whether Richard accepts. No specific salary bands or budgets are known. No offer has been submitted for approval yet."
+        },
+        "richard_zheng": {
+          "name": "Richard Zheng",
+          "persona_brief": "You are Richard Zheng.\nRecent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, independent creative and media operator, and worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Has reportedly earned approximately $100,000 per video shoot and managed eight shoots simultaneously (unverified, project revenue, not salary). Aware of a16z New Media's intended purpose. Has not received any offer from a16z as of the start time."
+        }
+      },
+      "resolution": {
+        "question": "Will the following outcome occur before the cutoff? Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+        "resolution": "Resolve YES only if the persistent event history shows that, before 2025-07-10T12:00:00Z, the New Media Hiring Lead extended a valid offer to Richard Zheng with a specified annual base salary, the People and Compensation Partner approved that compensation, and Richard Zheng accepted that offer. Otherwise resolve NO at the cutoff.",
+        "cutoff": "2025-07-10T12:00:00Z",
+        "world_id": "w_d0f0cd090b1f"
+      }
+    }
+  }
+}

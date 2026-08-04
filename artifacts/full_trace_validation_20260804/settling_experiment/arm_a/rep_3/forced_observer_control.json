@@ -1,0 +1,44 @@
+{
+  "what_this_is": "the ONE piece of text this experiment supplies. The game master's observer-ROUTING answer is forced to the full roster so the known observer-routing defect (D1, closed at c5a81214) cannot confound the measurement. Every actor turn is a live provider completion; no other game-master call was intercepted.",
+  "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+  "roster_broadcast": [
+    "Beckett Zahedi",
+    "Peter Thiel"
+  ],
+  "interceptions": [
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 1,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "or additional messages, keeping the ball in Peter Thiel's court.\nEvent that occurred: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi waits for a reply, checking his inbox periodically but not sending any follow-up or additional messages, keeping the ball in Peter Thiel's court.\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 2,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "t’s message once, notes the explicit caveat that the replay-test results are not production-proven, and replies with a short, direct email: “Send me the test methodology and the failure modes you’re hiding. I’ll give you 20 minutes if you can show me something that breaks your own thesis.”\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 3,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "(e.g., tail-latency correlation across heterogeneous GPU generations, silent data corruption masking, and scheduler feedback loops under adversarial request patterns), and sends it back with a one-line note: “Attached—here’s what breaks my thesis, and I’d like the 20 minutes to go deeper.”\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 4,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "n replies with a single line: “Thursday, 2 PM Pacific. Bring the failure modes, not the pitch.”\nEvent that occurred: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett’s memo, then replies with a single line: “Thursday, 2 PM Pacific. Bring the failure modes, not the pitch.”\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    }
+  ],
+  "interception_count": 4,
+  "control_actually_fired": true
+}

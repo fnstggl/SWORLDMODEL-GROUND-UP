@@ -1,0 +1,35 @@
+{
+  "run_id": "settling_arm_b_rep_2",
+  "arm": "b",
+  "arm_label": "not_pre_narrated",
+  "arm_note": "the same world with starting_events removed, so nothing tells the sender the send already happened",
+  "rep": 2,
+  "candidate_id": "user_001",
+  "candidate_action": "Subject: 7.24× more useful work per GPU dollar\n\nPeter—\n\nI'm Beckett, 17, starting Princeton this fall. I built a supervisory optimizer for GPU fleets that produced 7.24× more SLA-safe goodput per dollar across 1.5M replayed production requests. It is not production-validated yet, but the mechanism is concrete. Would you be open to a 20-minute call next week? I can send a one-page technical memo first.",
+  "sender": "Beckett Zahedi",
+  "recipient": "Peter Thiel",
+  "seed": 20260804,
+  "max_steps": 4,
+  "branch_id": "br_79ff51835d0e968a",
+  "branch_seed": 3730100026622196392,
+  "arm_difference": {
+    "fields_that_differ": [
+      "starting_events"
+    ],
+    "arm_a_starting_events": [
+      {
+        "description": "Beckett Zahedi sends the prepared message to Peter Thiel.",
+        "visible_to": [
+          "beckett_zahedi"
+        ],
+        "time": "2026-08-04T18:10:38Z"
+      }
+    ],
+    "arm_b_starting_events": [],
+    "arm_a_content_hash": "4d5a4845fcab59706d11e0d28d1f8a3c549ba14059846790f033893ac37535ca",
+    "arm_b_content_hash": "9917da861e6eec4b7d7e550968c6643561058a3822d3b8dff350a8154f2747cc",
+    "identical_except_starting_events": true
+  },
+  "plan_content_hash": "241b6272cdfd81e04c9292c31071a593bcf272e1dee336a10c1b614bd1f80a05",
+  "world_content_hash": "9917da861e6eec4b7d7e550968c6643561058a3822d3b8dff350a8154f2747cc"
+}

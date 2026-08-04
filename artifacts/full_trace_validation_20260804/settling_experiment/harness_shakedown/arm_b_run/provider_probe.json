@@ -1,0 +1,36 @@
+{
+  "pre_run": {
+    "requested_model": "deepseek-chat",
+    "served_model_reported_by_provider": "deepseek-v4-flash",
+    "response_id": "3e1d3bd3-d3d3-463e-96de-d1dbf10b3718",
+    "system_fingerprint": "fp_a18b46594c_prod0820_fp8_kvcache_20260402",
+    "usage": {
+      "prompt_tokens": 5,
+      "completion_tokens": 1,
+      "total_tokens": 6,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 5
+    },
+    "probed_at": "2026-08-04T20:54:02Z"
+  },
+  "post_run": {
+    "requested_model": "deepseek-chat",
+    "served_model_reported_by_provider": "deepseek-v4-flash",
+    "response_id": "8071110f-10f2-4140-b529-b32094246061",
+    "system_fingerprint": "fp_a18b46594c_prod0820_fp8_kvcache_20260402",
+    "usage": {
+      "prompt_tokens": 5,
+      "completion_tokens": 1,
+      "total_tokens": 6,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 5
+    },
+    "probed_at": "2026-08-04T20:54:13Z"
+  }
+}

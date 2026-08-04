@@ -49,6 +49,39 @@ SHARED_DIR = ARTIFACT_ROOT / "shared"
 COMPILER_DIR = SUPPLIED_DIR / "compiler"
 RUN_IDENTITY_PATH = SHARED_DIR / "run_identity.json"
 
+#: the PRE-FIX (frozen) locations, captured at import.  A post-fix re-run
+#: keeps READING these -- the compiler artifact directory and
+#: ``run_identity.json`` are its frozen inputs -- and never writes them.
+FROZEN_SUPPLIED_DIR = SUPPLIED_DIR
+FROZEN_GENERATED_DIR = GENERATED_DIR
+FROZEN_SHARED_DIR = SHARED_DIR
+
+#: where a post-fix re-run writes, inside each scenario's own directory
+RERUN_SUBDIR = "post_fix_rerun"
+RERUN_OUTPUT = False
+
+
+def set_rerun_output(phase: str) -> None:
+    """Redirect everything this runner WRITES into
+    ``<scenario>/post_fix_rerun/``.
+
+    The four production defects closed at ``c5a81214`` require the
+    affected experiments to be restarted from their frozen inputs.  The
+    pre-fix artifacts are the before half of that record: they are never
+    moved, deleted, or rewritten.  ``COMPILER_DIR`` and
+    ``RUN_IDENTITY_PATH`` were bound at import from the pre-fix
+    locations, so the re-run reads the SAME frozen compiler artifact set
+    and the SAME window while writing somewhere new.  No recompilation
+    happens and no compiler call is issued.
+    """
+    global SUPPLIED_DIR, GENERATED_DIR, SHARED_DIR, RERUN_OUTPUT
+
+    SUPPLIED_DIR = FROZEN_SUPPLIED_DIR / RERUN_SUBDIR
+    GENERATED_DIR = FROZEN_GENERATED_DIR / RERUN_SUBDIR
+    SHARED_DIR = ((GENERATED_DIR if phase == "generated" else SUPPLIED_DIR)
+                  / "shared")
+    RERUN_OUTPUT = True
+
 #: the freeze entries scenario 2 must reproduce byte-for-byte.  The
 #: decision problem, the candidate set, the branch seeds and the
 #: generation cap legitimately differ (that IS the scenario delta); the
@@ -366,6 +399,26 @@ def _run_scenario(*, scenario_id, out_dir, generated, progress):
     evidence_lib.write_manifest(manifest,
                                 out_dir / "evidence_manifest.json")
     _write_json(out_dir / "decision_problem.json", problem_payload)
+
+    if RERUN_OUTPUT:
+        # A re-run that silently used different inputs would produce a
+        # before/after comparison of two different experiments.  Verify
+        # BEFORE any live call; a mismatch raises and nothing runs.
+        from experiments.full_trace_validation import rerun as rerun_lib
+
+        frozen_dir = (FROZEN_GENERATED_DIR if generated
+                      else FROZEN_SUPPLIED_DIR)
+        verification = rerun_lib.verify_frozen_inputs(
+            frozen_dir / "freeze_manifest.json", compiler_dir=COMPILER_DIR,
+            decision_problem=problem_payload, evidence_manifest=manifest)
+        _write_json(out_dir / "frozen_input_verification.json", verification)
+        _write_json(SHARED_DIR / "environment.json", _environment())
+        _write_json(SHARED_DIR / "model_configuration.json",
+                    _model_configuration())
+        _progress(progress, f"{scenario_id}: frozen inputs verified against "
+                            f"{frozen_dir.name}/freeze_manifest.json "
+                            f"({len(verification['checks'])} entries, all "
+                            "match)")
 
     base_plan = build_base_plan(world, spec, max_steps=scenario.MAX_STEPS)
     limits = {"max_steps": scenario.MAX_STEPS, "seed": scenario.BASE_SEED,
@@ -727,15 +780,29 @@ def _run_scenario(*, scenario_id, out_dir, generated, progress):
 
 def phase_validate(progress) -> int:
     parts = {}
-    for name in ("compile", scenario.SUPPLIED_EXPERIMENT_ID,
-                 scenario.GENERATED_EXPERIMENT_ID):
-        path = SHARED_DIR / f"instrumentation_{name}.json"
-        if path.is_file():
-            parts[name] = json.loads(path.read_text(encoding="utf-8"))
-    ledger_files = sorted(ARTIFACT_ROOT.rglob("*llm_calls.jsonl"))
-    master_files = [path for path in ledger_files
-                    if path.name in ("all_llm_calls.jsonl",)
-                    or path.parent.name == "compiler"]
+    if RERUN_OUTPUT:
+        # The re-run issues no compiler call, so its instrumentation
+        # covers exactly its own two scenarios and its own two ledgers.
+        for name, directory in (
+                (scenario.SUPPLIED_EXPERIMENT_ID, SUPPLIED_DIR),
+                (scenario.GENERATED_EXPERIMENT_ID, GENERATED_DIR)):
+            path = directory / "shared" / f"instrumentation_{name}.json"
+            if path.is_file():
+                parts[name] = json.loads(path.read_text(encoding="utf-8"))
+        master_files = [path for path in
+                        (SUPPLIED_DIR / "all_llm_calls.jsonl",
+                         GENERATED_DIR / "all_llm_calls.jsonl")
+                        if path.is_file()]
+    else:
+        for name in ("compile", scenario.SUPPLIED_EXPERIMENT_ID,
+                     scenario.GENERATED_EXPERIMENT_ID):
+            path = SHARED_DIR / f"instrumentation_{name}.json"
+            if path.is_file():
+                parts[name] = json.loads(path.read_text(encoding="utf-8"))
+        ledger_files = sorted(ARTIFACT_ROOT.rglob("*llm_calls.jsonl"))
+        master_files = [path for path in ledger_files
+                        if path.name in ("all_llm_calls.jsonl",)
+                        or path.parent.name == "compiler"]
     call_ids: list = []
     per_role: dict = {}
     for path in master_files:
@@ -771,9 +838,15 @@ def phase_validate(progress) -> int:
             "values": totals,
         },
     }
-    _write_json(SHARED_DIR / "instrumentation_validation.json", payload)
+    if RERUN_OUTPUT:
+        for directory in (SUPPLIED_DIR, GENERATED_DIR):
+            _write_json(directory / "shared"
+                        / "instrumentation_validation.json", payload)
+    else:
+        _write_json(SHARED_DIR / "instrumentation_validation.json", payload)
     _progress(progress, f"validate: totals={totals} all_equal={all_equal}")
-    if (SUPPLIED_DIR / "candidate_delivery_check.json").is_file():
+    if not RERUN_OUTPUT \
+            and (SUPPLIED_DIR / "candidate_delivery_check.json").is_file():
         from experiments.full_trace_validation import report as report_lib
 
         _progress(progress,
@@ -881,8 +954,17 @@ def phase_audit(progress) -> int:
                                 "ledger; skipping")
             continue
         result = audit_scenario_dir(out_dir)
-        path = report_lib.write_report(ARTIFACT_ROOT, out_dir)
-        _progress(progress, f"audit: wrote {path}")
+        if RERUN_OUTPUT:
+            # The narrative UNDER_THE_HOOD_REPORT renders the whole
+            # artifact ROOT (shared identity plus both scenarios plus the
+            # compiler ledger); a re-run directory holds one scenario, so
+            # the comparison document PRE_VS_POST_FIX.md is its narrative
+            # instead.  Every ledger, check and audit is still written.
+            _progress(progress, f"audit: {out_dir.name} re-run -- narrative "
+                                "report skipped (see PRE_VS_POST_FIX.md)")
+        else:
+            path = report_lib.write_report(ARTIFACT_ROOT, out_dir)
+            _progress(progress, f"audit: wrote {path}")
         _progress(progress, f"audit: {out_dir.name} delivery verdict = "
                             f"{result['delivery']['verdict']}; distinct "
                             "recipient first-turn prompts = "
@@ -898,8 +980,18 @@ def main(argv=None) -> int:
                         choices=("compile", "supplied", "generated",
                                  "audit", "validate"))
     parser.add_argument("--progress-file", default=None)
+    parser.add_argument(
+        "--rerun", action="store_true",
+        help=("write into <scenario>/post_fix_rerun/ instead of the "
+              "scenario directory, reusing the frozen compiler artifacts "
+              "and window; the pre-fix artifacts are left untouched"))
     args = parser.parse_args(argv)
     progress = args.progress_file
+    if args.rerun:
+        if args.phase == "compile":
+            parser.error("--rerun never recompiles: it reuses the frozen "
+                         "compiler artifact directory")
+        set_rerun_output(args.phase)
     if args.phase == "compile":
         return phase_compile(progress)
     if args.phase == "supplied":

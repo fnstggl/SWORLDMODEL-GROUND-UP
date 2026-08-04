@@ -1,0 +1,51 @@
+{
+  "claim": "scenario 2 reused scenario 1's compiled world and base plan byte-for-byte; no recompilation occurred",
+  "entries": {
+    "compiler_artifact_dir_aggregate": {
+      "left": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+      "right": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+      "equal": true
+    },
+    "compiled_decision_world": {
+      "left": "4d5a4845fcab59706d11e0d28d1f8a3c549ba14059846790f033893ac37535ca",
+      "right": "4d5a4845fcab59706d11e0d28d1f8a3c549ba14059846790f033893ac37535ca",
+      "equal": true
+    },
+    "concordia_initialization_plan": {
+      "left": "79779e0e2b2fd7f5c3ce85331e7c1e7041bbdaa1df4460130d4980163e652cff",
+      "right": "79779e0e2b2fd7f5c3ce85331e7c1e7041bbdaa1df4460130d4980163e652cff",
+      "equal": true
+    },
+    "concordia_initialization_plan_content_hash": {
+      "left": "c16eaa9eca3611a28d90b37582b078f83df9ef8aef2509b30b309d2204f1b739",
+      "right": "c16eaa9eca3611a28d90b37582b078f83df9ef8aef2509b30b309d2204f1b739",
+      "equal": true
+    },
+    "evaluator_spec": {
+      "left": "875d662a8c7945b299d4b6eea83c9633289c82825ae48e95c448dbcff4a5abce",
+      "right": "875d662a8c7945b299d4b6eea83c9633289c82825ae48e95c448dbcff4a5abce",
+      "equal": true
+    },
+    "compiler_inputs": {
+      "left": "fe5e722c097f568da121fe79f037a56dadbe3326bb8ecbba3f29283629267dfd",
+      "right": "fe5e722c097f568da121fe79f037a56dadbe3326bb8ecbba3f29283629267dfd",
+      "equal": true
+    },
+    "time_window": {
+      "left": "2c3c732cb6accfd009a6d191d8b5b8ad2f09e61c040f696a784493d5002fc957",
+      "right": "2c3c732cb6accfd009a6d191d8b5b8ad2f09e61c040f696a784493d5002fc957",
+      "equal": true
+    },
+    "evidence_items": {
+      "left": "f40da5c6448ce4cf56e194fda5b1160f29ed6c0be935f91704e1b20a9cc10f0b",
+      "right": "f40da5c6448ce4cf56e194fda5b1160f29ed6c0be935f91704e1b20a9cc10f0b",
+      "equal": true
+    },
+    "engine_simulation_limits": {
+      "left": "421fbf65ec42648251d0c6e57fa45fc38396454adc192fb74fd6a866d8b817bc",
+      "right": "421fbf65ec42648251d0c6e57fa45fc38396454adc192fb74fd6a866d8b817bc",
+      "equal": true
+    }
+  },
+  "compiler_llm_calls_in_this_scenario": 0
+}

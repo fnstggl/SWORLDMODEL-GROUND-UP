@@ -53,6 +53,30 @@ COMPILER_DIR = SCENARIO_DIR / "compiler"
 ATTEMPTS_DIR = SCENARIO_DIR / "compiler_attempts"
 RUN_IDENTITY_PATH = SCENARIO_DIR / "run_identity.json"
 
+#: the PRE-FIX (frozen) scenario directory, captured at import
+FROZEN_SCENARIO_DIR = SCENARIO_DIR
+
+#: where a post-fix re-run writes, inside the scenario's own directory
+RERUN_SUBDIR = "post_fix_rerun"
+RERUN_OUTPUT = False
+
+
+def set_rerun_output() -> None:
+    """Redirect everything this runner WRITES into
+    ``<scenario>/post_fix_rerun/``.
+
+    ``COMPILER_DIR``, ``ATTEMPTS_DIR`` and ``RUN_IDENTITY_PATH`` were
+    bound at import from the pre-fix scenario directory, so a re-run
+    reads exactly the frozen compiler artifact set, the frozen compile
+    attempts and the frozen window while writing somewhere new.  The
+    pre-fix artifact set -- the before half of the record -- is never
+    moved, deleted, or rewritten, and no compiler call is issued.
+    """
+    global SCENARIO_DIR, RERUN_OUTPUT
+
+    SCENARIO_DIR = FROZEN_SCENARIO_DIR / RERUN_SUBDIR
+    RERUN_OUTPUT = True
+
 
 def _now() -> str:
     return datetime.datetime.now(
@@ -498,6 +522,25 @@ def phase_branches(progress) -> int:
     evidence_lib.write_manifest(manifest, out_dir / "evidence_manifest.json")
     _write_json(out_dir / "decision_problem.json", problem_payload)
 
+    if RERUN_OUTPUT:
+        # A re-run that silently used different inputs would produce a
+        # before/after comparison of two different experiments.  Verify
+        # BEFORE any live call; a mismatch raises and nothing runs.
+        from experiments.full_trace_validation import rerun as rerun_lib
+
+        verification = rerun_lib.verify_frozen_inputs(
+            FROZEN_SCENARIO_DIR / "freeze_manifest.json",
+            compiler_dir=COMPILER_DIR, decision_problem=problem_payload,
+            evidence_manifest=manifest)
+        _write_json(out_dir / "frozen_input_verification.json", verification)
+        _write_json(out_dir / "environment.json", _environment())
+        _write_json(out_dir / "model_configuration.json",
+                    _model_configuration())
+        _progress(progress, "branches: frozen inputs verified against the "
+                            "pre-fix freeze manifest "
+                            f"({len(verification['checks'])} entries, all "
+                            "match)")
+
     base_plan = build_base_plan(world, spec, max_steps=scenario.MAX_STEPS)
     limits = {"max_steps": scenario.MAX_STEPS, "seed": scenario.BASE_SEED,
               "agency_guard_enabled": True,
@@ -630,11 +673,23 @@ def phase_branches(progress) -> int:
                      "violations": exc.findings})
         _progress(progress, f"branches REFUSED: {exc}")
         return 6
-    _write_json(out_dir / "historical_cutoff_validation.json", {
+    cutoff_record = {
         "stage": "pre_simulation",
         "note": ("the post-run stage (every recorded actor prompt and "
                  "every model response) is appended by --phase audit"),
-        "pre_simulation": pre_sim_report})
+        "pre_simulation": pre_sim_report}
+    if RERUN_OUTPUT:
+        cutoff_record["pre_compile_stage"] = {
+            "enforced_by": ("the original compile phase, which this "
+                            "re-run does NOT repeat: it reuses that "
+                            "phase's frozen compiler artifact directory "
+                            "byte-for-byte, verified by "
+                            "frozen_input_verification.json"),
+            "recorded_in": str((FROZEN_SCENARIO_DIR
+                                / "historical_cutoff_validation.json")
+                               .relative_to(REPO_ROOT)),
+        }
+    _write_json(out_dir / "historical_cutoff_validation.json", cutoff_record)
     _progress(progress, "branches: pre-simulation cutoff gate clean over "
                         f"{pre_sim_report['surface_count']} surfaces")
 
@@ -1005,6 +1060,15 @@ def phase_audit(progress) -> int:
                         f"{response_report['clean']} "
                         f"({response_report['violation_count']} findings)")
 
+    if RERUN_OUTPUT:
+        # The narrative UNDER_THE_HOOD_REPORT renders the compile phase
+        # too (attempts, copy proof, compile instrumentation), and a
+        # re-run deliberately does not repeat it.  PRE_VS_POST_FIX.md is
+        # the re-run's narrative; every ledger, check and audit above is
+        # still written.
+        _progress(progress, "audit: re-run -- narrative report skipped "
+                            "(see PRE_VS_POST_FIX.md)")
+        return 0
     path = report_a16z.write_report(SCENARIO_DIR)
     _progress(progress, f"audit: wrote {path}")
     return 0
@@ -1021,9 +1085,14 @@ def phase_validate(progress) -> int:
         path = SCENARIO_DIR / f"instrumentation_{name}.json"
         if path.is_file():
             parts[name] = _load_json(path)
-    master_files = [ATTEMPTS_DIR / "all_llm_calls.jsonl",
-                    SCENARIO_DIR / "all_llm_calls.jsonl"]
-    master_files = [path for path in master_files if path.is_file()]
+    # A re-run issues no compiler call, so its instrumentation covers
+    # exactly its own branch ledger; the frozen compile attempts belong
+    # to the pre-fix run and are not counted here.
+    master_files = ([] if RERUN_OUTPUT
+                    else [ATTEMPTS_DIR / "all_llm_calls.jsonl"])
+    master_files = [path for path in
+                    master_files + [SCENARIO_DIR / "all_llm_calls.jsonl"]
+                    if path.is_file()]
     call_ids: list = []
     per_role: dict = {}
     for path in master_files:
@@ -1070,8 +1139,18 @@ def main(argv=None) -> int:
     parser.add_argument("--phase", required=True,
                         choices=("compile", "branches", "audit", "validate"))
     parser.add_argument("--progress-file", default=None)
+    parser.add_argument(
+        "--rerun", action="store_true",
+        help=("write into <scenario>/post_fix_rerun/ instead of the "
+              "scenario directory, reusing the frozen compiler artifacts "
+              "and window; the pre-fix artifacts are left untouched"))
     args = parser.parse_args(argv)
     progress = args.progress_file
+    if args.rerun:
+        if args.phase == "compile":
+            parser.error("--rerun never recompiles: it reuses the frozen "
+                         "compiler artifact directory")
+        set_rerun_output()
     if args.phase == "compile":
         return phase_compile(progress)
     if args.phase == "branches":

@@ -1,0 +1,80 @@
+{
+  "contract_type": "branch_result",
+  "schema_version": 1,
+  "branch_id": "br_79ff51835d0e968a",
+  "candidate_id": "user_001",
+  "world_id": "w_1659bd83ab0a",
+  "terminal_status": "cutoff",
+  "terminal_world_state": {
+    "steps_completed": 4,
+    "committed_event_count": 6,
+    "actor_memory_counts": {
+      "beckett_zahedi": 6,
+      "peter_thiel": 4
+    }
+  },
+  "event_trace": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] [2026-08-04T18:10:38Z] Beckett Zahedi sends the prepared message to Peter Thiel."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] The simulation window opens at 2026-08-04T18:10:38Z."
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi waits for a reply, checking his inbox periodically but not sending any follow-up or additional messages, keeping the ball in Peter Thiel's court.\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett’s message once, notes the explicit caveat that the replay-test results are not production-proven, and replies with a short, direct email: “Send me the test methodology and the failure modes you’re hiding. I’ll give you 20 minutes if you can show me something that breaks your own thesis.”\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett reads Peter’s reply twice, then immediately drafts a concise technical memo covering the replay-test methodology, the exact failure modes he’s most worried about (e.g., tail-latency correlation across heterogeneous GPU generations, silent data corruption masking, and scheduler feedback loops under adversarial request patterns), and sends it back with a one-line note: “Attached—here’s what breaks my thesis, and I’d like the 20 minutes to go deeper.”\n"
+    },
+    {
+      "event_id": "ev_0005",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett’s memo, then replies with a single line: “Thursday, 2 PM Pacific. Bring the failure modes, not the pitch.”\n"
+    }
+  ],
+  "outcome_metrics": {
+    "call_agreed": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "positive_reply": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "no_explicit_decline": {
+      "value": true,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  },
+  "infrastructure_errors": [],
+  "token_stats": {},
+  "runtime_stats": {
+    "wall_clock_seconds": 8.703347376998863,
+    "steps_completed": 4
+  },
+  "artifact_paths": [],
+  "intervention_delivered": {
+    "status": "not_delivered",
+    "reason": "no_distinctive_fragment_reached_any_other_actor",
+    "insertion_actor": "beckett_zahedi",
+    "reached_actors": [],
+    "fragments_tested": 6,
+    "fragments_found": 0,
+    "reached_committed_world": false,
+    "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+  },
+  "unresolved_observers": []
+}

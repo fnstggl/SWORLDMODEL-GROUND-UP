@@ -1,0 +1,117 @@
+{
+  "actor_configs": [
+    {
+      "actor_id": "new_media_hiring_lead",
+      "name": "New Media Hiring Lead",
+      "private_init_data": "Owns the hiring action for a New Media role at a16z. Has authority to extend an offer to a candidate, but any offer requires compensation approval from the People and Compensation Partner. Aware that Richard Zheng is a candidate under consideration. No offer has been prepared or authorized yet."
+    },
+    {
+      "actor_id": "new_media_strategy_partner",
+      "name": "New Media Strategy Partner",
+      "private_init_data": "Advisory role in the hiring process. Can provide input on strategic fit but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private information about compensation or internal deliberations."
+    },
+    {
+      "actor_id": "creative_production_lead",
+      "name": "Creative Production Lead",
+      "private_init_data": "Advisory role in the hiring process. Can provide input on creative and production capabilities but cannot issue an offer. Aware of Richard Zheng's background as described in the evidence package. No private information about compensation or internal deliberations."
+    },
+    {
+      "actor_id": "people_and_compensation_partner",
+      "name": "People and Compensation Partner",
+      "private_init_data": "Owns compensation approval for the role. Can approve or reject compensation terms but cannot decide whether Richard accepts. No specific salary bands or budgets are known. No offer has been submitted for approval yet."
+    },
+    {
+      "actor_id": "richard_zheng",
+      "name": "Richard Zheng",
+      "private_init_data": "Recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, independent creative and media operator, and worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Has reportedly earned approximately $100,000 per video shoot and managed eight shoots simultaneously (unverified, project revenue, not salary). Aware of a16z New Media's intended purpose. Has not received any offer from a16z as of the start time."
+    }
+  ],
+  "compiler_provenance": {
+    "artifact_hashes": {
+      "actor_initial_views.json": "d7c33a147de92a8fc900fed636c5a2bf447ac42b2da63cff942499174450ace1",
+      "attempt_verdict.json": "d5a435442d918047c7e0f9393869a8e5329e3b5fbc0ef33ada197a4e066968a0",
+      "call_1_prompt.txt": "378519019996f99894f31faf41a717f265eeb69d13a25503e06dc92d27de1de2",
+      "call_1_raw_response.txt": "f02b97100afb913907fa1fcfc73095521b099cd4e4ec93ce3b61cb1cb2a7f2b3",
+      "call_2_prompt.txt": "4078fa7c06897981b31fdf0cdea3822569826b696ed599ac8535caecff3fd94d",
+      "call_2_raw_response.txt": "5f3a8269c5d7e19265822088699fe278cbaf68638748b13c722362e90374319c",
+      "compiler_metrics.json": "2b98058a3dbe318da81f80b6423098cef135b2beb7a4b98cc96f8e24e5bbea76",
+      "final_scene_manifest.json": "0d1844e03bf661a5f4dd5b9ba4847d29b57e3789ac5cd49ffc5bc60262da4d7a",
+      "genesis_resolution_check.json": "5a2c5983cf552893afaf319e80c35a164ec0888f371bfe79bb120afea55a2eca",
+      "initialized_world_snapshot.json": "7a1d63adbe05ca7400ee2a8ef51e76fd80cd791884ec9cd76f032c78b68e7cb6",
+      "input.json": "96cb86b8403110043ac07b07a6737cfe2341cb9b31a558ae1787cd764573a3ba",
+      "llm_calls.jsonl": "0b9358f180629a064ee4a18385d2e5a9d2b5dfe332cc6e34b8b15be6e87905ea",
+      "manifest_canonical_sha256": "eb3f3cd768cb3de58f9d4278ce9153c4c2e3ec1ebda64fb5d708a76c107de09a",
+      "normalization_report.json": "b19e49aad48bce8996d3ae0def20103e41acecf26b4719dd0604960c1d212c23",
+      "question_sha256": "936211acb7580025d815d9d53767b62263aa930b06ea515bf253616d28b69655",
+      "runtime_bindings.json": "bb10e703295843a4f1ee57ffd4c369f591ed613ea82e758e9974715492c06911",
+      "scene_manifest.json": "9d01b47b9856d8939b662f1c703c5597ef59dc38be7f7b954004be247b31a504",
+      "scene_review.json": "1d4a7f23ec99ad1ec9e54bfe5bf647cb1acd903cbf95ffd60127bd1e6edfc494",
+      "starting_event_ledger.jsonl": "6c0d7890115409ed6abbd8a57b3809de03380f694668c3034ee51a84bac65961",
+      "validation_report.json": "92f2982cf448d6473ae58182bdfba1f8cb6bcad37a1dffec4e5f6010a29a0c6d"
+    },
+    "evidence_mode": "evidence_package",
+    "source": "scene_compiler",
+    "version": "minimal_scene_v1"
+  },
+  "contract_type": "concordia_initialization_plan",
+  "evaluator_spec": {
+    "primary_metric": "valid_offer_accepted",
+    "secondary_metrics": [
+      "salary_savings_vs_300k"
+    ]
+  },
+  "gm_config": {
+    "acting_order": "fixed",
+    "action_spec_call_to_action": "What does {name} do next?",
+    "action_spec_output_type": "free",
+    "agency_guard_enabled": true,
+    "component_roster": "memory,observation_to_memory,shared_setup,make_observation,next_acting,next_action_spec,event_resolution,terminate",
+    "cutoff_time": "2025-07-10T12:00:00Z",
+    "engine": "sequential",
+    "event_resolution_chain": "",
+    "gm_name": "rules",
+    "guard_slot": "agency_guard_v1",
+    "history_length": 100,
+    "intervention_boundary": "first_turn_observation",
+    "memory_backend": "list",
+    "notify_observers": true,
+    "observation_fallback": false,
+    "start_time": "2025-07-01T16:00:00Z"
+  },
+  "gm_initial_events": [
+    "[2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+  ],
+  "initial_observations": {
+    "creative_production_lead": [
+      "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+      "[2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+    ],
+    "new_media_hiring_lead": [
+      "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+      "[2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+    ],
+    "new_media_strategy_partner": [
+      "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+      "[2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+    ],
+    "people_and_compensation_partner": [
+      "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+      "[2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+    ],
+    "richard_zheng": [
+      "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+      "[2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+    ]
+  },
+  "intervention_insertion": {
+    "actor_id": "new_media_hiring_lead"
+  },
+  "neutral_premise": "The simulation window opens at 2025-07-01T16:00:00Z.",
+  "plan_id": "p_94ddfcb342b412f6",
+  "run_limits": {
+    "max_steps": 15
+  },
+  "schema_version": 1,
+  "shared_init_data": "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The hiring process for a role that Richard Zheng might fill is underway, but no offer has been made, discussed, or authorized. The role package (title, scope, reporting line, benefits, equity, etc.) is fixed but unspecified; only annual base salary is variable. The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z.",
+  "world_id": "w_d53492bb3ba4"
+}

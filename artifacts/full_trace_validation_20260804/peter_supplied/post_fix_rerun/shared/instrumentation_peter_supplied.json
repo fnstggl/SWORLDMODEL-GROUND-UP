@@ -1,0 +1,171 @@
+{
+  "experiment_id": "peter_supplied",
+  "ledger": {
+    "experiment_id": "peter_supplied",
+    "records_written": 24,
+    "distinct_call_ids": 24,
+    "per_role": {
+      "actor": 12,
+      "game_master": 12
+    },
+    "records_with_error": 0,
+    "records_that_were_retries": 0,
+    "master_ledger": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_supplied/post_fix_rerun/all_llm_calls.jsonl"
+  },
+  "network_boundary": {
+    "request_count": 24,
+    "per_role": {
+      "actor": 12,
+      "game_master": 12
+    }
+  },
+  "seams": {
+    "actor:beckett_zahedi": {
+      "invocations": 6,
+      "attempts": 6,
+      "failed_attempts": 0
+    },
+    "actor:peter_thiel": {
+      "invocations": 6,
+      "attempts": 6,
+      "failed_attempts": 0
+    },
+    "game_master": {
+      "invocations": 12,
+      "attempts": 12,
+      "failed_attempts": 0
+    }
+  },
+  "seam_attempt_total": 24,
+  "equality_proof": {
+    "claim": "every provider request issued at the network boundary produced exactly one ledger record with a distinct call_id, and every ledger record corresponds to one wrapper attempt",
+    "ledger_records_written": 24,
+    "ledger_distinct_call_ids": 24,
+    "network_boundary_requests": 24,
+    "seam_attempt_total": 24,
+    "all_equal": true
+  },
+  "wall_seconds": 40.73,
+  "unavailable_fields": [
+    {
+      "candidate_id": "user_001",
+      "path": "step_1.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_001",
+      "path": "step_1.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_001",
+      "path": "step_2.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_001",
+      "path": "step_2.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_001",
+      "path": "step_3.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_001",
+      "path": "step_3.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_001",
+      "path": "step_4.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_001",
+      "path": "step_4.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_002",
+      "path": "step_1.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_002",
+      "path": "step_1.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_002",
+      "path": "step_2.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_002",
+      "path": "step_2.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_002",
+      "path": "step_3.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_002",
+      "path": "step_3.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_002",
+      "path": "step_4.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_002",
+      "path": "step_4.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_003",
+      "path": "step_1.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_003",
+      "path": "step_1.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_003",
+      "path": "step_2.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_003",
+      "path": "step_2.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_003",
+      "path": "step_3.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_003",
+      "path": "step_3.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    },
+    {
+      "candidate_id": "user_003",
+      "path": "step_4.simulation_time",
+      "reason": "the pinned upstream sequential engine has no simulation clock: steps are ordinal, not timed. The window [2026-08-04T18:10:38Z, 2026-08-11T18:10:38Z] is carried in the plan and in event framing text only."
+    },
+    {
+      "candidate_id": "user_003",
+      "path": "step_4.state_hash_after_step.full_engine_state_hash",
+      "reason": "the engine exposes a whole-branch checkpoint only at a requested end-of-step boundary (runner.run_branch(checkpoint_after=k)); capturing one every step would change what is being measured, so this run records the committed-stream prefix hash instead"
+    }
+  ]
+}

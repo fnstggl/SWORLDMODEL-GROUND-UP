@@ -1,0 +1,164 @@
+{
+  "claim": "across the five offer branches the ONLY difference in the simulation input is the annual base salary figure",
+  "method": {
+    "salary_mask": "\\$\\s?\\d{1,3}(?:,\\d{3})+(?:\\.\\d+)?|\\$\\s?\\d+(?:\\.\\d+)?\\s?[kKmM]\\b|\\$\\s?\\d+(?:\\.\\d+)?\\b",
+    "placeholder": "$<ANNUAL_BASE_SALARY>",
+    "steps": [
+      "mask every currency figure in the candidate action and summary, then compare sha256",
+      "diff every branch plan against the base plan and require every changed path to sit under 'initial_observations.new_media_hiring_lead'",
+      "mask every string in every branch plan, then compare the five offer branches' canonical plans byte for byte"
+    ]
+  },
+  "insertion_boundary": "initial_observations.new_media_hiring_lead",
+  "baseline_candidate_id": "user_001",
+  "offer_candidate_ids": [
+    "user_002",
+    "user_003",
+    "user_004",
+    "user_005",
+    "user_006"
+  ],
+  "per_branch": [
+    {
+      "candidate_id": "user_001",
+      "declared_salary": null,
+      "candidate_action": "Do not make Richard Zheng an employment offer during the simulation window.",
+      "candidate_action_masked": "Do not make Richard Zheng an employment offer during the simulation window.",
+      "candidate_summary": "Do not make Richard Zheng an employment offer during the simulation window.",
+      "candidate_summary_masked": "Do not make Richard Zheng an employment offer during the simulation window.",
+      "plan_paths_changed_vs_base": [
+        "initial_observations.new_media_hiring_lead[2]"
+      ],
+      "plan_paths_outside_the_insertion_boundary": [],
+      "inserted_observation_lines": [
+        "[2025-07-01T16:00:00Z] Do not make Richard Zheng an employment offer during the simulation window."
+      ],
+      "plan_sha256": "7c0cc3103a2885ef82d8544037cfee63d0fef2cb23006fd1661504373fd0ba51",
+      "plan_sha256_salary_masked": "919c13733987a878a33f645d2a90f260b9b988b04fcca8d5cbd8ed5d1cc612b5"
+    },
+    {
+      "candidate_id": "user_002",
+      "declared_salary": "$100,000",
+      "candidate_action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+      "candidate_action_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "candidate_summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+      "candidate_summary_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "plan_paths_changed_vs_base": [
+        "initial_observations.new_media_hiring_lead[2]"
+      ],
+      "plan_paths_outside_the_insertion_boundary": [],
+      "inserted_observation_lines": [
+        "[2025-07-01T16:00:00Z] Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000."
+      ],
+      "plan_sha256": "ff5e5db9982fa1d38b2e641812e4d4710d537db5a36cc917adb22ccc13456fde",
+      "plan_sha256_salary_masked": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8"
+    },
+    {
+      "candidate_id": "user_003",
+      "declared_salary": "$150,000",
+      "candidate_action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+      "candidate_action_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "candidate_summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+      "candidate_summary_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "plan_paths_changed_vs_base": [
+        "initial_observations.new_media_hiring_lead[2]"
+      ],
+      "plan_paths_outside_the_insertion_boundary": [],
+      "inserted_observation_lines": [
+        "[2025-07-01T16:00:00Z] Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000."
+      ],
+      "plan_sha256": "b3064927afb5eb0305693359a71ea5286191cd655ba686c191d19071947e3775",
+      "plan_sha256_salary_masked": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8"
+    },
+    {
+      "candidate_id": "user_004",
+      "declared_salary": "$200,000",
+      "candidate_action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+      "candidate_action_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "candidate_summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+      "candidate_summary_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "plan_paths_changed_vs_base": [
+        "initial_observations.new_media_hiring_lead[2]"
+      ],
+      "plan_paths_outside_the_insertion_boundary": [],
+      "inserted_observation_lines": [
+        "[2025-07-01T16:00:00Z] Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000."
+      ],
+      "plan_sha256": "45853d6593651aff96f194dc767b0d79689cf5d8191642ff2be38c6f504c85ff",
+      "plan_sha256_salary_masked": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8"
+    },
+    {
+      "candidate_id": "user_005",
+      "declared_salary": "$250,000",
+      "candidate_action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+      "candidate_action_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "candidate_summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+      "candidate_summary_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "plan_paths_changed_vs_base": [
+        "initial_observations.new_media_hiring_lead[2]"
+      ],
+      "plan_paths_outside_the_insertion_boundary": [],
+      "inserted_observation_lines": [
+        "[2025-07-01T16:00:00Z] Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000."
+      ],
+      "plan_sha256": "ead3eafc453880b5f5e459e7045f60a3f25f76e063bc150dee1aab65eb2747e9",
+      "plan_sha256_salary_masked": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8"
+    },
+    {
+      "candidate_id": "user_006",
+      "declared_salary": "$300,000",
+      "candidate_action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000.",
+      "candidate_action_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "candidate_summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000.",
+      "candidate_summary_masked": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $<ANNUAL_BASE_SALARY>.",
+      "plan_paths_changed_vs_base": [
+        "initial_observations.new_media_hiring_lead[2]"
+      ],
+      "plan_paths_outside_the_insertion_boundary": [],
+      "inserted_observation_lines": [
+        "[2025-07-01T16:00:00Z] Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000."
+      ],
+      "plan_sha256": "cdf3c0e6b1d0e926515b77ea068833df385ae6ddb7bde66a6ac93af092178525",
+      "plan_sha256_salary_masked": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8"
+    }
+  ],
+  "masked_candidate_action_sha256": {
+    "user_002": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e",
+    "user_003": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e",
+    "user_004": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e",
+    "user_005": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e",
+    "user_006": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e"
+  },
+  "masked_candidate_summary_sha256": {
+    "user_002": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e",
+    "user_003": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e",
+    "user_004": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e",
+    "user_005": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e",
+    "user_006": "54c3dfcd3a817cc82ba80a69629cc7ae73899abe723c78d69fe421694b70543e"
+  },
+  "masked_branch_plan_sha256": {
+    "user_002": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8",
+    "user_003": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8",
+    "user_004": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8",
+    "user_005": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8",
+    "user_006": "664e105240119c0f4db7b12fc411189a08a1e0a9aaf1383289c00ce2107655b8"
+  },
+  "unmasked_branch_plan_sha256": {
+    "user_001": "7c0cc3103a2885ef82d8544037cfee63d0fef2cb23006fd1661504373fd0ba51",
+    "user_002": "ff5e5db9982fa1d38b2e641812e4d4710d537db5a36cc917adb22ccc13456fde",
+    "user_003": "b3064927afb5eb0305693359a71ea5286191cd655ba686c191d19071947e3775",
+    "user_004": "45853d6593651aff96f194dc767b0d79689cf5d8191642ff2be38c6f504c85ff",
+    "user_005": "ead3eafc453880b5f5e459e7045f60a3f25f76e063bc150dee1aab65eb2747e9",
+    "user_006": "cdf3c0e6b1d0e926515b77ea068833df385ae6ddb7bde66a6ac93af092178525"
+  },
+  "residual_differences_after_masking": [],
+  "checks": {
+    "masked_candidate_actions_identical": true,
+    "masked_candidate_summaries_identical": true,
+    "masked_branch_plans_identical": true,
+    "no_plan_change_outside_the_insertion_boundary": true,
+    "every_branch_plan_distinct_before_masking": true
+  },
+  "verdict": "only_the_salary_differs",
+  "note": "the no-offer baseline is excluded from the identity checks by construction: it declares a different action, which is what makes it the baseline. Its plan diff is reported above alongside the offer branches."
+}

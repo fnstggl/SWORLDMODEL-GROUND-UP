@@ -1,0 +1,76 @@
+{
+  "contract_type": "branch_result",
+  "schema_version": 1,
+  "branch_id": "br_79ff51835d0e968a",
+  "candidate_id": "user_001",
+  "world_id": "w_1659bd83ab0a",
+  "terminal_status": "cutoff",
+  "terminal_world_state": {
+    "steps_completed": 4,
+    "committed_event_count": 5,
+    "actor_memory_counts": {
+      "beckett_zahedi": 5,
+      "peter_thiel": 4
+    }
+  },
+  "event_trace": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] The simulation window opens at 2026-08-04T18:10:38Z."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reviews the draft one more time, tightens the subject line to \"Aurelius: 7.24× GPU goodput/$ (replay only, not prod-validated)\" and the opening line to \"I'm not asking for money—I want your criticism,\" then sends the email to Peter Thiel through the established channel and sets a calendar reminder to follow up in five days if no reply.\n"
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads the email once, notes the honest framing and the explicit lack of production validation, and replies within the hour with a single line: \"Send me the replay harness and the failure modes you've excluded—I'll give you 20 minutes if you can show me one thing that breaks under load.\"\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reviews the draft one final time, tightens the subject line to \"Aurelius: 7.24× GPU goodput/$ (replay only, not prod-validated)\" and the opening line to \"I'm not asking for money—I want your criticism,\" then sends the email to Peter Thiel through the established channel and sets a calendar reminder to follow up in five days if no reply.\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel opens the email from Beckett Zahedi, reads it once, and replies within the hour with a single line: \"Send me the replay harness and the failure modes you've excluded—I'll give you 20 minutes if you can show me one thing that breaks under load.\"\n"
+    }
+  ],
+  "outcome_metrics": {
+    "call_agreed": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "positive_reply": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "no_explicit_decline": {
+      "value": true,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  },
+  "infrastructure_errors": [],
+  "token_stats": {},
+  "runtime_stats": {
+    "wall_clock_seconds": 9.207600593999814,
+    "steps_completed": 4
+  },
+  "artifact_paths": [],
+  "intervention_delivered": {
+    "status": "not_delivered",
+    "reason": "no_distinctive_fragment_reached_any_other_actor",
+    "insertion_actor": "beckett_zahedi",
+    "reached_actors": [],
+    "fragments_tested": 6,
+    "fragments_found": 0,
+    "reached_committed_world": false,
+    "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+  },
+  "unresolved_observers": []
+}

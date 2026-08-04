@@ -1,0 +1,335 @@
+{
+  "scenario_id": "peter_generated",
+  "pre_fix": {
+    "directory": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_generated",
+    "guard": {
+      "per_branch": {
+        "gen_001": 1,
+        "gen_002": 1,
+        "gen_003": 0
+      },
+      "total": 2,
+      "records": [
+        {
+          "branch": "gen_001",
+          "step": 3,
+          "active": "Beckett Zahedi",
+          "affected": [
+            "Peter Thiel"
+          ],
+          "original_excerpt": "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi checks the inbox, sees Peter Thiel’s reply, and immediately s",
+          "rewritten_excerpt": "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi checks the inbox, sees. Peter Thiel is now able to observe th"
+        },
+        {
+          "branch": "gen_002",
+          "step": 3,
+          "active": "Beckett Zahedi",
+          "affected": [
+            "Peter Thiel"
+          ],
+          "original_excerpt": "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads Peter Thiel’s reply, then immediately composes a brief,",
+          "rewritten_excerpt": "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads. He attaches the sanitized logs and a one-page failure-"
+        }
+      ]
+    },
+    "branches": {
+      "gen_001": {
+        "terminal_status": "success",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 6
+      },
+      "gen_002": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 6
+      },
+      "gen_003": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 6
+      }
+    },
+    "ranking": {
+      "outcome": "PRODUCED",
+      "reason": null,
+      "best_candidate_id": "gen_001"
+    },
+    "delivery": {
+      "check": "candidate_delivery_check.json",
+      "verdict": "candidates_never_reached_the_recipient",
+      "distinct_recipient_first_turn_prompts": 1
+    },
+    "cutoff": {},
+    "branch_input_isolation": {},
+    "instrumentation": {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/shared/instrumentation_peter_generated.json",
+      "live_calls": 25,
+      "errors": 0,
+      "retries": 0,
+      "per_role": {
+        "actor": 12,
+        "candidate_generator": 1,
+        "game_master": 12
+      },
+      "all_equal": true
+    }
+  },
+  "post_fix": {
+    "directory": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_generated/post_fix_rerun",
+    "guard": {
+      "per_branch": {
+        "gen_001": 0,
+        "gen_002": 0,
+        "gen_003": 1
+      },
+      "total": 1,
+      "records": [
+        {
+          "branch": "gen_003",
+          "step": 3,
+          "active": "Beckett Zahedi",
+          "affected": [
+            "Peter Thiel"
+          ],
+          "original_excerpt": "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads Peter Thiel’s reply, then immediately sends a concise f",
+          "rewritten_excerpt": "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads. Peter Thiel is now able to observe this and to respond"
+        }
+      ]
+    },
+    "branches": {
+      "gen_001": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [],
+        "unresolved_observer_count": 0,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 6
+      },
+      "gen_002": {
+        "terminal_status": "success",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [],
+        "unresolved_observer_count": 0,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 6
+      },
+      "gen_003": {
+        "terminal_status": "success",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [],
+        "unresolved_observer_count": 0,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 6
+      }
+    },
+    "ranking": {
+      "outcome": "REFUSED",
+      "reason": "refusing to rank: not one of the 3 measured branches delivered its intervention to any actor other than the insertion actor, so every branch ran the counterfactual's independent variable at the same (undelivered) value and the measured differences cannot have been caused by the candidates. A winner computed from these branches would be an artifact of model sampling on identical downstream context, not a comparison. Per-branch delivery: gen_001: not_delivered (no_distinctive_fragment_reached_any_other_actor); gen_002: not_delivered (no_distinctive_fragment_reached_any_other_actor); gen_003: not_delivered (no_distinctive_fragment_reached_any_other_actor). Resolve the delivery failure (or run branches whose intervention reaches the world) and rank again; nothing is repaired or ranked silently here.",
+      "best_candidate_id": null
+    },
+    "delivery": {
+      "check": "candidate_delivery_check.json",
+      "verdict": "no_candidate_text_reached_the_recipient",
+      "distinct_recipient_first_turn_prompts": 2
+    },
+    "cutoff": {},
+    "branch_input_isolation": {},
+    "instrumentation": {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_generated/post_fix_rerun/shared/instrumentation_peter_generated.json",
+      "live_calls": 25,
+      "errors": 0,
+      "retries": 0,
+      "per_role": {
+        "actor": 12,
+        "candidate_generator": 1,
+        "game_master": 12
+      },
+      "all_equal": true
+    }
+  },
+  "guard_interventions_pre": 2,
+  "guard_interventions_post": 1,
+  "guard_interventions_removed": 1,
+  "unresolved_observers_pre": {
+    "measured": false,
+    "total": 0,
+    "by_name": {},
+    "by_reason": {}
+  },
+  "unresolved_observers_post": {
+    "measured": true,
+    "total": 0,
+    "by_name": {},
+    "by_reason": {}
+  },
+  "frozen_input_comparison": {
+    "entries": [
+      {
+        "entry": "decision_problem",
+        "pre_fix": "0f953e857c0c78d85b6dc37ee367921e5b5ab02f4c460874e346dafc033b928e",
+        "post_fix": "0f953e857c0c78d85b6dc37ee367921e5b5ab02f4c460874e346dafc033b928e",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "evidence_manifest",
+        "pre_fix": "eb943353e4883115b541d0e4d439fa7cf6c3f6a250bb30f3d88fc3cb87fd0484",
+        "post_fix": "eb943353e4883115b541d0e4d439fa7cf6c3f6a250bb30f3d88fc3cb87fd0484",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "compiler_command_and_config",
+        "pre_fix": "b83f2fd94abccbd2b1d9128d8f544f02734bf2a16a066f46b6122484644bdd6c",
+        "post_fix": "b83f2fd94abccbd2b1d9128d8f544f02734bf2a16a066f46b6122484644bdd6c",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "compiler_inputs",
+        "pre_fix": "fe5e722c097f568da121fe79f037a56dadbe3326bb8ecbba3f29283629267dfd",
+        "post_fix": "fe5e722c097f568da121fe79f037a56dadbe3326bb8ecbba3f29283629267dfd",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "compiler_artifact_dir_aggregate",
+        "pre_fix": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+        "post_fix": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "compiled_decision_world",
+        "pre_fix": "4d5a4845fcab59706d11e0d28d1f8a3c549ba14059846790f033893ac37535ca",
+        "post_fix": "4d5a4845fcab59706d11e0d28d1f8a3c549ba14059846790f033893ac37535ca",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "concordia_initialization_plan",
+        "pre_fix": "79779e0e2b2fd7f5c3ce85331e7c1e7041bbdaa1df4460130d4980163e652cff",
+        "post_fix": "79779e0e2b2fd7f5c3ce85331e7c1e7041bbdaa1df4460130d4980163e652cff",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "concordia_initialization_plan_content_hash",
+        "pre_fix": "c16eaa9eca3611a28d90b37582b078f83df9ef8aef2509b30b309d2204f1b739",
+        "post_fix": "c16eaa9eca3611a28d90b37582b078f83df9ef8aef2509b30b309d2204f1b739",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "evaluator_spec",
+        "pre_fix": "875d662a8c7945b299d4b6eea83c9633289c82825ae48e95c448dbcff4a5abce",
+        "post_fix": "875d662a8c7945b299d4b6eea83c9633289c82825ae48e95c448dbcff4a5abce",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "simulation_limits",
+        "pre_fix": "b481366c3e487defbf850d5fdb1e4ecc9e00f8c1cbb9ed06c906441baec557ed",
+        "post_fix": "b481366c3e487defbf850d5fdb1e4ecc9e00f8c1cbb9ed06c906441baec557ed",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "time_window",
+        "pre_fix": "2c3c732cb6accfd009a6d191d8b5b8ad2f09e61c040f696a784493d5002fc957",
+        "post_fix": "2c3c732cb6accfd009a6d191d8b5b8ad2f09e61c040f696a784493d5002fc957",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "branch_seeds",
+        "pre_fix": "a4ecf66a01f97060c394efa0bb678f0651a447c4ced21f63b6481cac3859ba85",
+        "post_fix": "a4ecf66a01f97060c394efa0bb678f0651a447c4ced21f63b6481cac3859ba85",
+        "identical": true,
+        "recorded_by_both": true
+      }
+    ],
+    "all_identical": true,
+    "entries_that_differ": []
+  },
+  "notes": [
+    "Guard interventions split by class -- pre-fix: 0 determined-recipient (the class D3 closed), 2 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 2 total. Post-fix: 0 determined-recipient (the class D3 closed), 1 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 1 total.",
+    "Live model sampling is not reproducible at temperature 0, so any change in terminal status or committed text between the two runs is sampling variation on identical inputs unless it is one of the engine behaviours listed above.",
+    "The candidate set is a live OUTPUT of this scenario, not a frozen input. The generator INPUTS were compared and are identical (`candidate_generator_prompt`, `candidate_generator_config`). The re-run regenerated candidates live and the resulting set is NOT byte-identical to the pre-fix set (pre `72b1abfa26779a4d`, post `dc6060d25a12856a`), which is expected from a live one-shot generation and is why the candidate set is excluded from the frozen-input table above.",
+    "The narrative UNDER_THE_HOOD_REPORT.md is not regenerated for a re-run: it renders the whole artifact root including the compile phase, which a re-run deliberately does not repeat. This document is the re-run's narrative; the pre-fix report is unchanged and still describes the pre-fix run."
+  ],
+  "guard_class_census": {
+    "pre_fix": {
+      "determined_recipient_object_slot_the_D3_fix_closed": 0,
+      "possessive_nominalization_documented_conservatism": 2,
+      "unclassifiable_from_the_120_character_excerpt": 0,
+      "other": 0,
+      "total": 2,
+      "examples_determined": [],
+      "examples_possessive": [
+        "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi checks the inbox, sees Peter Thiel’s reply, and immediately s",
+        "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads Peter Thiel’s reply, then immediately composes a brief,"
+      ]
+    },
+    "post_fix": {
+      "determined_recipient_object_slot_the_D3_fix_closed": 0,
+      "possessive_nominalization_documented_conservatism": 1,
+      "unclassifiable_from_the_120_character_excerpt": 0,
+      "other": 0,
+      "total": 1,
+      "examples_determined": [],
+      "examples_possessive": [
+        "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads Peter Thiel’s reply, then immediately sends a concise f"
+      ]
+    }
+  },
+  "frozen_input_verification": {
+    "claim": "this re-run reuses the pre-fix run's frozen inputs; every hash below was recomputed now and compared against the entry the pre-fix freeze manifest recorded",
+    "pre_fix_manifest": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_generated/freeze_manifest.json",
+    "checks": [
+      {
+        "entry": "compiler_artifact_dir_aggregate",
+        "recorded_by_the_pre_fix_run": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+        "recomputed_now": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+        "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_supplied/compiler",
+        "match": true
+      },
+      {
+        "entry": "decision_problem",
+        "recorded_by_the_pre_fix_run": "0f953e857c0c78d85b6dc37ee367921e5b5ab02f4c460874e346dafc033b928e",
+        "recomputed_now": "0f953e857c0c78d85b6dc37ee367921e5b5ab02f4c460874e346dafc033b928e",
+        "source": "the payload this re-run is about to run",
+        "match": true
+      },
+      {
+        "entry": "evidence_manifest",
+        "recorded_by_the_pre_fix_run": "eb943353e4883115b541d0e4d439fa7cf6c3f6a250bb30f3d88fc3cb87fd0484",
+        "recomputed_now": "eb943353e4883115b541d0e4d439fa7cf6c3f6a250bb30f3d88fc3cb87fd0484",
+        "source": "the manifest this re-run is about to run",
+        "match": true
+      }
+    ],
+    "all_match": true
+  }
+}

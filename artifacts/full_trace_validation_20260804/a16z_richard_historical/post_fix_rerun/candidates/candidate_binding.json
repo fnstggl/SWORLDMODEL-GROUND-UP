@@ -1,0 +1,35 @@
+{
+  "claim": "the code-owned binding from declared candidate position to salary mapping key and savings value; verified against the frozen candidate text, never against model output",
+  "candidate_key_by_id": {
+    "user_001": "no_offer",
+    "user_002": "offer_100k",
+    "user_003": "offer_150k",
+    "user_004": "offer_200k",
+    "user_005": "offer_250k",
+    "user_006": "offer_300k"
+  },
+  "declared_salary_by_id": {
+    "user_001": null,
+    "user_002": "$100,000",
+    "user_003": "$150,000",
+    "user_004": "$200,000",
+    "user_005": "$250,000",
+    "user_006": "$300,000"
+  },
+  "salary_savings_by_id": {
+    "user_001": 300000.0,
+    "user_002": 200000.0,
+    "user_003": 150000.0,
+    "user_004": 100000.0,
+    "user_005": 50000.0,
+    "user_006": 0.0
+  },
+  "baseline_candidate_id": "user_001",
+  "offer_candidate_ids": [
+    "user_002",
+    "user_003",
+    "user_004",
+    "user_005",
+    "user_006"
+  ]
+}

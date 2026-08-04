@@ -1,0 +1,44 @@
+[
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "gen_001",
+    "summary": "Send a concise, respectful email to Peter Thiel requesting a 20-minute call, highlighting the replay result and offering a one-page memo.",
+    "action": "Draft and send an email to Peter Thiel at Founders Fund (or his public contact) within the window, with subject 'Request for 20-minute call from a 17-year-old builder', body between 45-85 words, accurately describing the 724% result as replay-based, not production, making a single clear request for a 20-minute call, not asking for investment, not using urgency or manipulation, and offering a one-page technical memo.",
+    "decision_owner": "beckett_zahedi",
+    "timing": "2026-08-04T18:10:38Z",
+    "constraints": [],
+    "provenance": {
+      "source": "generated",
+      "generator_config_hash": "0737d4fda612711730515eec98c78bb864c158dd47e3a1fed4fb55320b010995"
+    }
+  },
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "gen_002",
+    "summary": "Send a follow-up email if no response within a few days, reiterating the request politely.",
+    "action": "If no response by 2026-08-07, send a brief follow-up email to Peter Thiel, within the window, reiterating the request for a 20-minute call, keeping the same constraints, and not adding new claims.",
+    "decision_owner": "beckett_zahedi",
+    "timing": "2026-08-04T18:10:38Z",
+    "constraints": [],
+    "provenance": {
+      "source": "generated",
+      "generator_config_hash": "0737d4fda612711730515eec98c78bb864c158dd47e3a1fed4fb55320b010995"
+    }
+  },
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "gen_003",
+    "summary": "Use a public platform to request a call, such as a tweet or LinkedIn message, but ensure it meets constraints.",
+    "action": "Post a public tweet or LinkedIn message to Peter Thiel (if public contact available) within the window, with a concise request for a 20-minute call, accurately describing the replay result, not asking for investment, and offering a memo, while respecting all constraints.",
+    "decision_owner": "beckett_zahedi",
+    "timing": "2026-08-04T18:10:38Z",
+    "constraints": [],
+    "provenance": {
+      "source": "generated",
+      "generator_config_hash": "0737d4fda612711730515eec98c78bb864c158dd47e3a1fed4fb55320b010995"
+    }
+  }
+]

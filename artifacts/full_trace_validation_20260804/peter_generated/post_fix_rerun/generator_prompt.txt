@@ -1,0 +1,41 @@
+Propose candidate actions for the decision problem below.
+Respond with ONLY a JSON object matching this schema exactly -- no surrounding text, no extra fields:
+{
+ "additionalProperties": false,
+ "properties": {
+  "candidates": {
+   "items": {
+    "additionalProperties": false,
+    "properties": {
+     "action": {
+      "minLength": 1,
+      "type": "string"
+     },
+     "summary": {
+      "minLength": 1,
+      "type": "string"
+     }
+    },
+    "required": [
+     "summary",
+     "action"
+    ],
+    "type": "object"
+   },
+   "minItems": 1,
+   "type": "array"
+  }
+ },
+ "required": [
+  "candidates"
+ ],
+ "type": "object"
+}
+Propose between 1 and 3 candidates. Each candidate is one concrete action the decision owner could take inside the window. Do not repeat an already-supplied candidate.
+Decision owner: Beckett Zahedi
+Desired outcome: Peter Thiel explicitly agrees to a 20-minute call with Beckett Zahedi.
+Success criteria: Success occurs only if a committed event authored by Peter Thiel's own actor contains an explicit agreement to speak with Beckett, an explicit acceptance of a 20-minute call, or a direct instruction to schedule the call. A generic acknowledgment, an assistant response, the Game Master's narration, message delivery, message opening, or inferred interest does not count as success.
+Constraints: The email must contain between 45 and 85 words excluding the subject line.; It must accurately describe the 724% result as a replay result, not production validation.; It must not claim a mutual connection or prior relationship.; It must make one clear request for a 20-minute call.; It must not ask Peter Thiel to invest.; It must not use false urgency, invented scarcity, or manipulative pressure.; It may offer a one-page technical memo.; Only public professional information and user-supplied information may be used.
+Relevant context: Beckett Zahedi is 17 and is starting Princeton in fall 2026. He is building Aurelius, a supervisory optimization system for GPU fleets. In replay tests covering approximately 1.5 million public production requests, it produced approximately 724% more SLA-safe goodput per dollar. This has not been validated in a live production deployment and must not be represented as production-proven. Beckett has never contacted Peter Thiel and has no known mutual introduction. Beckett wants criticism and a short technical conversation, not an immediate investment. Peter Thiel is publicly known as a Founders Fund partner, a cofounder of PayPal and Palantir, and the founder of the Thiel Fellowship. Do not invent private beliefs, inbox behavior, scheduling details, or personal preferences for Peter.
+Window: 2026-08-04T18:10:38Z to 2026-08-11T18:10:38Z
+Already-supplied candidates: none

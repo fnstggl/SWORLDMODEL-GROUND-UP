@@ -1,0 +1,281 @@
+{
+  "label": "UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION",
+  "scenario_id": "peter_supplied",
+  "evaluator_spec": {
+    "primary_metric": "call_agreed",
+    "secondary_metrics": [
+      "positive_reply",
+      "no_explicit_decline"
+    ]
+  },
+  "status_rule": "call_agreed -> success; an explicit decline -> failure; neither by the cutoff -> the runner's default (cutoff when the step budget was exhausted, incomplete for a technical stop)",
+  "attribution_anchor": "Putative event to resolve:",
+  "recipient_actor": "Peter Thiel",
+  "measurement_limitation": "agreement is measured by explicit surface patterns over free live-model text; a recipient who agrees in wording no pattern covers is scored cutoff, not success",
+  "branches": [
+    {
+      "candidate_id": "user_001",
+      "branch_id": "br_79ff51835d0e968a",
+      "committed_trace_ref": "branches/user_001/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "positive_reply": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003"
+          ],
+          "cited_event_texts": [
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “I’ll give you 20 minutes on Thursday at 2pm Pacific. Send me the replay logs and the failure cases beforehand—I’m more interested in what breaks than what passes.”\n"
+          ]
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “I’ll give you 20 minutes on Thursday at 2pm Pacific. Send me the replay logs and the failure cases beforehand—I’m more interested in what breaks than what passes.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel replies via the same channel: “Good. Start with the failure modes you flagged, and bring the raw logs—I want to see the actual traces, not your summary. Thursday at 2pm Pacific stands.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [],
+            "value": false
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [
+              {
+                "index": 3,
+                "pattern": "\\binterest(?:ed|ing)\\b",
+                "matched_text": "interested"
+              }
+            ],
+            "value": true
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    },
+    {
+      "candidate_id": "user_002",
+      "branch_id": "br_1bcac70e418afed0",
+      "committed_trace_ref": "branches/user_002/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "positive_reply": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay-test logs and the architecture doc. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay-test logs and the architecture doc. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [],
+            "value": false
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [],
+            "value": false
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    },
+    {
+      "candidate_id": "user_003",
+      "branch_id": "br_0c2eca4ba006414b",
+      "committed_trace_ref": "branches/user_003/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "positive_reply": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [],
+            "value": false
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [],
+            "value": false
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    }
+  ],
+  "ranking": {
+    "declared_order": [
+      "call_agreed",
+      "positive_reply",
+      "no_explicit_decline"
+    ],
+    "refused": true,
+    "error_type": "InterventionNotDeliveredError",
+    "reason": "refusing to rank: not one of the 3 measured branches delivered its intervention to any actor other than the insertion actor, so every branch ran the counterfactual's independent variable at the same (undelivered) value and the measured differences cannot have been caused by the candidates. A winner computed from these branches would be an artifact of model sampling on identical downstream context, not a comparison. Per-branch delivery: user_001: not_delivered (no_distinctive_fragment_reached_any_other_actor); user_002: not_delivered (no_distinctive_fragment_reached_any_other_actor); user_003: not_delivered (no_distinctive_fragment_reached_any_other_actor). Resolve the delivery failure (or run branches whose intervention reaches the world) and rank again; nothing is repaired or ranked silently here.",
+    "what_this_means": "the counterfactual's independent variable never varied downstream: no branch's candidate text reached any actor other than the insertion actor, so the branches cannot be compared and no winner is reported",
+    "per_branch_delivery": {
+      "user_001": {
+        "status": "not_delivered",
+        "reason": "no_distinctive_fragment_reached_any_other_actor",
+        "insertion_actor": "beckett_zahedi",
+        "reached_actors": [],
+        "fragments_tested": 6,
+        "fragments_found": 0,
+        "reached_committed_world": false,
+        "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+      },
+      "user_002": {
+        "status": "not_delivered",
+        "reason": "no_distinctive_fragment_reached_any_other_actor",
+        "insertion_actor": "beckett_zahedi",
+        "reached_actors": [],
+        "fragments_tested": 5,
+        "fragments_found": 0,
+        "reached_committed_world": false,
+        "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+      },
+      "user_003": {
+        "status": "not_delivered",
+        "reason": "no_distinctive_fragment_reached_any_other_actor",
+        "insertion_actor": "beckett_zahedi",
+        "reached_actors": [],
+        "fragments_tested": 6,
+        "fragments_found": 0,
+        "reached_committed_world": false,
+        "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+      }
+    }
+  }
+}

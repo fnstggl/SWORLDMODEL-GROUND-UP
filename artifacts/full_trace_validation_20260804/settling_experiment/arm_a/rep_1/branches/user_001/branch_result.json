@@ -1,0 +1,82 @@
+{
+  "contract_type": "branch_result",
+  "schema_version": 1,
+  "branch_id": "br_79ff51835d0e968a",
+  "candidate_id": "user_001",
+  "world_id": "w_1659bd83ab0a",
+  "terminal_status": "success",
+  "terminal_world_state": {
+    "steps_completed": 4,
+    "committed_event_count": 6,
+    "actor_memory_counts": {
+      "beckett_zahedi": 6,
+      "peter_thiel": 4
+    }
+  },
+  "event_trace": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] [2026-08-04T18:10:38Z] Beckett Zahedi sends the prepared message to Peter Thiel."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] The simulation window opens at 2026-08-04T18:10:38Z."
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi waits for a reply, checking his inbox periodically but not sending any follow-up or additional messages, keeping the ball in Peter Thiel's court as requested.\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett’s message once, notes the explicit caveat that the replay-test results are not production-proven, and decides the request is worth a brief, direct engagement—he replies by email: “Happy to take the call. Send me a calendar invite for 20 minutes this week; I’ll come prepared to poke holes.”\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads. Peter Thiel is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0005",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel replies to Beckett Zahedi’s email with a short, direct message: “Happy to take the call. Send me a calendar invite for 20 minutes this week; I’ll come prepared to poke holes.”\n"
+    }
+  ],
+  "outcome_metrics": {
+    "call_agreed": {
+      "value": true,
+      "computed_from": [
+        "event:ev_0003",
+        "event:ev_0005"
+      ]
+    },
+    "positive_reply": {
+      "value": true,
+      "computed_from": [
+        "event:ev_0003",
+        "event:ev_0005"
+      ]
+    },
+    "no_explicit_decline": {
+      "value": true,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  },
+  "infrastructure_errors": [],
+  "token_stats": {},
+  "runtime_stats": {
+    "wall_clock_seconds": 7.272865360000651,
+    "steps_completed": 4
+  },
+  "artifact_paths": [],
+  "intervention_delivered": {
+    "status": "not_delivered",
+    "reason": "no_distinctive_fragment_reached_any_other_actor",
+    "insertion_actor": "beckett_zahedi",
+    "reached_actors": [],
+    "fragments_tested": 6,
+    "fragments_found": 0,
+    "reached_committed_world": false,
+    "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+  },
+  "unresolved_observers": []
+}
