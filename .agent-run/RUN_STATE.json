@@ -4,9 +4,9 @@
   "status": "IN_PROGRESS",
   "phase": "reviewer_roles",
   "frozen_sha": null,
-  "highest_leverage_blocker": null,
+  "highest_leverage_blocker": "Concordia Semantics CRITICAL: putative-row leak. runner.py defines committed events by substring (EVENT_TAG in row), so an actor turn embedding the literal [event] bracket drags the UNGUARDED [putative_event] row into the committed stream; with no engine stamp ahead of the actor-embedded marker, first-occurrence anchor parsing binds to the spoofed actor -- success with recipient silent, reproduced end-to-end at HEAD. Supersedes the runtime-actor-channel claim in the Simulation Reality re-verdict. Fix in flight: prefix-based committed-stream discrimination + executor retry/collision hardening (Integration MEDIUMs) in one batch. BLOCKS freeze.",
   "next_action": "Reviewer roles wave 2 in flight (Integration Reliability, AgentSociety Scale, Concordia Semantics) plus Simulation Reality re-verdict at c34ade6. Then: disposition findings, Phase 12 freeze (frozen_acceptance, full suite from the beginning at the frozen SHA, master receipt at frozen SHA), ACCEPTANCE_STATUS gates to PASS with evidence, final adjudicator, final output report.",
-  "open_critical_count": 0,
+  "open_critical_count": 1,
   "open_high_count": 0,
   "running_background_jobs": [],
   "passed_gates": [
