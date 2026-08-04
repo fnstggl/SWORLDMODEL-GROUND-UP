@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "armed_at": "2026-08-04T02:28:29+00:00",
-  "armed_until": "2026-08-04T03:10:29+00:00",
-  "minutes": 42.0,
-  "reason": "watching the phase-12 frozen acceptance runner",
-  "trigger_id": "trig_015MEYCRy2X4dAaUXyLnABJH",
+  "armed_at": "2026-08-04T02:51:44+00:00",
+  "armed_until": "2026-08-04T03:19:44+00:00",
+  "minutes": 28.0,
+  "reason": "waiting out DeepSeek 503 flap for the legacy-live re-leg (attempt 1/2), then gates + adjudication",
+  "trigger_id": "trig_01S5GzUZU3w5GRJ3DTs6t5DB",
   "workers": [
-    "freeze-runner"
+    "none"
   ]
 }
