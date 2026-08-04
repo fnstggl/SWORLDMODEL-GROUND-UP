@@ -77,8 +77,16 @@ EXPECTED_SEPARATING_METRIC = "decision_rule_satisfied"
 
 #: committed example artifact identities (regression vectors; the files
 #: under artifacts/ hold exactly the canonical JSON bytes)
+#:
+#: DELIBERATE REGENERATION 2026-08-04 (under-the-hood fix batch, defect
+#: D2): the recommendation report now discloses per-branch intervention
+#: delivery.  The team slice's measurements are unchanged (every branch
+#: delivers -- the scripted actors carry the candidate into the world),
+#: so only the disclosure text moved; the artifact was rebuilt from this
+#: same slice and its sha256 re-recorded.  The TRACE artifact does not go
+#: through ranking and is BYTE-UNCHANGED.
 EXPECTED_RECOMMENDATION_ARTIFACT_SHA256 = (
-    "6770b1053ef5b516fb561a0d596a2924ad6d821e35e9de81741ccf9adfc7e474")
+    "13c5e09b7ebf085ce70b8350c2984c985ad3c20ff07a0e2265206c4eba08477b")
 EXPECTED_TRACE_ARTIFACT_SHA256 = (
     "dd2df61b33a7eb8e0df5526a7c8572ef8e1214a7788471b53c47ac8a25ff76c4")
 

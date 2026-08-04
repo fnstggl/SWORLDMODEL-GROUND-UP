@@ -78,6 +78,32 @@ def _load_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
+def _refusal_record(exc, evaluated) -> dict:
+    """The recorded shape of a REFUSED ranking.
+
+    ``sworldmodel.outcomes.ranking`` refuses to name a winner when no
+    branch delivered its intervention to any actor but the insertion
+    actor -- the exact failure this scenario's own live run produced and
+    published a winner for anyway.  The refusal is now the result: it is
+    written where the recommendation would have been, with the engine's
+    verbatim reason and the per-branch delivery facts the engine computed
+    from each branch's own artifacts.
+    """
+    return {
+        "refused": True,
+        "error_type": type(exc).__name__,
+        "reason": str(exc),
+        "what_this_means": (
+            "the counterfactual's independent variable never varied "
+            "downstream: no branch's candidate text reached any actor "
+            "other than the insertion actor, so the branches cannot be "
+            "compared and no winner is reported"),
+        "per_branch_delivery": {
+            result.candidate_id: dict(result.intervention_delivered)
+            for result in evaluated},
+    }
+
+
 def _jsonl(path) -> list:
     rows = []
     for line in Path(path).read_text(encoding="utf-8").splitlines():
@@ -431,7 +457,8 @@ def phase_branches(progress) -> int:
                                                       derive_branch_seed)
     from sworldmodel.decision.contracts import (DecisionProblem,
                                                 EvaluatorSpec)
-    from sworldmodel.outcomes import evaluate_branch
+    from sworldmodel.outcomes import (InterventionNotDeliveredError,
+                                      evaluate_branch)
     from sworldmodel.reporting import (build_recommendation_report,
                                        build_trace_report)
 
@@ -674,10 +701,22 @@ def phase_branches(progress) -> int:
             registry=inputs.registry))
     evaluated = tuple(evaluated)
 
-    report = build_recommendation_report(
-        problem, candidates, run, evaluated, spec,
-        provenance_label="live_model", registry=inputs.registry)
     trace = build_trace_report(run, evaluated)
+    # A ranking is REFUSED when no branch delivered its intervention (the
+    # exact shape this scenario's own run found).  Every other artifact is
+    # still written and the refusal is recorded verbatim where the
+    # recommendation would have been.
+    report = None
+    ranking_refusal = None
+    try:
+        report = build_recommendation_report(
+            problem, candidates, run, evaluated, spec,
+            provenance_label="live_model", registry=inputs.registry)
+    except InterventionNotDeliveredError as exc:
+        ranking_refusal = _refusal_record(exc, evaluated)
+        _progress(progress,
+                  "branches: ranking REFUSED -- no branch delivered its "
+                  "intervention to any actor but the insertion actor")
 
     all_calls = recorder_lib.read_ledger(out_dir / "all_llm_calls.jsonl")
     evaluator_ledger = {
@@ -749,28 +788,39 @@ def phase_branches(progress) -> int:
             "authority_violation_scan": authority,
             "steps_completed": (record or {}).get("steps_completed"),
         })
-    recommendation = report["recommendation"]
-    evaluator_ledger["ranking"] = {
-        "declared_order": list(spec.all_metrics()),
-        "ranking_key": ("primary metric first, then each secondary metric "
-                        "in declared order, each compared descending; ties "
-                        "broken by candidate_id in ascending lexicographic "
-                        "order"),
-        "ranking": recommendation.get("ranking"),
-        "best_candidate_id": recommendation.get("best_candidate_id"),
-        "metric_differences": recommendation.get("metric_differences"),
-        "downside_outcomes": recommendation.get("downside_outcomes"),
-        "decided_by_metric": report.get("decided_by_metric"),
-        "tie_break_used": bool(
-            recommendation.get("validation_status", {}).get(
-                "tie_break_candidate_id_lexicographic", False)),
-        "validation_status": recommendation.get("validation_status"),
-        "run_limitations": recommendation.get("run_limitations"),
-        "final_recommendation_result": recommendation,
-    }
+    recommendation = report["recommendation"] if report is not None else None
+    if recommendation is not None:
+        evaluator_ledger["ranking"] = {
+            "declared_order": list(spec.all_metrics()),
+            "ranking_key": ("primary metric first, then each secondary "
+                            "metric in declared order, each compared "
+                            "descending; ties broken by candidate_id in "
+                            "ascending lexicographic order"),
+            "ranking": recommendation.get("ranking"),
+            "best_candidate_id": recommendation.get("best_candidate_id"),
+            "metric_differences": recommendation.get("metric_differences"),
+            "downside_outcomes": recommendation.get("downside_outcomes"),
+            "decided_by_metric": report.get("decided_by_metric"),
+            "tie_break_used": bool(
+                recommendation.get("validation_status", {}).get(
+                    "tie_break_candidate_id_lexicographic", False)),
+            "validation_status": recommendation.get("validation_status"),
+            "run_limitations": recommendation.get("run_limitations"),
+            "final_recommendation_result": recommendation,
+        }
+    else:
+        evaluator_ledger["ranking"] = {
+            "declared_order": list(spec.all_metrics()),
+            **ranking_refusal,
+        }
     _write_json(out_dir / "evaluator_ledger.json", evaluator_ledger)
-    _write_json(out_dir / "recommendation_result.json", recommendation)
-    _write_json(out_dir / "recommendation_report.json", report)
+    _write_json(out_dir / "recommendation_result.json",
+                recommendation if recommendation is not None
+                else ranking_refusal)
+    _write_json(out_dir / "recommendation_report.json",
+                report if report is not None else ranking_refusal)
+    if ranking_refusal is not None:
+        _write_json(out_dir / "ranking_refusal.json", ranking_refusal)
     _write_json(out_dir / "trace_report.json", trace)
 
     unavailable_all: list = []

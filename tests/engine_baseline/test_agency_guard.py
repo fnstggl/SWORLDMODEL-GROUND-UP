@@ -732,6 +732,121 @@ def test_proxy_attribution_is_idempotent():
 
 
 # ---------------------------------------------------------------------------
+# Unit: the object-position exemption is DETERMINER-TRANSPARENT
+# (the a16z live-run defect: a role-shaped roster name takes an article,
+# which defeated the lead-word test, so the guard truncated the sentence
+# at the determiner and deleted the ACTIVE actor's own quoted message)
+# ---------------------------------------------------------------------------
+
+#: role-shaped roster: names that are natural determiner-taking noun
+#: phrases, which is what the defect needed and a personal-name cast
+#: never produces
+ROLE_ROSTER = ("Duty Officer", "Records Keeper", "Ada")
+
+
+def _role_guard(recorder=None):
+    return make_agency_guard(ROLE_ROSTER, escalate=recorder)
+
+
+def test_determined_recipient_keeps_the_object_position_exemption():
+    """The three-probe triple: bare name, the docstring's own example,
+    and the determined form must all pass through BYTE-IDENTICALLY.
+
+    Pre-fix the third probe was rewritten to "... sends a message to
+    the." plus an availability sentence, destroying the active actor's
+    own quoted content."""
+    calls = []
+    guard = _role_guard(lambda *args: calls.append(args))
+    bare = ('Duty Officer sends a message to Records Keeper: '
+            '"the schedule holds."')
+    documented = "Ada sends a note to Bo: 'call me'"
+    determined = ('Duty Officer sends a message to the Records Keeper: '
+                  '"the schedule holds."')
+    assert guard(None, bare, "Duty Officer") == bare
+    assert _guard()(None, documented, "Ada") == documented
+    assert guard(None, determined, "Duty Officer") == determined
+    # the quoted content the ACTIVE actor authored survives verbatim
+    assert '"the schedule holds."' in guard(None, determined, "Duty Officer")
+    assert calls == []
+
+
+def test_determiner_transparency_covers_the_documented_frame_families():
+    calls = []
+    guard = _role_guard(lambda *args: calls.append(args))
+    for event in (
+            # every non-agent lead-word family, with an article
+            'Duty Officer leaves a message for the Records Keeper: '
+            '"call when free."',
+            "Duty Officer reads the note from the Records Keeper: "
+            "'I agree.'",
+            # conditional frame (a condition is not a commitment)
+            "If the Records Keeper agrees, the hold lapses.",
+            "The offer stands until the Records Keeper accepts it.",
+            # speaker-stance frame about another actor's future act
+            "Duty Officer hopes the Records Keeper agrees to the plan.",
+            "Duty Officer asks that the Records Keeper reply by Friday.",
+            # possessive determiner in the same slot
+            "Duty Officer forwards the file to their Records Keeper: "
+            "'for the record.'",
+    ):
+        assert guard(None, event, "Duty Officer") == event, event
+    assert calls == []
+
+
+def test_determiner_transparency_does_not_weaken_genuine_protection():
+    """The protection itself is unchanged: a real proxy attribution and a
+    real committed decision for another actor are still rewritten, with
+    or without a determiner."""
+    guard = _role_guard()
+    for event, affected, stolen in (
+            # sentence-initial determined subject: the lookback hits
+            # punctuation, so the determiner exempts nothing
+            ("Duty Officer sends a message to the Records Keeper. The "
+             "Records Keeper agrees to the offer.",
+             "Records Keeper", "agrees to the offer"),
+            # the lead's second probe shape, through a complementizer
+            ("Duty Officer tells the Records Keeper that the Records "
+             "Keeper accepts.",
+             "Records Keeper", "accepts"),
+            # a determined name after a clause link is still an agent
+            ("Duty Officer hands over the ledger, and the Records Keeper "
+             "signed it.",
+             "Records Keeper", "signed"),
+            # bare proxy attribution, determined or not
+            ("Duty Officer opens the review. The Records Keeper: I accept "
+             "the terms.",
+             "Records Keeper", "I accept the terms"),
+            # an adjective between determiner and name is a documented
+            # residual and stays on the CAUGHT side
+            ("Duty Officer sends a message to the acting Records Keeper: "
+             "'noted.'",
+             "Records Keeper", "noted"),
+    ):
+        out = guard(None, event, "Duty Officer")
+        assert out != event, event
+        assert stolen not in out, event
+        assert f"{affected} {AVAILABILITY_MARKER}" in out, event
+
+
+def test_determiner_transparency_is_idempotent_and_escalates_once():
+    calls = []
+    guard = _role_guard(lambda *args: calls.append(args))
+    exempt = ('Duty Officer sends a message to the Records Keeper: '
+              '"the schedule holds."')
+    assert guard(None, guard(None, exempt, "Duty Officer"),
+                 "Duty Officer") == exempt
+    assert calls == []
+    caught = ("Duty Officer files the report. The Records Keeper agrees "
+              "to the terms.")
+    once = guard(None, caught, "Duty Officer")
+    assert once != caught
+    assert guard(None, once, "Duty Officer") == once
+    assert len(calls) == 1
+    assert calls[0][2] == "Duty Officer"
+    assert calls[0][3] == ("Records Keeper",)
+
+
+# ---------------------------------------------------------------------------
 # Integration: full stock-Concordia loop (Phase 4 pattern)
 # ---------------------------------------------------------------------------
 

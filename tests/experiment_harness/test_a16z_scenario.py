@@ -178,7 +178,26 @@ def _install(monkeypatch, tmp_path: Path) -> Path:
     return scenario_dir
 
 
-def _stub_provider(monkeypatch, *, accept: bool = True):
+#: the declared candidate texts, used by the stub to decide whether the
+#: insertion actor ENACTS its intervention (see ``_stub_provider``)
+CANDIDATE_ACTIONS = tuple(
+    scenario.build_problem_payload()["candidate_interventions"])
+
+
+def _stub_provider(monkeypatch, *, accept: bool = True,
+                   enact_candidate: bool = True):
+    """Stub the provider for the whole run.
+
+    ``enact_candidate`` selects the two shapes a real run can take, and
+    they are NOT interchangeable since defect D2 was closed:
+
+    - ``True``  -- the insertion actor restates the candidate it was
+      handed, so the intervention reaches the rest of the cast, the
+      branches genuinely differ downstream, and a ranking is produced;
+    - ``False`` -- the insertion actor keeps its own fixed line, the
+      candidate never leaves it, and ``outcomes.ranking`` REFUSES to name
+      a winner.  This is what the live run actually did.
+    """
     def fake(*, api_key, model, messages, max_tokens, timeout_s,
              response_format=None):
         del api_key, model, max_tokens, timeout_s, response_format
@@ -191,6 +210,11 @@ def _stub_provider(monkeypatch, *, accept: bool = True):
                 if name == scenario.SUBJECT_NAME and not accept:
                     return ("Richard Zheng declines the offer and will not "
                             "take the role."), {"prompt_tokens": 1}
+                if enact_candidate and name == scenario.DECISION_OWNER_NAME:
+                    for action in CANDIDATE_ACTIONS:
+                        if action in prompt:
+                            reply = f"{reply} {action}"
+                            break
                 return reply, {"prompt_tokens": 1, "completion_tokens": 1}
         return "The rules engine notes the step.", {}
 
@@ -465,6 +489,61 @@ def test_the_evaluator_ledger_reads_only_attributed_turns(tmp_path,
         savings = branch["metrics"]["salary_savings_vs_300k"]["value"]
         assert savings == float(scenario.salary_savings_mapping()[
             branch["candidate_key"]])
+
+
+def test_a_run_whose_offers_never_left_the_hiring_lead_is_refused(
+        tmp_path, monkeypatch):
+    """The shape the LIVE run actually produced, driven end to end.
+
+    The insertion actor keeps its own fixed line instead of restating the
+    candidate, so no offer reaches anyone else.  The runner must complete
+    -- writing every ledger, trace, and check -- while the RANKING is
+    refused: no winner in ``recommendation_result.json``, the refusal in
+    the evaluator ledger, and a report that says so instead of rendering
+    a comparison that does not exist.  Before defect D2 was closed this
+    same run published a confident winner.
+    """
+    out = _install(monkeypatch, tmp_path)
+    _stub_provider(monkeypatch, enact_candidate=False)
+    monkeypatch.setattr(scenario, "MAX_STEPS", 6)
+    assert runner_a16z.phase_branches(progress=None) == 0
+    assert runner_a16z.phase_audit(progress=None) == 0
+
+    refusal = json.loads(
+        (out / "recommendation_result.json").read_text(encoding="utf-8"))
+    assert refusal["refused"] is True
+    assert refusal["error_type"] == "InterventionNotDeliveredError"
+    assert "refusing to rank" in refusal["reason"]
+    assert "best_candidate_id" not in refusal
+    assert set(refusal["per_branch_delivery"]) == {
+        f"user_{index + 1:03d}" for index in range(6)}
+    for fact in refusal["per_branch_delivery"].values():
+        assert fact["status"] == "not_delivered"
+        assert fact["reached_actors"] == []
+
+    # the same refusal is the evaluator ledger's ranking block ...
+    ledger = json.loads(
+        (out / "evaluator_ledger.json").read_text(encoding="utf-8"))
+    assert ledger["ranking"]["refused"] is True
+    assert "best_candidate_id" not in ledger["ranking"]
+    assert (out / "ranking_refusal.json").is_file()
+
+    # ... and the report states it, under the mandatory banner, without
+    # rendering the comparison sections.
+    report = (out / "UNDER_THE_HOOD_REPORT.md").read_text(encoding="utf-8")
+    assert report.startswith("# UNCALIBRATED LIVE-MODEL EXPLORATORY "
+                             "SIMULATION")
+    assert "RANKING REFUSED" in report
+    assert "No winner is reported for this run" in report
+    assert "## 12. " not in report
+
+    # every per-branch artifact still exists: the refusal removes the
+    # winner and nothing else
+    for index in range(6):
+        branch = out / "branches" / f"user_{index + 1:03d}"
+        for name in ("step_ledger.jsonl", "committed_events.jsonl",
+                     "branch_result.json", "trace_report.json"):
+            assert (branch / name).is_file(), f"{branch.name}/{name}"
 
 
 def test_the_audit_phase_writes_delivery_and_report(tmp_path, monkeypatch):

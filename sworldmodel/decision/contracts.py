@@ -31,6 +31,70 @@ SCHEMA_VERSION = 1
 TERMINAL_STATUSES = ("success", "failure", "cutoff", "incomplete")
 CANDIDATE_SOURCES = ("user_supplied", "generated")
 
+#: ``BranchResult.intervention_delivered.status`` values.  A counterfactual
+#: only compares candidates if the candidates reached the world; this fact
+#: records, per branch, whether the branch's own intervention text ever
+#: reached any actor OTHER than the insertion actor it was handed to.
+#: ``not_computed`` is the honest third state -- a caller that never
+#: measured delivery must not be read as having measured "no" (see
+#: ``sworldmodel.counterfactuals.delivery`` for the measurement and
+#: ``sworldmodel.outcomes.ranking`` for what a measured "no" costs).
+DELIVERY_DELIVERED = "delivered"
+DELIVERY_NOT_DELIVERED = "not_delivered"
+DELIVERY_NOT_COMPUTED = "not_computed"
+INTERVENTION_DELIVERY_STATUSES = (DELIVERY_DELIVERED, DELIVERY_NOT_DELIVERED,
+                                  DELIVERY_NOT_COMPUTED)
+
+#: the exact key set of ``BranchResult.intervention_delivered``
+_DELIVERY_FIELDS = ("status", "reason", "insertion_actor", "reached_actors",
+                    "fragments_tested", "fragments_found",
+                    "reached_committed_world", "method")
+
+#: the exact key set of one ``BranchResult.unresolved_observers`` entry
+_UNRESOLVED_OBSERVER_FIELDS = ("observer_name", "normalized", "reason",
+                               "event_excerpt")
+
+
+def default_intervention_delivery() -> dict:
+    """The documented default for a result whose delivery was never
+    measured.  Never treated as evidence of non-delivery."""
+    return {
+        "status": DELIVERY_NOT_COMPUTED,
+        "reason": "not_measured",
+        "insertion_actor": "",
+        "reached_actors": [],
+        "fragments_tested": 0,
+        "fragments_found": 0,
+        "reached_committed_world": False,
+        "method": "",
+    }
+
+
+def delivery_status(result) -> str:
+    """The delivery status of one ``BranchResult``.
+
+    Anything that is not a well-formed measured fact -- including a
+    result built before the field existed -- reads as
+    ``DELIVERY_NOT_COMPUTED``: an absent measurement is never a measured
+    "no".
+    """
+    fact = getattr(result, "intervention_delivered", None)
+    if not isinstance(fact, dict):
+        return DELIVERY_NOT_COMPUTED
+    status = fact.get("status")
+    return (status if status in INTERVENTION_DELIVERY_STATUSES
+            else DELIVERY_NOT_COMPUTED)
+
+
+def delivery_reason(result) -> str:
+    """The recorded reason string of one result's delivery fact ('' when
+    absent)."""
+    fact = getattr(result, "intervention_delivered", None)
+    if not isinstance(fact, dict):
+        return ""
+    reason = fact.get("reason")
+    return reason if isinstance(reason, str) else ""
+
 #: fixed language required inside RecommendationResult.run_limitations
 REQUIRED_LIMITATION_PHRASE = (
     "best-performing action among the candidates tested"
@@ -149,6 +213,76 @@ def _check_bool(value, path, issues):
                    f"expected boolean, got {type(value).__name__}")
         return None
     return value
+
+
+def _check_intervention_delivery(value, path, issues):
+    """Validate the additive ``BranchResult.intervention_delivered`` fact:
+    an exact key set, an enum status, and typed evidence fields.  Absent
+    is legal at the field level (see :func:`default_intervention_delivery`);
+    a PRESENT value is strict, so a half-filled fact can never masquerade
+    as a measurement."""
+    if not isinstance(value, dict):
+        issues.add(path, "wrong_type",
+                   f"expected mapping, got {type(value).__name__}")
+        return None
+    missing = [key for key in _DELIVERY_FIELDS if key not in value]
+    if missing:
+        issues.add(path, "missing_field",
+                   "intervention_delivered is missing required keys: "
+                   + ", ".join(sorted(missing)))
+    for key in value:
+        if key not in _DELIVERY_FIELDS:
+            issues.add(f"{path}.{key}", "unknown_field",
+                       f"unknown field {key!r} is not part of the "
+                       "intervention-delivery fact")
+    if missing or set(value) - set(_DELIVERY_FIELDS):
+        return None
+    _check_enum(value["status"], f"{path}.status", issues,
+                INTERVENTION_DELIVERY_STATUSES, "delivery status")
+    for key in ("reason", "insertion_actor", "method"):
+        _check_str(value[key], f"{path}.{key}", issues, allow_blank=True)
+    _check_str_tuple(value["reached_actors"], f"{path}.reached_actors",
+                     issues, unique=True)
+    for key in ("fragments_tested", "fragments_found"):
+        _check_int(value[key], f"{path}.{key}", issues, minimum=0)
+    _check_bool(value["reached_committed_world"],
+                f"{path}.reached_committed_world", issues)
+    return copy.deepcopy(value)
+
+
+def _check_unresolved_observers(value, path, issues):
+    """Validate the additive ``BranchResult.unresolved_observers`` list:
+    every game-master-named observer that did NOT resolve to a roster
+    entity, recorded verbatim rather than dropped."""
+    if not isinstance(value, list):
+        issues.add(path, "wrong_type",
+                   f"expected list, got {type(value).__name__}")
+        return None
+    out: list = []
+    for index, entry in enumerate(value):
+        entry_path = f"{path}[{index}]"
+        if not isinstance(entry, dict):
+            issues.add(entry_path, "wrong_type",
+                       f"expected mapping, got {type(entry).__name__}")
+            continue
+        missing = [key for key in _UNRESOLVED_OBSERVER_FIELDS
+                   if key not in entry]
+        if missing:
+            issues.add(entry_path, "missing_field",
+                       "unresolved-observer record is missing required "
+                       "keys: " + ", ".join(sorted(missing)))
+            continue
+        unknown = sorted(set(entry) - set(_UNRESOLVED_OBSERVER_FIELDS))
+        if unknown:
+            issues.add(entry_path, "unknown_field",
+                       f"unknown fields {unknown} are not part of an "
+                       "unresolved-observer record")
+            continue
+        for key in _UNRESOLVED_OBSERVER_FIELDS:
+            _check_str(entry[key], f"{entry_path}.{key}", issues,
+                       allow_blank=True)
+        out.append(dict(entry))
+    return tuple(out)
 
 
 def _check_status_value(value, path, issues):
@@ -1254,7 +1388,12 @@ class BranchResult(_Canonical):
         "contract_type", "schema_version", "branch_id", "candidate_id",
         "world_id", "terminal_status", "terminal_world_state", "event_trace",
         "outcome_metrics", "infrastructure_errors", "token_stats",
-        "runtime_stats", "artifact_paths")
+        "runtime_stats", "artifact_paths",
+        # additive (2026-08-04 under-the-hood fix batch): both are OPTIONAL
+        # on input and always emitted on output, so every historical
+        # construction site keeps working while every new result carries
+        # the two facts a counterfactual comparison depends on.
+        "intervention_delivered", "unresolved_observers")
 
     branch_id: str
     candidate_id: str
@@ -1267,6 +1406,17 @@ class BranchResult(_Canonical):
     token_stats: dict
     runtime_stats: dict
     artifact_paths: tuple
+    #: did this branch's own candidate text reach any actor other than the
+    #: insertion actor?  See ``INTERVENTION_DELIVERY_STATUSES``.
+    intervention_delivered: dict = None  # type: ignore[assignment]
+    #: game-master-named observers that did NOT resolve to a roster entity
+    #: (recorded verbatim; upstream would have dropped them silently)
+    unresolved_observers: tuple = ()
+
+    def __post_init__(self):
+        if self.intervention_delivered is None:
+            object.__setattr__(self, "intervention_delivered",
+                               default_intervention_delivery())
 
     def to_dict(self) -> dict:
         return {
@@ -1285,6 +1435,10 @@ class BranchResult(_Canonical):
             "token_stats": dict(self.token_stats),
             "runtime_stats": dict(self.runtime_stats),
             "artifact_paths": list(self.artifact_paths),
+            "intervention_delivered": copy.deepcopy(
+                self.intervention_delivered),
+            "unresolved_observers": [dict(entry)
+                                     for entry in self.unresolved_observers],
         }
 
     @classmethod
@@ -1350,13 +1504,30 @@ class BranchResult(_Canonical):
         if _require(data, "artifact_paths", "", issues):
             paths = _check_str_tuple(data["artifact_paths"],
                                      "artifact_paths", issues, unique=True)
+        # Additive, OPTIONAL on input: an absent fact is the documented
+        # "never measured" default, never a measured "no".
+        delivery = default_intervention_delivery()
+        if "intervention_delivered" in data:
+            parsed = _check_intervention_delivery(
+                data["intervention_delivered"], "intervention_delivered",
+                issues)
+            if parsed is not None:
+                delivery = parsed
+        observers: tuple = ()
+        if "unresolved_observers" in data:
+            parsed_observers = _check_unresolved_observers(
+                data["unresolved_observers"], "unresolved_observers", issues)
+            if parsed_observers is not None:
+                observers = parsed_observers
         issues.raise_if_any()
         return cls(branch_id=branch_id, candidate_id=candidate_id,
                    world_id=world_id, terminal_status=status,
                    terminal_world_state=state, event_trace=tuple(trace),
                    outcome_metrics=metrics,
                    infrastructure_errors=errors, token_stats=tokens,
-                   runtime_stats=runtime, artifact_paths=paths)
+                   runtime_stats=runtime, artifact_paths=paths,
+                   intervention_delivered=delivery,
+                   unresolved_observers=observers)
 
 
 @dataclass(frozen=True)

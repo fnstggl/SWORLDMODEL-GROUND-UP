@@ -32,9 +32,11 @@ from .existing_compiler_adapter import (ADAPTER_VERSION, AdaptedScene,
                                         COMPILED_SCENE_SOURCE,
                                         OPTIONAL_JSON_ARTIFACT_FILES,
                                         REQUIRED_ARTIFACT_FILES,
+                                        VISIBILITY_WARNING_LABEL,
                                         adapt_compiled_artifacts,
                                         adapt_compiled_scene,
-                                        derive_actor_ids)
+                                        derive_actor_ids,
+                                        visibility_incoherence_warnings)
 
 __all__ = [
     "ADAPTER_VERSION",
@@ -48,6 +50,7 @@ __all__ = [
     "GENERATOR_VERSION",
     "OPTIONAL_JSON_ARTIFACT_FILES",
     "REQUIRED_ARTIFACT_FILES",
+    "VISIBILITY_WARNING_LABEL",
     "adapt_compiled_artifacts",
     "adapt_compiled_scene",
     "build_generator_prompt",
@@ -57,4 +60,5 @@ __all__ = [
     "generator_config_hash",
     "parse_generator_response",
     "prepare_decision_inputs",
+    "visibility_incoherence_warnings",
 ]

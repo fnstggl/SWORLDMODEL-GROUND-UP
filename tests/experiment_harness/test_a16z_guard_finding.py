@@ -1,36 +1,25 @@
-"""CHARACTERIZATION of a guard behaviour this experiment ran into.
+"""The guard behaviour this experiment ran into -- now FIXED upstream.
 
-**These tests record what the accepted engine DOES today, not what it
-should do.**  They exist because the a16z run hit the behaviour twenty
-times and the UNDER_THE_HOOD report quotes them as evidence; if the
-behaviour is deliberately changed, this file must change with it and the
-a16z experiment must be re-run from its frozen input.  Nothing here
-modifies production code.
+**History.**  This file first CHARACTERIZED a defect: the guard's
+object-position exemption looked only at the word immediately before the
+recipient name, so a determiner between the preposition and the name
+defeated it.  A role-shaped cast takes determiners constantly, and the
+live run hit the behaviour twenty times, deleting 4194 characters of
+content the ACTIVE actor was itself sending.
 
-The observation
----------------
-``sworldmodel.backends.concordia_local.guard`` documents an
-object-position exemption so the epistolary form stays usable: "sends a
-note to Morgan: 'call me'" is the speaker's OWN message TO the name and
-must pass through unchanged.  The exemption looks at the word
-IMMEDIATELY before the name, so a determiner between the preposition and
-the name defeats it:
+**Now.**  The engine owner made the exemption determiner-transparent
+(``sworldmodel/backends/concordia_local/guard.py``, ``_scan`` reads
+through one ``_OBJECT_SLOT_DETERMINERS`` token).  The production-side
+regression tests for the fix live with the guard's own unit suite,
+``tests/engine_baseline/test_agency_guard.py`` (the
+``determiner_transparency`` family).  What remains here is the
+EXPERIMENT-side evidence: the exact recorded actor turn from the live
+run, asserted against the corrected behaviour, so a future regression is
+caught against real recorded text rather than a synthetic probe.
 
-- ``sends a message to New Media Hiring Lead: "..."``      -> exempt
-- ``sends a note to Morgan: "call me"``                     -> exempt
-- ``sends a message to THE New Media Hiring Lead: "..."``   -> REWRITTEN
-
-In the rewritten case the whole quoted message is removed from the
-committed world event, leaving a dangling "to the." and an availability
-sentence.  In this run that destroyed the content of twenty committed
-events -- including compensation approvals and internal notes -- because
-role-based actor names are natural determiner-taking noun phrases
-("the People and Compensation Partner").  A cast of personal names would
-not have hit it.
-
-This is reported to the engine owner, not repaired here: the guard is a
-safety-relevant agency protection shared with the already-committed
-Peter scenarios, and this experiment is not its owner.
+The a16z artifacts under ``artifacts/`` are the PRE-FIX record and stay
+byte-identical; the experiment is re-run from its frozen input in a
+separate pass.
 """
 
 from __future__ import annotations
@@ -84,23 +73,26 @@ def test_the_documented_epistolary_example_is_exempt():
     assert _guard(list((text,))[0]).strip() == text.strip()
 
 
-def test_a_determiner_between_the_preposition_and_the_name_defeats_it():
-    """DEFECT CHARACTERIZATION -- fix this and the assertion flips.
+def test_a_determiner_between_the_preposition_and_the_name_is_exempt_too():
+    """The recorded live turn, asserted against the FIXED guard.
 
-    The guard rewrites a message the ACTIVE actor sent, and the quoted
-    content is deleted from the committed world.
-    """
+    Pre-fix this exact string came back as "... sends a concise message
+    to the." plus an availability sentence, with the whole quoted message
+    the ACTIVE actor was sending deleted from the committed world."""
     out = _guard(RECORDED_TURN)
-    assert out.strip() != RECORDED_TURN.strip()
-    assert "sends a concise message to the." in out
-    assert AVAILABILITY_MARKER in out
-    # the message content is gone from the committed event
-    assert "only annual base salary is variable" not in out
-    assert "Confirmed" not in out
+    assert out == RECORDED_TURN
+    # the message content survives in the committed event
+    assert "only annual base salary is variable" in out
+    assert "Confirmed" in out
+    # and no availability sentence was appended: nobody's agency was
+    # claimed, so there is nothing to offer back
+    assert AVAILABILITY_MARKER not in out
+    assert "sends a concise message to the." not in out
 
 
 def test_the_same_sentence_without_the_colon_is_not_rewritten():
-    """The trigger is the attribution marker, not the determiner alone."""
+    """The trigger was the attribution marker, not the determiner alone;
+    this shape passed before the fix and still passes."""
     text = ("People and Compensation Partner: People and Compensation "
             "Partner sends a concise message to the New Media Hiring Lead "
             "saying the package is fixed.")
@@ -115,3 +107,15 @@ def test_a_genuine_agency_theft_is_still_caught():
     assert out.strip() != text.strip()
     assert AVAILABILITY_MARKER in out
     assert "signs the offer" not in out
+
+
+def test_a_genuine_agency_theft_with_a_determiner_is_still_caught():
+    """The fix must not have bought the exemption with a hole: a real
+    proxy attribution whose recipient carries an article is rewritten."""
+    text = ("People and Compensation Partner sends the package to the "
+            "New Media Hiring Lead. The New Media Hiring Lead agrees to "
+            "the terms.")
+    out = _guard(text)
+    assert out.strip() != text.strip()
+    assert "agrees to the terms" not in out
+    assert f"New Media Hiring Lead {AVAILABILITY_MARKER}" in out

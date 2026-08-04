@@ -854,7 +854,64 @@ def _findings(art):
     return lines
 
 
+def _refused_report(scenario_dir, refusal: dict) -> str:
+    """The report for a scenario whose RANKING WAS REFUSED.
+
+    ``sworldmodel.outcomes.ranking`` refuses to name a winner when no
+    branch delivered its intervention to any actor other than the
+    insertion actor -- the exact failure this scenario's own live run
+    hit while still publishing a ranking.  With no ranking there is
+    nothing to compare, and rendering the comparison sections would
+    manufacture the appearance of a result, so this short report states
+    the refusal, its verbatim engine reason, and the per-branch delivery
+    facts instead.
+    """
+    delivery = refusal.get("per_branch_delivery") or {}
+    lines = [
+        f"# {RUN_LABEL}", "",
+        f"## RANKING REFUSED -- `{Path(scenario_dir).name}`", "",
+        "**This is not a prediction.** Nothing in this document predicts "
+        "what any real person would do; it records what one uncalibrated "
+        "language model produced inside a simulation, run once, and why "
+        "that run cannot be ranked.", "",
+        "**No winner is reported for this scenario, and that is the "
+        "result.** Not one branch's candidate text reached any actor "
+        "other than the actor it was handed to, so every branch ran the "
+        "counterfactual's independent variable at the same (undelivered) "
+        "value. Any difference between the branches is model sampling "
+        "variation on identical downstream context.", "",
+        f"Refusal type: `{refusal.get('error_type')}`", "",
+        "Engine reason, verbatim:", "",
+        "```", str(refusal.get("reason", "")).strip(), "```", "",
+        "## Per-branch delivery (computed from each branch's own artifacts)",
+        "",
+        "| candidate | status | reason | reached actors |",
+        "| --- | --- | --- | --- |",
+    ]
+    for candidate_id in sorted(delivery):
+        fact = delivery[candidate_id] or {}
+        lines.append(
+            f"| {candidate_id} | {fact.get('status')} | "
+            f"{fact.get('reason')} | "
+            f"{', '.join(fact.get('reached_actors') or []) or '(none)'} |")
+    lines += [
+        "", "Every other artifact of this scenario was written and is "
+        "unaffected: the freeze manifest, the per-branch ledgers, the "
+        "evaluator ledger (whose `ranking` block carries this refusal), "
+        "the trace report, and the delivery check. The refusal removes "
+        "exactly one thing -- the winner.", ""]
+    text = "\n".join(lines) + "\n"
+    recorder_lib.assert_no_secrets(text)
+    return text
+
+
 def build_report(root, scenario_dir) -> str:
+    # A refused ranking is reported WITHOUT assembling the comparison
+    # artifact set: there is no ranking to compare, and the refusal must
+    # be reportable from what a refused run actually wrote.
+    refusal = _load(Path(scenario_dir) / "recommendation_report.json")
+    if isinstance(refusal, dict) and refusal.get("refused") is True:
+        return _refused_report(scenario_dir, refusal)
     art = ScenarioArtifacts(root, scenario_dir)
     lines = []
     lines += _header(art)

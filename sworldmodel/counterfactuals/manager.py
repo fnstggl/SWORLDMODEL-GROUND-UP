@@ -62,11 +62,13 @@ from sworldmodel.decision.contracts import (BranchResult,
                                             ContractValidationError,
                                             InterventionCandidate,
                                             IssueCollector, SCHEMA_VERSION,
-                                            ValidationIssue)
+                                            ValidationIssue,
+                                            default_intervention_delivery)
 from sworldmodel.decision.registry import ContractRegistry
 from sworldmodel.decision.validation import validate_semantics
 
 from .branch import apply_intervention, derive_branch_id
+from .delivery import compute_intervention_delivery
 from .snapshot import (build_base_plan, build_base_snapshot,
                        derive_branch_seed)
 
@@ -140,18 +142,32 @@ def _seeded_branch_scope(seed: int):
 
 
 def _result_from_runner(raw: dict, branch_id: str, candidate_id: str,
-                        world_id: str) -> BranchResult:
+                        world_id: str, *, candidate=None,
+                        plan=None) -> BranchResult:
     """Shape one raw runner result into a strict ``BranchResult``.
 
     ``outcome_metrics`` starts empty: measuring outcomes belongs to the
     separate evaluation layer (``sworldmodel.outcomes``), which returns an
     updated result carrying cited metric values.
+
+    Two additive facts ride along, both computed from THIS branch's own
+    recorded artifacts and never from a sibling: the
+    ``intervention_delivered`` fact (module ``delivery`` -- did the
+    branch's candidate text reach any actor other than the insertion
+    actor?) and the runner's ``unresolved_observers`` records (observer
+    names the game master emitted that resolve to no roster entity).
     """
     if raw.get("world_id") != world_id:
         raise ContractValidationError([ValidationIssue(
             "world_id", "cross_branch_reference",
             f"the runner reported world {raw.get('world_id')!r} for a "
             f"branch of world {world_id!r}")])
+    delivery = default_intervention_delivery()
+    if candidate is not None and plan is not None:
+        delivery = compute_intervention_delivery(
+            candidate=candidate, plan=plan,
+            actor_memories=raw.get("actor_memories"),
+            committed_events=raw.get("committed_events"))
     return BranchResult.from_dict({
         "contract_type": BranchResult.CONTRACT_TYPE,
         "schema_version": SCHEMA_VERSION,
@@ -166,6 +182,8 @@ def _result_from_runner(raw: dict, branch_id: str, candidate_id: str,
         "token_stats": raw["token_stats"],
         "runtime_stats": raw["runtime_stats"],
         "artifact_paths": [],
+        "intervention_delivered": delivery,
+        "unresolved_observers": list(raw.get("unresolved_observers") or []),
     })
 
 
@@ -370,8 +388,9 @@ def run_candidates_detailed(
                     branch_plans[candidate_id],
                     actor_models=actor_models,
                     gm_model=gm_model)
-            result = _result_from_runner(raw, branch_id, candidate_id,
-                                         world.world_id)
+            result = _result_from_runner(
+                raw, branch_id, candidate_id, world.world_id,
+                candidate=candidate, plan=branch_plans[candidate_id])
         except Exception as exc:  # noqa: BLE001 - reported, never hidden
             raw = None
             result = _failure_result(branch_id, candidate_id,

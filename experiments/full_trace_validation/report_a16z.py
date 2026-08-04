@@ -1669,7 +1669,77 @@ def _post_hoc(art):
     ]
 
 
+def _refused_report(scenario_dir, refusal: dict) -> str:
+    """The report for a run whose RANKING WAS REFUSED.
+
+    ``sworldmodel.outcomes.ranking`` refuses to name a winner when no
+    branch delivered its intervention to any actor other than the
+    insertion actor.  When that happens there is no ranking to analyse,
+    and rendering the full comparison sections would manufacture the
+    appearance of one.  This short report states the refusal, its
+    verbatim engine reason, and the per-branch delivery facts, and points
+    at the artifacts that DO exist (every ledger, trace, and check was
+    still written).
+    """
+    delivery = refusal.get("per_branch_delivery") or {}
+    lines = [
+        # the mandatory honesty banner is the report's first line in EVERY
+        # shape this generator can emit
+        f"# {RUN_LABEL}", "",
+        f"## RANKING REFUSED -- `{scenario.EXPERIMENT_ID}`", "",
+        "**This is not a prediction and it is not a hiring result.** "
+        "Nothing in this document predicts what any real person would do; "
+        "it records what one uncalibrated language model produced inside a "
+        "simulation, run once, and why that run cannot be ranked.", "",
+        "**No winner is reported for this run, and that is the result.**",
+        "",
+        "The engine refused to rank these branches: not one of them "
+        "delivered its intervention to any actor other than the actor the "
+        "intervention was handed to. Every branch therefore ran the "
+        "counterfactual's independent variable at the same (undelivered) "
+        "value, so any difference between the branches is model sampling "
+        "variation on identical downstream context, not an effect of the "
+        "candidates. A ranking computed from these branches would be an "
+        "artifact of that sampling.", "",
+        f"Refusal type: `{refusal.get('error_type')}`", "",
+        "Engine reason, verbatim:", "",
+        "```", str(refusal.get("reason", "")).strip(), "```", "",
+        "## Per-branch delivery (computed from each branch's own artifacts)",
+        "",
+        "| candidate | status | reason | reached actors | reached committed world |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+    for candidate_id in sorted(delivery):
+        fact = delivery[candidate_id] or {}
+        lines.append(
+            f"| {candidate_id} | {fact.get('status')} | "
+            f"{fact.get('reason')} | "
+            f"{', '.join(fact.get('reached_actors') or []) or '(none)'} | "
+            f"{fact.get('reached_committed_world')} |")
+    lines += [
+        "",
+        "## What still exists",
+        "",
+        "Every other artifact of this run was written and is unaffected by "
+        "the refusal: the freeze manifest, the per-branch step ledgers, "
+        "observations, guard ledgers, committed events, actor memories, "
+        "raw engine logs, the evaluator ledger (with its `ranking` block "
+        "carrying this refusal), the trace report, the instrumentation "
+        "equality proof, and the delivery/cutoff checks. The refusal "
+        "removes exactly one thing -- the winner -- and nothing else.", "",
+        "**Conclusion of this report: no conclusion about the world.** The "
+        "run measured its own machinery and reports that the machinery "
+        "could not support a comparison.", "",
+    ]
+    return "\n".join(lines).rstrip() + "\n"
+
+
 def build_report(scenario_dir) -> str:
+    # A refused ranking is reported WITHOUT assembling the comparison
+    # artifact set (see _refused_report).
+    refusal = _load(Path(scenario_dir) / "recommendation_report.json")
+    if isinstance(refusal, dict) and refusal.get("refused") is True:
+        return _refused_report(scenario_dir, refusal)
     art = Artifacts(scenario_dir)
     lines: list = []
     lines += _header(art)

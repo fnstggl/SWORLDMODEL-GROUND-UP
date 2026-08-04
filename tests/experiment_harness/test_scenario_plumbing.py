@@ -29,8 +29,8 @@ pytest.importorskip("concordia.environment.engines.sequential",
                     exc_type=ImportError)
 
 from experiments.full_trace_validation import (  # noqa: E402
-    freeze as freeze_lib, recorder as rec, runner_peter,
-    scenario_peter as scenario)
+    freeze as freeze_lib, recorder as rec, report as report_lib,
+    runner_peter, scenario_peter as scenario)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 VECTOR = (REPO_ROOT / "tests" / "engine_compilation" / "vectors"
@@ -258,6 +258,51 @@ def test_generated_scenario_reuses_the_same_world_and_base_plan(
     for name in ("generator_prompt.txt", "generator_raw_response.txt",
                  "generator_parsed.json"):
         assert (root / "peter_generated" / name).is_file(), name
+
+
+def test_a_run_whose_candidates_never_left_the_sender_is_refused(
+        tmp_path, monkeypatch):
+    """The shape the LIVE Peter run actually produced, driven end to end.
+
+    The stub sender keeps its own fixed line instead of restating the
+    candidate it was handed, so no candidate text reaches the recipient.
+    The runner must complete -- every ledger, trace, and check written --
+    while the RANKING is refused: no winner, the refusal recorded where
+    the recommendation would have been, and a report that says so.
+    Before defect D2 was closed this same run published a winner.
+    """
+    root = _install(monkeypatch, tmp_path)
+    _stub_provider(monkeypatch)
+    assert runner_peter._run_scenario(
+        scenario_id="peter_supplied", out_dir=root / "peter_supplied",
+        generated=False, progress=None) == 0
+    out = root / "peter_supplied"
+
+    refusal = json.loads(
+        (out / "recommendation_result.json").read_text(encoding="utf-8"))
+    assert refusal["refused"] is True
+    assert refusal["error_type"] == "InterventionNotDeliveredError"
+    assert "refusing to rank" in refusal["reason"]
+    assert "best_candidate_id" not in refusal
+    assert set(refusal["per_branch_delivery"]) == {"user_001", "user_002",
+                                                   "user_003"}
+    for fact in refusal["per_branch_delivery"].values():
+        assert fact["status"] == "not_delivered"
+        assert fact["reached_actors"] == []
+
+    ledger = json.loads(
+        (out / "evaluator_ledger.json").read_text(encoding="utf-8"))
+    assert ledger["ranking"]["refused"] is True
+    assert "best_candidate_id" not in ledger["ranking"]
+    assert (out / "ranking_refusal.json").is_file()
+
+    # the report generator renders the refusal rather than a comparison
+    text = report_lib.build_report(root, out)
+    assert text.startswith("# UNCALIBRATED LIVE-MODEL EXPLORATORY "
+                           "SIMULATION")
+    assert "RANKING REFUSED" in text
+    assert "No winner is reported for this scenario" in text
+    assert "## 12. " not in text
 
 
 def test_a_mismatched_world_fails_the_reuse_proof_loudly(tmp_path):
