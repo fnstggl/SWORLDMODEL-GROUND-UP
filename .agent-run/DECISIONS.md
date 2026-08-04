@@ -788,3 +788,23 @@ re-records receipts at its completion commit per its brief.
   L3 + RNG observation: disclosed in KNOWN_LIMITATIONS section 4.
 - Battery at c34ade6: 300 passed (284 + 16 new). Slices re-verified
   independently by the lead: 51 passed at 5c7b632.
+
+## Simulation Reality re-verdict 2026-08-04 (at 0aa5b7a)
+
+Original reproductions re-run by the finding reviewer: both REFUSED at plan
+build (collect-all reserved_marker errors), previously-forged success now
+unreachable. Seven fresh evasions attempted (zero-width space, fullwidth
+colon, Cyrillic homoglyph, marker split across events, marker in candidate
+constraint/action, runtime actor emitting the exact marker): none spoofs a
+metric end-to-end -- refused where the parser could honor the form, INERT
+where it slips (byte-exact downstream parse fails; guard + first-occurrence
+shadow covers the runtime-actor channel). Verdicts: both F1-era gate-H
+clauses RESTORED; gate H can pass at the freeze from this role's scope.
+
+LOW (latent coupling, accepted): the refusal normalizes case/whitespace
+while the downstream anchor parser is byte-exact -- obfuscated forms that
+slip the refusal are inert ONLY because of that exactness. INVARIANT: the
+refusal matcher must always match a SUPERSET of what leading_attribution
+recognizes; never "harden" the parser's normalization without widening the
+refusal in lockstep. Pinned by
+test_production_marker_constant_matches_the_suite_anchor.
