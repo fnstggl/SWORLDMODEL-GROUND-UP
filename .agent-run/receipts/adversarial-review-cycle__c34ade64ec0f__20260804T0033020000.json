@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "adversarial-review-cycle",
+  "git_sha": "c34ade64ec0f4b21d18271d01085cde6fe330057",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_individual tests/engine_team -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T00:32:28+00:00",
+  "finished_at": "2026-08-04T00:33:02+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-04T00:33:02+00:00",
+  "git_branch": "claude/concordia-agentsociety-best-action-engine",
+  "worktree_clean": false,
+  "output_tail": "...................................................                      [100%]\n51 passed in 33.59s\n"
+}
