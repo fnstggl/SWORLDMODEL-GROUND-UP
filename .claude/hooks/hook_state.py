@@ -89,6 +89,38 @@ def jobs_dir(root: Path | None = None) -> Path:
     return agent_run_dir(root) / "jobs"
 
 
+def continuation_path(root: Path | None = None) -> Path:
+    return agent_run_dir(root) / "CONTINUATION.json"
+
+
+def continuation_status(root: Path | None = None) -> tuple[str, str | None]:
+    """Classify the continuation sentinel (worker_silent_death correction).
+
+    Returns ``(word, detail)`` where word is one of ``armed`` / ``unarmed`` /
+    ``expired`` / ``malformed``. While acceptance is incomplete, every idle
+    wait must be bounded by an armed wakeup recorded here; a worker that dies
+    silently then strands the run no longer than the recorded deadline.
+    """
+    path = continuation_path(root)
+    try:
+        cont = read_json(path, required=False, default=None)
+    except StateError as exc:
+        return "malformed", str(exc)
+    if cont is None:
+        return "unarmed", None
+    if not isinstance(cont, dict):
+        return "malformed", f"{path}: expected a JSON object"
+    armed_until = parse_iso(str(cont.get("armed_until", "")))
+    if armed_until is None:
+        return "malformed", f"{path}: 'armed_until' is missing or not ISO-8601"
+    if armed_until.tzinfo is None:
+        armed_until = armed_until.replace(tzinfo=_dt.timezone.utc)
+    if armed_until <= _dt.datetime.now(_dt.timezone.utc):
+        return "expired", str(cont.get("armed_until"))
+    reason = str(cont.get("reason") or "no reason recorded")
+    return "armed", f"until {cont.get('armed_until')} ({reason})"
+
+
 # --------------------------------------------------------------------------
 # Time
 # --------------------------------------------------------------------------

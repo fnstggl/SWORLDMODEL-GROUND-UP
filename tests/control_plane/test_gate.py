@@ -903,6 +903,87 @@ class TestStop(GateTestCase):
         self.assertIn("overall", result.reason)
 
 
+class TestStopContinuationSentinel(GateTestCase):
+    """Regression for the worker_silent_death class (FAILURE_LEDGER 2026-08-04).
+
+    A worker died mid-turn with no SubagentStop event, no completion
+    notification, and no running processes; the session idled ~40 minutes,
+    bounded only by a manually scheduled wakeup. The corrected dispatcher
+    refuses to let a turn end in implementation/frozen_acceptance while
+    acceptance is incomplete unless an unexpired continuation wakeup is
+    armed in .agent-run/CONTINUATION.json — so a silent worker death can
+    never strand the run past a bounded, recorded deadline.
+    """
+
+    def setUp(self):
+        super().setUp()
+        self.project.set_mode("implementation")
+        self.project.set_acceptance(overall="IN_PROGRESS")
+
+    def test_idle_stop_without_armed_continuation_names_the_gap(self):
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("no continuation trigger is armed", result.reason)
+        self.assertIn("arm_continuation.py", result.reason)
+
+    def test_armed_continuation_silences_the_continuation_blocker(self):
+        self.project.arm_continuation(minutes=45)
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block",
+                         "incomplete acceptance still blocks the stop")
+        self.assertNotIn("arm_continuation.py", result.reason)
+
+    def test_expired_continuation_blocks_with_rearm_guidance(self):
+        self.project.arm_continuation(minutes=45, expired=True)
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("expired", result.reason)
+        self.assertIn("arm_continuation.py", result.reason)
+
+    def test_malformed_continuation_is_explicit(self):
+        self.project.write_raw("CONTINUATION.json", "{ not json")
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("CONTINUATION.json", result.reason)
+
+    def test_missing_armed_until_field_is_malformed_not_armed(self):
+        self.project.write_state("CONTINUATION.json", {"schema_version": 1, "reason": "x"})
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("CONTINUATION.json", result.reason)
+
+    def test_acceptance_pass_does_not_require_a_continuation(self):
+        self.project.set_acceptance(overall="PASS")
+        self.assertIsNone(self.gate(stop_event()).decision)
+
+    def test_frozen_acceptance_requires_a_continuation_too(self):
+        self.project.set_mode("frozen_acceptance")
+        result = self.gate(stop_event())
+        self.assertEqual(result.decision, "block")
+        self.assertIn("arm_continuation.py", result.reason)
+
+
+class TestSessionStartContinuationLine(GateTestCase):
+    EVENT = {"hook_event_name": "SessionStart", "source": "startup", "session_id": "s1"}
+
+    def test_unarmed_continuation_is_surfaced_in_implementation(self):
+        self.project.set_mode("implementation")
+        context = self.gate(self.EVENT).additional_context
+        self.assertIn("CONTINUATION: NOT ARMED", context)
+        self.assertIn("arm_continuation.py", context)
+
+    def test_armed_continuation_is_reported_with_deadline_and_reason(self):
+        self.project.set_mode("implementation")
+        self.project.arm_continuation(minutes=45, reason="watching spoof-fix worker")
+        context = self.gate(self.EVENT).additional_context
+        self.assertIn("CONTINUATION: armed until", context)
+        self.assertIn("watching spoof-fix worker", context)
+
+    def test_bootstrap_mode_context_omits_the_continuation_line(self):
+        context = self.gate(self.EVENT).additional_context
+        self.assertNotIn("CONTINUATION:", context)
+
+
 # ---------------------------------------------------------------------------
 # StopFailure
 # ---------------------------------------------------------------------------

@@ -62,3 +62,14 @@ at a4112f6 (guard receipt, clean worktree); system suite 681 passed / 25
 skipped + the known master-receipt staleness item. Upstream checkouts
 verified clean at pins continuously. No background jobs. No open
 critical/high findings.
+
+## Continuation guarantee (2026-08-04, hook-maintenance #5)
+
+Whenever you arm a liveness wakeup (send_later / trigger), ALSO run:
+  python3 .claude/tools/arm_continuation.py --minutes N --reason "..." \
+      --trigger-id trig_xxx --workers <names>
+with the same deadline. The Stop hook now refuses idle turn-ends in
+implementation/frozen_acceptance while acceptance is incomplete unless an
+unexpired continuation is armed; SessionStart shows the window; the
+validator check continuation_armed enforces it out-of-band. Re-arm on every
+wake; acceptance PASS lifts the requirement.

@@ -526,6 +526,50 @@ class TestInitializationLevels(ValidatorCheckTestCase):
         self.assertFalse(self.run_check(vcp.check_initialization_level)["initialization_level"]["ok"])
 
 
+class TestContinuationArmed(ValidatorCheckTestCase):
+    """worker_silent_death regression at the validator layer: an idle run in
+    implementation mode with nothing armed must be flagged, so the failure
+    class is visible to `validate everything` and not only at turn end."""
+
+    def test_armed_continuation_passes_in_implementation(self):
+        self.project.set_mode("implementation")
+        self.project.arm_continuation(minutes=30, reason="watching worker-x")
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertTrue(checks["continuation_armed"]["ok"])
+        self.assertIn("watching worker-x", checks["continuation_armed"]["detail"])
+
+    def test_missing_continuation_fails_in_implementation(self):
+        self.project.set_mode("implementation")
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertFalse(checks["continuation_armed"]["ok"])
+        self.assertIn("arm_continuation.py", checks["continuation_armed"]["detail"])
+
+    def test_expired_continuation_fails(self):
+        self.project.set_mode("implementation")
+        self.project.arm_continuation(minutes=30, expired=True)
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertFalse(checks["continuation_armed"]["ok"])
+        self.assertIn("expired", checks["continuation_armed"]["detail"])
+
+    def test_malformed_continuation_fails_explicitly(self):
+        self.project.set_mode("frozen_acceptance")
+        self.project.write_raw("CONTINUATION.json", "{ nope")
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertFalse(checks["continuation_armed"]["ok"])
+        self.assertIn("CONTINUATION.json", checks["continuation_armed"]["detail"])
+
+    def test_not_required_outside_implementation_modes(self):
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertTrue(checks["continuation_armed"]["ok"])
+        self.assertIn("not required", checks["continuation_armed"]["detail"])
+
+    def test_acceptance_pass_lifts_the_requirement(self):
+        self.project.set_mode("implementation")
+        self.project.set_acceptance(overall="PASS")
+        checks = self.run_check(vcp.check_continuation_armed)
+        self.assertTrue(checks["continuation_armed"]["ok"])
+
+
 class TestPathClassification(unittest.TestCase):
     """Git reports untracked trees as 'dir/'; a bare directory must classify like its contents."""
 

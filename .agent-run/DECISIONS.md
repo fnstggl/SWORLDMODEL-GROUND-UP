@@ -735,3 +735,28 @@ refuted by F1.
   own findings addendum superseded it). OWNERSHIP_AND_REPLACEMENT_MAP
   reachability status "PENDING implementation" predates the proofs that
   now exist.
+
+## Hook maintenance #5 -- 2026-08-04 (continuation-guarantee sentinel)
+
+Reason: the spoof-fix worker died silently mid-turn at 23:32:51Z (no
+SubagentStop, no notification, no processes); the session idled ~40 min
+bounded only by the lead's manually armed one-shot wakeup. FAILURE_LEDGER
+category worker_silent_death. General correction (smallest that closes the
+class): while acceptance is incomplete, every lead turn-end must have an
+unexpired continuation armed -- enforced by the Stop hook, surfaced by
+SessionStart, checked by the validator, recorded via a new
+arm_continuation.py tool writing .agent-run/CONTINUATION.json. Regression
+test proves the pre-fix dispatcher allowed an idle stop with nothing armed.
+
+Outcome of hook maintenance #5: continuation sentinel landed. Regression
+proof: the 10 new tests failed 7/10 against the pre-fix dispatcher (the
+three passers are the vacuous directions) and pass 10/10 after; full gate
+suite 148 passed + 95 subtests; monitored-runner 25; validator suite green
+with the new continuation_armed check (6 new validator tests). New tool
+.claude/tools/arm_continuation.py writes .agent-run/CONTINUATION.json;
+Stop blocks unarmed idle turn-ends in implementation/frozen_acceptance
+until acceptance is PASS; SessionStart surfaces the window; HANDOFF.md
+protocol updated. The spoof-fix worker was resumed from its transcript
+(SendMessage) and is actively editing production again -- the transient
+phase_receipt_discipline failure it causes mid-task resolves when it
+re-records receipts at its completion commit per its brief.

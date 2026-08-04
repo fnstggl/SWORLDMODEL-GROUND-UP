@@ -678,6 +678,40 @@ def check_upstream_checkout_integrity(root: Path, result: Result):
     result.add("upstream_checkouts_integrity", ok, detail, checked=checked)
 
 
+def check_continuation_armed(root: Path, result: Result):
+    """While acceptance is incomplete in implementation/frozen_acceptance, an
+    unexpired continuation wakeup must be armed (worker_silent_death class,
+    FAILURE_LEDGER 2026-08-04): a silently dead worker must never strand the
+    run past a bounded, recorded deadline."""
+    try:
+        state = hs.read_run_state(root)
+    except hs.StateError:
+        return  # run_state_valid already reports this
+    mode = state.get("mode")
+    if mode not in {"implementation", "frozen_acceptance"}:
+        result.add("continuation_armed", True, f"not required in mode '{mode}'")
+        return
+    try:
+        acceptance = hs.read_acceptance_status(root)
+    except hs.StateError as exc:
+        result.add("continuation_armed", False, f"ACCEPTANCE_STATUS.json unusable -- {exc}")
+        return
+    if str(acceptance.get("overall", "")) == "PASS":
+        result.add("continuation_armed", True,
+                   "acceptance is PASS; a continuation is no longer required")
+        return
+    word, detail = hs.continuation_status(root)
+    detail_text = {
+        "armed": f"continuation armed {detail}",
+        "unarmed": "no continuation is armed while acceptance is incomplete -- schedule a "
+                   "wakeup and record it with .claude/tools/arm_continuation.py",
+        "expired": f"continuation expired at {detail} -- re-arm now or continue the "
+                   "highest-leverage in_progress task",
+        "malformed": f"CONTINUATION.json unusable -- {detail}",
+    }[word]
+    result.add("continuation_armed", word == "armed", detail_text)
+
+
 def check_git_context(root: Path, result: Result):
     branch = hs.git_branch(root)
     sha = hs.git_sha(root)
@@ -862,6 +896,7 @@ def run(root: Path, run_tests: bool, base: str | None) -> Result:
     check_git_context(root, result)
     check_bootstrap_status_consistent(root, result)
     check_initialization_level(root, result)
+    check_continuation_armed(root, result)
     return result
 
 

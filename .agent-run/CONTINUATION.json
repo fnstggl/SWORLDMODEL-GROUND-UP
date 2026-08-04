@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "armed_at": "2026-08-04T00:20:39+00:00",
+  "armed_until": "2026-08-04T01:05:39+00:00",
+  "minutes": 45.0,
+  "reason": "smoke test of the new tool",
+  "trigger_id": null,
+  "workers": []
+}
