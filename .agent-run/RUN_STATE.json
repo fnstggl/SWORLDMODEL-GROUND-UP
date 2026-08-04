@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "mode": "complete",
-  "status": "PASS",
-  "phase": "complete",
+  "mode": "implementation",
+  "status": "IN_PROGRESS",
+  "phase": "under_the_hood_validation",
   "frozen_sha": "03886b7cbcb9c4854190bdd7d7fb1c5ca397b144",
   "highest_leverage_blocker": null,
-  "next_action": "Run complete: final adjudicator PASS at frozen_sha 03886b7. COMPLETION_REPORT.md carries the directive-mandated final output. No further action required.",
+  "next_action": "Bounded full-transparency validation: three live-model experiments (peter_supplied, peter_generated sharing ONE compiled world; a16z_richard_historical with 6 salary-only branches) through the complete production path with experiment-only LLM recording at the three injection seams (SceneCaller transport, generator_model, model_factory). Then per-scenario UNDER_THE_HOOD reports, CROSS_SCENARIO_FINDINGS, independent adversarial audit, and a read-only replay viewer with a timeline-equivalence test. Production engine may change ONLY to fix a reproduced defect, with a discriminating regression test and a restart of the affected experiment from its frozen input.",
   "open_critical_count": 0,
   "open_high_count": 0,
   "running_background_jobs": [],
@@ -24,7 +24,7 @@
     "live_teammate_idle_resolved_as_unavailable"
   ],
   "remaining_gates": [],
-  "completion_allowed": true,
+  "completion_allowed": false,
   "master_context_loaded": true,
   "master_directive_path": "docs/engine_migration/MASTER_IMPLEMENTATION_DIRECTIVE.md",
   "master_directive_sha256": "ac863c8355fab544fc79c8a440ed643b8b0879147209134868985dec67a0cdbb",
@@ -52,5 +52,6 @@
       ],
       "detail": ".claude/HOOKS_README.md section 1.1; .agent-run/LIVE_VERIFICATION.md check 4"
     }
-  ]
+  ],
+  "master_run_verdict": "PASS at frozen_sha 03886b7 (merged to main 124a68a9); this is a NEW bounded task on branch claude/full-under-hood-simulation-audit"
 }
