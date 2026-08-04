@@ -20,12 +20,16 @@ workspaces):
 - a RE-RUN of the killed step from the intact workspace succeeds with
   EXACTLY-ONCE file evidence (the killed attempt wrote nothing -- the
   workspace files are written atomically at step end);
-- with one retry allowed, a single worker kill AUTO-RECOVERS via Ray's
-  task re-execution, still with exactly-once file evidence (idempotent
-  workspaces make at-least-once execution safe);
+- with one retry EXPLICITLY allowed, a single worker kill is absorbed
+  by Ray's task re-execution, still with exactly-once file evidence
+  (idempotent workspaces make at-least-once execution safe);
 - the packaged task ships no explicit retry override
-  (``_default_options == {}``), so production submissions inherit Ray's
-  system default task-retry policy -- recorded in the matrix.
+  (``_default_options == {}``), so the retry policy is decided at each
+  SUBMIT SITE: the branch executor pins ``.options(max_retries=0)``
+  (fail-loud-once; crashes surface typed and synthesized, proven at
+  ``tests/engine_distributed/test_worker_crash_executor.py``), and
+  auto-recovery is an explicit caller opt-in at the raw primitive --
+  recorded in the matrix.
 
 Kill discipline: only processes this suite's own Ray runtime spawned are
 touched, identified by the ``ray::step_agent_batch`` process title that
@@ -186,11 +190,12 @@ def test_killed_worker_is_a_typed_bounded_error_and_rerun_recovers(
 
 def test_single_kill_with_retry_budget_auto_recovers_exactly_once(
         kill_run):
-    """Row 13 (recovery): with ``max_retries=1`` one worker kill is
-    absorbed by Ray's task re-execution -- the caller sees success and
-    the workspace still carries exactly-once evidence.  The packaged
-    task ships no retry override, so production inherits Ray's default
-    task-retry policy (recorded in the matrix)."""
+    """Row 13 (recovery): with an EXPLICIT ``max_retries=1`` opt-in one
+    worker kill is absorbed by Ray's task re-execution -- the caller
+    sees success and the workspace still carries exactly-once evidence.
+    The packaged task ships no retry override, so the policy is decided
+    per submit site; the branch executor pins ``max_retries=0``
+    (fail-loud-once, recorded in the matrix)."""
     ray = kill_run["ray"]
     as2_runner = kill_run["as2_runner"]
     proxy = kill_run["proxy"]

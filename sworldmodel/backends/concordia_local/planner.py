@@ -162,15 +162,30 @@ def _refuse_reserved_marker(world, neutral_premise, issues) -> None:
 
     Soundness of first-occurrence anchor parsing (downstream).  With
     both chokepoints in place the marker cannot enter a committed row
-    from authored narration or candidate text; the only remaining
-    writers of committed rows are the engine itself and actor free-text
-    actions.  The engine stamps the marker at the head framing of every
-    resolved turn, so in any committed row that contains the marker the
-    FIRST occurrence is the engine's own stamp; an actor's action may
-    embed a copy, but only strictly AFTER that stamp (and actor text
-    asserting another actor's voluntary act is guard-rewritten before
-    commit).  First-occurrence anchor parsing therefore always binds to
-    the row's true active player.
+    from authored narration or candidate text.  The remaining writer
+    surface is the runtime actor channel, and it is closed by the
+    runner's committed-stream discrimination
+    (``runner.is_engine_committed_row`` /
+    ``runner.committed_event_rows``): a row is committed only when the
+    engine's own ``[event]`` stamp leads the row's head framing, so the
+    raw ``[putative_event]`` attempt row -- written BEFORE the
+    resolution chain, never guard-rewritten, and carrying no engine
+    stamp ahead of the actor's text -- can never enter the committed
+    stream no matter what tags or markers the actor embeds (the
+    Concordia Semantics CRITICAL: substring matching admitted exactly
+    that row); and rows an actor could MINT through the upstream
+    three-newline observation-delimiter split are refused wholesale by
+    the runner's count-invariant integrity check
+    (``runner._verify_committed_stream_integrity``), which fails the
+    whole branch loudly rather than expose a poisoned stream.  Every
+    row in a RETURNED committed stream is therefore an engine-stamped
+    RESOLVED row: the engine wrote its head framing (stamping the
+    marker first) and its content passed the resolution chain, where
+    actor text asserting another actor's voluntary act is
+    guard-rewritten before commit.  An actor's action may embed a
+    marker copy, but in a committed row only strictly AFTER the
+    engine's own stamp.  First-occurrence anchor parsing therefore
+    always binds to the row's true active player.
     """
     scan = [("shared_context", world.shared_context),
             ("neutral_premise", neutral_premise)]

@@ -7,7 +7,18 @@ captures everything the Phase 3 ``BranchResult`` builder needs:
 
 - the committed ``[event]`` stream (game-master memory rows, in commit
   order) and the same stream shaped as ``event_trace`` entries with
-  code-owned event identifiers;
+  code-owned event identifiers.  Committed means ENGINE-STAMPED: a row
+  belongs to the stream only when its head framing carries the engine's
+  own ``[event]`` stamp (:func:`is_engine_committed_row`), never merely
+  because the tag occurs somewhere inside the row -- the raw
+  ``[putative_event]`` actor-attempt row (written BEFORE the resolution
+  chain, so never guard-rewritten) is excluded by PREFIX regardless of
+  its content, restoring the upstream attempt/commit distinction.  A
+  count-invariant integrity check
+  (:func:`_verify_committed_stream_integrity`) additionally REFUSES the
+  whole branch, loudly and typed, when actor text minted extra
+  tag-bearing memory rows through the upstream three-newline
+  observation-delimiter split;
 - per-actor memory texts;
 - the engine's raw log (one entry per step);
 - step count, wall-clock, and default terminal status;
@@ -68,7 +79,8 @@ from typing import Callable
 
 from sworldmodel.decision.contracts import ConcordiaInitializationPlan
 
-from .builder import BuiltBranch, EVENT_TAG, build_branch
+from .builder import (BuiltBranch, EVENT_TAG, PUTATIVE_EVENT_TAG,
+                      build_branch)
 from . import checkpoint as checkpoint_lib
 
 _IMPORT_HELP = (
@@ -79,6 +91,7 @@ _IMPORT_HELP = (
 )
 
 try:
+    from concordia.components.agent import observation as _observation_lib
     from concordia.environment.engines import sequential
 except ImportError as exc:  # degrade loudly, never partially
     raise ImportError(f"{_IMPORT_HELP} (root cause: {exc!r})") from exc
@@ -87,11 +100,181 @@ except ImportError as exc:  # degrade loudly, never partially
 STATUS_CUTOFF = "cutoff"
 STATUS_INCOMPLETE = "incomplete"
 
+#: the framing every game-master memory row carries in the pinned
+#: pipeline: the builder's GM roster routes every ``observe()`` through
+#: upstream ``ObservationToMemory``, whose ``pre_observe`` writes
+#: ``f"{OBSERVATION_TAG} {segment}"`` for each three-newline-delimited
+#: segment of the observed text (concordia/components/agent/
+#: observation.py) -- no other roster component writes GM memory.
+GM_MEMORY_FRAMING = f"{_observation_lib.OBSERVATION_TAG} "
+
+# Pin sanity: the prefix discrimination below assumes the two engine
+# tags are not prefixes of one another (true at the pinned upstream SHA;
+# a drift here would silently confuse attempt and commit rows).
+if EVENT_TAG.startswith(PUTATIVE_EVENT_TAG) \
+        or PUTATIVE_EVENT_TAG.startswith(EVENT_TAG):  # pragma: no cover
+    raise AssertionError(
+        "upstream event tags became prefix-confusable: "
+        f"EVENT_TAG={EVENT_TAG!r} PUTATIVE_EVENT_TAG="
+        f"{PUTATIVE_EVENT_TAG!r}; the committed-stream discrimination "
+        "must be re-audited before running")
+
+
+class CommittedStreamIntegrityError(RuntimeError):
+    """The game-master memory carries tag-bearing rows the engine did
+    not write: the branch's committed stream is untrustworthy and the
+    whole branch is refused (reported by the caller's failure path,
+    never silently repaired).  See
+    :func:`_verify_committed_stream_integrity`."""
+
+
+def _row_body(row: str) -> str:
+    """The row text after at most one GM-memory framing prefix (every
+    row is framed in the pinned pipeline; the bare form is handled so a
+    hypothetical direct-commit row would still be classified by its own
+    leading tag, and actor text can never occupy either head position)."""
+    if row.startswith(GM_MEMORY_FRAMING):
+        return row[len(GM_MEMORY_FRAMING):]
+    return row
+
+
+def _leads_with_tag(body: str, tag: str) -> bool:
+    """True when ``body`` starts with ``tag`` at the engine's stamp
+    position: the tag itself followed by the engine's own separator
+    space (both upstream f-strings write ``f"{TAG} {text}"``) or the
+    end of the row."""
+    if not body.startswith(tag):
+        return False
+    tail = body[len(tag):]
+    return tail == "" or tail.startswith(" ")
+
+
+def is_engine_committed_row(row: str) -> bool:
+    """True iff ``row`` is an ENGINE-STAMPED committed event row.
+
+    Committed-stream invariant (Concordia Semantics review CRITICAL,
+    closed here): the committed stream consists of engine-stamped
+    RESOLVED rows only.  The upstream sequential engine observes exactly
+    two shapes per actor turn (engines/sequential.py ``resolve``):
+
+    - ``[putative_event] <Name>: <raw attempt>`` BEFORE the resolution
+      chain -- the raw actor attempt, never guard-rewritten; and
+    - ``[event] <resolved text>`` AFTER the chain -- guard-rewritten
+      and engine-stamped;
+
+    and ``ObservationToMemory`` frames each memory row as
+    ``[observation] <observed text>`` (:data:`GM_MEMORY_FRAMING`).  A
+    row is committed iff the FIRST tag in the row -- immediately after
+    that framing (or at the head of an unframed row) -- is the engine's
+    own ``[event]`` stamp.  A ``[putative_event]``-prefixed row is NEVER
+    committed, regardless of content: an actor whose free text embeds
+    the literal ``[event]`` bracket cannot drag its own unguarded
+    attempt row into the committed stream.  Substring matching
+    (``EVENT_TAG in row``) was exactly that hole.
+    """
+    return _leads_with_tag(_row_body(row), EVENT_TAG)
+
+
+def _is_putative_row(row: str) -> bool:
+    """True iff ``row`` is the engine's raw actor-attempt row (the
+    ``[putative_event]`` stamp at the head position)."""
+    return _leads_with_tag(_row_body(row), PUTATIVE_EVENT_TAG)
+
 
 def committed_event_rows(gm_memory_rows) -> list:
-    """The committed event stream: every game-master memory row carrying
-    the upstream ``[event]`` tag, in insertion (commit) order."""
-    return [row for row in gm_memory_rows if EVENT_TAG in row]
+    """The committed event stream: every game-master memory row whose
+    head framing carries the engine's own ``[event]`` stamp, in
+    insertion (commit) order (see :func:`is_engine_committed_row` for
+    the full invariant).  The actor-attempt channel
+    (``[putative_event]`` rows) is excluded by PREFIX -- never by
+    content -- restoring the upstream putative/event distinction that
+    the agency guard and first-occurrence anchor parsing rely on.  For
+    benign content (no actor-embedded tags) this selects exactly the
+    rows the historical substring filter selected: every benign row
+    containing ``[event]`` anywhere is an engine-stamped row, because
+    the only writers of the tag are the engine's and the builder's own
+    head-position f-strings."""
+    return [row for row in gm_memory_rows if is_engine_committed_row(row)]
+
+
+def _verify_committed_stream_integrity(gm_memory_rows, *, steps_completed,
+                                       infrastructure_errors) -> None:
+    """Refuse (raise :class:`CommittedStreamIntegrityError`) when the
+    game-master memory carries tag-bearing rows the engine did not write.
+
+    Threat closed: upstream ``ObservationToMemory.pre_observe`` SPLITS
+    every observed text on the reserved three-newline delimiter and
+    frames each segment as its own memory row, so an actor whose raw
+    action embeds ``\\n\\n\\n[event] ...`` (or ``[putative_event]``)
+    would MINT a separate row that is byte-shaped exactly like a genuine
+    engine-stamped row -- prefix discrimination alone cannot tell it
+    apart, and no post-hoc row-shape rule can (a minted decoy putative
+    row can also forge window boundaries).  What CANNOT be forged is the
+    count structure:
+
+    - the engine writes exactly one putative observe and one event
+      observe per completed step, and each observe's FIRST segment
+      always carries its tag at the head position (both upstream
+      f-strings start with the tag, so the first segment is never
+      empty and never unstamped);
+    - every row before the FIRST putative row is code-authored (builder
+      pre-start seeding and the engine premise -- actors have not acted
+      yet), giving a trustworthy measured baseline;
+    - rows only accumulate: actor text can add rows but can never
+      suppress an engine-written one.
+
+    Invariants enforced (S = ``steps_completed``, B = committed-shaped
+    rows before the first putative row):
+
+    - putative-shaped rows == S            (S or S+1 when the run
+      already carries an infrastructure error: a resolution failure
+      after the putative observe legitimately leaves one dangling
+      attempt row);
+    - committed-shaped rows == B + S       (exact in both cases).
+
+    Any violation means minted rows (or an unaudited engine change):
+    the committed stream is untrustworthy WHOLESALE, so the branch is
+    refused loudly and typed -- callers report it through their proven
+    failure paths (local manager ``_failure_result`` in list position;
+    distributed dual-channel evidence) with no metrics and no spoofable
+    trace.  Benign multiline text (no tag at a minted segment head)
+    never trips the counts: untagged continuation segments are simply
+    not counted on either side.  Assumes the builder's fixed-action
+    plans (no SKIP_THIS_STEP turns), which is true for every plan the
+    planner emits.
+    """
+    first_putative = None
+    baseline = 0
+    putative_count = 0
+    committed_count = 0
+    for index, row in enumerate(gm_memory_rows):
+        if _is_putative_row(row):
+            if first_putative is None:
+                first_putative = index
+            putative_count += 1
+        elif is_engine_committed_row(row):
+            committed_count += 1
+            if first_putative is None:
+                baseline += 1
+    errored = bool(infrastructure_errors)
+    allowed_putative = (steps_completed, steps_completed + 1) if errored \
+        else (steps_completed,)
+    expected_committed = baseline + steps_completed
+    if putative_count in allowed_putative \
+            and committed_count == expected_committed:
+        return
+    raise CommittedStreamIntegrityError(
+        "committed-stream integrity violation: the game-master memory "
+        "carries tag-bearing rows the engine did not write (actor-minted "
+        "rows via the three-newline observation-delimiter split, or an "
+        f"unaudited engine change). steps_completed={steps_completed}, "
+        f"putative-shaped rows={putative_count} (allowed "
+        f"{allowed_putative}), committed-shaped rows={committed_count} "
+        f"(expected {expected_committed} = {baseline} pre-actor baseline "
+        f"+ {steps_completed} steps), "
+        f"infrastructure_errors={len(infrastructure_errors)}. The "
+        "branch's committed stream is untrustworthy wholesale and the "
+        "branch is refused; nothing is repaired silently.")
 
 
 #: guard-intervention excerpt cap (characters)
@@ -266,6 +449,11 @@ def run_built_branch(built: BuiltBranch, *, capture_raw_log: bool = True,
         terminal_status = STATUS_INCOMPLETE
 
     gm_memory_rows = list(built.gm_memory_list)
+    # Tamper refusal BEFORE any stream is exposed: minted tag-bearing
+    # rows poison the whole branch (see the function's docstring).
+    _verify_committed_stream_integrity(
+        gm_memory_rows, steps_completed=steps_completed,
+        infrastructure_errors=infrastructure_errors)
     committed = committed_event_rows(gm_memory_rows)
     event_trace = [
         {"event_id": f"ev_{index:04d}", "description": row}

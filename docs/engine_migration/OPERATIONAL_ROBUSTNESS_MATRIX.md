@@ -47,7 +47,7 @@ Verdict vocabulary:
 | 10 | Missing model credentials | NEW `test_missing_credentials.py` (4) | yes | yes (import/call boundary) | yes (set variable, rerun) |
 | 11 | Model timeout | NEW `test_model_timeout.py` (2) -- inner seam + **outer bound (recorded gap G1)** | yes | yes at the semantic-runtime seam; **outer-layer only for injected engine models** | yes (retry/rerun) |
 | 12 | Model malformed output | NEW `test_model_malformed_output.py` (7) + existing generator/attribution suites | yes / fail-closed | yes (limitation L1 noted) | n/a (measured, never counted) |
-| 13 | Ray worker failure | NEW `test_ray_worker_failure.py` (2) | yes (typed `WorkerCrashedError`) | yes (< 30 s asserted; 0.6 s measured) | yes (re-run + auto-retry, exactly-once) |
+| 13 | Ray worker failure | NEW `test_ray_worker_failure.py` (2) + executor-level `tests/engine_distributed/test_worker_crash_executor.py` (1) | yes (typed `WorkerCrashedError`; synthesized `driver_only` failure at the executor) | yes (< 30 s asserted; 0.6 s measured) | yes (explicit re-run, exactly-once; executor submissions pin `max_retries=0` -- crashes never self-heal silently) |
 | 14 | Partial workspace corruption | NEW `test_workspace_corruption.py` (3) + existing tamper suites (cited) | yes (finding F-R1: file naming partial) | yes | yes (restore file / last good checkpoint) |
 
 All test ids below are relative to the repository root; `NEW` marks
@@ -469,16 +469,33 @@ own submission creates, and killed only while our task is in flight).
   completes on a surviving/replacement worker; a RE-RUN of the killed
   step succeeds with exactly-once file evidence.
 - `test_single_kill_with_retry_budget_auto_recovers_exactly_once`: with
-  one retry allowed, a single worker kill AUTO-RECOVERS via Ray's task
+  one retry EXPLICITLY allowed (`.options(max_retries=1)` at the raw
+  primitive), a single worker kill is absorbed by Ray's task
   re-execution -- caller sees success, workspace still exactly-once
   (idempotent workspaces make at-least-once execution safe); asserted
   afterwards: no step-task worker still running.  The packaged task
-  ships no retry override (`_default_options == {}` asserted), so
-  production submissions inherit Ray's system default task-retry
-  policy: a lone worker crash is normally absorbed transparently, and
-  the executor's `task_error` channel (the `except` arm of its harvest
-  loop, which synthesizes the reported-never-hidden failure
-  `BranchResult`) is the terminal path once retries exhaust.
+  still ships no retry override (`_default_options == {}` asserted),
+  but the BRANCH EXECUTOR does not inherit Ray's system default
+  task-retry policy: both of its submit sites pin
+  `.options(max_retries=0)` (fail-loud-once; Integration Reliability
+  wave-2 fix), so a worker crash surfaces exactly once as the typed
+  error in the executor's `task_error` channel (the `except` arm of its
+  harvest loop), which synthesizes the reported-never-hidden
+  `driver_only` failure `BranchResult`.  A silent re-execution would
+  double-spend live model calls and, for a workspace already carrying a
+  checkpoint blob, invert the deliberate interrupt/resume protocol --
+  retries are therefore an explicit caller decision at the raw
+  primitive, never an executor default.
+- `tests/engine_distributed/test_worker_crash_executor.py` (executor
+  level, previously the zero-coverage arm): a worker is SIGKILLed while
+  executing a branch INSIDE `run_candidates_distributed` (deterministic
+  in-worker handshake window; `parallelism=1`) -- the typed error is
+  caught into the `task_error` channel, the synthesized `driver_only`
+  failure `BranchResult` appears for exactly that candidate in list
+  position, siblings are signature-equal to a crash-free reference run,
+  and every exactly-once accounting equality holds.  Verified by
+  mutation: deleting the harvest `except` arm or the `max_retries=0`
+  pin makes the test fail.
 
 Existing complements: in-worker APPLICATION failures (worker survives
 and reports) are the distributed dual-channel and scale injections of
@@ -487,8 +504,11 @@ tests.
 
 **Verdicts.** Explicit: typed exception at the driver; structured
 synthesized failure at the executor layer.  Bounded: asserted.
-Recoverable: yes -- both automatic (task retry) and manual (re-run from
-the intact workspace), with exactly-once evidence both ways.
+Recoverable: yes -- manual explicit re-run from the intact workspace
+(exactly-once evidence), into a FRESH run_dir at the executor (the
+atomic branches-root claim refuses reuse); automatic task retry exists
+only as an explicit opt-in at the raw primitive, proven safe by the
+idempotent-workspace leg.
 
 ## Row 14 -- Partial workspace corruption
 
@@ -565,12 +585,19 @@ paths are bounded upstream by transport caps (4 MB body ceiling,
 provider `max_tokens`).  Injected models are trusted driver/test code
 by design; recorded for operators embedding untrusted model wrappers.
 
-**Note (row 13).**  `step_agent_batch` ships no explicit `max_retries`,
-so Ray's system default task-retry policy applies to worker crashes:
-single crashes normally self-heal (proven exactly-once safe by the
-atomic end-of-step workspace writes); exhausted retries surface as the
-typed error the executor's `task_error` channel converts into a
-reported failure result.
+**Note (row 13).**  `step_agent_batch` itself still ships no explicit
+`max_retries`, but the branch executor's submissions do NOT inherit
+Ray's system default task-retry policy: both submit sites pin
+`.options(max_retries=0)` (Integration Reliability wave-2 fix), so a
+worker crash never self-heals silently -- it surfaces exactly once as
+the typed error the executor's `task_error` channel converts into a
+reported `driver_only` failure result (proven end to end by
+`tests/engine_distributed/test_worker_crash_executor.py`).  The
+idempotent-workspace / explicit `max_retries=1` auto-recovery leg
+remains proven at the raw primitive for callers who explicitly opt in;
+exactly-once safety there rests on the atomic end-of-step workspace
+writes.  Recovery at the executor is an explicit re-run into a fresh
+run_dir (the atomic branches-root claim refuses reuse).
 
 **Note (row 10).**  `AGENTSOCIETY_LLM_API_BASE` does not independently
 refuse at import (upstream ships a default); only

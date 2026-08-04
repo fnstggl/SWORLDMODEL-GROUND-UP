@@ -64,8 +64,18 @@ disagreement):
   partial result (mid-branch failure escalated by the agent) is loaded
   with its partial trace preserved, otherwise a failure ``BranchResult``
   is synthesized in the local manager's reported-never-hidden shape;
-- every candidate is submitted exactly once and harvested exactly once;
-  the returned ``execution_report`` carries the full id accounting,
+- ACCOUNTING is exactly-once (every candidate is submitted exactly once
+  and harvested exactly once, enforced by the loud accounting
+  equalities); EXECUTION is fail-loud-once: both submit sites pin
+  ``.options(max_retries=0)``, so a worker crash (e.g. SIGKILL/OOM)
+  surfaces exactly once as Ray's typed error in the harvest loop's
+  ``task_error`` arm and is synthesized as a reported ``driver_only``
+  failure ``BranchResult`` -- never silently re-executed by Ray's
+  default task-retry policy (a silent re-run would double-spend live
+  model calls and, for a workspace already carrying a checkpoint blob,
+  invert the deliberate interrupt/resume protocol).  Recovery is an
+  explicit re-run;
+- the returned ``execution_report`` carries the full id accounting,
   per-branch worker pid / start / stop, the driver's submit-window
   ceiling, the measured worker-overlap ceiling, token totals, and the
   worker probe.
@@ -796,6 +806,29 @@ def _collect_branch(*, candidate_id: str, branch_id: str, world_id: str,
     return result, file_record, report_entry
 
 
+def _claim_branches_root(branches_root: Path) -> None:
+    """ATOMICALLY claim the run's branches root: ``mkdir`` with
+    ``exist_ok=False`` is the one filesystem operation that both creates
+    and asserts exclusivity in a single step, so two concurrent runs (or
+    a sequential re-run) can never both pass an exists-check window and
+    then silently overwrite each other's ``config.json`` workspaces
+    through upstream ``create_agents_batch``.  Any existing directory --
+    even an empty one left by an interrupted earlier claim -- is refused
+    loudly: every distributed run owns a FRESH run_dir (write-once
+    workspaces are part of the evidence contract), and reuse means
+    evidence would be overwritten, never merged."""
+    try:
+        branches_root.mkdir()
+    except FileExistsError:
+        raise DistributedExecutionError(
+            f"branches root {branches_root} already exists; every "
+            "distributed run owns a fresh run_dir (write-once "
+            "workspaces are part of the evidence contract). The claim "
+            "is atomic: an earlier or concurrent run already owns this "
+            "run_dir -- choose a fresh one; nothing was overwritten"
+        ) from None
+
+
 # ---------------------------------------------------------------------------
 # The executor
 # ---------------------------------------------------------------------------
@@ -890,12 +923,7 @@ def run_candidates_distributed(
     run_dir = Path(run_dir).resolve()
     run_dir.mkdir(parents=True, exist_ok=True)
     branches_root = run_dir / BRANCHES_DIRNAME
-    if branches_root.exists() and any(branches_root.iterdir()):
-        raise DistributedExecutionError(
-            f"branches root {branches_root} already contains entries; "
-            "every distributed run owns a fresh run_dir (write-once "
-            "workspaces are part of the evidence contract)")
-    branches_root.mkdir(parents=True, exist_ok=True)
+    _claim_branches_root(branches_root)
     materialize_branch_agent(run_dir)
 
     ray, as2_runner, build_service_proxy = _import_engine()
@@ -947,7 +975,11 @@ def run_candidates_distributed(
     while pending or in_flight:
         while pending and len(in_flight) < parallelism:
             index, candidate = pending.popleft()
-            ref = as2_runner.step_agent_batch.remote(
+            # max_retries=0: a crashed worker surfaces exactly once as
+            # the typed error in the harvest arm below -- never a silent
+            # Ray re-execution (see the module docstring).
+            ref = as2_runner.step_agent_batch.options(
+                max_retries=0).remote(
                 [index], str(branches_root), AGENT_CLASS_NAME,
                 _TASK_TICK, clock, proxy)
             in_flight[ref] = (index, candidate.candidate_id, time.time())
@@ -1082,7 +1114,10 @@ def _submit_step_round(ray, as2_runner, proxy, clock, branches_root: Path,
     while pending or in_flight:
         while pending and len(in_flight) < parallelism:
             index, candidate_id = pending.popleft()
-            ref = as2_runner.step_agent_batch.remote(
+            # max_retries=0: fail-loud-once, same policy as the primary
+            # submit site (see the module docstring).
+            ref = as2_runner.step_agent_batch.options(
+                max_retries=0).remote(
                 [index], str(branches_root), AGENT_CLASS_NAME,
                 _TASK_TICK, clock, proxy)
             in_flight[ref] = (index, candidate_id, time.time())
@@ -1252,12 +1287,7 @@ def run_interrupted_then_resume(
     run_dir = Path(run_dir).resolve()
     run_dir.mkdir(parents=True, exist_ok=True)
     branches_root = run_dir / BRANCHES_DIRNAME
-    if branches_root.exists() and any(branches_root.iterdir()):
-        raise DistributedExecutionError(
-            f"branches root {branches_root} already contains entries; "
-            "every distributed run owns a fresh run_dir (write-once "
-            "workspaces are part of the evidence contract)")
-    branches_root.mkdir(parents=True, exist_ok=True)
+    _claim_branches_root(branches_root)
     materialize_branch_agent(run_dir)
 
     ray, as2_runner, build_service_proxy = _import_engine()

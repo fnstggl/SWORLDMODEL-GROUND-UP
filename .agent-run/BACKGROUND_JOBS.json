@@ -2917,6 +2917,67 @@
       "stdout_tail": "........................................................................ [ 24%]\n........................................................................ [ 48%]\n........................................................................ [ 72%]\n........................................................................ [ 96%]\n............                                                             [100%]\n300 passed in 222.25s (0:03:42)\n",
       "stderr_tail": "",
       "recoverable": true
+    },
+    {
+      "schema_version": 1,
+      "job_id": "wave2-fix-dod",
+      "classification": "exploratory",
+      "state": "finished",
+      "command": [
+        "bash",
+        "-c",
+        "/home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_scale tests/engine_robustness tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q"
+      ],
+      "command_string": "bash -c /home/user/engine-env/bin/python -m pytest tests/engine_checkpoint tests/engine_compilation tests/engine_individual tests/engine_team tests/engine_scale tests/engine_robustness tests/engine_distributed tests/engine_counterfactuals tests/engine_baseline tests/engine_contracts -q",
+      "cwd": "/home/user/SWORLDMODEL-GROUND-UP",
+      "git_sha": "9eae9e667eef56f577ed69b7acc9b588150fd9ae",
+      "git_branch": "claude/concordia-agentsociety-best-action-engine",
+      "worktree_clean_at_start": false,
+      "frozen_integrity": "OK",
+      "started_at": "2026-08-04T01:46:17+00:00",
+      "no_progress_timeout_s": 300.0,
+      "total_timeout_s": 1500.0,
+      "heartbeat_interval_s": 15.0,
+      "deadline_no_progress_at": 295.348,
+      "hard_deadline_at": 1258.494,
+      "artifact_dir": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/wave2-fix-dod",
+      "stdout_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/wave2-fix-dod/stdout.log",
+      "stderr_log": "/home/user/SWORLDMODEL-GROUND-UP/.agent-run/jobs/wave2-fix-dod/stderr.log",
+      "progress_file": null,
+      "pid": 26600,
+      "pgid": 26600,
+      "heartbeat_at": "2026-08-04T01:50:18+00:00",
+      "progress_source": "log_movement",
+      "cpu_seconds": 42.16,
+      "exit_code": 0,
+      "finished_at": "2026-08-04T01:50:29+00:00",
+      "elapsed_s": 252.042,
+      "seconds_since_progress": 4.652,
+      "completed_units": null,
+      "cpu_cores_recent": 1.008,
+      "process_group_size": 10,
+      "child_returncode": 0,
+      "termination_reason": null,
+      "termination_outcome": null,
+      "process_group_terminated": false,
+      "survivors_after_termination": [],
+      "observed_states": [
+        {
+          "state": "progressing",
+          "at": "2026-08-04T01:46:17+00:00",
+          "elapsed_s": 0.052,
+          "until_elapsed_s": 251.839,
+          "cpu_cores": 0.0,
+          "seconds_since_progress": 0.052
+        }
+      ],
+      "observed_state_names": [
+        "progressing"
+      ],
+      "diagnostics_path": null,
+      "stdout_tail": "........................................................................ [ 22%]\n........................................................................ [ 45%]\n........................................................................ [ 68%]\n........................................................................ [ 91%]\n...........................                                              [100%]\n315 passed in 249.94s (0:04:09)\n",
+      "stderr_tail": "",
+      "recoverable": true
     }
   ]
 }

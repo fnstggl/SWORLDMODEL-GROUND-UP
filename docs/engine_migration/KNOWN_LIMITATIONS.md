@@ -121,6 +121,32 @@ From `OPERATIONAL_ROBUSTNESS_MATRIX.md`:
   within a branch rather than statistically independent ones. Chosen for
   reproducibility and branch isolation (each branch has its own derived
   seed); callers needing independent streams pass explicit seeds.
+- **Distributed branch tasks never self-heal worker crashes (by
+  design, wave-2 fix)**: the branch executor submits every Ray step
+  task with `.options(max_retries=0)`, so a crashed worker (SIGKILL,
+  OOM) surfaces exactly once as a typed `task_error` and a synthesized
+  `driver_only` failure `BranchResult` -- never a silent Ray
+  re-execution (which would double-spend live model calls and could
+  invert the deliberate interrupt/resume protocol on a workspace
+  already carrying a checkpoint blob). Recovery is an explicit re-run
+  into a FRESH run_dir: the branches-root claim is atomic
+  (`mkdir(exist_ok=False)`) and any existing directory -- even an
+  empty one -- is refused loudly, never overwritten
+  (OPERATIONAL_ROBUSTNESS_MATRIX.md row 13).
+- **Committed-stream discrimination and integrity refusal (Concordia
+  Semantics CRITICAL, fixed)**: the runner's committed stream is
+  ENGINE-STAMP PREFIX-anchored (`runner.is_engine_committed_row`) --
+  the raw `[putative_event]` actor-attempt row never commits regardless
+  of embedded `[event]` text -- and a count-invariant check
+  (`runner._verify_committed_stream_integrity`) refuses the WHOLE
+  branch, loudly and typed (`CommittedStreamIntegrityError`, reported
+  through the standard failure paths with no trace and no metrics),
+  when actor text MINTS extra tag-bearing memory rows through the
+  upstream three-newline observation-delimiter split. Operational
+  consequence: a (live) actor model that emits `[event]` /
+  `[putative_event]` at a three-newline segment boundary fails its
+  branch rather than risking a spoofed committed stream; benign
+  multiline actor text is unaffected.
 - **Reserved-marker refusal (Simulation Reality CRITICAL, fixed)**:
   upstream's resolved-turn framing string (`Putative event to resolve:`,
   stamped by event resolution and anchoring actor attribution) is

@@ -101,6 +101,30 @@ class MidRunFailingModel(language_model.LanguageModel):
         raise RuntimeError(self.marker)
 
 
+class StallOnFirstCallModel(ScriptedRuleModel):
+    """Deterministic worker-crash handshake: the FIRST ``sample_text``
+    call writes a marker file (the driver-side killer thread waits for
+    it) and then holds one BLOCKING sleep -- the kill window -- before
+    answering from the scripted rules; later calls answer directly.
+    The sleep is a plain ``time.sleep`` inside the worker process, so a
+    SIGKILL during the window leaves no partial workspace evidence
+    (writes are atomic at step end)."""
+
+    def __init__(self, rules, *, marker_path: str, sleep_s: float):
+        super().__init__(rules)
+        self._marker_path = str(marker_path)
+        self._sleep_s = float(sleep_s)
+        self._stalled = False
+
+    def sample_text(self, prompt: str, **kwargs) -> str:
+        if not self._stalled:
+            self._stalled = True
+            with open(self._marker_path, "w", encoding="utf-8") as handle:
+                handle.write("stalled")
+            time.sleep(self._sleep_s)
+        return super().sample_text(prompt, **kwargs)
+
+
 def _substituted(rules, candidate):
     """Fresh rule lists per model instance (multi-response rules mutate),
     with the candidate-action token substituted."""
@@ -131,6 +155,14 @@ def build_scripted_models(params):
               "candidate_ids": [candidate_id, ...] to fail,
               "marker_prefix": str prepended to the candidate id,
           },
+          "stall": optional {
+              "actor": actor_id whose model stalls (first call only),
+              "candidate_ids": [candidate_id, ...] to stall,
+              "marker_dir": directory for the "<candidate_id>.stalled"
+                  handshake file written just before the blocking sleep,
+              "sleep_s": float blocking-sleep window,
+          } -- the worker-crash tests SIGKILL the worker inside the
+          stall window (see StallOnFirstCallModel),
         }
     """
     failing = params.get("failing") or {}
@@ -138,6 +170,9 @@ def build_scripted_models(params):
     failing_ids = frozenset(failing.get("candidate_ids") or ())
     marker_prefix = str(failing.get("marker_prefix") or
                         "INJECTED_DISTRIBUTED_FAILURE_")
+    stall = params.get("stall") or {}
+    stall_actor = stall.get("actor")
+    stall_ids = frozenset(stall.get("candidate_ids") or ())
     delay_s = float(params.get("delay_s") or 0.0)
     rng_draw_actors = frozenset(params.get("rng_draw_actors") or ())
 
@@ -149,6 +184,14 @@ def build_scripted_models(params):
                     and candidate.candidate_id in failing_ids:
                 actor_models[actor_id] = MidRunFailingModel(
                     marker_prefix + candidate.candidate_id)
+            elif actor_id == stall_actor \
+                    and candidate.candidate_id in stall_ids:
+                actor_models[actor_id] = StallOnFirstCallModel(
+                    _substituted(rules, candidate),
+                    marker_path=(
+                        f"{stall['marker_dir']}/"
+                        f"{candidate.candidate_id}.stalled"),
+                    sleep_s=stall["sleep_s"])
             else:
                 actor_models[actor_id] = ScriptedRuleModel(
                     _substituted(rules, candidate), delay_s=delay_s,
