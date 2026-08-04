@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "uth-viewer",
+  "git_sha": "1f4baedb5455907596a5e9350181d499fb76fceb",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest /home/user/SWORLDMODEL-GROUND-UP/tests/test_replay_viewer.py -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T22:17:07+00:00",
+  "finished_at": "2026-08-04T22:17:29+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "viewer": "a99318d57ffedecd529c2176187455ba361508bf3d8118d609469ee9800db422",
+    "assemble": "e0f73e94b54980db530c62138b1e911a2308b24f4826012ba94e0a79ffe05b2b",
+    "render": "31717976965578547f0c603bfa98f872491c70d8ad68bfbbbebf632dbd0cc205",
+    "test": "41956f0bb0802c3238150212dfc2f0b28ada8683854c00218cbdaba8931e4ece"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T22:17:29+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": false,
+  "output_tail": "........................................................................ [ 83%]\n..............                                                           [100%]\n86 passed in 21.48s\n"
+}
