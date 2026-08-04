@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "armed_at": "2026-08-04T02:51:44+00:00",
-  "armed_until": "2026-08-04T03:19:44+00:00",
-  "minutes": 28.0,
-  "reason": "waiting out DeepSeek 503 flap for the legacy-live re-leg (attempt 1/2), then gates + adjudication",
-  "trigger_id": "trig_01S5GzUZU3w5GRJ3DTs6t5DB",
+  "armed_at": "2026-08-04T03:20:03+00:00",
+  "armed_until": "2026-08-04T03:58:03+00:00",
+  "minutes": 38.0,
+  "reason": "watching the final adjudicator",
+  "trigger_id": "trig_01HV5KA4gG8RkUwR19JwgTNY",
   "workers": [
-    "none"
+    "final-adjudicator"
   ]
 }
