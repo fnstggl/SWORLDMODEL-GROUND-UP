@@ -1,5 +1,9 @@
 # Harness shakedown runs (kept, not counted)
 
+> **UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION**
+>
+> These are uncalibrated one-shot simulations against a live model. Nothing here is a prediction about any real person, nothing here is calibrated against any real-world outcome, and these two runs are explicitly NOT counted in any reported rate. Banner added 2026-08-04 after audit finding F8 noted this was the one committed README in the artifact set without it.
+
 These are the FIRST two live runs of the settling harness, one per arm.
 They are real, complete, recorded runs against the live provider; they are
 kept here rather than deleted because deleting a run one has already seen

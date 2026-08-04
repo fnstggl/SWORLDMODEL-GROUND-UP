@@ -1,5 +1,7 @@
 # UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION
 
+> **ERRATA (2026-08-04).** After an independent adversarial audit, claims in this document that its own committed ledgers disprove are corrected in [`../ERRATA.md`](../ERRATA.md). **No sentence below has been deleted or rewritten**; each corrected sentence carries an inline `[ERRATA <id>]` marker naming its entry. Read the errata before quoting any summary claim from sections 15-20.
+
 ## UNDER THE HOOD -- `a16z_richard_historical`
 
 **This is not a prediction and it is not a hiring result.** Nothing in this document predicts what a16z, or Richard Zheng, or any real person would do. It is a record of what one uncalibrated language model produced inside a simulation whose inputs are listed below, run once. The four committee actors are ROLE-BASED STAND-INS invented by this test because the real committee is not public; no claim is made that a16z has such roles, such authority, or such opinions.
@@ -5764,7 +5766,7 @@ Provider probes (outside the simulation; a one-token request before and after th
 
 1. The production path ran end to end on a live model: real compiler, real adapter, real decision route, real counterfactual manager, real outcome evaluator, real reporting -- with every single provider request recorded. The three independent counters agree (`True`), so no model call bypassed the recorder and nothing in the transcripts was written by the harness.
 2. The branch inputs were isolated to the salary: verdict `only_the_salary_differs`, proven by masking every currency figure and comparing the whole branch plans byte for byte.
-3. The historical cutoff was enforced mechanically rather than promised, at 3 stages, with a canary that the validator rejects.
+3. The historical cutoff was enforced mechanically rather than promised, at 3 stages, with a canary that the validator rejects.  **[ERRATA E2 -- 'enforced' overstates the coverage; see `../ERRATA.md#e2` and `CUTOFF_SCOPE_CORRECTION.json` beside this report. The check DID run at 3 stages over the real bytes, but one user-supplied sentence passed all three because the phrase arm lacked its word order. Sentence preserved unedited on purpose.]**
 4. The measurement is attribution-anchored: the primary metric can only be satisfied by the subject's OWN committed turn following an internally authorized offer.
 
 ### It does NOT prove

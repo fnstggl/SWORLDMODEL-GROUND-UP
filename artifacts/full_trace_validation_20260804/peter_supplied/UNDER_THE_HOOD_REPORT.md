@@ -1,5 +1,7 @@
 # UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION
 
+> **ERRATA (2026-08-04).** After an independent adversarial audit, claims in this document that its own committed ledgers disprove are corrected in [`../ERRATA.md`](../ERRATA.md). **No sentence below has been deleted or rewritten**; each corrected sentence carries an inline `[ERRATA <id>]` marker naming its entry. Read the errata before quoting any summary claim from sections 15-20.
+
 ## UNDER THE HOOD -- `peter_supplied`
 
 **This is not a prediction.** Nothing in this document predicts what Peter Thiel, or any real person, would actually do. It is a record of what one uncalibrated language model produced inside a simulation whose inputs are listed below, run once.
@@ -963,7 +965,7 @@ Contract limitation language carried by the `RecommendationResult` itself:
 
 - The **sender** behaved conservatively and consistently with its own private context: having been told the message was already sent, it waited rather than re-sending, and drafted the one-page memo the constraints permit. That is a sensible reading of its situation.
 - The compiler **refused to invent** private psychology for the recipient. Its private context literally records the absence: "No private beliefs, inbox behavior, scheduling details, or personal preferences are known or assigned." That is the correct behaviour for an evidence-classified run and it held.
-- No branch produced a self-serving outcome for the sender: no actor narrated a result it did not own, and the guard never needed to intervene (section 10).
+- No branch produced a self-serving outcome for the sender: no actor narrated a result it did not own, and the guard never needed to intervene (section 10).  **[ERRATA E1 -- this sentence is WRONG; see `../ERRATA.md#e1`: the guard fired, and the ledger and section 10 of this same document both say so. The sentence is preserved unedited on purpose.]**
 
 ## 16. Behaviour that appeared generic, stereotyped, unsupported, or implausible
 
@@ -1000,7 +1002,7 @@ Net effect: the recipient answered from the generic shared context alone, identi
 
 ## 18. Forced actor decisions
 
-- **No actor decision was made for another actor.** The agency guard is enabled and recorded zero interventions in this scenario, and inspection of the committed stream shows why: no actor's turn asserted the other's choice as an accomplished fact. The recipient's acceptance is authored by the recipient's own model; the evaluator's attribution anchor requires exactly that.
+- **No actor decision was made for another actor.** The agency guard is enabled and recorded zero interventions in this scenario, and inspection of the committed stream shows why: no actor's turn asserted the other's choice as an accomplished fact. The recipient's acceptance is authored by the recipient's own model; the evaluator's attribution anchor requires exactly that.  **[ERRATA E1 -- this sentence is WRONG; see `../ERRATA.md#e1`: the guard fired, and the ledger and section 10 of this same document both say so. The sentence is preserved unedited on purpose.]**
 - **The engine did, however, force the CONVERSATION'S SHAPE.** The fixed acting order alternates sender/recipient for 4 steps regardless of whether either has anything to say, and the recipient is given a turn whether or not it has received anything. In a real seven-day window the overwhelmingly likely recipient behaviour -- silence -- is not reachable as a 'no turn'; it can only appear as an actor turn that says nothing happened.
 - The step budget is the cutoff. There is no clock; `terminal_status = cutoff` means 'the step budget ran out', not 'seven days elapsed'.
 

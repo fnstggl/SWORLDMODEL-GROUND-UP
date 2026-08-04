@@ -40,16 +40,21 @@ exactly the caller-declared result-provenance label (``deterministic``,
 
 Delivery gate (2026-08-04 under-the-hood fix batch).  Ranking runs only
 after the branches are checked for the one precondition that makes a
-counterfactual comparison mean anything: that the independent variable
-actually varied downstream.  Each ``BranchResult`` carries an
-``intervention_delivered`` fact (computed by
-``sworldmodel.counterfactuals.delivery``).  If at least one branch was
-MEASURED and none of the measured branches delivered its intervention to
-any actor other than the insertion actor,
+counterfactual comparison mean anything: that the CANDIDATE ITSELF
+reached an actor downstream of the one it was inserted into.  Each
+``BranchResult`` carries an ``intervention_delivered`` fact (computed by
+``sworldmodel.counterfactuals.delivery`` as a search for distinctive
+candidate fragments in each non-insertion actor's own context).  If at
+least one branch was MEASURED and none of the measured branches
+delivered its intervention to any actor other than the insertion actor,
 :func:`rank_branches` raises :class:`InterventionNotDeliveredError`
 instead of returning a winner -- two live runs produced exactly that
-shape, and both rankings were artifacts of model sampling on
-byte-identical downstream context.  When some branches delivered, the
+shape, and neither ranking could attribute its ordering to the
+candidates.  The gate's claim is deliberately narrow: a negative
+delivery result does not establish that the independent variable held
+the same value everywhere, only that no candidate text itself reached a
+downstream actor (see :class:`InterventionNotDeliveredError` for the
+recorded counterexample).  When some branches delivered, the
 ranking proceeds and the per-branch fact is carried into the report:
 ``downside_outcomes`` (per candidate), ``validation_status``
 (``intervention_delivery_measured``,
@@ -79,13 +84,32 @@ from sworldmodel.decision.validation import validate_semantics
 
 class InterventionNotDeliveredError(RuntimeError):
     """Every branch whose delivery was MEASURED failed to deliver its
-    intervention, so the counterfactual's independent variable never
-    varied downstream and there is nothing to rank.
+    intervention to any actor other than the insertion actor, so no
+    measured difference between the branches can be attributed to the
+    candidates and there is nothing to rank.
 
     Raised instead of returning a winner.  The message names every
     measured branch and its recorded reason; the refusal is skipped
     entirely when no branch carries a measured delivery fact (an absent
     measurement is not evidence of non-delivery).
+
+    SCOPE OF THE CLAIM (corrected 2026-08-04 after audit finding F3; the
+    superseded wording is quoted in
+    ``artifacts/full_trace_validation_20260804/ERRATA.md``).  The delivery
+    measurement is a search for DISTINCTIVE CANDIDATE FRAGMENTS in each
+    non-insertion actor's own context.  A negative result therefore means
+    "no candidate text itself reached a downstream actor"; it does NOT
+    mean "the independent variable held the same value everywhere".  The
+    insertion actor may restate the variable in its own words and that
+    paraphrase can reach other actors while carrying no distinctive
+    fragment -- exactly what happened in the frozen a16z run, where the
+    hiring lead's own turn put ``$150,000`` in one branch and ``$300,000``
+    in another into the compensation partner's prompt (recorded calls
+    ``a16z_richard_historical-000067`` and ``-000157``) while the
+    delivery check correctly reported ``not_delivered`` for every branch.
+    The refusal DECISION is unaffected: an uncontrolled paraphrase is not
+    the candidate, so the comparison is still not a comparison of the
+    candidates.
     """
 
 
@@ -114,12 +138,22 @@ def _refuse_when_nothing_was_delivered(results) -> dict:
         raise InterventionNotDeliveredError(
             "refusing to rank: not one of the "
             f"{len(measured)} measured branches delivered its "
-            "intervention to any actor other than the insertion actor, so "
-            "every branch ran the counterfactual's independent variable "
-            "at the same (undelivered) value and the measured differences "
-            "cannot have been caused by the candidates. A winner computed "
-            "from these branches would be an artifact of model sampling "
-            "on identical downstream context, not a comparison. "
+            "intervention to any actor other than the insertion actor. "
+            "That is exactly and only what was measured: no distinctive "
+            "fragment of any branch's candidate was found in any actor's "
+            "own context except the insertion actor's. It is NOT a "
+            "finding that the branches were identical downstream, and "
+            "NOT a finding that the counterfactual's independent "
+            "variable held the same value everywhere -- the insertion "
+            "actor is free to restate the variable in its own words, and "
+            "such a paraphrase can reach other actors without carrying "
+            "any distinctive candidate fragment with it. The narrower "
+            "conclusion is the one that blocks a ranking: no measured "
+            "difference between these branches can be attributed to the "
+            "candidates, because no candidate itself reached an actor "
+            "downstream of the insertion. A winner computed from them "
+            "would report the insertion actor's own free re-authoring "
+            "plus model sampling, not a comparison of the candidates. "
             f"Per-branch delivery: {detail}. Resolve the delivery failure "
             "(or run branches whose intervention reaches the world) and "
             "rank again; nothing is repaired or ranked silently here.")

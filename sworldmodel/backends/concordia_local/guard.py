@@ -5,8 +5,23 @@ describe mechanical or nonvoluntary consequences, but it may not
 permanently commit a voluntary decision for a DIFFERENT actor without
 giving that actor its own turn.  Voluntary decisions include: replying,
 agreeing, voting, purchasing, accepting, rejecting, refusing, declining,
-signing, supporting, committing, promising, choosing, deciding, and
-choosing what to say.
+signing, supporting, committing, promising, choosing, deciding,
+approving, authorizing, and choosing what to say.
+
+``approve``/``authorize`` were ADDED 2026-08-04 to close audit finding
+F5, a demonstrated pre-existing gap: in an authority scenario the most
+load-bearing proxy attribution available is one actor granting another's
+approval ("... the People and Compensation Partner approves them."), and
+the executed control showed that sentence passing the guard untouched.
+Each verb is added in all three parallel inflection sets below (finite,
+past participle, gerund) so that "approves", "has approved" and "is
+approving" behave identically -- adding only the finite forms would have
+left the auxiliary chains as a one-word evasion.  The act NOUNS
+("approval", "authorization") are deliberately NOT added: they belong to
+the nominalization class, whose over-block risk in a scenario ABOUT
+seeking approval is real, and closing a demonstrated gap is not a
+licence to open an undemonstrated one.  That residual is listed with the
+other documented non-detections below.
 
 Seam (CONCORDIA_AUDIT.md section E, option 1 -- no upstream fork): the
 guard is a plain callable with the audited ``event_resolution_steps``
@@ -117,6 +132,12 @@ false positives on delivery/receipt/hypothetical text):
   ("their agreement"), collective possessives ("Morgan's team
   accepts"), and asides longer than one comma pair or 60 characters are
   out of the deterministic v2 net; listed for later hardening.
+- The act NOUNS "approval" and "authorization" are not nominalization
+  triggers, so "with the Partner's approval, ..." is not detected while
+  "the Partner approves ..." is.  Deliberate: in a scenario about
+  seeking approval those nouns appear constantly in the speaker's own
+  anticipatory content, and the finite/participle/gerund forms already
+  cover the assertion shape the F5 control demonstrated.
 - Proxy-attribution residuals (v3): a SINGLE em/en dash between a name
   and content ("Morgan — agrees") is not an upstream attribution
   separator and stays undetected as an attribution (the pre-existing
@@ -213,6 +234,8 @@ _ACT_FINITE_FORMS = (
     "choose", "chooses", "chose",
     "say", "says", "said",
     "decide", "decides", "decided",
+    "approve", "approves", "approved",
+    "authorize", "authorizes", "authorized",
 )
 
 #: past participles (perfect and modal-perfect chains only; after
@@ -220,7 +243,7 @@ _ACT_FINITE_FORMS = (
 _ACT_PAST_PARTICIPLES = (
     "replied", "agreed", "voted", "purchased", "accepted", "rejected",
     "refused", "declined", "signed", "supported", "committed",
-    "promised", "chosen", "said", "decided",
+    "promised", "chosen", "said", "decided", "approved", "authorized",
 )
 
 #: gerunds (progressive chains only: "is agreeing", "has been agreeing")
@@ -228,6 +251,7 @@ _ACT_GERUNDS = (
     "replying", "agreeing", "voting", "purchasing", "accepting",
     "rejecting", "refusing", "declining", "signing", "supporting",
     "committing", "promising", "choosing", "saying", "deciding",
+    "approving", "authorizing",
 )
 
 #: act nominalizations ("Morgan's agreement", "the acceptance by

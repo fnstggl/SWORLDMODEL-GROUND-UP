@@ -77,12 +77,17 @@ class ScenarioArtifacts:
         self.scenario_id = self.evaluator["scenario_id"]
         self.generated = self.scenario_id.endswith("generated")
         self.steps = {}
+        self.guards = {}
         for branch in self.evaluator["branches"]:
             path = (self.dir / "branches" / branch["candidate_id"]
                     / "step_ledger.jsonl")
             self.steps[branch["candidate_id"]] = [
                 row for row in _jsonl(path)
                 if "_artifact_class" not in row] if path.is_file() else []
+            guard_path = (self.dir / "branches" / branch["candidate_id"]
+                          / "guard_ledger.jsonl")
+            self.guards[branch["candidate_id"]] = (
+                _jsonl(guard_path) if guard_path.is_file() else [])
 
     def candidate(self, candidate_id):
         for entry in self.candidates:
@@ -97,6 +102,124 @@ class ScenarioArtifacts:
         return {}
 
 
+def guard_activity(art) -> dict:
+    """What the agency guard actually DID in this scenario, counted.
+
+    ROOT-CAUSE NOTE (2026-08-04, audit finding F1): the summary sections
+    used to assert "the guard recorded zero interventions" as a LITERAL
+    string, computed from nothing, while section 10 rendered
+    ``intervened = True`` from the per-step ledger a few hundred lines
+    earlier.  A summary about a measurement must be derived from that
+    measurement, so every guard sentence in this report is now built from
+    this function and from nothing else.
+
+    Two independent sources are counted and BOTH are reported:
+
+    * ``branches/<candidate>/guard_ledger.jsonl`` -- the guard's own
+      escalation ledger (one row per resolved step, ``intervened`` plus
+      the pre/post excerpts);
+    * ``branches/<candidate>/step_ledger.jsonl`` -- the ``guard`` block
+      the runner attaches to each step record, which is what section 10
+      renders.
+
+    A scenario with NO guard ledger at all is reported as *not recorded*,
+    never as zero: an absent measurement is not a measurement of zero.
+    Disagreement between the two sources is surfaced, not smoothed.
+    """
+    ledger_rows = 0
+    ledger_interventions = 0
+    per_branch: dict = {}
+    interventions: list = []
+    ledger_present = False
+    for candidate_id, rows in sorted((getattr(art, "guards", None)
+                                      or {}).items()):
+        if rows:
+            ledger_present = True
+        fired = [row for row in rows if row.get("intervened")]
+        ledger_rows += len(rows)
+        ledger_interventions += len(fired)
+        per_branch[candidate_id] = len(fired)
+        for row in fired:
+            for record in row.get("records") or ():
+                interventions.append({"candidate_id": candidate_id,
+                                      "step": record.get("step"),
+                                      "active": record.get("active"),
+                                      "affected": record.get("affected"),
+                                      "original_excerpt":
+                                          record.get("original_excerpt"),
+                                      "rewritten_excerpt":
+                                          record.get("rewritten_excerpt")})
+    step_interventions = 0
+    step_blocks = 0
+    for rows in (getattr(art, "steps", None) or {}).values():
+        for record in rows:
+            guard = record.get("guard")
+            if isinstance(guard, dict):
+                step_blocks += 1
+                if guard.get("intervened"):
+                    step_interventions += 1
+    return {
+        "measured": bool(ledger_present or step_blocks),
+        "guard_ledger_rows": ledger_rows,
+        "guard_ledger_interventions": ledger_interventions,
+        "step_ledger_guard_blocks": step_blocks,
+        "step_ledger_interventions": step_interventions,
+        "sources_agree": ledger_interventions == step_interventions,
+        "intervention_count": max(ledger_interventions, step_interventions),
+        "per_branch": per_branch,
+        "interventions": interventions,
+    }
+
+
+def guard_activity_sentence(activity: dict) -> str:
+    """The one sentence the summary sections may say about the guard.
+
+    It is a pure function of :func:`guard_activity`, so a scenario whose
+    ledger contains an intervention CANNOT render a "zero interventions"
+    claim -- the words are simply not reachable on that branch.
+    """
+    if not activity.get("measured"):
+        return ("The agency guard is enabled but this scenario recorded "
+                "no guard ledger at all, so its activity is **not "
+                "measured** -- which is not the same as zero.")
+    count = activity["intervention_count"]
+    if count == 0:
+        return ("The agency guard is enabled and recorded **0** "
+                "interventions across "
+                f"{activity['guard_ledger_rows']} guard-ledger rows in "
+                "this scenario: no actor's turn asserted another actor's "
+                "choice as an accomplished fact.")
+    where = ", ".join(
+        f"`{entry['candidate_id']}` step {entry['step']}"
+        for entry in activity["interventions"][:4]) or "(see section 10)"
+    affected = sorted({name for entry in activity["interventions"]
+                       for name in (entry.get("affected") or ())})
+    disagreement = ("" if activity["sources_agree"] else
+                    " (the guard ledger and the step ledger disagree: "
+                    f"{activity['guard_ledger_interventions']} vs "
+                    f"{activity['step_ledger_interventions']} -- reported, "
+                    "not reconciled)")
+    return (f"The agency guard is enabled and **DID** intervene: "
+            f"**{count}** intervention(s) at {where}"
+            + (f", protecting {', '.join(affected)}" if affected else "")
+            + f"{disagreement}. Each one is rendered verbatim in section "
+              "10 with its pre-guard and post-guard text.")
+
+
+def _errata_pointer(art) -> list:
+    """A link to ``ERRATA.md`` when the artifact root carries one.
+
+    Emitted by the generator so a corrected claim can never be published
+    again without the correction travelling with it.
+    """
+    errata = Path(art.root) / "ERRATA.md"
+    if not errata.is_file():
+        return []
+    return ["> **ERRATA.** Corrections to this document are recorded in "
+            "[`../ERRATA.md`](../ERRATA.md). Read it before quoting any "
+            "summary claim below.", ""]
+
+
 def _header(art: ScenarioArtifacts) -> list:
     from .scenario_peter import BASE_SEED
 
@@ -107,6 +230,7 @@ def _header(art: ScenarioArtifacts) -> list:
     lines = [
         f"# {RUN_LABEL}",
         "",
+        *_errata_pointer(art),
         f"## UNDER THE HOOD -- `{art.scenario_id}`",
         "",
         "**This is not a prediction.** Nothing in this document predicts "
@@ -575,6 +699,7 @@ def _findings(art):
     what the artifacts actually show."""
     delivery = art.delivery
     audit = art.audit
+    activity = guard_activity(art)
     recipient = art.evaluator["recipient_actor"]
     identical = delivery["distinct_recipient_first_turn_prompts"] <= 1
     repeated = []
@@ -622,8 +747,9 @@ def _findings(art):
         "personal preferences are known or assigned.\" That is the "
         "correct behaviour for an evidence-classified run and it held.",
         "- No branch produced a self-serving outcome for the sender: no "
-        "actor narrated a result it did not own, and the guard never "
-        "needed to intervene (section 10).",
+        "actor narrated a result it did not own. Guard activity, read "
+        "from the guard ledger rather than asserted: "
+        + guard_activity_sentence(activity),
         "",
         "## 16. Behaviour that appeared generic, stereotyped, "
         "unsupported, or implausible", "",
@@ -757,13 +883,19 @@ def _findings(art):
         "Net effect: the recipient answered from the generic shared "
         "context alone, identically in every branch.", "",
         "## 18. Forced actor decisions", "",
-        "- **No actor decision was made for another actor.** The agency "
-        "guard is enabled and recorded zero interventions in this "
-        "scenario, and inspection of the committed stream shows why: no "
-        "actor's turn asserted the other's choice as an accomplished "
-        "fact. The recipient's acceptance is authored by the recipient's "
-        "own model; the evaluator's attribution anchor requires exactly "
-        "that.",
+        "- **Guard activity, computed from the guard ledger.** "
+        + guard_activity_sentence(activity)
+        + (" No committed decision therefore survived for an actor that "
+           "did not author it: the recipient's acceptance is authored by "
+           "the recipient's own model, and the evaluator's attribution "
+           "anchor requires exactly that."
+           if activity.get("intervention_count") == 0 else
+           " Where the guard fired, the asserted decision was REMOVED "
+           "and the affected actor was offered its own turn, so no "
+           "decision was committed for an actor that did not author it; "
+           "the rewrite also deletes whatever the active actor had "
+           "written after the offending clause, which is a real cost and "
+           "is shown in section 10."),
         "- **The engine did, however, force the CONVERSATION'S SHAPE.** "
         "The fixed acting order alternates sender/recipient for "
         f"{art.plan['run_limits'].get('max_steps')} steps regardless of "
@@ -876,10 +1008,14 @@ def _refused_report(scenario_dir, refusal: dict) -> str:
         "that run cannot be ranked.", "",
         "**No winner is reported for this scenario, and that is the "
         "result.** Not one branch's candidate text reached any actor "
-        "other than the actor it was handed to, so every branch ran the "
-        "counterfactual's independent variable at the same (undelivered) "
-        "value. Any difference between the branches is model sampling "
-        "variation on identical downstream context.", "",
+        "other than the actor it was handed to, so no measured "
+        "difference between the branches can be attributed to the "
+        "candidates. That is narrower than saying the branches were "
+        "identical downstream: the insertion actor is free to restate "
+        "the variable in its own words, and such a paraphrase can reach "
+        "other actors while carrying no distinctive candidate fragment. "
+        "What is ruled out is a comparison OF THE CANDIDATES, because "
+        "none of them reached the world.", "",
         f"Refusal type: `{refusal.get('error_type')}`", "",
         "Engine reason, verbatim:", "",
         "```", str(refusal.get("reason", "")).strip(), "```", "",

@@ -274,7 +274,9 @@
     "entries_that_differ": []
   },
   "notes": [
-    "Guard interventions split by class -- pre-fix: 0 determined-recipient (the class D3 closed), 2 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 2 total. Post-fix: 0 determined-recipient (the class D3 closed), 1 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 1 total.",
+    "Guard interventions split by class -- pre-fix: 0 determined-recipient (the class D3 closed), 2 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 2 total. Post-fix: 0 determined-recipient (the class D3 closed), 1 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 1 total. The class is decided by the guard's INPUT (a possessive `<Name>'s <act noun>` is a possessive case even when its rewrite happens to end in a dangling determiner), and by the UNTRUNCATED pre-guard text reconstructed from the step ledger wherever one is recoverable (2 of 2 pre-fix records).",
+    "Attribution by REPLAY, not by subtraction: 0 of 2 pre-fix interventions are explained by the D3 fix -- their reconstructed pre-guard text passes the CURRENT guard byte-identically. 2 still rewrite under the current guard and are therefore NOT attributable to D3; their absence from the re-run is live sampling. Still rewritten: `gen_001` step 3; `gen_002` step 3.",
+    "A pre-fix POSSESSIVE rewrite, verbatim from the guard ledger: `Putative event to resolve:  Beckett Zahedi: Beckett Zahedi checks the inbox, sees Peter Thiel’s reply, and immediately s` -- this is the documented stateless conservatism, NOT the class D3 closed, and the current guard still rewrites it.",
     "Live model sampling is not reproducible at temperature 0, so any change in terminal status or committed text between the two runs is sampling variation on identical inputs unless it is one of the engine behaviours listed above.",
     "The candidate set is a live OUTPUT of this scenario, not a frozen input. The generator INPUTS were compared and are identical (`candidate_generator_prompt`, `candidate_generator_config`). The re-run regenerated candidates live and the resulting set is NOT byte-identical to the pre-fix set (pre `72b1abfa26779a4d`, post `dc6060d25a12856a`), which is expected from a live one-shot generation and is why the candidate set is excluded from the frozen-input table above.",
     "The narrative UNDER_THE_HOOD_REPORT.md is not regenerated for a re-run: it renders the whole artifact root including the compile phase, which a re-run deliberately does not repeat. This document is the re-run's narrative; the pre-fix report is unchanged and still describes the pre-fix run."
@@ -286,6 +288,8 @@
       "unclassifiable_from_the_120_character_excerpt": 0,
       "other": 0,
       "total": 2,
+      "classified_from_untruncated_text": 2,
+      "classified_by_replaying_through_the_current_guard": true,
       "examples_determined": [],
       "examples_possessive": [
         "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi checks the inbox, sees Peter Thiel’s reply, and immediately s",
@@ -298,11 +302,35 @@
       "unclassifiable_from_the_120_character_excerpt": 0,
       "other": 0,
       "total": 1,
+      "classified_from_untruncated_text": 1,
+      "classified_by_replaying_through_the_current_guard": true,
       "examples_determined": [],
       "examples_possessive": [
         "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads Peter Thiel’s reply, then immediately sends a concise f"
       ]
     }
+  },
+  "d3_replay_attribution": {
+    "method": "every pre-fix intervention's untruncated pre-guard text, reconstructed from the step ledger, replayed through the CURRENT guard",
+    "pre_fix_interventions": 2,
+    "explained_by_the_D3_fix": 0,
+    "still_rewritten_by_the_current_guard": 2,
+    "unreplayable_no_recorded_raw_response": 0,
+    "still_rewritten_records": [
+      {
+        "branch": "gen_001",
+        "step": 3,
+        "active": "Beckett Zahedi",
+        "excerpt": "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi checks the inbox, sees Peter Thiel’s reply, and immediately sends a calendar invite for a 20-minute s"
+      },
+      {
+        "branch": "gen_002",
+        "step": 3,
+        "active": "Beckett Zahedi",
+        "excerpt": "Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads Peter Thiel’s reply, then immediately composes a brief, precise response: “Sending the replay l"
+      }
+    ],
+    "note": "a record the current guard still rewrites did NOT disappear because of the fix; its absence from the re-run is live sampling"
   },
   "frozen_input_verification": {
     "claim": "this re-run reuses the pre-fix run's frozen inputs; every hash below was recomputed now and compared against the entry the pre-fix freeze manifest recorded",

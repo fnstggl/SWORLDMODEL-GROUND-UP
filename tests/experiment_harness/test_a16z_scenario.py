@@ -119,9 +119,47 @@ def _synthetic_compiler_dir(target: Path) -> None:
                                        encoding="utf-8")
 
 
+#: the ONE post-cutoff sentence the 2026-08-04 audit found inside the
+#: user-supplied ``relevant_context`` of the frozen problem (finding F2).
+#: It is quoted here, never edited in the frozen file: the frozen input is
+#: the record of a completed run and rewriting it would change the frozen
+#: ``decision_problem`` hash.
+KNOWN_POST_CUTOFF_SENTENCE = (
+    " Do not include his later a16z employment or later a16z work.")
+
+
+def _plumbing_problem_path(tmp_path: Path) -> Path:
+    """A copy of the frozen problem with the KNOWN leak sentence removed.
+
+    Since the cutoff phrase arm was widened (audit finding F2), the real
+    frozen problem is -- correctly -- REFUSED by the pre-simulation gate,
+    because its user-supplied ``relevant_context`` really does contain a
+    post-cutoff assertion.  That refusal is the finding, and it is pinned
+    by ``test_a16z_cutoff.py``.
+
+    These plumbing tests exercise the harness MACHINERY (artifact layout,
+    freeze manifest, isolation proof, ledgers, delivery check), not the
+    frozen input's cutoff status, so they drive it with a problem whose
+    single known bad sentence is removed.  The gate itself is untouched:
+    remove this copy and the tests would refuse exactly as the real run
+    now would.
+    """
+    data = json.loads(scenario.PROBLEM_PATH.read_text(encoding="utf-8"))
+    assert KNOWN_POST_CUTOFF_SENTENCE in data["relevant_context"], (
+        "the frozen problem no longer contains the sentence this fixture "
+        "removes; re-derive the fixture rather than silently diverging")
+    data["relevant_context"] = data["relevant_context"].replace(
+        KNOWN_POST_CUTOFF_SENTENCE, "")
+    path = tmp_path / "a16z_problem_without_the_known_leak.json"
+    path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+    return path
+
+
 def _install(monkeypatch, tmp_path: Path) -> Path:
     root = tmp_path / "artifacts"
     scenario_dir = root / scenario.EXPERIMENT_ID
+    monkeypatch.setattr(scenario, "PROBLEM_PATH",
+                        _plumbing_problem_path(tmp_path))
     monkeypatch.setattr(runner_a16z, "ARTIFACT_ROOT", root)
     monkeypatch.setattr(runner_a16z, "SCENARIO_DIR", scenario_dir)
     monkeypatch.setattr(runner_a16z, "COMPILER_DIR",

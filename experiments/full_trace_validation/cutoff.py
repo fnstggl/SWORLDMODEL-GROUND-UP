@@ -82,8 +82,27 @@ _QUARTER_YEAR_RE = re.compile(
     re.IGNORECASE)
 _YEAR_RE = re.compile(r"(?<![\d\-/.])(?P<y>(?:19|20)\d{2})(?![\d\-/.])")
 
+#: nouns that name a COMPLETED tenure or body of work at a firm.  A
+#: possessive or "later" modifier in front of one of these presupposes
+#: that the tenure exists, which for a16z is precisely the post-cutoff
+#: outcome this counterfactual is simulating.  Deliberately excluded:
+#: "hire", "hiring", "offer", "appointment", "decision", "role at" as a
+#: bare noun -- those are the SUBJECT of the simulation and appear
+#: constantly in legitimate prospective wording.
+_TENURE_NOUNS = (r"employment|work|works|role|roles|job|jobs|position|"
+                 r"positions|tenure|career|title|titles|stint|stints")
+
 #: completed-state phrasings that presuppose the post-cutoff outcome.
 #: Narrow on purpose: prospective and conditional wording must pass.
+#:
+#: WIDENED 2026-08-04 (audit finding F2).  The original phrase arm had a
+#: single fixed word order, ``his <noun> at a16z``, and therefore missed
+#: the possessive/adjectival ordering ``his later a16z employment``,
+#: which is how the USER-SUPPLIED ``relevant_context`` of the frozen
+#: a16z problem phrases it.  The three ``_TENURE_NOUNS`` arms below close
+#: that family in both orderings; see
+#: ``artifacts/full_trace_validation_20260804/a16z_richard_historical/
+#: CUTOFF_SCOPE_CORRECTION.json``.
 POST_CUTOFF_PHRASE_PATTERNS = (
     r"\b(?:has|had|have)\s+(?:already\s+)?joined\b[^.!?]{0,40}a16z",
     r"\balready\s+(?:works?|working|joined|joins|employed)\b[^.!?]{0,40}"
@@ -95,7 +114,15 @@ POST_CUTOFF_PHRASE_PATTERNS = (
     r"\ba16z\s+(?:hired|announced\s+the\s+hire\s+of|brought\s+on)\b"
     r"[^.!?]{0,40}(?:richard|zheng)",
     r"\b(?:accepted|signed)\s+(?:the\s+)?a16z\s+offer\b",
-    r"\bhis\s+(?:role|job|position|work)\s+at\s+a16z\b",
+    # ordering 1: "<possessive> [later] <tenure noun> at a16z"
+    rf"\b(?:his|her|their)\s+(?:later\s+|subsequent\s+|eventual\s+)?"
+    rf"(?:{_TENURE_NOUNS})\s+at\s+a16z\b",
+    # ordering 2: "<possessive> [later] a16z <tenure noun>"
+    rf"\b(?:his|her|their)\s+(?:later\s+|subsequent\s+|eventual\s+)?"
+    rf"a16z\s+(?:{_TENURE_NOUNS})\b",
+    # ordering 3: bare "later/subsequent/eventual a16z <tenure noun>",
+    # which asserts the tenure without naming its holder
+    rf"\b(?:later|subsequent|eventual)\s+a16z\s+(?:{_TENURE_NOUNS})\b",
     r"POST-CUTOFF\s+CANARY",
 )
 

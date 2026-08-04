@@ -1,0 +1,412 @@
+{
+  "correction_id": "F2_cutoff_phrase_arm_word_order",
+  "recorded_utc": "2026-08-04",
+  "status": "DISCLOSED AND CORRECTED IN THE VALIDATOR; the frozen artifacts are NOT edited",
+  "finding": "A sentence asserting the post-cutoff OUTCOME of the very counterfactual being simulated reached the a16z compiler prompt and passed all three enforcement stages.",
+  "leaked_sentence": "Do not include his later a16z employment or later a16z work.",
+  "where_it_was_found_first": "artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler/call_1_prompt.txt:136",
+  "origin": {
+    "kind": "USER-SUPPLIED INPUT, not engine-generated",
+    "file": "experiments/full_trace_validation/data/a16z_problem.json",
+    "field": "relevant_context",
+    "present_in_frozen_input": true,
+    "note": "The harness carried the user's own context verbatim into the compiler prompt, which is the designed behaviour. The defect is that the validator did not stop it."
+  },
+  "what_the_old_arms_did": {
+    "date_arm": "unaffected: the sentence contains no date-shaped token, so the date arm had nothing to match",
+    "phrase_arm": "carried exactly one possessive pattern for this family, '\\\\bhis\\\\s+(?:role|job|position|work)\\\\s+at\\\\s+a16z\\\\b', which fixes the word order to '<possessive> <noun> at a16z'. The supplied sentence uses the adjectival ordering '<possessive> later a16z <noun>', so it did not match.",
+    "superseded_pattern": "\\bhis\\s+(?:role|job|position|work)\\s+at\\s+a16z\\b",
+    "superseded_pattern_matches_the_leaked_sentence": false,
+    "result": "clean at pre_compile, pre_simulation and post_run_prompts; the run was allowed to proceed"
+  },
+  "what_the_new_arms_do": {
+    "patterns_added": [
+      "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\s+at\\s+a16z\\b",
+      "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+      "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b"
+    ],
+    "leaked_sentence_now_rejected": true,
+    "matched_text": [
+      "his later a16z employment",
+      "later a16z employment",
+      "later a16z work"
+    ],
+    "conservatism": "the added arms require a possessive or a later/subsequent/eventual modifier in front of a COMPLETED-TENURE noun. Nouns that are the SUBJECT of the simulation (hire, hiring, offer, appointment, decision) are deliberately excluded, so prospective and conditional wording still passes; tests/experiment_harness/test_a16z_cutoff.py pins both directions.",
+    "consequence_for_future_runs": "a new a16z compile phase is now REFUSED by the pre-compile gate until the user-supplied relevant_context is corrected. The frozen input is left exactly as it was run: editing it would change the frozen decision_problem hash and destroy the evidence.",
+    "retroactively_refuses_the_frozen_input": {
+      "verdict": "REFUSED -- cutoff.assert_clean raises HistoricalCutoffViolation on the frozen problem",
+      "finding_count": 3,
+      "matched_texts": [
+        "his later a16z employment",
+        "later a16z employment",
+        "later a16z work"
+      ],
+      "arms": [
+        "phrase"
+      ],
+      "harness_consequence": "runner_a16z.phase_branches returns exit 6 (branches REFUSED) for this problem; the scenario cannot be run end to end until the user-supplied sentence is corrected. The gate is NOT relaxed and the frozen input is NOT edited.",
+      "honest_characterization": "the completed a16z run carries a disclosed, non-propagating post-cutoff assertion in its compiler-facing context surface",
+      "the_known_sentence_is_the_only_defect": true,
+      "proof_that_it_is_the_only_defect": "removing exactly that one sentence IN MEMORY (never on disk) leaves the frozen problem scanning clean, so the pinned violation is not hiding a second one behind it"
+    }
+  },
+  "did_it_propagate": {
+    "verdict": "NO -- independently re-verified over both runs",
+    "method": "every committed surface of both a16z runs was re-scanned INDIVIDUALLY with the widened arms: each actor prompt, each game-master prompt, each model response, each compiler prompt and response, and each named JSON artifact",
+    "pre_fix_run": {
+      "actor_and_gm_prompts_scanned": 360,
+      "prompt_violations": 0,
+      "model_responses_scanned": 180,
+      "response_violations": 0
+    },
+    "post_fix_rerun": {
+      "actor_and_gm_prompts_scanned": 360,
+      "prompt_violations": 0,
+      "model_responses_scanned": 180,
+      "response_violations": 0
+    },
+    "compiled_world_clean": "pre_fix:adapter/adapted_world.json and adapter/base_plan.json carry no phrase-arm finding in either run, so the sentence did not survive compilation into the simulated world",
+    "surfaces_that_do_carry_it": {
+      "pre_fix": [
+        "pre_fix:adapter/adapter_sidecar.json",
+        "pre_fix:compiler/call_1_prompt.txt",
+        "pre_fix:compiler/call_2_prompt.txt",
+        "pre_fix:decision_problem.json",
+        "pre_fix:recommendation_report.json"
+      ],
+      "post_fix": [
+        "post_fix:adapter/adapter_sidecar.json",
+        "post_fix:decision_problem.json"
+      ]
+    },
+    "why_those_surfaces": "each one echoes the user's own relevant_context verbatim (the problem file itself, the adapter sidecar that retains unmapped source fields, the compiler prompts, and the pre-fix recommendation report). None of them is an actor-visible or game-master-visible surface."
+  },
+  "enforcement_scope_correction": {
+    "claim_being_corrected": "'The historical cutoff was enforced mechanically rather than promised, at 3 stages, with a canary that the validator rejects.'",
+    "what_is_true": "three stages did run (pre_compile, pre_simulation, post_run_prompts), each over real bytes, and the canary is rejected. The stages did scan the surface carrying the leaked sentence.",
+    "what_is_not_true": "'enforced' overstated the coverage. Enforcement is only as wide as the arms: the phrase arm's pattern set did not contain this word order, so all three stages passed the sentence. Mechanical enforcement means the check really ran on the real bytes -- not that the check is complete.",
+    "additional_scope_edge_found_while_re_scanning": "the enforced pre_compile surfaces are the HARNESS-SUPPLIED inputs (problem, evidence, question, context, package, scope note), not the fully ASSEMBLED compiler prompt. The assembled prompt additionally contains the compiler's own fixed instruction template, whose illustrative deadline arithmetic example carries the dates 2026-07-15 and 2026-09-13. Those are template examples with no claim about this counterfactual, but they are post-cutoff date tokens inside a prompt byte-stream that no stage scanned. Disclosed, not repaired.",
+    "known_date_arm_false_positive": "scanning offer_delivery_check.json turns up '2040' inside the sha256 digest '...edcd2040'. The bare-year rule's lookbehind excludes digits and separators but not hex letters. That file is not an enforcement surface, and narrowing the year rule to dodge hex tails would weaken a real arm to tidy a report, so it is disclosed here instead."
+  },
+  "artifact_record_stands": "The a16z run is NOT re-run for this. The leak is disclosed, it did not propagate to any actor or game-master surface, and re-running would replace frozen evidence with new evidence.",
+  "full_rescan": {
+    "pre_fix_run": {
+      "run": "pre_fix",
+      "directory": "artifacts/full_trace_validation_20260804/a16z_richard_historical",
+      "actor_and_gm_prompts_scanned": 360,
+      "model_responses_scanned": 180,
+      "named_artifact_surfaces_scanned": 14,
+      "prompt_violation_count": 0,
+      "response_violation_count": 0,
+      "named_artifact_violation_count": 17,
+      "prompt_violations": [],
+      "response_violations": [],
+      "named_artifact_violations": [
+        {
+          "surface": "pre_fix:decision_problem.json",
+          "arm": "phrase",
+          "matched_text": "his later a16z employment",
+          "span": [
+            2684,
+            2709
+          ],
+          "pattern": "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:decision_problem.json",
+          "arm": "phrase",
+          "matched_text": "later a16z employment",
+          "span": [
+            2688,
+            2709
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:decision_problem.json",
+          "arm": "phrase",
+          "matched_text": "later a16z work",
+          "span": [
+            2713,
+            2728
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:recommendation_report.json",
+          "arm": "phrase",
+          "matched_text": "his later a16z employment",
+          "span": [
+            2775,
+            2800
+          ],
+          "pattern": "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:recommendation_report.json",
+          "arm": "phrase",
+          "matched_text": "later a16z employment",
+          "span": [
+            2779,
+            2800
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:recommendation_report.json",
+          "arm": "phrase",
+          "matched_text": "later a16z work",
+          "span": [
+            2804,
+            2819
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:adapter/adapter_sidecar.json",
+          "arm": "phrase",
+          "matched_text": "his later a16z employment",
+          "span": [
+            2079,
+            2104
+          ],
+          "pattern": "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:adapter/adapter_sidecar.json",
+          "arm": "phrase",
+          "matched_text": "later a16z employment",
+          "span": [
+            2083,
+            2104
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:adapter/adapter_sidecar.json",
+          "arm": "phrase",
+          "matched_text": "later a16z work",
+          "span": [
+            2108,
+            2123
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:compiler/call_1_prompt.txt",
+          "arm": "date",
+          "matched_text": "2026-07-15",
+          "span": [
+            4204,
+            4214
+          ],
+          "resolved_day": "2026-07-15",
+          "granularity": "day",
+          "reason": "resolves to 2026-07-15, after the declared simulation window end 2025-07-10; no material published after the 2025-07-01 cutoff may enter this counterfactual"
+        },
+        {
+          "surface": "pre_fix:compiler/call_1_prompt.txt",
+          "arm": "date",
+          "matched_text": "2026-09-13",
+          "span": [
+            4265,
+            4275
+          ],
+          "resolved_day": "2026-09-13",
+          "granularity": "day",
+          "reason": "resolves to 2026-09-13, after the declared simulation window end 2025-07-10; no material published after the 2025-07-01 cutoff may enter this counterfactual"
+        },
+        {
+          "surface": "pre_fix:compiler/call_1_prompt.txt",
+          "arm": "phrase",
+          "matched_text": "his later a16z employment",
+          "span": [
+            11051,
+            11076
+          ],
+          "pattern": "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:compiler/call_1_prompt.txt",
+          "arm": "phrase",
+          "matched_text": "later a16z employment",
+          "span": [
+            11055,
+            11076
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:compiler/call_1_prompt.txt",
+          "arm": "phrase",
+          "matched_text": "later a16z work",
+          "span": [
+            11080,
+            11095
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:compiler/call_2_prompt.txt",
+          "arm": "phrase",
+          "matched_text": "his later a16z employment",
+          "span": [
+            6530,
+            6555
+          ],
+          "pattern": "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:compiler/call_2_prompt.txt",
+          "arm": "phrase",
+          "matched_text": "later a16z employment",
+          "span": [
+            6534,
+            6555
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "pre_fix:compiler/call_2_prompt.txt",
+          "arm": "phrase",
+          "matched_text": "later a16z work",
+          "span": [
+            6559,
+            6574
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        }
+      ],
+      "surfaces_carrying_the_leaked_phrase": [
+        "pre_fix:adapter/adapter_sidecar.json",
+        "pre_fix:compiler/call_1_prompt.txt",
+        "pre_fix:compiler/call_2_prompt.txt",
+        "pre_fix:decision_problem.json",
+        "pre_fix:recommendation_report.json"
+      ]
+    },
+    "post_fix_rerun": {
+      "run": "post_fix",
+      "directory": "artifacts/full_trace_validation_20260804/a16z_richard_historical/post_fix_rerun",
+      "actor_and_gm_prompts_scanned": 360,
+      "model_responses_scanned": 180,
+      "named_artifact_surfaces_scanned": 10,
+      "prompt_violation_count": 0,
+      "response_violation_count": 0,
+      "named_artifact_violation_count": 8,
+      "prompt_violations": [],
+      "response_violations": [],
+      "named_artifact_violations": [
+        {
+          "surface": "post_fix:decision_problem.json",
+          "arm": "phrase",
+          "matched_text": "his later a16z employment",
+          "span": [
+            2684,
+            2709
+          ],
+          "pattern": "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "post_fix:decision_problem.json",
+          "arm": "phrase",
+          "matched_text": "later a16z employment",
+          "span": [
+            2688,
+            2709
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "post_fix:decision_problem.json",
+          "arm": "phrase",
+          "matched_text": "later a16z work",
+          "span": [
+            2713,
+            2728
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "post_fix:offer_delivery_check.json",
+          "arm": "date",
+          "matched_text": "2040",
+          "span": [
+            5848,
+            5852
+          ],
+          "resolved_day": "2040-01-01",
+          "granularity": "year",
+          "reason": "resolves to 2040-01-01, after the declared simulation window end 2025-07-10; no material published after the 2025-07-01 cutoff may enter this counterfactual"
+        },
+        {
+          "surface": "post_fix:offer_delivery_check.json",
+          "arm": "date",
+          "matched_text": "2040",
+          "span": [
+            9209,
+            9213
+          ],
+          "resolved_day": "2040-01-01",
+          "granularity": "year",
+          "reason": "resolves to 2040-01-01, after the declared simulation window end 2025-07-10; no material published after the 2025-07-01 cutoff may enter this counterfactual"
+        },
+        {
+          "surface": "post_fix:adapter/adapter_sidecar.json",
+          "arm": "phrase",
+          "matched_text": "his later a16z employment",
+          "span": [
+            2138,
+            2163
+          ],
+          "pattern": "\\b(?:his|her|their)\\s+(?:later\\s+|subsequent\\s+|eventual\\s+)?a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "post_fix:adapter/adapter_sidecar.json",
+          "arm": "phrase",
+          "matched_text": "later a16z employment",
+          "span": [
+            2142,
+            2163
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        },
+        {
+          "surface": "post_fix:adapter/adapter_sidecar.json",
+          "arm": "phrase",
+          "matched_text": "later a16z work",
+          "span": [
+            2167,
+            2182
+          ],
+          "pattern": "\\b(?:later|subsequent|eventual)\\s+a16z\\s+(?:employment|work|works|role|roles|job|jobs|position|positions|tenure|career|title|titles|stint|stints)\\b",
+          "reason": "completed-state phrasing that presupposes an outcome only knowable after the 2025-07-01 cutoff"
+        }
+      ],
+      "surfaces_carrying_the_leaked_phrase": [
+        "post_fix:adapter/adapter_sidecar.json",
+        "post_fix:decision_problem.json"
+      ]
+    }
+  }
+}

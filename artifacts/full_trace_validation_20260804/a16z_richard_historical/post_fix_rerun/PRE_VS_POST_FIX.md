@@ -25,15 +25,19 @@ Every input entry below was hashed by the pre-fix run and re-hashed by this re-r
 
 Every frozen input entry is byte-identical.
 
-## Agency-guard interventions (defect D3)
+## Agency-guard interventions
 
-The determiner false positive truncated a sentence at the determiner and deleted the ACTIVE actor's own quoted content whenever it addressed a determined recipient (`sends a message to THE <role name>: "..."`).
+Defect D3 was a determiner false positive: it truncated a sentence at the determiner and deleted the ACTIVE actor's own quoted content whenever it addressed a determined recipient (`sends a message to THE <role name>: "..."`).
 
 - pre-fix: **20** guard interventions
 - post-fix: **0** guard interventions
 - change: **-20**
 
-The raw count is not by itself the D3 measurement: the guard has other, deliberate detection classes that the fix did not touch, and live sampling changes how often each one is triggered. The class split is in the notes at the end of this document.
+**That change is a count, not an attribution.** The guard has other, deliberate detection classes that the fix did not touch, and live sampling changes how often each one is triggered, so a count falling to zero does not by itself say D3 caused it. How many of the pre-fix interventions D3 actually explains is measured by REPLAY -- each pre-fix intervention's reconstructed pre-guard text is run through the current guard -- and is reported in the notes at the end of this document, together with the class split.
+
+- explained by the D3 fix (replayed, byte-identical under the current guard): **19** of **20**
+- still rewritten by the current guard (NOT attributable to D3): **1**
+- not replayable (no recorded raw response): **0**
 
 | branch | pre-fix interventions | post-fix interventions |
 |---|---|---|
@@ -93,7 +97,7 @@ refusing to rank: not one of the 6 measured branches delivered its intervention 
 
 ## Historical cutoff re-verification
 
-The counterfactual is set before 2025-07-01, so the boundary is enforced mechanically at three stages plus a canary the validator must reject.
+The counterfactual is set before 2025-07-01, so the boundary check RUNS mechanically at three stages plus a canary the validator must reject. "Mechanically" means the check ran on the real bytes; it does NOT mean the check is complete. Its coverage is exactly the validator's two arms, and a 2026-08-04 audit found one user-supplied sentence that all three stages passed because the phrase arm lacked its word order (see `CUTOFF_SCOPE_CORRECTION.json` in the pre-fix scenario directory).
 
 | stage | pre-fix | post-fix |
 |---|---|---|
@@ -123,9 +127,11 @@ The pre-compile stage is not repeated: this re-run reuses the original compile p
 
 ## Notes
 
-- Guard interventions split by class -- pre-fix: 2 determined-recipient (the class D3 closed), 0 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 18 unclassifiable from the 120-character excerpt the runner records, 0 other, 20 total. Post-fix: 0 determined-recipient (the class D3 closed), 0 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 0 total.
-- The guard did not fire at all in the re-run, so every pre-fix rewrite is gone -- including every one that could not be classified from its truncated excerpt.
-- A pre-fix determined-recipient rewrite, verbatim from the guard ledger: `Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the. People and Compensation Partner is` -- the sentence was cut at the determiner and the active actor's own content after it was deleted.
+- Guard interventions split by class -- pre-fix: 19 determined-recipient (the class D3 closed), 1 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 20 total. Post-fix: 0 determined-recipient (the class D3 closed), 0 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 0 total. The class is decided by the guard's INPUT (a possessive `<Name>'s <act noun>` is a possessive case even when its rewrite happens to end in a dangling determiner), and by the UNTRUNCATED pre-guard text reconstructed from the step ledger wherever one is recoverable (20 of 20 pre-fix records).
+- Attribution by REPLAY, not by subtraction: 19 of 20 pre-fix interventions are explained by the D3 fix -- their reconstructed pre-guard text passes the CURRENT guard byte-identically. 1 still rewrite under the current guard and are therefore NOT attributable to D3; their absence from the re-run is live sampling. Still rewritten: `user_001` step 11.
+- The guard did not fire at all in the re-run, so every pre-fix rewrite is gone. That the COUNT fell to zero is not by itself evidence about the cause; the replay line above is.
+- A pre-fix determined-recipient rewrite, verbatim from the guard ledger: `Putative event to resolve:  Richard Zheng: Richard Zheng sends a brief, direct email to the. New Media Strategy Partner ` -- the sentence was cut at the determiner and the active actor's own content after it was deleted.
+- A pre-fix POSSESSIVE rewrite, verbatim from the guard ledger: `Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the People and Compensation Partner’s l` -- this is the documented stateless conservatism, NOT the class D3 closed, and the current guard still rewrites it.
 - Live model sampling is not reproducible at temperature 0, so any change in terminal status or committed text between the two runs is sampling variation on identical inputs unless it is one of the engine behaviours listed above.
 - The narrative UNDER_THE_HOOD_REPORT.md is not regenerated for a re-run: it renders the whole artifact root including the compile phase, which a re-run deliberately does not repeat. This document is the re-run's narrative; the pre-fix report is unchanged and still describes the pre-fix run.
 

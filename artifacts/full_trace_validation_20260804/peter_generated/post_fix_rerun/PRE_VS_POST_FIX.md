@@ -25,15 +25,19 @@ Every input entry below was hashed by the pre-fix run and re-hashed by this re-r
 
 Every frozen input entry is byte-identical.
 
-## Agency-guard interventions (defect D3)
+## Agency-guard interventions
 
-The determiner false positive truncated a sentence at the determiner and deleted the ACTIVE actor's own quoted content whenever it addressed a determined recipient (`sends a message to THE <role name>: "..."`).
+Defect D3 was a determiner false positive: it truncated a sentence at the determiner and deleted the ACTIVE actor's own quoted content whenever it addressed a determined recipient (`sends a message to THE <role name>: "..."`).
 
 - pre-fix: **2** guard interventions
 - post-fix: **1** guard interventions
 - change: **-1**
 
-The raw count is not by itself the D3 measurement: the guard has other, deliberate detection classes that the fix did not touch, and live sampling changes how often each one is triggered. The class split is in the notes at the end of this document.
+**That change is a count, not an attribution.** The guard has other, deliberate detection classes that the fix did not touch, and live sampling changes how often each one is triggered, so a count falling to zero does not by itself say D3 caused it. How many of the pre-fix interventions D3 actually explains is measured by REPLAY -- each pre-fix intervention's reconstructed pre-guard text is run through the current guard -- and is reported in the notes at the end of this document, together with the class split.
+
+- explained by the D3 fix (replayed, byte-identical under the current guard): **0** of **2**
+- still rewritten by the current guard (NOT attributable to D3): **2**
+- not replayable (no recorded raw response): **0**
 
 | branch | pre-fix interventions | post-fix interventions |
 |---|---|---|
@@ -89,7 +93,9 @@ refusing to rank: not one of the 3 measured branches delivered its intervention 
 
 ## Notes
 
-- Guard interventions split by class -- pre-fix: 0 determined-recipient (the class D3 closed), 2 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 2 total. Post-fix: 0 determined-recipient (the class D3 closed), 1 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 1 total.
+- Guard interventions split by class -- pre-fix: 0 determined-recipient (the class D3 closed), 2 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 2 total. Post-fix: 0 determined-recipient (the class D3 closed), 1 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 1 total. The class is decided by the guard's INPUT (a possessive `<Name>'s <act noun>` is a possessive case even when its rewrite happens to end in a dangling determiner), and by the UNTRUNCATED pre-guard text reconstructed from the step ledger wherever one is recoverable (2 of 2 pre-fix records).
+- Attribution by REPLAY, not by subtraction: 0 of 2 pre-fix interventions are explained by the D3 fix -- their reconstructed pre-guard text passes the CURRENT guard byte-identically. 2 still rewrite under the current guard and are therefore NOT attributable to D3; their absence from the re-run is live sampling. Still rewritten: `gen_001` step 3; `gen_002` step 3.
+- A pre-fix POSSESSIVE rewrite, verbatim from the guard ledger: `Putative event to resolve:  Beckett Zahedi: Beckett Zahedi checks the inbox, sees Peter Thiel’s reply, and immediately s` -- this is the documented stateless conservatism, NOT the class D3 closed, and the current guard still rewrites it.
 - Live model sampling is not reproducible at temperature 0, so any change in terminal status or committed text between the two runs is sampling variation on identical inputs unless it is one of the engine behaviours listed above.
 - The candidate set is a live OUTPUT of this scenario, not a frozen input. The generator INPUTS were compared and are identical (`candidate_generator_prompt`, `candidate_generator_config`). The re-run regenerated candidates live and the resulting set is NOT byte-identical to the pre-fix set (pre `72b1abfa26779a4d`, post `dc6060d25a12856a`), which is expected from a live one-shot generation and is why the candidate set is excluded from the frozen-input table above.
 - The narrative UNDER_THE_HOOD_REPORT.md is not regenerated for a re-run: it renders the whole artifact root including the compile phase, which a re-run deliberately does not repeat. This document is the re-run's narrative; the pre-fix report is unchanged and still describes the pre-fix run.

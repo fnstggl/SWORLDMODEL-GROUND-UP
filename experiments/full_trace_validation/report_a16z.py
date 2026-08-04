@@ -1548,10 +1548,16 @@ def _section_20(art):
              f"`{art.isolation['verdict']}`, proven by masking every "
              "currency figure and comparing the whole branch plans byte "
              "for byte.",
-             "3. The historical cutoff was enforced mechanically rather "
-             "than promised, at "
-             f"{len(art.cutoff.get('enforced_stages') or [])} stages, with "
-             "a canary that the validator rejects.",
+             "3. The historical cutoff check RAN mechanically rather than "
+             "being promised, at "
+             f"{len(art.cutoff.get('enforced_stages') or [])} stages over "
+             "the real bytes, with a canary that the validator rejects. "
+             "*That is a statement about the check running, not about its "
+             "coverage: enforcement is only as wide as the validator's "
+             "arms, and a 2026-08-04 audit found one user-supplied "
+             "sentence that all three stages passed because the phrase "
+             "arm lacked its word order. See "
+             "`CUTOFF_SCOPE_CORRECTION.json` beside this report.*",
              "4. The measurement is attribution-anchored: the primary "
              "metric can only be satisfied by the subject's OWN committed "
              "turn following an internally authorized offer.", "",

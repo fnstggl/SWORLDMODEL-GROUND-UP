@@ -479,11 +479,11 @@ def build_comparison(payload: dict) -> str:
             lines.append("Every frozen input entry is byte-identical.")
         lines.append("")
     lines.extend([
-        "## Agency-guard interventions (defect D3)",
+        "## Agency-guard interventions",
         "",
-        "The determiner false positive truncated a sentence at the "
-        "determiner and deleted the ACTIVE actor's own quoted content "
-        "whenever it addressed a determined recipient "
+        "Defect D3 was a determiner false positive: it truncated a "
+        "sentence at the determiner and deleted the ACTIVE actor's own "
+        "quoted content whenever it addressed a determined recipient "
         "(`sends a message to THE <role name>: \"...\"`).",
         "",
         f"- pre-fix: **{payload['guard_interventions_pre']}** guard "
@@ -492,12 +492,31 @@ def build_comparison(payload: dict) -> str:
         "interventions",
         f"- change: **{-payload['guard_interventions_removed']:+d}**",
         "",
-        "The raw count is not by itself the D3 measurement: the guard has "
+        "**That change is a count, not an attribution.** The guard has "
         "other, deliberate detection classes that the fix did not touch, "
-        "and live sampling changes how often each one is triggered. The "
-        "class split is in the notes at the end of this document.",
+        "and live sampling changes how often each one is triggered, so a "
+        "count falling to zero does not by itself say D3 caused it. How "
+        "many of the pre-fix interventions D3 actually explains is "
+        "measured by REPLAY -- each pre-fix intervention's reconstructed "
+        "pre-guard text is run through the current guard -- and is "
+        "reported in the notes at the end of this document, together "
+        "with the class split.",
         "",
     ])
+    attribution = payload.get("d3_replay_attribution")
+    if attribution and attribution.get("pre_fix_interventions"):
+        lines.extend([
+            f"- explained by the D3 fix (replayed, byte-identical under "
+            f"the current guard): "
+            f"**{attribution['explained_by_the_D3_fix']}** of "
+            f"**{attribution['pre_fix_interventions']}**",
+            "- still rewritten by the current guard (NOT attributable to "
+            f"D3): **{attribution['still_rewritten_by_the_current_guard']}"
+            "**",
+            "- not replayable (no recorded raw response): "
+            f"**{attribution['unreplayable_no_recorded_raw_response']}**",
+            "",
+        ])
     if pre["guard"]["per_branch"] or post["guard"]["per_branch"]:
         lines.extend(_table(
             [(branch,
@@ -631,8 +650,14 @@ def build_comparison(payload: dict) -> str:
             "## Historical cutoff re-verification",
             "",
             "The counterfactual is set before 2025-07-01, so the boundary "
-            "is enforced mechanically at three stages plus a canary the "
-            "validator must reject.",
+            "check RUNS mechanically at three stages plus a canary the "
+            "validator must reject. \"Mechanically\" means the check ran "
+            "on the real bytes; it does NOT mean the check is complete. "
+            "Its coverage is exactly the validator's two arms, and a "
+            "2026-08-04 audit found one user-supplied sentence that all "
+            "three stages passed because the phrase arm lacked its word "
+            "order (see `CUTOFF_SCOPE_CORRECTION.json` in the pre-fix "
+            "scenario directory).",
             "",
         ])
         lines.extend(_table(
