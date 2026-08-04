@@ -1,9 +1,11 @@
 {
   "schema_version": 1,
-  "armed_at": "2026-08-04T00:20:39+00:00",
-  "armed_until": "2026-08-04T01:05:39+00:00",
-  "minutes": 45.0,
-  "reason": "smoke test of the new tool",
-  "trigger_id": null,
-  "workers": []
+  "armed_at": "2026-08-04T00:22:35+00:00",
+  "armed_until": "2026-08-04T01:10:35+00:00",
+  "minutes": 48.0,
+  "reason": "watching resumed spoof-fix worker (reserved-marker refusal batch)",
+  "trigger_id": "trig_01HoDuHnSx37gsCHh7X2KDTE",
+  "workers": [
+    "spoof-fix"
+  ]
 }
