@@ -984,3 +984,76 @@ SCRIPTED senders that echo the candidate text (cf_helpers). Causal
 effectiveness of an intervention under a FREE-CHOICE sender was never
 part of the acceptance evidence. That is a scope statement about the
 gates, pending the investigation's precise finding.
+
+## Delivery root cause 2026-08-04 (read-only investigation, 5-variant probe)
+
+PRIMARY CAUSE (c): engine intervention semantics. branch.py:187-194 is
+the ONLY write path for candidate text and branch.py:199-208 actively
+REFUSES any wider effect; planner.py:333 pins
+intervention_boundary="first_turn_observation". The intervention is
+SUGGESTED to the insertion actor, never ENACTED in the world, so it
+propagates only if that actor's own model reproduces the text.
+Controlled probe on the real production path: A (as compiled) 0
+fragments, B (visible_to widened to include recipient) 0, C
+(starting_events removed) 0, D/E (scripted echo) 4. Hypotheses (a)
+compiler visibility and (b) adapter mapping ELIMINATED as sufficient
+causes; adapter carried visible_to faithfully.
+
+CO-EQUAL SECOND DEFECT (new, not in the reported mechanism):
+unvalidated GM observer routing. The GM answers "which entities are
+aware" in free text; upstream ObservationQueue.add() silently creates a
+phantom key for a non-matching name and the event is DROPPED with no
+error. Verified: add("@PeterThiel") then get_and_clear("Peter Thiel")
+-> []. This alone killed gen_003 -- the ONE branch whose sender did
+enact its candidate (its candidate was "post a thread on X", not the
+already-narrated send). GM answered "Beckett Zahedi, @PeterThiel".
+
+CONTRIBUTING: compiler/scene_prompts.py:127-128 ships the literal
+exemplar '"description": "A sends the prepared message to B.",
+"visible_to": ["Person A"]' -- the sender-only send event is TAUGHT,
+hence systematic across cold-outreach worlds, not an LLM slip. No
+locus validates visibility coherence (scene_validate, adapter, planner
+all checked).
+
+NEVER PROVEN BEFORE: causal effectiveness of an intervention under a
+free-choice sender. Every accepted suite scripts the sender to ECHO the
+candidate (cf_helpers.py:137-141 says so in its docstring) and scripts
+the GM observer answer to exactly-matching roster names. The nearest
+miss is test_individual_slice_mock_model.py::
+test_mock_model_generated_candidate_leg -- it had a free-choice sender
+and asserted delivery to the INSERTION actor only, stopping one actor
+short. No accepted gate is falsified; several are narrower than their
+names suggest (containment was proven, delivery never was; "only the
+intervention changes" is true of the PLAN, not of the recipient's
+experience).
+
+LEAD REMEDY DECISION for this pass:
+- R4b ADOPTED (minimal, no semantic change, all existing tests pass):
+  validate observer names at OUR seam and never drop silently; surface
+  an intervention_delivered fact on BranchResult; REFUSE to rank when
+  no branch delivered its intervention. Converts a silently invalid
+  ranking into an explicit refusal and closes the name-mangling hole.
+- R2 ADOPTED as cheap hygiene: record (not refuse) a visibility
+  incoherence warning when a starting event's description names an
+  actor outside its visible_to.
+- R3+R4a (enact the intervention as a pre-start event authored by the
+  insertion actor) NOT implemented in this pass: it changes accepted
+  counterfactual semantics (the insertion actor loses the freedom to
+  decline) and the user's directive forbids redesign here. Recorded as
+  the top structural recommendation with the semantic decision stated
+  explicitly.
+- R1 (experiment-side world construction) NOT yet refuted for its
+  STRONG form. Probe variants A/B/C all used CONTENT-BLIND hash-derived
+  senders, under which candidate text cannot propagate by construction;
+  they therefore cannot test whether a LIVE sender would enact the
+  candidate when the send is not pre-narrated. The investigation says
+  so itself (residual uncertainty 0.1) and names the settling
+  observation. LEAD DECISION: run that settling live experiment (two
+  arms, pre-narrated vs starting_events=[], live sender, GM observer
+  forced to broadcast) before concluding anything about R1.
+
+Sequencing: production is NOT touched while the a16z scenario is in
+flight (one writer at a time). After it lands: R4b+R2 with
+discriminating regression tests, the settling live experiment, then
+re-run the affected experiments FROM THEIR FROZEN INPUTS, keeping both
+the pre-fix and post-fix artifact sets as an honest before/after.

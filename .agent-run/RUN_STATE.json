@@ -5,7 +5,7 @@
   "phase": "under_the_hood_validation",
   "frozen_sha": "03886b7cbcb9c4854190bdd7d7fb1c5ca397b144",
   "highest_leverage_blocker": null,
-  "next_action": "Bounded full-transparency validation: three live-model experiments (peter_supplied, peter_generated sharing ONE compiled world; a16z_richard_historical with 6 salary-only branches) through the complete production path with experiment-only LLM recording at the three injection seams (SceneCaller transport, generator_model, model_factory). Then per-scenario UNDER_THE_HOOD reports, CROSS_SCENARIO_FINDINGS, independent adversarial audit, and a read-only replay viewer with a timeline-equivalence test. Production engine may change ONLY to fix a reproduced defect, with a discriminating regression test and a restart of the affected experiment from its frozen input.",
+  "next_action": "a16z scenario in flight (sole writer). Then, in order: (1) R4b + R2 production fixes with discriminating regression tests (observer-name validation, intervention_delivered on BranchResult, ranking refusal when nothing was delivered, visibility-incoherence warning); (2) the settling live experiment (pre-narrated vs starting_events=[], live sender, GM broadcast) to decide R1-strong vs R3; (3) re-run affected experiments from frozen inputs keeping pre-fix and post-fix artifacts; (4) independent adversarial audit; (5) read-only replay viewer + timeline-equivalence test; (6) CROSS_SCENARIO_FINDINGS.",
   "open_critical_count": 0,
   "open_high_count": 0,
   "running_background_jobs": [],
