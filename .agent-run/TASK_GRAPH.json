@@ -736,7 +736,7 @@
       "description": "Written findings from the directive's required roles: Upstream Preservation Auditor, Integration Reliability Reviewer, Concordia Semantics Reviewer, AgentSociety Scale Reviewer, Simulation Reality Reviewer, Best-Action and Counterfactual Reviewer, plus the standing highest-leverage (strategic drift) reviewer at phase boundaries. Every verified critical finding must be resolved with evidence before final acceptance.",
       "owner": "adversarial-reviewer",
       "owner_type": "subagent",
-      "status": "in_progress",
+      "status": "complete",
       "mandatory": true,
       "dependencies": [
         "phase-10-team-vertical-slice",
@@ -759,7 +759,13 @@
       "acceptance_gates": [
         "H_simulation_semantics"
       ],
-      "progress_notes": "Boundary reviews complete: phases 0-2 (PHASE_0_2_BOUNDARY_REVIEW.md), phases 3-7 (PHASE_3_7_BOUNDARY_REVIEW.md), phases 8-11 (PHASE_8_11_BOUNDARY_REVIEW.md; F1 HIGH fixed at 1f8404b + lead cf_helpers hardening; F2 fixed; F3 scheduled into freeze; F4 accepted). Remaining: frozen-SHA review round incl. gate-H re-confirmation of the two F1-refuted clauses, before final adjudication."
+      "progress_notes": "Boundary reviews complete: phases 0-2 (PHASE_0_2_BOUNDARY_REVIEW.md), phases 3-7 (PHASE_3_7_BOUNDARY_REVIEW.md), phases 8-11 (PHASE_8_11_BOUNDARY_REVIEW.md; F1 HIGH fixed at 1f8404b + lead cf_helpers hardening; F2 fixed; F3 scheduled into freeze; F4 accepted). Remaining: frozen-SHA review round incl. gate-H re-confirmation of the two F1-refuted clauses, before final adjudication.",
+      "completion_evidence": {
+        "completed_at_sha": "e575b85 (final fix batch) / verified through d87b9e2+",
+        "receipt": ".agent-run/receipts/adversarial-review-cycle__e575b8545e6a__20260804T0225110000.json",
+        "receipt_exit_code": 0,
+        "summary": "Six directive-mandated reviewer roles ran with written findings; two CRITICALs found (anchor-spoofing narration; putative-row leak) and closed with discriminating tests + finder re-verification; one HIGH (scale provenance) and five MEDIUMs closed; all LOWs dispositioned in DECISIONS. Battery 315 at e575b85."
+      }
     },
     {
       "id": "final-documentation",

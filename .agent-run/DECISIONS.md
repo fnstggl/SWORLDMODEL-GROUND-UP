@@ -887,3 +887,34 @@ test_production_marker_constant_matches_the_suite_anchor.
   pre-existing documented API contract (failures are consumed at the
   BranchResult layer everywhere); disclosed in KNOWN_LIMITATIONS now.
   (3) Split-vector architecture: decided above.
+
+## Concordia Semantics re-verdict 2026-08-04 (fix verified at e575b85)
+
+Finder re-ran all four probes: e2e spoof CLOSED (cutoff, metrics False,
+leaked row gone), control pair identical, event-tag probe clean, split
+vector REFUSED with exact counts. Seven fresh evasions 0/7 spoofed
+(incl. double-frame, no-space tag, decoy rebalance, leading-split);
+three false-positive probes 0/3 spurious refusals; manager-level
+poisoned branch fails gracefully (typed error in infrastructure_errors,
+no outcome_metrics, sibling survives). Checklist item 5 FAIL -> PASS;
+gate C CAN PASS at the freeze. LOW (pre-existing evaluate_branches
+wholesale-raise on infra-failed branches) already disclosed in
+KNOWN_LIMITATIONS at 43285d5 -- confirmed pre-existing by the reviewer
+via a RaisingModel reproduction predating this fix.
+
+## All six reviewer roles final verdicts (pre-freeze)
+
+A upstream integrity: CAN PASS (Upstream Preservation Auditor).
+B stock baseline: CAN PASS (Concordia Semantics).
+C individual slice: CAN PASS (Concordia Semantics re-verdict).
+E counterfactual correctness: CAN PASS (Best-Action reviewer; M1 closed).
+F distributed equivalence/failure evidence: CAN PASS (Integration
+  Reliability; MEDIUMs closed at e575b85).
+G scale infrastructure: CAN PASS (AgentSociety Scale; MEDIUMs closed at
+  180caa3).
+H simulation semantics: CAN PASS (Simulation Reality re-verdict at
+  0aa5b7a; runtime-actor channel further hardened at e575b85).
+Adversarial-review-cycle task complete: two receipts (c34ade6 batch,
+e575b85 batch), six written role reports, two re-verification reports,
+every CRITICAL/HIGH/MEDIUM closed with discriminating tests, every LOW
+dispositioned in this log.
