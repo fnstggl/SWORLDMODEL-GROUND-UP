@@ -887,28 +887,28 @@
     },
     {
       "id": "uth-harness-and-peter",
-      "status": "pending",
+      "status": "complete",
       "owner": "implementation-agent",
       "subsystem": "experiments/full_trace_validation (harness + peter scenarios)",
       "description": "Experiment-only recording harness at the three model seams; evidence manifests; freeze/hash; scenario 1 (supplied) and scenario 2 (generated) sharing one compiled world and base plan."
     },
     {
       "id": "uth-a16z-historical",
-      "status": "pending",
+      "status": "complete",
       "owner": "implementation-agent",
       "subsystem": "experiments/full_trace_validation (a16z scenario)",
       "description": "Scenario 3: 5-actor historical hiring counterfactual, 6 salary-only branches, July 1 2025 cutoff enforced mechanically with a post-cutoff canary rejection test."
     },
     {
       "id": "uth-audit",
-      "status": "pending",
+      "status": "complete",
       "owner": "adversarial-reviewer",
       "subsystem": "read-only audit of frozen artifacts",
       "description": "Falsify complete call capture, containment, matched worlds, actor-owned decisions, trace-only measurement, cutoff enforcement, candidate-source isolation, salary-only isolation."
     },
     {
       "id": "uth-viewer",
-      "status": "pending",
+      "status": "complete",
       "owner": "implementation-agent",
       "subsystem": "artifacts replay viewer (presentation only)",
       "description": "Self-contained static replay viewer over the frozen artifacts + automated timeline-equivalence test."
