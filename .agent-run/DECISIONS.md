@@ -1057,3 +1057,61 @@ flight (one writer at a time). After it lands: R4b+R2 with
 discriminating regression tests, the settling live experiment, then
 re-run the affected experiments FROM THEIR FROZEN INPUTS, keeping both
 the pre-fix and post-fix artifact sets as an honest before/after.
+
+## Third production defect 2026-08-04 (guard determiner false-positive)
+
+Found by the a16z scenario, LEAD-VERIFIED independently against the
+guard's public API. When the recipient in an object-position phrase is
+preceded by a determiner, the guard treats the phrase as a proxy
+attribution, TRUNCATES the sentence at the determiner and DELETES the
+active actor's own quoted content:
+  IN : NMHL sends a message to the People and Compensation Partner:
+       "the base is $150,000."
+  OUT: NMHL sends a message to the. People and Compensation Partner is
+       now able to observe this and to respond in their own turn.
+The bare-name form and the guard docstring's own example ("sends a note
+to Morgan: 'call me'") both pass through untouched -- so the exemption
+exists and is simply defeated by "the". Role-based casts take
+determiners constantly: 20/20 interventions in the a16z run deleted
+message content the ACTIVE actor was sending, removing 4194 characters
+of actor-authored content from the committed world.
+
+Severity: high false-positive (content destruction), not a safety hole
+-- genuine agency theft is still caught. It silently degrades every
+role-named cast. Characterized by the scenario agent at
+tests/experiment_harness/test_a16z_guard_finding.py (5 tests).
+ADOPTED into the fix batch as D3. The a16z experiment must be re-run
+from its frozen input afterwards; its current artifacts are the
+pre-fix record and are kept.
+
+## a16z scenario result 2026-08-04 (second delivery failure, different shape)
+
+Offers never reached Richard Zheng: 2 distinct first-turn prompt
+hashes across 6 branches, and the one difference is an unrelated
+portfolio note, not an offer; zero branches delivered a salary figure
+to him (the single apparent hit is flagged contaminated -- "$100,000"
+was already in his compiled private context from the user's unverified
+per-shoot claim, and the check computes that baseline rather than
+assuming it). The figures DID reach the committed world via the hiring
+lead's own turns; they never reached the candidate. All six branches
+cutoff, valid_offer_accepted false everywhere, so ranking collapsed
+onto the code-owned salary constant -- the report states the winner
+"would have been the winner without running the simulation at all".
+Under the adopted R4b this ranking would be REFUSED.
+
+Also recorded: approval followed issuance in the two branches that
+completed the authority chain (inverting the declared model); 43
+near-verbatim self-repeats and an unfilled template placeholder in
+committed actor turns; 7 repeated cross-actor n-grams ALL
+engine-authored (0 model-authored) -- the agent split authorship
+before calling it model register, which avoided a false finding; only
+2 unsupported figures; cutoff enforcement clean at 3 stages with a
+canary test; branch-input diff proves only-the-salary-differs;
+instrumentation 182=182=182=182=182 with 0 errors and 0 retries.
+Provider served deepseek-v4-flash for requested deepseek-chat --
+recorded and disclosed. Evidence: PUBLICLY_VERIFIED=0 deliberately.
+
+Harness weakness also found: delivery.private_context_leak_check
+over-reports when a cast shares compiler boilerplate (36 reported, 0
+real). Additive distinctive-context check exists in offer_delivery.py;
+promote it into the shared module during the fix batch.
