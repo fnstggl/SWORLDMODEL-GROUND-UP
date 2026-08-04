@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "task_id": "uth-harness-and-peter",
+  "git_sha": "ceaeed2c47e03ba0e98aea862f5a8dfccdf6b11f",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_individual -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T18:31:29+00:00",
+  "finished_at": "2026-08-04T18:32:04+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "recorder": "a2866ee0bfa79443878a86202d85ee7e5afd3b6f2cf9de894427e38ced544821",
+    "runner": "29261a24d0a18671e9bdc6d096bd0a5888cc0c008350afa4f451c8ba9c6795f3"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T18:32:04+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": true,
+  "output_tail": "..................................                                       [100%]\n34 passed in 33.78s\n"
+}
