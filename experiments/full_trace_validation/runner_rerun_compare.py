@@ -217,6 +217,33 @@ def compare(scenario_id: str) -> Path:
     return rerun_lib.write_comparison(post_dir, payload)
 
 
+def write_call_accounting() -> Path:
+    """Sum every provider call this validation pass recorded.
+
+    The runs are found by globbing the recorder instrumentation the runs
+    themselves wrote, so the total cannot drift from the evidence.
+    """
+    paths = (
+        sorted(ARTIFACT_ROOT.glob("settling_experiment/**/"
+                                  "instrumentation.json"))
+        + sorted(ARTIFACT_ROOT.glob(f"*/{RERUN_SUBDIR}/shared/"
+                                    "instrumentation_*.json"))
+        + sorted(ARTIFACT_ROOT.glob(f"*/{RERUN_SUBDIR}/"
+                                    "instrumentation_*.json")))
+    paths = [path for path in paths
+             if path.name != "instrumentation_validation.json"]
+    payload = rerun_lib.session_call_accounting(paths)
+    payload["what_this_covers"] = (
+        "the settling experiment (both arms, all reps, plus the two "
+        "kept harness-shakedown runs) and the three post-fix re-runs. It "
+        "does NOT cover the pre-fix runs, whose own instrumentation is "
+        "unchanged in their own directories.")
+    path = ARTIFACT_ROOT / "SESSION_CALL_ACCOUNTING.json"
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False)
+                    + "\n", encoding="utf-8")
+    return path
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scenario", default=None, choices=SCENARIOS)
@@ -225,6 +252,8 @@ def main(argv=None) -> int:
     for scenario_id in targets:
         path = compare(scenario_id)
         print(f"wrote {path}", flush=True)
+    if args.scenario is None:
+        print(f"wrote {write_call_accounting()}", flush=True)
     return 0
 
 

@@ -1,0 +1,99 @@
+{
+  "claim": "every provider request these runs issued, summed from the per-run recorder instrumentation; a run whose three counters disagree is excluded from the total and named",
+  "runs": [
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/post_fix_rerun/instrumentation_a16z_richard_historical.json",
+      "experiment_id": "a16z_richard_historical",
+      "calls": 180,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_generated/post_fix_rerun/shared/instrumentation_peter_generated.json",
+      "experiment_id": "peter_generated",
+      "calls": 25,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_supplied/post_fix_rerun/shared/instrumentation_peter_supplied.json",
+      "experiment_id": "peter_supplied",
+      "calls": 24,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/arm_a/rep_1/instrumentation.json",
+      "experiment_id": "settling_arm_a_rep_1",
+      "calls": 4,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/arm_a/rep_2/instrumentation.json",
+      "experiment_id": "settling_arm_a_rep_2",
+      "calls": 4,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/arm_a/rep_3/instrumentation.json",
+      "experiment_id": "settling_arm_a_rep_3",
+      "calls": 4,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/arm_b/rep_1/instrumentation.json",
+      "experiment_id": "settling_arm_b_rep_1",
+      "calls": 4,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/arm_b/rep_2/instrumentation.json",
+      "experiment_id": "settling_arm_b_rep_2",
+      "calls": 4,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/arm_b/rep_3/instrumentation.json",
+      "experiment_id": "settling_arm_b_rep_3",
+      "calls": 4,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/harness_shakedown/arm_a_run/instrumentation.json",
+      "experiment_id": "settling_arm_a_rep_1",
+      "calls": 4,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    },
+    {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/settling_experiment/harness_shakedown/arm_b_run/instrumentation.json",
+      "experiment_id": "settling_arm_b_rep_1",
+      "calls": 4,
+      "errors": 0,
+      "retries": 0,
+      "counters_agree": true
+    }
+  ],
+  "total_recorded_calls": 261,
+  "total_errors": 0,
+  "total_retries": 0,
+  "runs_with_disagreeing_counters": [],
+  "note": "one-token provider health probes are issued OUTSIDE the simulation and are deliberately NOT in these ledgers; each run records its own in provider_probe.json",
+  "what_this_covers": "the settling experiment (both arms, all reps, plus the two kept harness-shakedown runs) and the three post-fix re-runs. It does NOT cover the pre-fix runs, whose own instrumentation is unchanged in their own directories."
+}

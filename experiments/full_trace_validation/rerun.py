@@ -378,6 +378,54 @@ def compare_scenarios(*, scenario_id, pre_dir, post_dir,
     }
 
 
+def session_call_accounting(instrumentation_paths) -> dict:
+    """Sum the recorded provider calls across a set of runs.
+
+    Every number is read from a recorder ``instrumentation`` artifact --
+    the same file whose three independent counters (network boundary,
+    seam attempts, ledger writes) must already agree -- so the total is
+    computed from the evidence rather than tallied by hand.  Any run
+    whose counters do NOT agree is listed separately instead of being
+    folded into a total that would then mean nothing.
+    """
+    runs = []
+    total = errors = retries = 0
+    disagreeing = []
+    for path in sorted(instrumentation_paths):
+        data = _load(path)
+        if not isinstance(data, dict) or "ledger" not in data:
+            continue
+        ledger = data["ledger"]
+        equal = bool((data.get("equality_proof") or {}).get("all_equal"))
+        runs.append({
+            "source": str(path),
+            "experiment_id": ledger.get("experiment_id"),
+            "calls": ledger.get("records_written"),
+            "errors": ledger.get("records_with_error"),
+            "retries": ledger.get("records_that_were_retries"),
+            "counters_agree": equal,
+        })
+        if not equal:
+            disagreeing.append(str(path))
+            continue
+        total += ledger.get("records_written") or 0
+        errors += ledger.get("records_with_error") or 0
+        retries += ledger.get("records_that_were_retries") or 0
+    return {
+        "claim": ("every provider request these runs issued, summed from "
+                  "the per-run recorder instrumentation; a run whose three "
+                  "counters disagree is excluded from the total and named"),
+        "runs": runs,
+        "total_recorded_calls": total,
+        "total_errors": errors,
+        "total_retries": retries,
+        "runs_with_disagreeing_counters": disagreeing,
+        "note": ("one-token provider health probes are issued OUTSIDE the "
+                 "simulation and are deliberately NOT in these ledgers; "
+                 "each run records its own in provider_probe.json"),
+    }
+
+
 def _table(rows, headers) -> list:
     lines = ["| " + " | ".join(headers) + " |",
              "|" + "|".join(["---"] * len(headers)) + "|"]
@@ -666,5 +714,6 @@ def write_comparison(out_dir, payload: dict) -> Path:
 
 __all__ = ["FROZEN_INPUT_ENTRIES", "FrozenInputMismatch",
            "verify_frozen_inputs", "compare_freeze_manifests",
-           "scenario_facts", "compare_scenarios", "build_comparison",
-           "write_comparison"]
+           "scenario_facts", "unresolved_observer_summary",
+           "compare_scenarios", "session_call_accounting",
+           "build_comparison", "write_comparison"]

@@ -294,3 +294,38 @@ def test_the_rerun_instrumentation_counters_agree(scenario_id):
         (post / "pre_vs_post_fix.json").read_text(encoding="utf-8"))
     assert payload["post_fix"]["instrumentation"]["all_equal"] is True
     assert payload["post_fix"]["instrumentation"]["errors"] == 0
+
+
+# ---------------------------------------------------------------------------
+# session call accounting
+# ---------------------------------------------------------------------------
+
+
+def test_call_accounting_sums_only_runs_whose_counters_agree(tmp_path):
+    good = tmp_path / "instrumentation_good.json"
+    good.write_text(json.dumps({
+        "ledger": {"experiment_id": "g", "records_written": 4,
+                   "records_with_error": 0, "records_that_were_retries": 1},
+        "equality_proof": {"all_equal": True}}), encoding="utf-8")
+    bad = tmp_path / "instrumentation_bad.json"
+    bad.write_text(json.dumps({
+        "ledger": {"experiment_id": "b", "records_written": 99,
+                   "records_with_error": 3, "records_that_were_retries": 0},
+        "equality_proof": {"all_equal": False}}), encoding="utf-8")
+
+    payload = rerun_lib.session_call_accounting([good, bad])
+    assert payload["total_recorded_calls"] == 4
+    assert payload["total_retries"] == 1
+    assert payload["runs_with_disagreeing_counters"] == [str(bad)]
+    assert len(payload["runs"]) == 2
+
+
+def test_the_committed_call_accounting_matches_its_own_runs():
+    path = ARTIFACT_ROOT / "SESSION_CALL_ACCOUNTING.json"
+    if not path.is_file():
+        pytest.skip("no committed call accounting")
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    assert payload["runs_with_disagreeing_counters"] == []
+    assert payload["total_recorded_calls"] == sum(
+        run["calls"] for run in payload["runs"])
+    assert payload["total_errors"] == 0
