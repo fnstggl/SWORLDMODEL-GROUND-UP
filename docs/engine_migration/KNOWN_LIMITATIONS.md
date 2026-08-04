@@ -158,6 +158,8 @@ From `OPERATIONAL_ROBUSTNESS_MATRIX.md`:
   Narration can therefore never spoof a resolved actor turn; the
   refusal is a hard authoring constraint, never a silent rewrite.
 
+- **`evaluate_branches` refuses mixed lists containing pre-runner failure shapes.** A `BranchResult` that failed before the runner ran (empty `terminal_world_state`, populated `infrastructure_errors`) must be consumed at the `BranchResult` layer, as every caller in this repository does; passing it to `evaluate_branches` alongside healthy branches raises for the whole list (whole-trace citation bounds cannot be computed against an empty terminal state). This is a documented API contract, not a defect; noted by the Integration wave-2 fix worker.
+
 ## 5. Evidence trust boundaries (disclosed, accepted)
 
 - **F4 — two-tier scale evidence** (review #3, accepted): the committed

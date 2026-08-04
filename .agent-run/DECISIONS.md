@@ -843,3 +843,47 @@ test_production_marker_constant_matches_the_suite_anchor.
   LOW (Instructions component omitted vs canonical prefabs -- deliberate
   minimal-actor choice) and LOW (get_state symmetric-omission blind spot
   bounded by the Stage-B equivalence gate) recorded as disclosures.
+
+## Wave-2 fix batch closed 2026-08-04 (e575b85; receipts b4069b5)
+
+- CRITICAL (putative-row leak) closed: committed stream now defined by
+  engine-stamp PREFIX (is_engine_committed_row: strip one
+  '[observation] ' framing, body must start '[event]' + separator;
+  '[putative_event]'-prefixed rows never commit). Reviewer probes
+  flipped (success -> cutoff, zero spoof citations); import-time
+  pin-sanity assertion refuses prefix-confusable tags on re-pin.
+- DISCOVERED during the fix (worker-reported): a worse sibling vector --
+  actor text embedding '\n\n\n[event] ...' is split by
+  ObservationToMemory into a MINTED row byte-identical to a genuine
+  committed row (post-hoc shape discrimination provably impossible).
+  Closed in-owner at the runner with a count-structure invariant
+  (_verify_committed_stream_integrity: putative-shaped rows == actor
+  turns, committed-shaped rows == baseline + turns; violation raises
+  typed CommittedStreamIntegrityError failing the branch loudly through
+  the existing failure channels; benign multiline text untagged ->
+  uncounted). LEAD DECISION: the runner-level count invariant is the
+  accepted architecture for this pass -- an observe-boundary capture in
+  builder.py would be a broader change during endgame; revisit
+  post-acceptance if ever needed.
+- Integration MEDIUMs closed: executor submits with
+  .options(max_retries=0) (fail-loud-once, aligned with
+  reported-never-hidden; docstring + matrix row 13 rephrased honestly);
+  executor-level worker-crash test (discrimination proven by TWO run
+  mutations: deleted harvest arm -> fail, removed retries pin -> Ray
+  silently heals -> fail); atomic run_dir claim (mkdir exist_ok=False ->
+  typed refusal) + reuse-refusal tests with byte-level no-overwrite
+  proof.
+- Battery wave2-fix-dod: 315 passed (304+11). Lead re-verified
+  engine_individual+engine_distributed independently at b4069b5 (44).
+- LEAD DISPOSITIONS of the worker's handoff items: (1) DeepSeek 503s
+  (~01:50Z onward) coin-flip the LEGACY live test
+  tests/test_llm_phase_b.py::test_live_deepseek_actor (no client
+  retries; unchanged legacy file) -- freeze protocol: probe provider
+  health before the system-suite acceptance leg; a 503-class failure
+  there is external-transient, verified by an immediate single-test
+  rerun; persistent failure blocks. The engine live smoke (the actual
+  gate evidence) has client-side retries and stayed green. (2) The
+  evaluate_branches wholesale-raise on pre-runner failure shapes is a
+  pre-existing documented API contract (failures are consumed at the
+  BranchResult layer everywhere); disclosed in KNOWN_LIMITATIONS now.
+  (3) Split-vector architecture: decided above.
