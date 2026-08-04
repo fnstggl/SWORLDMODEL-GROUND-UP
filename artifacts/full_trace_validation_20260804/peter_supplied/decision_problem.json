@@ -1,0 +1,29 @@
+{
+  "contract_type": "decision_problem",
+  "schema_version": 1,
+  "problem_id": "peter_thiel_supplied_email_test",
+  "decision_owner": "Beckett Zahedi",
+  "desired_outcome": "Peter Thiel explicitly agrees to a 20-minute call with Beckett Zahedi.",
+  "success_criteria": "Success occurs only if a committed event authored by Peter Thiel's own actor contains an explicit agreement to speak with Beckett, an explicit acceptance of a 20-minute call, or a direct instruction to schedule the call. A generic acknowledgment, an assistant response, the Game Master's narration, message delivery, message opening, or inferred interest does not count as success.",
+  "constraints": [
+    "The email must contain between 45 and 85 words excluding the subject line.",
+    "It must accurately describe the 724% result as a replay result, not production validation.",
+    "It must not claim a mutual connection or prior relationship.",
+    "It must make one clear request for a 20-minute call.",
+    "It must not ask Peter Thiel to invest.",
+    "It must not use false urgency, invented scarcity, or manipulative pressure.",
+    "It may offer a one-page technical memo.",
+    "Only public professional information and user-supplied information may be used."
+  ],
+  "time_horizon": {
+    "start": "2026-08-04T18:10:38Z",
+    "cutoff": "2026-08-11T18:10:38Z"
+  },
+  "relevant_context": "Beckett Zahedi is 17 and is starting Princeton in fall 2026. He is building Aurelius, a supervisory optimization system for GPU fleets. In replay tests covering approximately 1.5 million public production requests, it produced approximately 724% more SLA-safe goodput per dollar. This has not been validated in a live production deployment and must not be represented as production-proven. Beckett has never contacted Peter Thiel and has no known mutual introduction. Beckett wants criticism and a short technical conversation, not an immediate investment. Peter Thiel is publicly known as a Founders Fund partner, a cofounder of PayPal and Palantir, and the founder of the Thiel Fellowship. Do not invent private beliefs, inbox behavior, scheduling details, or personal preferences for Peter.",
+  "candidate_interventions": [
+    "Subject: 7.24× more useful work per GPU dollar\n\nPeter—\n\nI'm Beckett, 17, starting Princeton this fall. I built a supervisory optimizer for GPU fleets that produced 7.24× more SLA-safe goodput per dollar across 1.5M replayed production requests. It is not production-validated yet, but the mechanism is concrete. Would you be open to a 20-minute call next week? I can send a one-page technical memo first.",
+    "Subject: Where does this AI infrastructure thesis break?\n\nPeter—\n\nI think AI infrastructure is optimizing the wrong layer: individual schedulers make locally sensible choices while fleet-wide sequencing destroys goodput per dollar. I built a supervisory simulator that improved SLA-safe goodput/$ by 724% across 1.5M replayed requests. I'm 17 and starting Princeton this fall. Could I show you the result for 20 minutes and get your sharpest objection?",
+    "Subject: A contrarian infrastructure result from a 17-year-old\n\nPeter—\n\nYour work has pushed young builders to test unusual ideas before credentials arrive. I'm 17 and built an AI infrastructure optimizer that increased SLA-safe goodput per dollar by 724% in replay tests across 1.5M requests. I'm not asking you to invest. I want to know whether the thesis survives scrutiny. Would you take a 20-minute call next week?"
+  ],
+  "candidate_generation_permission": false
+}

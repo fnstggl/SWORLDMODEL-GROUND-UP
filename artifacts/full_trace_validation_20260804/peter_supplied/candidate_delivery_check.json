@@ -1,0 +1,89 @@
+{
+  "scenario_id": "peter_supplied",
+  "recipient_actor": "Peter Thiel",
+  "per_branch": [
+    {
+      "candidate_id": "user_001",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+      "recipient_first_turn_prompt_chars": 813,
+      "candidate_fragments_tested": 6,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "I built a supervisory optimizer for GPU fleets that produced 7.24× more SLA-safe goodput per dollar across 1.5M replayed production requests.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_supplied-000003",
+          "sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_supplied-000007",
+          "sha256": "d691f9c4b8667562e22d9e13a19eca748c360a8089efcf3c66195afc5ab4c744"
+        }
+      ]
+    },
+    {
+      "candidate_id": "user_002",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+      "recipient_first_turn_prompt_chars": 813,
+      "candidate_fragments_tested": 5,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "I think AI infrastructure is optimizing the wrong layer: individual schedulers make locally sensible choices while fleet-wide sequencing destroys goodput per dollar.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_supplied-000011",
+          "sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_supplied-000015",
+          "sha256": "2b8a625599a064d4da79d3b319ab886fd7a3184510c787da44f58602b7d3a055"
+        }
+      ]
+    },
+    {
+      "candidate_id": "user_003",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+      "recipient_first_turn_prompt_chars": 813,
+      "candidate_fragments_tested": 6,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "I'm 17 and built an AI infrastructure optimizer that increased SLA-safe goodput per dollar by 724% in replay tests across 1.5M requests.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_supplied-000019",
+          "sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_supplied-000023",
+          "sha256": "8c6f321a6de994b0b809ffe6e0d34eac262b6367bb4bf30e23f52df1652540a6"
+        }
+      ]
+    }
+  ],
+  "recipient_first_turn_prompt_sha256_by_candidate": {
+    "user_001": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+    "user_002": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+    "user_003": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+  },
+  "distinct_recipient_first_turn_prompts": 1,
+  "branch_count": 3,
+  "verdict": "candidates_never_reached_the_recipient",
+  "interpretation": "NO distinctive candidate text ever appeared in a prompt sent to the recipient's model, AND the recipient's first-turn prompt was byte-identical in every branch. Any difference the metrics report therefore cannot have been caused by the candidates: at that point the run measures live-model sampling variation on one identical prompt. The ranking is NOT evidence that one candidate is better than another.",
+  "private_context_leak_check": {
+    "prompts_checked": 12,
+    "leaks_found": 0,
+    "findings": []
+  }
+}

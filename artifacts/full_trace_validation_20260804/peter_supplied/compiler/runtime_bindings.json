@@ -1,0 +1,39 @@
+{
+ "world_id": "w_a1b3e564888f",
+ "actor_ids": {
+  "Beckett Zahedi": "beckett_zahedi",
+  "Peter Thiel": "peter_thiel"
+ },
+ "event_records": [
+  {
+   "event_id": "se1",
+   "ledger_seq": 11,
+   "at": "2026-08-04T18:10:38+00:00",
+   "visible_to_ids": [
+    "beckett_zahedi"
+   ],
+   "description": "Beckett Zahedi sends the prepared message to Peter Thiel."
+  }
+ ],
+ "code_owned_defaults": {
+  "actor_role": "actor",
+  "actor_tz": "UTC",
+  "scene_channel_latency": "0s (directly experienced)"
+ },
+ "personas": {
+  "beckett_zahedi": {
+   "name": "Beckett Zahedi",
+   "persona_brief": "You are Beckett Zahedi.\nBeckett Zahedi is 17, starting Princeton in fall 2026, and building Aurelius, a supervisory optimization system for GPU fleets. In replay tests over ~1.5 million public production requests, Aurelius produced ~724% more SLA-safe goodput per dollar, but this has not been validated in live production and must not be represented as production-proven. Beckett has never contacted Peter Thiel and has no known mutual introduction. Beckett wants criticism and a short technical conversation, not an immediate investment."
+  },
+  "peter_thiel": {
+   "name": "Peter Thiel",
+   "persona_brief": "You are Peter Thiel.\nPeter Thiel is a partner at Founders Fund, cofounder of PayPal and Palantir, and founder of the Thiel Fellowship. No private beliefs, inbox behavior, scheduling details, or personal preferences are known or assigned."
+  }
+ },
+ "resolution": {
+  "question": "Will the following outcome occur before the cutoff? Peter Thiel explicitly agrees to a 20-minute call with Beckett Zahedi.",
+  "resolution": "Resolve YES only if the persistent event history shows that Peter Thiel explicitly agreed to a 20-minute call with Beckett Zahedi before 2026-08-11T18:10:38Z. Otherwise resolve NO at that cutoff.",
+  "cutoff": "2026-08-11T18:10:38Z",
+  "world_id": "w_a1b3e564888f"
+ }
+}

@@ -1,0 +1,69 @@
+{
+  "contract_type": "branch_result",
+  "schema_version": 1,
+  "branch_id": "br_0c2eca4ba006414b",
+  "candidate_id": "user_003",
+  "world_id": "w_1659bd83ab0a",
+  "terminal_status": "cutoff",
+  "terminal_world_state": {
+    "steps_completed": 4,
+    "committed_event_count": 6,
+    "actor_memory_counts": {
+      "beckett_zahedi": 5,
+      "peter_thiel": 2
+    }
+  },
+  "event_trace": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] [2026-08-04T18:10:38Z] Beckett Zahedi sends the prepared message to Peter Thiel."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] The simulation window opens at 2026-08-04T18:10:38Z."
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi waits for a reply, checking the inbox periodically but not sending any follow-up or reminder, respecting the requested window and Peter's time.\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads the message once, then replies with a short email: “Send me the replay-test logs and the architecture doc. I’ll give you 20 minutes on Thursday if the data holds up.”\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi checks the inbox once at the start of the window, then deliberately steps away from the email client for the next 48 hours, focusing on running additional adversarial replay tests on Aurelius to stress-test the 724% figure, so that if Peter replies, Beckett can present sharper, more honest caveats rather than just waiting passively.\n"
+    },
+    {
+      "event_id": "ev_0005",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads the message once, then replies with a short email: “Send me the replay-test logs and the architecture doc. I’ll give you 20 minutes on Thursday if the data holds up.”\n"
+    }
+  ],
+  "outcome_metrics": {
+    "call_agreed": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "positive_reply": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "no_explicit_decline": {
+      "value": true,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  },
+  "infrastructure_errors": [],
+  "token_stats": {},
+  "runtime_stats": {
+    "wall_clock_seconds": 11.092107792999741,
+    "steps_completed": 4
+  },
+  "artifact_paths": []
+}

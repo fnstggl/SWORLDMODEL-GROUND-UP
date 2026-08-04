@@ -1,0 +1,89 @@
+{
+  "scenario_id": "peter_generated",
+  "recipient_actor": "Peter Thiel",
+  "per_branch": [
+    {
+      "candidate_id": "gen_001",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+      "recipient_first_turn_prompt_chars": 813,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Draft and send an email to Peter Thiel (using publicly available contact or through Founders Fund's general contact) within the window, ensuring the body is 45-85 words, includes the required elements, and makes a single clear request for a 20-minute call.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_generated-000004",
+          "sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_generated-000008",
+          "sha256": "2d6878db1a4b2dabd41d3b6467b357d7bfe0151ca5a5897b5cf343674fa2300a"
+        }
+      ]
+    },
+    {
+      "candidate_id": "gen_002",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+      "recipient_first_turn_prompt_chars": 813,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "If no reply from the first email within 3-4 days, send a brief follow-up email (also 45-85 words) that restates the request for a 20-minute call, mentions the memo offer, and respects his time.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_generated-000012",
+          "sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_generated-000016",
+          "sha256": "da685019677fdec476ca91f0da10cab07b1901e4844e86c50c688a2bc9b5ba25"
+        }
+      ]
+    },
+    {
+      "candidate_id": "gen_003",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+      "recipient_first_turn_prompt_chars": 813,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Post a concise technical thread on X about the replay results and the potential of Aurelius, tagging @PeterThiel, and then send a direct message (if allowed) requesting a 20-minute call, ensuring the message is professional and not public.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_generated-000020",
+          "sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_generated-000024",
+          "sha256": "8c22da5f3c87f09b5df45a63ba35d7bab7c141a2ab4950f54226b3fb19d79833"
+        }
+      ]
+    }
+  ],
+  "recipient_first_turn_prompt_sha256_by_candidate": {
+    "gen_001": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+    "gen_002": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+    "gen_003": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+  },
+  "distinct_recipient_first_turn_prompts": 1,
+  "branch_count": 3,
+  "verdict": "candidates_never_reached_the_recipient",
+  "interpretation": "NO distinctive candidate text ever appeared in a prompt sent to the recipient's model, AND the recipient's first-turn prompt was byte-identical in every branch. Any difference the metrics report therefore cannot have been caused by the candidates: at that point the run measures live-model sampling variation on one identical prompt. The ranking is NOT evidence that one candidate is better than another.",
+  "private_context_leak_check": {
+    "prompts_checked": 12,
+    "leaks_found": 0,
+    "findings": []
+  }
+}

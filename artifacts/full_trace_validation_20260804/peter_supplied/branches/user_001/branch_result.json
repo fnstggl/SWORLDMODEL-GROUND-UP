@@ -1,0 +1,69 @@
+{
+  "contract_type": "branch_result",
+  "schema_version": 1,
+  "branch_id": "br_79ff51835d0e968a",
+  "candidate_id": "user_001",
+  "world_id": "w_1659bd83ab0a",
+  "terminal_status": "cutoff",
+  "terminal_world_state": {
+    "steps_completed": 4,
+    "committed_event_count": 6,
+    "actor_memory_counts": {
+      "beckett_zahedi": 6,
+      "peter_thiel": 3
+    }
+  },
+  "event_trace": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] [2026-08-04T18:10:38Z] Beckett Zahedi sends the prepared message to Peter Thiel."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] The simulation window opens at 2026-08-04T18:10:38Z."
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi waits for Peter Thiel's reply, checking his inbox periodically but not sending any follow-up or additional outreach, keeping the ball in Peter's court as requested.\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads. Thursday works for me—I'll send a calendar invite for 20 minutes.\" Peter Thiel is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0005",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel replies via the same channel: “Thursday works. Send the logs and failure cases before then—I’ll read them first.”\n"
+    }
+  ],
+  "outcome_metrics": {
+    "call_agreed": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "positive_reply": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "no_explicit_decline": {
+      "value": true,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  },
+  "infrastructure_errors": [],
+  "token_stats": {},
+  "runtime_stats": {
+    "wall_clock_seconds": 15.429737258999921,
+    "steps_completed": 4
+  },
+  "artifact_paths": []
+}
