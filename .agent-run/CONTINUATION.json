@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "armed_at": "2026-08-04T01:46:34+00:00",
-  "armed_until": "2026-08-04T02:34:34+00:00",
-  "minutes": 48.0,
-  "reason": "watching wave2-fix worker (mid-batch: executor test + doc edits landed, battery pending)",
-  "trigger_id": "trig_01GUPhmSGQdkRBcH14wA4Ckz",
+  "armed_at": "2026-08-04T02:14:22+00:00",
+  "armed_until": "2026-08-04T02:56:22+00:00",
+  "minutes": 42.0,
+  "reason": "watching Concordia Semantics re-verification of the putative-row fix",
+  "trigger_id": "trig_0129hfd8ZNgdwkUwm8Y1wRM5",
   "workers": [
-    "wave2-fix"
+    "concordia-reverify"
   ]
 }
