@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task_id": "uth-audit-closeout",
+  "git_sha": "5998ed68a1de5dfdb9932b9d6e892305905dfa59",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest /home/user/SWORLDMODEL-GROUND-UP/tests/engine_individual /home/user/SWORLDMODEL-GROUND-UP/tests/engine_counterfactuals -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T22:40:17+00:00",
+  "finished_at": "2026-08-04T22:40:55+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "guard": "f22afbaee837210f169f1ca21ec5f005fb506d3dc6086969c586675d9e063bca",
+    "ranking": "7724e77cd256cefb12cb7ab4617e2252ca8ab70dffccb91a88e42ea378d49e4f",
+    "cutoff": "c6c8595eb7aab2422bd6fa694b8766ba1b7ef4cadfaa58c691ee94a2a4624e8d",
+    "errata": "5c64829076d0c637cd19f08cf97b9be14a083047bff166c24cffe3ae997b72db"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T22:40:55+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 86%]\n...........                                                              [100%]\n83 passed in 37.01s\n"
+}
