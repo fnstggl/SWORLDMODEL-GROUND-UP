@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "master-context-initialization",
+  "git_sha": "37b38da448a8398e90b0ae0d73adce7447b49e09",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 tests/control_plane/test_gate.py",
+  "exit_code": 0,
+  "started_at": "2026-08-04T22:45:18+00:00",
+  "finished_at": "2026-08-04T22:45:37+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {},
+  "valid": true,
+  "recorded_at": "2026-08-04T22:45:37+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": false,
+  "output_tail": "....................................................................................................................................................\n----------------------------------------------------------------------\nRan 148 tests in 19.358s\n\nOK\n"
+}
