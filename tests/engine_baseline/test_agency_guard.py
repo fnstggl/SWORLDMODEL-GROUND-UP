@@ -732,6 +732,121 @@ def test_proxy_attribution_is_idempotent():
 
 
 # ---------------------------------------------------------------------------
+# Unit: the object-position exemption is DETERMINER-TRANSPARENT
+# (the a16z live-run defect: a role-shaped roster name takes an article,
+# which defeated the lead-word test, so the guard truncated the sentence
+# at the determiner and deleted the ACTIVE actor's own quoted message)
+# ---------------------------------------------------------------------------
+
+#: role-shaped roster: names that are natural determiner-taking noun
+#: phrases, which is what the defect needed and a personal-name cast
+#: never produces
+ROLE_ROSTER = ("Duty Officer", "Records Keeper", "Ada")
+
+
+def _role_guard(recorder=None):
+    return make_agency_guard(ROLE_ROSTER, escalate=recorder)
+
+
+def test_determined_recipient_keeps_the_object_position_exemption():
+    """The three-probe triple: bare name, the docstring's own example,
+    and the determined form must all pass through BYTE-IDENTICALLY.
+
+    Pre-fix the third probe was rewritten to "... sends a message to
+    the." plus an availability sentence, destroying the active actor's
+    own quoted content."""
+    calls = []
+    guard = _role_guard(lambda *args: calls.append(args))
+    bare = ('Duty Officer sends a message to Records Keeper: '
+            '"the schedule holds."')
+    documented = "Ada sends a note to Bo: 'call me'"
+    determined = ('Duty Officer sends a message to the Records Keeper: '
+                  '"the schedule holds."')
+    assert guard(None, bare, "Duty Officer") == bare
+    assert _guard()(None, documented, "Ada") == documented
+    assert guard(None, determined, "Duty Officer") == determined
+    # the quoted content the ACTIVE actor authored survives verbatim
+    assert '"the schedule holds."' in guard(None, determined, "Duty Officer")
+    assert calls == []
+
+
+def test_determiner_transparency_covers_the_documented_frame_families():
+    calls = []
+    guard = _role_guard(lambda *args: calls.append(args))
+    for event in (
+            # every non-agent lead-word family, with an article
+            'Duty Officer leaves a message for the Records Keeper: '
+            '"call when free."',
+            "Duty Officer reads the note from the Records Keeper: "
+            "'I agree.'",
+            # conditional frame (a condition is not a commitment)
+            "If the Records Keeper agrees, the hold lapses.",
+            "The offer stands until the Records Keeper accepts it.",
+            # speaker-stance frame about another actor's future act
+            "Duty Officer hopes the Records Keeper agrees to the plan.",
+            "Duty Officer asks that the Records Keeper reply by Friday.",
+            # possessive determiner in the same slot
+            "Duty Officer forwards the file to their Records Keeper: "
+            "'for the record.'",
+    ):
+        assert guard(None, event, "Duty Officer") == event, event
+    assert calls == []
+
+
+def test_determiner_transparency_does_not_weaken_genuine_protection():
+    """The protection itself is unchanged: a real proxy attribution and a
+    real committed decision for another actor are still rewritten, with
+    or without a determiner."""
+    guard = _role_guard()
+    for event, affected, stolen in (
+            # sentence-initial determined subject: the lookback hits
+            # punctuation, so the determiner exempts nothing
+            ("Duty Officer sends a message to the Records Keeper. The "
+             "Records Keeper agrees to the offer.",
+             "Records Keeper", "agrees to the offer"),
+            # the lead's second probe shape, through a complementizer
+            ("Duty Officer tells the Records Keeper that the Records "
+             "Keeper accepts.",
+             "Records Keeper", "accepts"),
+            # a determined name after a clause link is still an agent
+            ("Duty Officer hands over the ledger, and the Records Keeper "
+             "signed it.",
+             "Records Keeper", "signed"),
+            # bare proxy attribution, determined or not
+            ("Duty Officer opens the review. The Records Keeper: I accept "
+             "the terms.",
+             "Records Keeper", "I accept the terms"),
+            # an adjective between determiner and name is a documented
+            # residual and stays on the CAUGHT side
+            ("Duty Officer sends a message to the acting Records Keeper: "
+             "'noted.'",
+             "Records Keeper", "noted"),
+    ):
+        out = guard(None, event, "Duty Officer")
+        assert out != event, event
+        assert stolen not in out, event
+        assert f"{affected} {AVAILABILITY_MARKER}" in out, event
+
+
+def test_determiner_transparency_is_idempotent_and_escalates_once():
+    calls = []
+    guard = _role_guard(lambda *args: calls.append(args))
+    exempt = ('Duty Officer sends a message to the Records Keeper: '
+              '"the schedule holds."')
+    assert guard(None, guard(None, exempt, "Duty Officer"),
+                 "Duty Officer") == exempt
+    assert calls == []
+    caught = ("Duty Officer files the report. The Records Keeper agrees "
+              "to the terms.")
+    once = guard(None, caught, "Duty Officer")
+    assert once != caught
+    assert guard(None, once, "Duty Officer") == once
+    assert len(calls) == 1
+    assert calls[0][2] == "Duty Officer"
+    assert calls[0][3] == ("Records Keeper",)
+
+
+# ---------------------------------------------------------------------------
 # Integration: full stock-Concordia loop (Phase 4 pattern)
 # ---------------------------------------------------------------------------
 
@@ -904,3 +1019,111 @@ def test_clean_control_run_matches_guard_disabled_baseline():
     assert any("REQ_1" in row for row in committed)
     assert any("OK_1" in row for row in committed)
     assert AVAILABILITY_MARKER not in json.dumps(committed)
+
+
+# ---------------------------------------------------------------------------
+# Unit: approve / authorize (audit finding F5, a demonstrated pre-existing
+# gap -- the guard's act-verb list had no word for granting permission,
+# which in an authority scenario is the most load-bearing proxy
+# attribution available)
+# ---------------------------------------------------------------------------
+
+#: the auditor's executed control, verbatim, with the roster this suite
+#: uses.  Pre-fix it passed the guard byte-identically.
+F5_CONTROL = ("Ada prepares terms; the Bo approves them.")
+
+
+def test_approval_granted_for_another_actor_is_rewritten():
+    """F5 root cause.
+
+    Pre-fix verification: run against the pre-fix guard, every
+    ``assert out != event`` below failed -- ``approve``/``authorize`` were
+    absent from ``_ACT_FINITE_FORMS``, so a sentence in which one actor
+    grants another's approval passed through untouched.
+    """
+    guard = _guard()
+    for event in (
+            "Ada prepares the terms; Bo approves them.",
+            "Ada prepares the terms; the Bo approves them.",
+            "Ada drafts the package and Bo authorizes the salary.",
+            "Bo approved the offer.",
+            "Bo authorized the package.",
+    ):
+        out = guard(None, event, "Ada")
+        assert out != event, event
+        assert AVAILABILITY_MARKER in out, event
+        assert "Bo is now able to observe" in out, event
+
+
+def test_the_reported_f5_control_sentence_is_caught():
+    """The exact executed control from the 2026-08-04 audit."""
+    guard = _guard()
+    out = guard(None, F5_CONTROL, "Ada")
+    assert out != F5_CONTROL
+    assert "approves them" not in out
+    assert "Ada prepares terms" in out
+    assert "Bo is now able to observe" in out
+
+
+def test_approval_in_an_auxiliary_chain_is_caught():
+    """Adding only the finite forms would leave a one-word evasion."""
+    guard = _guard()
+    for event in ("Ada notes that Bo has approved the package.",
+                  "Ada waits while Bo is authorizing the package.",
+                  "Ada reports that Bo has been approving every request."):
+        assert guard(None, event, "Ada") != event, event
+
+
+def test_an_actor_approving_on_its_own_turn_still_passes():
+    """The narrowness proof: the guard protects OTHER actors' agency, so
+    the approver's own turn must survive byte-identically."""
+    guard = _guard()
+    for event in ("Bo approves the terms.",
+                  "Bo authorizes the package at the stated figure.",
+                  "Bo reviews the draft and approves it, then files the memo."):
+        assert guard(None, event, "Bo") == event, event
+
+
+def test_approval_nearby_shapes_are_not_over_blocked():
+    """Conditional, requested, hoped-for, predicted, passive and
+    nominalized approval are NOT committed decisions and must pass."""
+    guard = _guard()
+    for event in (
+            "If Bo approves, the offer goes out.",
+            "Ada asks that Bo approve the terms.",
+            "Ada hopes Bo approves the package.",
+            "Bo will approve the terms.",
+            "Bo may authorize the package.",
+            "The terms were approved by Bo.",
+            "Ada waits for Bo's approval.",
+            "Ada proceeds with Bo's approval.",
+            "Ada sends the package to Bo for approval.",
+    ):
+        assert guard(None, event, "Ada") == event, event
+
+
+def test_approve_and_authorize_are_in_all_three_inflection_sets():
+    """The three act-form sets are parallel by construction; a verb
+    present in one and absent from another is an evasion surface."""
+    from sworldmodel.backends.concordia_local import guard as guard_module
+
+    for stem, finite, participle, gerund in (
+            ("approve", "approves", "approved", "approving"),
+            ("authorize", "authorizes", "authorized", "authorizing")):
+        assert stem in guard_module._ACT_FINITE_FORMS, stem
+        assert finite in guard_module._ACT_FINITE_FORMS, finite
+        assert participle in guard_module._ACT_FINITE_FORMS, participle
+        assert participle in guard_module._ACT_PAST_PARTICIPLES, participle
+        assert gerund in guard_module._ACT_GERUNDS, gerund
+
+
+def test_the_approval_verbs_do_not_disturb_the_clean_control_run():
+    """No new false positive on the scenario this suite already runs:
+    the enabled/disabled equivalence and the zero-intervention control
+    must still hold with the widened verb list."""
+    world = _world("w_agency_guard_f5_control")
+    plan = planner.build_initialization_plan(world, SPEC, max_steps=MAX_STEPS)
+    _models, result = _run_once(plan, CONTROL_TURNS["first_party"],
+                                CONTROL_TURNS["second_party"])
+    assert result["guard_interventions"] == []
+    assert result["infrastructure_errors"] == []

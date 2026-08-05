@@ -1,0 +1,44 @@
+{
+  "what_this_is": "the ONE piece of text this experiment supplies. The game master's observer-ROUTING answer is forced to the full roster so the known observer-routing defect (D1, closed at c5a81214) cannot confound the measurement. Every actor turn is a live provider completion; no other game-master call was intercepted.",
+  "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+  "roster_broadcast": [
+    "Beckett Zahedi",
+    "Peter Thiel"
+  ],
+  "interceptions": [
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 1,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "ubject line to \"Aurelius: 7.24× GPU goodput/$ (replay only, not prod-validated)\" and the opening line to \"I'm not asking for money—I want your criticism,\" then sends the email to Peter Thiel through the established channel and sets a calendar reminder to follow up in five days if no reply.\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 2,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "el reads the email once, notes the honest framing and the explicit lack of production validation, and replies within the hour with a single line: \"Send me the replay harness and the failure modes you've excluded—I'll give you 20 minutes if you can show me one thing that breaks under load.\"\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 3,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "ubject line to \"Aurelius: 7.24× GPU goodput/$ (replay only, not prod-validated)\" and the opening line to \"I'm not asking for money—I want your criticism,\" then sends the email to Peter Thiel through the established channel and sets a calendar reminder to follow up in five days if no reply.\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 4,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "e event to resolve:  Peter Thiel: Peter Thiel opens the email from Beckett Zahedi, reads it once, and replies within the hour with a single line: \"Send me the replay harness and the failure modes you've excluded—I'll give you 20 minutes if you can show me one thing that breaks under load.\"\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    }
+  ],
+  "interception_count": 4,
+  "control_actually_fired": true
+}

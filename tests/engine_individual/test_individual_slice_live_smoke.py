@@ -18,9 +18,22 @@ semantically or for determinism:
   - the causal trace artifact is complete and validates (committed
     events present wherever the runner returned, actor records, guard
     escalations recorded if any);
-  - the recommendation report validates and carries the mandatory
-    'live_model' provenance label;
+  - EITHER the recommendation report validates and carries the mandatory
+    'live_model' provenance label, OR ranking legitimately refused to
+    name a winner because no branch delivered its intervention -- both
+    are valid mechanical outcomes of a live pass and the leg asserts
+    whichever occurred (see below);
   - per-call evidence (served model id, elapsed seconds) is recorded.
+
+Delivery refusal is a first-class outcome here (updated 2026-08-04,
+defect D2).  A live sender is free to decline to enact the candidate it
+was handed, and when every branch's sender declines, no other actor ever
+sees a difference between the branches: ``outcomes.ranking`` then refuses
+to publish a winner rather than rank sampling noise.  Two live runs of
+this exact shape were the finding that produced the fix.  Asserting only
+the "report exists" path would make this smoke leg fail on a legitimate
+model outcome, so the leg asserts the refusal's own evidence instead --
+including that EVERY branch measured as undelivered.
 
 Flake policy: a run whose branches carry live-TRANSPORT evidence (the
 ``LIVE_ENDPOINT_UNREACHABLE`` marker the model wrapper records) is
@@ -61,9 +74,13 @@ from individual_helpers import (DEEPSEEK_MODEL_ID, anchored_predicates,
                                 transport_failures)
 from sworldmodel.compilation.decision_route import prepare_decision_inputs
 from sworldmodel.counterfactuals import run_candidates_detailed
-from sworldmodel.decision.contracts import (RecommendationResult,
-                                            TERMINAL_STATUSES)
-from sworldmodel.outcomes import evaluate_branches
+from sworldmodel.decision.contracts import (DELIVERY_DELIVERED,
+                                            DELIVERY_NOT_DELIVERED,
+                                            RecommendationResult,
+                                            TERMINAL_STATUSES,
+                                            delivery_status)
+from sworldmodel.outcomes import (InterventionNotDeliveredError,
+                                  evaluate_branches)
 from sworldmodel.reporting import (build_recommendation_report,
                                    build_trace_report,
                                    validate_recommendation_report,
@@ -79,6 +96,9 @@ class LiveOutcome:
     recommendation: RecommendationResult
     report: dict
     trace: dict
+    #: set (and report/recommendation left None) when ranking refused
+    #: because no branch delivered its intervention
+    delivery_refusal: str = None
 
 
 def _one_live_pass(seed, evidence):
@@ -111,11 +131,18 @@ def _one_live_pass(seed, evidence):
         run.results, anchored_predicates(),
         evaluator_spec=inputs.evaluator_spec,
         status_rule=fixture_status_rule, registry=inputs.registry)
-    report = build_recommendation_report(
-        problem, inputs.candidates, run, evaluated,
-        inputs.evaluator_spec, provenance_label="live_model",
-        registry=inputs.registry)
     trace = build_trace_report(run, evaluated)
+    try:
+        report = build_recommendation_report(
+            problem, inputs.candidates, run, evaluated,
+            inputs.evaluator_spec, provenance_label="live_model",
+            registry=inputs.registry)
+    except InterventionNotDeliveredError as exc:
+        # A legitimate live outcome, not a failure: no branch's sender
+        # enacted its candidate, so the ranking is refused.
+        return LiveOutcome(evaluated=tuple(evaluated), recommendation=None,
+                           report=None, trace=trace,
+                           delivery_refusal=str(exc)), ()
     outcome = LiveOutcome(
         evaluated=tuple(evaluated),
         recommendation=RecommendationResult.from_dict(
@@ -148,13 +175,31 @@ def _assert_mechanical(outcome, evidence):
     for result in outcome.evaluated:
         assert result.terminal_status in TERMINAL_STATUSES
 
-    # Both artifacts validate structurally (citations resolve, guard
-    # records well-formed, actor records complete).
-    validate_recommendation_report(outcome.report)
+    # The trace artifact always validates structurally (citations
+    # resolve, guard records well-formed, actor records complete).
     validate_trace_report(outcome.trace)
-    assert "Result provenance: live_model." \
-        in outcome.recommendation.run_limitations
-    assert isinstance(outcome.report["decided_by_metric"], str)
+
+    # The recommendation exists only when at least one branch delivered
+    # its intervention; a refusal is the other valid live outcome and
+    # carries its own evidence.
+    if outcome.report is None:
+        assert outcome.delivery_refusal
+        assert "refusing to rank" in outcome.delivery_refusal
+        # the refusal is only correct if EVERY branch measured as
+        # undelivered -- assert the measurement, not the message alone
+        for result in outcome.evaluated:
+            assert delivery_status(result) == DELIVERY_NOT_DELIVERED, (
+                result.candidate_id, result.intervention_delivered)
+            assert result.candidate_id in outcome.delivery_refusal
+        ranking_outcome = "refused_no_branch_delivered"
+    else:
+        validate_recommendation_report(outcome.report)
+        assert "Result provenance: live_model." \
+            in outcome.recommendation.run_limitations
+        assert isinstance(outcome.report["decided_by_metric"], str)
+        assert any(delivery_status(result) == DELIVERY_DELIVERED
+                   for result in outcome.evaluated)
+        ranking_outcome = "ranked"
 
     # Complete causal trace wherever the runner returned: the premise
     # commits before any model call, so a runner-returned branch always
@@ -183,6 +228,8 @@ def _assert_mechanical(outcome, evidence):
         "calls": len(evidence),
         "served_models": sorted({r["served_model"] for r in evidence}),
         "statuses": [r.terminal_status for r in outcome.evaluated],
+        "ranking_outcome": ranking_outcome,
+        "delivery": [delivery_status(r) for r in outcome.evaluated],
     }
 
 

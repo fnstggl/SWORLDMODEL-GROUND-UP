@@ -1,0 +1,65 @@
+{
+  "run_id": "settling_arm_b_rep_3",
+  "arm": "b",
+  "arm_label": "not_pre_narrated",
+  "rep": 3,
+  "candidate_id": "user_001",
+  "branch_id": "br_79ff51835d0e968a",
+  "sender": "Beckett Zahedi",
+  "recipient": "Peter Thiel",
+  "starting_event_count": 0,
+  "sender_first_turn": {
+    "call_id": "settling_arm_b_rep_3-000001",
+    "step": 1,
+    "actor_name": "Beckett Zahedi",
+    "text": "Beckett Zahedi reviews the drafted email one final time, confirms the subject line and the explicit caveat that the results are replay-only and not production-proven, then sends it to Peter Thiel through the established channel, noting in his own calendar to follow up if no reply arrives by August 10."
+  },
+  "sender_enactment": {
+    "fragments_tested": 6,
+    "fragments_reproduced_in_sender_first_turn": 0,
+    "example_reproduced": null,
+    "example_not_reproduced": "I built a supervisory optimizer for GPU fleets that produced 7.24× more SLA-safe goodput per dollar across 1.5M replayed production requests.",
+    "sender_enacted_candidate_verbatim": false,
+    "longest_shared_run_chars": 16,
+    "candidate_token_overlap_ratio": 0.1031,
+    "method": "candidate sentence/line runs of at least 24 characters, whitespace-normalised, searched verbatim in the sender's own first-turn completion; the two overlap numbers are content-blind and do not enter the verdict"
+  },
+  "candidate_text_in_recipient_prompts": {
+    "recipient_prompt_count": 2,
+    "fragments_tested": 6,
+    "fragments_found": 0,
+    "content_delivered_to_recipient": false,
+    "recipient_first_turn_prompt_sha256": "47545068f4f74a1fa56b2a1b2523c731e382cd35b577025350866b370845dbaf",
+    "example_fragment_found": null
+  },
+  "intervention_delivered": {
+    "status": "not_delivered",
+    "reason": "no_distinctive_fragment_reached_any_other_actor",
+    "insertion_actor": "beckett_zahedi",
+    "reached_actors": [],
+    "fragments_tested": 6,
+    "fragments_found": 0,
+    "reached_committed_world": false,
+    "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+  },
+  "unresolved_observers": [],
+  "unresolved_observer_count": 0,
+  "forced_observer_interceptions": 4,
+  "terminal_status": "cutoff",
+  "outcome_metrics": {
+    "call_agreed": false,
+    "positive_reply": false,
+    "no_explicit_decline": true
+  },
+  "ranking": "REFUSED",
+  "ranking_reason": "refusing to rank: not one of the 1 measured branches delivered its intervention to any actor other than the insertion actor, so every branch ran the counterfactual's independent variable at the same (undelivered) value and the measured differences cannot have been caused by the candidates. A winner computed from these branches would be an artifact of model sampling on identical downstream context, not a comparison. Per-branch delivery: user_001: not_delivered (no_distinctive_fragment_reached_any_other_actor). Resolve the delivery failure (or run branches whose intervention reaches the world) and rank again; nothing is repaired or ranked silently here.",
+  "guard_interventions": 0,
+  "committed_event_count": 5,
+  "steps_completed": 4,
+  "infrastructure_errors": [],
+  "live_calls": 4,
+  "live_call_errors": 0,
+  "live_call_retries": 0,
+  "provider_served": "deepseek-v4-flash",
+  "wall_seconds": 8.87
+}

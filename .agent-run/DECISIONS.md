@@ -947,3 +947,364 @@ future run): (1) receipt the seed sweep next time; (2) exclude
 .agent-run/ from run_monitored frozen-integrity cleanliness or record
 dirty paths; (3) master receipt re-recorded at the completion SHA per
 protocol; (4) completion flow executed exactly as the verdict directed.
+
+## Under-the-hood validation: headline finding 2026-08-04
+
+Scenarios 1+2 (Peter Thiel, live DeepSeek, 51 recorded calls, zero
+bypassed) ran the full production path end to end and produced a
+finding that INVALIDATES their own rankings: the candidate text never
+reached the recipient actor. Lead-verified independently: exactly ONE
+distinct recipient first-turn prompt hash across all six branches
+(three supplied + three generated); zero candidate fragments in any
+recipient prompt. Recorded mechanism: (1) the compiled world's send
+event was visible_to the sender only; (2) the intervention boundary
+appends candidate text to the INSERTION actor's initial observations
+only; (3) the sender's live model, told the send already happened,
+chose to wait rather than restate the message, so the content never
+entered a committed event. The measured per-branch differences are
+live-model sampling variation on one identical prompt.
+
+Consequences recorded honestly rather than repaired: the harness agent
+did NOT re-run after discovering it (a re-run would overwrite frozen
+evidence) and did NOT widen the evaluator to match observed text
+(that would be tuning to the outcome); it published a labelled
+post-hoc second reading in measurement_audit.json instead. Zero guard
+interventions and zero information leaks were computed (not asserted)
+across both scenarios.
+
+Root-cause investigation launched (read-only) to classify: compiler
+visibility output vs adapter mapping loss vs engine intervention
+semantics (suggested-not-enacted) vs correct-by-design actor agency,
+with minimal-remedy ranking. Scenario 3 (a16z) launched in parallel
+and is REQUIRED to measure and publish the analogous offer-delivery
+question, whichever way it comes out.
+
+NOTE for the record: the accepted engine's gates were proven with
+SCRIPTED senders that echo the candidate text (cf_helpers). Causal
+effectiveness of an intervention under a FREE-CHOICE sender was never
+part of the acceptance evidence. That is a scope statement about the
+gates, pending the investigation's precise finding.
+
+## Delivery root cause 2026-08-04 (read-only investigation, 5-variant probe)
+
+PRIMARY CAUSE (c): engine intervention semantics. branch.py:187-194 is
+the ONLY write path for candidate text and branch.py:199-208 actively
+REFUSES any wider effect; planner.py:333 pins
+intervention_boundary="first_turn_observation". The intervention is
+SUGGESTED to the insertion actor, never ENACTED in the world, so it
+propagates only if that actor's own model reproduces the text.
+Controlled probe on the real production path: A (as compiled) 0
+fragments, B (visible_to widened to include recipient) 0, C
+(starting_events removed) 0, D/E (scripted echo) 4. Hypotheses (a)
+compiler visibility and (b) adapter mapping ELIMINATED as sufficient
+causes; adapter carried visible_to faithfully.
+
+CO-EQUAL SECOND DEFECT (new, not in the reported mechanism):
+unvalidated GM observer routing. The GM answers "which entities are
+aware" in free text; upstream ObservationQueue.add() silently creates a
+phantom key for a non-matching name and the event is DROPPED with no
+error. Verified: add("@PeterThiel") then get_and_clear("Peter Thiel")
+-> []. This alone killed gen_003 -- the ONE branch whose sender did
+enact its candidate (its candidate was "post a thread on X", not the
+already-narrated send). GM answered "Beckett Zahedi, @PeterThiel".
+
+CONTRIBUTING: compiler/scene_prompts.py:127-128 ships the literal
+exemplar '"description": "A sends the prepared message to B.",
+"visible_to": ["Person A"]' -- the sender-only send event is TAUGHT,
+hence systematic across cold-outreach worlds, not an LLM slip. No
+locus validates visibility coherence (scene_validate, adapter, planner
+all checked).
+
+NEVER PROVEN BEFORE: causal effectiveness of an intervention under a
+free-choice sender. Every accepted suite scripts the sender to ECHO the
+candidate (cf_helpers.py:137-141 says so in its docstring) and scripts
+the GM observer answer to exactly-matching roster names. The nearest
+miss is test_individual_slice_mock_model.py::
+test_mock_model_generated_candidate_leg -- it had a free-choice sender
+and asserted delivery to the INSERTION actor only, stopping one actor
+short. No accepted gate is falsified; several are narrower than their
+names suggest (containment was proven, delivery never was; "only the
+intervention changes" is true of the PLAN, not of the recipient's
+experience).
+
+LEAD REMEDY DECISION for this pass:
+- R4b ADOPTED (minimal, no semantic change, all existing tests pass):
+  validate observer names at OUR seam and never drop silently; surface
+  an intervention_delivered fact on BranchResult; REFUSE to rank when
+  no branch delivered its intervention. Converts a silently invalid
+  ranking into an explicit refusal and closes the name-mangling hole.
+- R2 ADOPTED as cheap hygiene: record (not refuse) a visibility
+  incoherence warning when a starting event's description names an
+  actor outside its visible_to.
+- R3+R4a (enact the intervention as a pre-start event authored by the
+  insertion actor) NOT implemented in this pass: it changes accepted
+  counterfactual semantics (the insertion actor loses the freedom to
+  decline) and the user's directive forbids redesign here. Recorded as
+  the top structural recommendation with the semantic decision stated
+  explicitly.
+- R1 (experiment-side world construction) NOT yet refuted for its
+  STRONG form. Probe variants A/B/C all used CONTENT-BLIND hash-derived
+  senders, under which candidate text cannot propagate by construction;
+  they therefore cannot test whether a LIVE sender would enact the
+  candidate when the send is not pre-narrated. The investigation says
+  so itself (residual uncertainty 0.1) and names the settling
+  observation. LEAD DECISION: run that settling live experiment (two
+  arms, pre-narrated vs starting_events=[], live sender, GM observer
+  forced to broadcast) before concluding anything about R1.
+
+Sequencing: production is NOT touched while the a16z scenario is in
+flight (one writer at a time). After it lands: R4b+R2 with
+discriminating regression tests, the settling live experiment, then
+re-run the affected experiments FROM THEIR FROZEN INPUTS, keeping both
+the pre-fix and post-fix artifact sets as an honest before/after.
+
+## Third production defect 2026-08-04 (guard determiner false-positive)
+
+Found by the a16z scenario, LEAD-VERIFIED independently against the
+guard's public API. When the recipient in an object-position phrase is
+preceded by a determiner, the guard treats the phrase as a proxy
+attribution, TRUNCATES the sentence at the determiner and DELETES the
+active actor's own quoted content:
+  IN : NMHL sends a message to the People and Compensation Partner:
+       "the base is $150,000."
+  OUT: NMHL sends a message to the. People and Compensation Partner is
+       now able to observe this and to respond in their own turn.
+The bare-name form and the guard docstring's own example ("sends a note
+to Morgan: 'call me'") both pass through untouched -- so the exemption
+exists and is simply defeated by "the". Role-based casts take
+determiners constantly: 20/20 interventions in the a16z run deleted
+message content the ACTIVE actor was sending, removing 4194 characters
+of actor-authored content from the committed world.
+
+Severity: high false-positive (content destruction), not a safety hole
+-- genuine agency theft is still caught. It silently degrades every
+role-named cast. Characterized by the scenario agent at
+tests/experiment_harness/test_a16z_guard_finding.py (5 tests).
+ADOPTED into the fix batch as D3. The a16z experiment must be re-run
+from its frozen input afterwards; its current artifacts are the
+pre-fix record and are kept.
+
+## a16z scenario result 2026-08-04 (second delivery failure, different shape)
+
+Offers never reached Richard Zheng: 2 distinct first-turn prompt
+hashes across 6 branches, and the one difference is an unrelated
+portfolio note, not an offer; zero branches delivered a salary figure
+to him (the single apparent hit is flagged contaminated -- "$100,000"
+was already in his compiled private context from the user's unverified
+per-shoot claim, and the check computes that baseline rather than
+assuming it). The figures DID reach the committed world via the hiring
+lead's own turns; they never reached the candidate. All six branches
+cutoff, valid_offer_accepted false everywhere, so ranking collapsed
+onto the code-owned salary constant -- the report states the winner
+"would have been the winner without running the simulation at all".
+Under the adopted R4b this ranking would be REFUSED.
+
+Also recorded: approval followed issuance in the two branches that
+completed the authority chain (inverting the declared model); 43
+near-verbatim self-repeats and an unfilled template placeholder in
+committed actor turns; 7 repeated cross-actor n-grams ALL
+engine-authored (0 model-authored) -- the agent split authorship
+before calling it model register, which avoided a false finding; only
+2 unsupported figures; cutoff enforcement clean at 3 stages with a
+canary test; branch-input diff proves only-the-salary-differs;
+instrumentation 182=182=182=182=182 with 0 errors and 0 retries.
+Provider served deepseek-v4-flash for requested deepseek-chat --
+recorded and disclosed. Evidence: PUBLICLY_VERIFIED=0 deliberately.
+
+Harness weakness also found: delivery.private_context_leak_check
+over-reports when a cast shares compiler boilerplate (36 reported, 0
+real). Additive distinctive-context check exists in offer_delivery.py;
+promote it into the shared module during the fix batch.
+
+## Settling experiment verdict 2026-08-04: R1-strong REFUTED, R3 survives
+
+Two arms on the frozen Peter world, identical except the starting
+event; same candidate (user_001), same seed, same model config, live
+sender, GM observer forced to broadcast in BOTH arms; n=3 per arm.
+
+  Arm A (pre-narrated send, as compiled): sender enacted candidate
+    verbatim 0/3; candidate text in recipient prompts 0/3;
+    intervention_delivered = not_delivered x3; ranking REFUSED x3.
+  Arm B (starting_events: []):             identical outcome: 0/3,
+    0/3, not_delivered x3, REFUSED x3.
+
+The nuance that decides the remedy: removing the pre-narration DID
+change the sender's behaviour -- arm A waits 3/3 ("waits for a reply,
+checking his inbox periodically"), arm B sends 3/3 ("reviews the draft
+one final time... then clicks send") -- and content-blind overlap rose
+(mean candidate/turn token overlap 0.085 -> 0.153; longest shared run
+7.7 -> 17.0 chars). But the sender writes ITS OWN message every time.
+Verbatim enactment stayed at exactly zero.
+
+CONCLUSIONS:
+1. The pre-narrated sender-only send event IS a real world-construction
+   defect (it suppresses the send entirely) -- R2/compiler hygiene is
+   still worth having, and the settling data now proves it changes
+   behaviour.
+2. It is NOT why the candidate fails to reach the recipient. R1 in
+   BOTH forms is refuted by direct live measurement.
+3. Only R3+R4a (enact the intervention as a committed event authored
+   by the insertion actor) would make an intervention causally
+   effective independent of model compliance.
+Honest limit recorded in the artifact: n=3 per arm; 0/3 is consistent
+with any true rate below ~0.6 at 95%.
+
+LEAD DECISION on R3: still NOT implemented in this pass. It changes
+what a counterfactual MEANS here -- the insertion actor would lose the
+freedom to decline the intervention. That is a product-semantics
+decision with two technically valid answers (enacted vs suggested
+intervention), so it is surfaced as the top recommendation rather than
+taken unilaterally, consistent with the directive's "do not redesign
+in this pass".
+
+## Post-fix re-runs 2026-08-04 (frozen inputs, pre-fix artifacts intact)
+
+All frozen-input hashes re-verified against the pre-fix freeze
+manifests before any live call; every entry byte-identical; pre-fix
+directories untouched (additions only).
+
+  peter_supplied:   guard 1->3, unresolved observers now recorded (0),
+                    delivery not_delivered x3, ranking PRODUCED
+                    (user_002) -> REFUSED.
+  peter_generated:  guard 2->1, delivery not_delivered x3, ranking
+                    PRODUCED (gen_001) -> REFUSED.
+  a16z_historical:  guard 20 -> 0 (the content-destroying rewrites are
+                    GONE, exactly as D3 predicted), 39 unresolved
+                    observer names now RECORDED where the pre-fix run
+                    had no trace at all (24x "Hiring Lead", 15x
+                    "hiring lead", all no_roster_match -- the events
+                    were dropped before AND after; the fix makes the
+                    loss visible, it does not guess a recipient),
+                    delivery not_delivered x6, ranking PRODUCED
+                    (user_001) -> REFUSED, terminals unchanged.
+
+The Peter guard counts rising is NOT a regression: a computed class
+census shows every one is the possessive-nominalization class
+("reads <Name>'s reply"), a conservatism the guard's own docstring
+documents deliberately; the determined-recipient class is 0 before and
+after in both Peter scenarios. The census marks records unclassifiable
+from the stored excerpt rather than guessing.
+
+Task 3 (no-prenarration variant with all three candidates) CANCELLED
+by its own premise failing measurement -- recorded in writing rather
+than quietly dropped. 261 recorded provider calls this pass, 0 errors,
+0 retries, counters agree; provider served deepseek-v4-flash for
+requested deepseek-chat throughout.
+
+## Independent adversarial audit 2026-08-04 (read-only, all artifacts)
+
+Verdict per claim: complete call capture, private-context containment,
+same-world matching, actor-owned decisions (core), trace-only
+measurement, candidate-source isolation, salary-only isolation, and all
+three headline findings -- COULD NOT DISPROVE, each recomputed from raw
+ledgers rather than summaries (1,146 records, every request/response
+sha256 recomputed with 0 mismatches; 666 files scanned with a live key
+in the environment and 0 credential occurrences; six salary branch
+plans re-derived and re-hashed independently). Historical cutoff
+enforcement FALSIFIED in its stated scope. Report honesty: two real
+overclaims.
+
+Auditor's one-line summary, recorded verbatim because it is the fairest
+statement of what this run produced: "a rigorous, self-incriminating
+engineering-transparency artifact whose machine-generated layer holds
+up under attack, and whose hand-written summary layer contains two
+claims that its own machine-generated layer disproves."
+
+FINDINGS AND LEAD DISPOSITIONS:
+- F1 HIGH: both pre-fix Peter reports state the agency guard "recorded
+  zero interventions"; the guard fired 1 (supplied) and 2 (generated)
+  and the same files render intervened=True 500 lines earlier. FIX:
+  root-cause the report generator (not just the prose), add ERRATA with
+  the ledger evidence, preserve the original text.
+- F2 HIGH: a post-cutoff sentence reached the a16z compiler prompt --
+  "Do not include his later a16z employment or later a16z work", which
+  asserts the outcome of the counterfactual being simulated. It came
+  from the USER-SUPPLIED relevant_context, and the phrase arm missed it
+  by word order. It did NOT propagate (0 violations across 360 prompts
+  and 180 responses in both runs, independently re-scanned). FIX:
+  widen the validator pattern with a discriminating test; record the
+  scope correction; the artifact record stands with the caveat.
+- F3 MEDIUM: production ranking refusal reason claims "every branch ran
+  the independent variable at the same (undelivered) value" -- false
+  for a16z, where the salary varied in the compensation partner's own
+  prompt. The refusal DECISION is right; the justification is not. FIX
+  the production string + test.
+- F4 MEDIUM: the pre/post document's one verbatim proof of the D3 fix
+  is a possessive case the fix does not cover (classifier tests the
+  dangling-determiner pattern before the possessive test). FIX the
+  classifier ordering + errata.
+- F5 MEDIUM (negative space, PRE-EXISTING): the guard's protected verb
+  list has no approve/authorize -- the single most load-bearing proxy
+  attribution this scenario invites passes untouched (executed control
+  confirms, pre- AND post-fix). ADOPTED as a demonstrated defect: add
+  the verbs with discriminating tests.
+- F6 LOW: 20 guard interventions attributed to the determiner cause;
+  replay shows 19 explained by D3 and 1 by sampling. Errata.
+- F7 LOW: no receipt at HEAD. Re-record at closeout.
+- F8 LOW: three disclosed scope edges (health probes bypass the
+  recorder by design and carry no simulation content; settling arms
+  recorded 0 live GM calls so "falls through to the live path" is
+  vacuously true; one shakedown README lacks the banner). Accept +
+  banner fix.
+
+JUDGMENT (recorded, not repaired -- per the directive, an unfavourable
+realism judgment is never edited away): grounded reasoning does appear
+(an arm-B sender tightened its own subject line to "(replay only, not
+prod-validated)" and its opening to "I'm not asking for money -- I want
+your criticism", both satisfying PRIVATE constraints absent from the
+candidate text; a recipient conditioned acceptance on the specific
+epistemic weakness of the pitch). Role-play dominates quantitatively:
+34-40% of a16z actor turns are exact self-duplicates, one Peter
+recipient turn is cited twice by the evaluator as evidence for the same
+metric, calendar facts classified UNKNOWN were invented at run time,
+and no_explicit_decline is true 6/6. Every report already says this
+about itself in its own section 16.
+
+## Replay viewer 2026-08-04 (presentation layer only)
+
+Landed at 1f4baedb (receipt d2185be3). Self-contained static HTML/CSS/JS
+over the committed artifacts; one command:
+  python3 viewer/serve.py
+A local HTTP origin is REQUIRED, not preferred: browsers block
+cross-origin file:// fetches of the artifact JSON and crypto.subtle
+(used to recompute published hashes) needs a secure context. Opening
+index.html directly shows a red band saying so rather than a silently
+unverified replay -- correct fail-loud behaviour.
+
+All 14 runs load with 0 problems and 1,840 published hashes recomputed
+and matched across 32 branches. Equivalence test (86 passed) drives the
+viewer's OWN JS through node and reads committed events, call ids and
+metric citations back out of the RENDERED HTML; discrimination proved
+by five executed mutations (reorder rows, drop a step record, drop a
+committed row, rename a call id, rewrite a metric citation) -- each
+fails its assertion, and the reorder also trips two independent
+in-viewer errors and two hash mismatches. Fail-loud fixtures cover
+missing/malformed/truncated/tampered artifacts, always on temp copies;
+artifacts/ never touched.
+
+Two fidelity bugs the agent caught rather than shipped, both of which
+would have produced FALSE evidence: JSON.parse rounds the 63-bit
+branch_seed (would have displayed ...196000 for ...196392), and
+JSON.stringify writes 0 where the harness hashed 0.0, which would have
+falsely accused intact artifacts of hash mismatch. Hence
+viewer/lib/canonical_json.js and exact-literal seed reading.
+
+Genuinely absent fields are rendered as RECORDED AS UNAVAILABLE with
+the recorded reason verbatim (simulation_time and
+full_engine_state_hash in all 260 step records; the pre-guard excerpt
+truncation note; the settling arms' absent scenario files) -- never as
+a value, never hidden.
+
+## F2 lead guidance issued 2026-08-04 (to the closeout worker)
+
+The widened cutoff patterns now flag the user-supplied verbatim
+relevant_context sentence, failing ~7 a16z harness tests. Ruled: this
+is the corrected validator telling the truth, not a regression. Do NOT
+weaken the patterns; do NOT edit or sanitize the user's verbatim
+frozen input; DO update the affected tests to assert the corrected
+behaviour (pin the specific expected violation so the leak can never
+silently disappear) while separately asserting that the propagation
+surfaces -- actor prompts, model responses, plans, compiled world --
+stay clean. If a harness gate consequently refuses to run the a16z
+scenario end to end, that is an acceptable and correct outcome: record
+it, do not re-run, do not relax the gate.

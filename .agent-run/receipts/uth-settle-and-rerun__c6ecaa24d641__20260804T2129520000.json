@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_id": "uth-settle-and-rerun",
+  "git_sha": "c6ecaa24d641b4091261e46c3b513744bf37f9ca",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest /home/user/SWORLDMODEL-GROUND-UP/tests/experiment_harness -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T21:29:31+00:00",
+  "finished_at": "2026-08-04T21:29:52+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "settling": "a3df05a54a6ed1b1a93dce51c0cd115b485b1dee466820683a4dba66dffa58dc"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T21:29:52+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 43%]\n........................................................................ [ 87%]\n.....................                                                    [100%]\n165 passed in 20.32s\n"
+}

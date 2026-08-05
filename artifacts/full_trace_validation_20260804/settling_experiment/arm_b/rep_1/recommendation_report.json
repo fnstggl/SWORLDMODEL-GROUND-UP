@@ -1,0 +1,18 @@
+{
+  "refused": true,
+  "error_type": "InterventionNotDeliveredError",
+  "reason": "refusing to rank: not one of the 1 measured branches delivered its intervention to any actor other than the insertion actor, so every branch ran the counterfactual's independent variable at the same (undelivered) value and the measured differences cannot have been caused by the candidates. A winner computed from these branches would be an artifact of model sampling on identical downstream context, not a comparison. Per-branch delivery: user_001: not_delivered (no_distinctive_fragment_reached_any_other_actor). Resolve the delivery failure (or run branches whose intervention reaches the world) and rank again; nothing is repaired or ranked silently here.",
+  "what_this_means": "no branch's candidate text reached any actor other than the insertion actor, so the engine refuses to name a winner",
+  "per_branch_delivery": {
+    "user_001": {
+      "status": "not_delivered",
+      "reason": "no_distinctive_fragment_reached_any_other_actor",
+      "insertion_actor": "beckett_zahedi",
+      "reached_actors": [],
+      "fragments_tested": 6,
+      "fragments_found": 0,
+      "reached_committed_world": false,
+      "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+    }
+  }
+}

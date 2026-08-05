@@ -5,8 +5,23 @@ describe mechanical or nonvoluntary consequences, but it may not
 permanently commit a voluntary decision for a DIFFERENT actor without
 giving that actor its own turn.  Voluntary decisions include: replying,
 agreeing, voting, purchasing, accepting, rejecting, refusing, declining,
-signing, supporting, committing, promising, choosing, deciding, and
-choosing what to say.
+signing, supporting, committing, promising, choosing, deciding,
+approving, authorizing, and choosing what to say.
+
+``approve``/``authorize`` were ADDED 2026-08-04 to close audit finding
+F5, a demonstrated pre-existing gap: in an authority scenario the most
+load-bearing proxy attribution available is one actor granting another's
+approval ("... the People and Compensation Partner approves them."), and
+the executed control showed that sentence passing the guard untouched.
+Each verb is added in all three parallel inflection sets below (finite,
+past participle, gerund) so that "approves", "has approved" and "is
+approving" behave identically -- adding only the finite forms would have
+left the auxiliary chains as a one-word evasion.  The act NOUNS
+("approval", "authorization") are deliberately NOT added: they belong to
+the nominalization class, whose over-block risk in a scenario ABOUT
+seeking approval is real, and closing a demonstrated gap is not a
+licence to open an undemonstrated one.  That residual is listed with the
+other documented non-detections below.
 
 Seam (CONCORDIA_AUDIT.md section E, option 1 -- no upstream fork): the
 guard is a plain callable with the audited ``event_resolution_steps``
@@ -94,8 +109,19 @@ false positives on delivery/receipt/hypothetical text):
   SUBJECT, not to X (a measured baseline-scenario shape); bare "-ing"
   adjacency would over-block.
 - A name preceded by a preposition is not an agent ("sends it to X").
+  The check is DETERMINER-TRANSPARENT: exactly one determiner may stand
+  between the frame word and the name ("sends it to THE X"), because a
+  role-shaped roster name occupies the same recipient slot whether or
+  not it takes an article.  Looking only at the immediately preceding
+  word made "sends a message to the X: '<the speaker's own message>'"
+  parse as a proxy attribution and DELETED the active actor's own
+  quoted content; the exemption now reads through the determiner.  Two
+  or more intervening tokens ("to the new X") are a documented residual
+  and stay on the caught side, as does any name whose lookback hits
+  punctuation -- a sentence-initial "The X agrees." is still detected.
 - A name preceded by a conditional frame word is not a committed act
-  ("if X agrees" states a condition, not a decision).
+  ("if X agrees" states a condition, not a decision); the same
+  determiner transparency applies ("if the X agrees").
 - Bare modal predictions ("X may agree", "X will agree"), do-support
   ("X does not agree", "X does agree"), and negated auxiliary chains
   ("X has not agreed") are predictions, denials, or emphatics rather
@@ -106,6 +132,12 @@ false positives on delivery/receipt/hypothetical text):
   ("their agreement"), collective possessives ("Morgan's team
   accepts"), and asides longer than one comma pair or 60 characters are
   out of the deterministic v2 net; listed for later hardening.
+- The act NOUNS "approval" and "authorization" are not nominalization
+  triggers, so "with the Partner's approval, ..." is not detected while
+  "the Partner approves ..." is.  Deliberate: in a scenario about
+  seeking approval those nouns appear constantly in the speaker's own
+  anticipatory content, and the finite/participle/gerund forms already
+  cover the assertion shape the F5 control demonstrated.
 - Proxy-attribution residuals (v3): a SINGLE em/en dash between a name
   and content ("Morgan — agrees") is not an upstream attribution
   separator and stays undetected as an attribution (the pre-existing
@@ -118,7 +150,11 @@ false positives on delivery/receipt/hypothetical text):
   received-content frames ("reads the note from Morgan: 'I agree'"),
   a residual accepted to keep the epistolary form usable, while
   assertion-verb frames ("quotes Morgan: 'I agree'") and bare markers
-  stay caught.  In the over-removal direction: the attributed segment
+  stay caught.  That lead-word test reads through one determiner
+  ("sends a note to the Morgan: 'call me'"), so a determined recipient
+  is exempt exactly as a bare one is; a determiner separated from the
+  frame word by a further token is not.  In the over-removal direction:
+  the attributed segment
   runs to the line break (upstream has no closing delimiter), so any
   same-line content AFTER a violating marker -- including the active
   player's own trailing text -- is removed with it, and a spaced
@@ -198,6 +234,8 @@ _ACT_FINITE_FORMS = (
     "choose", "chooses", "chose",
     "say", "says", "said",
     "decide", "decides", "decided",
+    "approve", "approves", "approved",
+    "authorize", "authorizes", "authorized",
 )
 
 #: past participles (perfect and modal-perfect chains only; after
@@ -205,7 +243,7 @@ _ACT_FINITE_FORMS = (
 _ACT_PAST_PARTICIPLES = (
     "replied", "agreed", "voted", "purchased", "accepted", "rejected",
     "refused", "declined", "signed", "supported", "committed",
-    "promised", "chosen", "said", "decided",
+    "promised", "chosen", "said", "decided", "approved", "authorized",
 )
 
 #: gerunds (progressive chains only: "is agreeing", "has been agreeing")
@@ -213,6 +251,7 @@ _ACT_GERUNDS = (
     "replying", "agreeing", "voting", "purchasing", "accepting",
     "rejecting", "refusing", "declining", "signing", "supporting",
     "committing", "promising", "choosing", "saying", "deciding",
+    "approving", "authorizing",
 )
 
 #: act nominalizations ("Morgan's agreement", "the acceptance by
@@ -269,6 +308,24 @@ _BY_PHRASE_DETERMINERS = (
     "the", "this", "that", "his", "her", "their", "its", "a", "an",
     "any", "such", "one",
 )
+
+#: determiners that may stand between a non-agent lead word and a roster
+#: name in OBJECT position ("sends a message to THE People and
+#: Compensation Partner: '...'").  The recipient slot is the same slot
+#: whether or not the name takes a determiner, and role-shaped rosters
+#: take one constantly, so the object-position exemption looks THROUGH
+#: exactly one of these to the word that actually decides agency.
+#: "that" is deliberately absent: it is the reported-speech
+#: complementizer with its own (borderline) handling, and a bare
+#: determiner "that" before a roster name is vanishingly rare next to
+#: the complementizer reading.  Only ONE token is looked through -- an
+#: adjective between the determiner and the name ("to the new Partner:
+#: ...") is a documented residual, and a name at a sentence start is
+#: never exempted because punctuation breaks the lookback chain.
+_OBJECT_SLOT_DETERMINERS = frozenset((
+    "the", "a", "an", "this", "these", "those",
+    "his", "her", "their", "its", "our", "my", "your",
+))
 
 #: closed-class words that mark the following subject as NOT the agent
 #: of a new committed act: prepositions (object position) and
@@ -644,6 +701,13 @@ def make_agency_guard(
             if match is None:
                 return findings
             lead_word, lead_start = _word_before_span(text, match.start())
+            if lead_word in _OBJECT_SLOT_DETERMINERS:
+                # Determiner-transparent object position: "to THE X" is
+                # the same recipient slot as "to X", so the word that
+                # decides agency is the one before the determiner.  A
+                # determiner at a clause boundary resolves to "" and is
+                # therefore never an exemption by itself.
+                lead_word, lead_start = _word_before_span(text, lead_start)
             before_that = (_word_before(text, lead_start)
                            if lead_word == "that" else "")
             suppressed = (

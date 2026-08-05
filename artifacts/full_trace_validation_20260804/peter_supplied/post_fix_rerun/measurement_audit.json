@@ -1,0 +1,169 @@
+{
+  "audit_version": "post_hoc_measurement_audit_v1",
+  "written_after_seeing_the_transcripts": true,
+  "status": "NOT AN INDEPENDENT MEASUREMENT OF THIS RUN",
+  "purpose": "bound how much of the declared evaluator's reading was an artifact of pattern coverage",
+  "branches": {
+    "user_001": {
+      "recipient_turns": [
+        {
+          "index": 3,
+          "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “I’ll give you 20 minutes on Thursday at 2pm Pacific. Send me the replay logs and the failure cases beforehand—I’m more interested in what breaks than what passes.”",
+          "broad_agreement": {
+            "pattern": "\\b(?:i(?:'|’)?ll|i\\s+will)\\s+give\\s+you\\s+(?:\\d+|twenty|ten|fifteen|thirty)\\s*(?:minutes|min)\\b",
+            "matched_text": "I’ll give you 20 minutes"
+          },
+          "conditional_marker": {
+            "pattern": "\\bsend\\s+me\\s+the\\b",
+            "matched_text": "Send me the"
+          },
+          "broad_engagement": {
+            "pattern": "\\bsend\\s+me\\s+the\\b",
+            "matched_text": "Send me the"
+          },
+          "declared_agreement": null,
+          "declared_engagement": [
+            "\\binterest(?:ed|ing)\\b",
+            "interested"
+          ],
+          "declared_decline": null
+        },
+        {
+          "index": 5,
+          "content": "Peter Thiel replies via the same channel: “Good. Start with the failure modes you flagged, and bring the raw logs—I want to see the actual traces, not your summary. Thursday at 2pm Pacific stands.”",
+          "broad_agreement": null,
+          "conditional_marker": null,
+          "broad_engagement": null,
+          "declared_agreement": null,
+          "declared_engagement": null,
+          "declared_decline": null
+        }
+      ],
+      "audit_reading": {
+        "any_acceptance_form": true,
+        "acceptance_was_conditional": true,
+        "any_substantive_engagement": true
+      },
+      "declared_reading": {
+        "call_agreed": false,
+        "positive_reply": true
+      },
+      "disagreement": {
+        "acceptance": true,
+        "engagement": false
+      }
+    },
+    "user_002": {
+      "recipient_turns": [
+        {
+          "index": 3,
+          "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay-test logs and the architecture doc. I’ll give you 20 minutes on Thursday if the data holds up.”",
+          "broad_agreement": {
+            "pattern": "\\b(?:i(?:'|’)?ll|i\\s+will)\\s+give\\s+you\\s+(?:\\d+|twenty|ten|fifteen|thirty)\\s*(?:minutes|min)\\b",
+            "matched_text": "I’ll give you 20 minutes"
+          },
+          "conditional_marker": {
+            "pattern": "\\bif\\s+the\\s+data\\s+holds\\s+up\\b",
+            "matched_text": "if the data holds up"
+          },
+          "broad_engagement": {
+            "pattern": "\\bsend\\s+me\\s+the\\b",
+            "matched_text": "Send me the"
+          },
+          "declared_agreement": null,
+          "declared_engagement": null,
+          "declared_decline": null
+        },
+        {
+          "index": 5,
+          "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay-test logs and the architecture doc. I’ll give you 20 minutes on Thursday if the data holds up.”",
+          "broad_agreement": {
+            "pattern": "\\b(?:i(?:'|’)?ll|i\\s+will)\\s+give\\s+you\\s+(?:\\d+|twenty|ten|fifteen|thirty)\\s*(?:minutes|min)\\b",
+            "matched_text": "I’ll give you 20 minutes"
+          },
+          "conditional_marker": {
+            "pattern": "\\bif\\s+the\\s+data\\s+holds\\s+up\\b",
+            "matched_text": "if the data holds up"
+          },
+          "broad_engagement": {
+            "pattern": "\\bsend\\s+me\\s+the\\b",
+            "matched_text": "Send me the"
+          },
+          "declared_agreement": null,
+          "declared_engagement": null,
+          "declared_decline": null
+        }
+      ],
+      "audit_reading": {
+        "any_acceptance_form": true,
+        "acceptance_was_conditional": true,
+        "any_substantive_engagement": true
+      },
+      "declared_reading": {
+        "call_agreed": false,
+        "positive_reply": false
+      },
+      "disagreement": {
+        "acceptance": true,
+        "engagement": true
+      }
+    },
+    "user_003": {
+      "recipient_turns": [
+        {
+          "index": 3,
+          "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”",
+          "broad_agreement": {
+            "pattern": "\\b(?:i(?:'|’)?ll|i\\s+will)\\s+give\\s+you\\s+(?:\\d+|twenty|ten|fifteen|thirty)\\s*(?:minutes|min)\\b",
+            "matched_text": "I’ll give you 20 minutes"
+          },
+          "conditional_marker": {
+            "pattern": "\\bif\\s+the\\s+data\\s+holds\\s+up\\b",
+            "matched_text": "if the data holds up"
+          },
+          "broad_engagement": {
+            "pattern": "\\bsend\\s+me\\s+the\\b",
+            "matched_text": "Send me the"
+          },
+          "declared_agreement": null,
+          "declared_engagement": null,
+          "declared_decline": null
+        },
+        {
+          "index": 5,
+          "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”",
+          "broad_agreement": {
+            "pattern": "\\b(?:i(?:'|’)?ll|i\\s+will)\\s+give\\s+you\\s+(?:\\d+|twenty|ten|fifteen|thirty)\\s*(?:minutes|min)\\b",
+            "matched_text": "I’ll give you 20 minutes"
+          },
+          "conditional_marker": {
+            "pattern": "\\bif\\s+the\\s+data\\s+holds\\s+up\\b",
+            "matched_text": "if the data holds up"
+          },
+          "broad_engagement": {
+            "pattern": "\\bsend\\s+me\\s+the\\b",
+            "matched_text": "Send me the"
+          },
+          "declared_agreement": null,
+          "declared_engagement": null,
+          "declared_decline": null
+        }
+      ],
+      "audit_reading": {
+        "any_acceptance_form": true,
+        "acceptance_was_conditional": true,
+        "any_substantive_engagement": true
+      },
+      "declared_reading": {
+        "call_agreed": false,
+        "positive_reply": false
+      },
+      "disagreement": {
+        "acceptance": true,
+        "engagement": true
+      }
+    }
+  },
+  "branches_where_the_two_readings_disagree": 3,
+  "branch_count": 3
+}

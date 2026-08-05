@@ -1,0 +1,247 @@
+{
+  "report_kind": "decision_recommendation_report",
+  "report_version": "recommendation_report_v1",
+  "problem": {
+    "contract_type": "decision_problem",
+    "schema_version": 1,
+    "problem_id": "peter_thiel_supplied_email_test",
+    "decision_owner": "Beckett Zahedi",
+    "desired_outcome": "Peter Thiel explicitly agrees to a 20-minute call with Beckett Zahedi.",
+    "success_criteria": "Success occurs only if a committed event authored by Peter Thiel's own actor contains an explicit agreement to speak with Beckett, an explicit acceptance of a 20-minute call, or a direct instruction to schedule the call. A generic acknowledgment, an assistant response, the Game Master's narration, message delivery, message opening, or inferred interest does not count as success.",
+    "constraints": [
+      "The email must contain between 45 and 85 words excluding the subject line.",
+      "It must accurately describe the 724% result as a replay result, not production validation.",
+      "It must not claim a mutual connection or prior relationship.",
+      "It must make one clear request for a 20-minute call.",
+      "It must not ask Peter Thiel to invest.",
+      "It must not use false urgency, invented scarcity, or manipulative pressure.",
+      "It may offer a one-page technical memo.",
+      "Only public professional information and user-supplied information may be used."
+    ],
+    "time_horizon": {
+      "start": "2026-08-04T18:10:38Z",
+      "cutoff": "2026-08-11T18:10:38Z"
+    },
+    "relevant_context": "Beckett Zahedi is 17 and is starting Princeton in fall 2026. He is building Aurelius, a supervisory optimization system for GPU fleets. In replay tests covering approximately 1.5 million public production requests, it produced approximately 724% more SLA-safe goodput per dollar. This has not been validated in a live production deployment and must not be represented as production-proven. Beckett has never contacted Peter Thiel and has no known mutual introduction. Beckett wants criticism and a short technical conversation, not an immediate investment. Peter Thiel is publicly known as a Founders Fund partner, a cofounder of PayPal and Palantir, and the founder of the Thiel Fellowship. Do not invent private beliefs, inbox behavior, scheduling details, or personal preferences for Peter.",
+    "candidate_interventions": [
+      "Subject: 7.24× more useful work per GPU dollar\n\nPeter—\n\nI'm Beckett, 17, starting Princeton this fall. I built a supervisory optimizer for GPU fleets that produced 7.24× more SLA-safe goodput per dollar across 1.5M replayed production requests. It is not production-validated yet, but the mechanism is concrete. Would you be open to a 20-minute call next week? I can send a one-page technical memo first.",
+      "Subject: Where does this AI infrastructure thesis break?\n\nPeter—\n\nI think AI infrastructure is optimizing the wrong layer: individual schedulers make locally sensible choices while fleet-wide sequencing destroys goodput per dollar. I built a supervisory simulator that improved SLA-safe goodput/$ by 724% across 1.5M replayed requests. I'm 17 and starting Princeton this fall. Could I show you the result for 20 minutes and get your sharpest objection?",
+      "Subject: A contrarian infrastructure result from a 17-year-old\n\nPeter—\n\nYour work has pushed young builders to test unusual ideas before credentials arrive. I'm 17 and built an AI infrastructure optimizer that increased SLA-safe goodput per dollar by 724% in replay tests across 1.5M requests. I'm not asking you to invest. I want to know whether the thesis survives scrutiny. Would you take a 20-minute call next week?"
+    ],
+    "candidate_generation_permission": false
+  },
+  "problem_content_hash": "4ee9f55598aa68dc83890402ca5da41caa98d61e9d17e84e9d8093d4a2d149cc",
+  "world_id": "w_1659bd83ab0a",
+  "base_plan_id": "p_f58a400b5247d55d",
+  "base_plan_content_hash": "79779e0e2b2fd7f5c3ce85331e7c1e7041bbdaa1df4460130d4980163e652cff",
+  "base_snapshot_id": "s_c4527baa1f79e4f0",
+  "evaluator_spec": {
+    "primary_metric": "call_agreed",
+    "secondary_metrics": [
+      "positive_reply",
+      "no_explicit_decline"
+    ]
+  },
+  "candidates": [
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_001",
+      "summary": "Subject: 7.24× more useful work per GPU dollar Peter— I'm Beckett, 17, starting Princeton this fall. I built a superviso",
+      "action": "Subject: 7.24× more useful work per GPU dollar\n\nPeter—\n\nI'm Beckett, 17, starting Princeton this fall. I built a supervisory optimizer for GPU fleets that produced 7.24× more SLA-safe goodput per dollar across 1.5M replayed production requests. It is not production-validated yet, but the mechanism is concrete. Would you be open to a 20-minute call next week? I can send a one-page technical memo first.",
+      "decision_owner": "beckett_zahedi",
+      "timing": "2026-08-04T18:10:38Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    },
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_002",
+      "summary": "Subject: Where does this AI infrastructure thesis break? Peter— I think AI infrastructure is optimizing the wrong layer:",
+      "action": "Subject: Where does this AI infrastructure thesis break?\n\nPeter—\n\nI think AI infrastructure is optimizing the wrong layer: individual schedulers make locally sensible choices while fleet-wide sequencing destroys goodput per dollar. I built a supervisory simulator that improved SLA-safe goodput/$ by 724% across 1.5M replayed requests. I'm 17 and starting Princeton this fall. Could I show you the result for 20 minutes and get your sharpest objection?",
+      "decision_owner": "beckett_zahedi",
+      "timing": "2026-08-04T18:10:38Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    },
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_003",
+      "summary": "Subject: A contrarian infrastructure result from a 17-year-old Peter— Your work has pushed young builders to test unusua",
+      "action": "Subject: A contrarian infrastructure result from a 17-year-old\n\nPeter—\n\nYour work has pushed young builders to test unusual ideas before credentials arrive. I'm 17 and built an AI infrastructure optimizer that increased SLA-safe goodput per dollar by 724% in replay tests across 1.5M requests. I'm not asking you to invest. I want to know whether the thesis survives scrutiny. Would you take a 20-minute call next week?",
+      "decision_owner": "beckett_zahedi",
+      "timing": "2026-08-04T18:10:38Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    }
+  ],
+  "candidate_content_hashes": {
+    "user_001": "4a4b45d63f2e400b427bc9e6f9e4176a2e176c0450db21eeba49b85cc384c6a8",
+    "user_002": "b4438c8e07eb336bb8bf0500db00253c681d40acd81b8dcc56a790aeeaba6056",
+    "user_003": "e31152d8b8ab1b75b31e0bd65459cd97496b2f7b8c9a5d829fd0e3fe48dbb59e"
+  },
+  "branch_evaluations": [
+    {
+      "candidate_id": "user_001",
+      "branch_id": "br_79ff51835d0e968a",
+      "branch_seed": 3730100026622196392,
+      "terminal_status": "cutoff",
+      "outcome_metrics": {
+        "call_agreed": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "positive_reply": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 6
+    },
+    {
+      "candidate_id": "user_002",
+      "branch_id": "br_1bcac70e418afed0",
+      "branch_seed": 3050423627235183378,
+      "terminal_status": "success",
+      "outcome_metrics": {
+        "call_agreed": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003",
+            "event:ev_0005"
+          ]
+        },
+        "positive_reply": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003",
+            "event:ev_0005"
+          ]
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 6
+    },
+    {
+      "candidate_id": "user_003",
+      "branch_id": "br_0c2eca4ba006414b",
+      "branch_seed": 529045976225751459,
+      "terminal_status": "cutoff",
+      "outcome_metrics": {
+        "call_agreed": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "positive_reply": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 6
+    }
+  ],
+  "recommendation": {
+    "contract_type": "recommendation_result",
+    "schema_version": 1,
+    "best_candidate_id": "user_002",
+    "ranking": [
+      {
+        "candidate_id": "user_002",
+        "metric_values": {
+          "call_agreed": true,
+          "positive_reply": true,
+          "no_explicit_decline": true
+        }
+      },
+      {
+        "candidate_id": "user_001",
+        "metric_values": {
+          "call_agreed": false,
+          "positive_reply": false,
+          "no_explicit_decline": true
+        }
+      },
+      {
+        "candidate_id": "user_003",
+        "metric_values": {
+          "call_agreed": false,
+          "positive_reply": false,
+          "no_explicit_decline": true
+        }
+      }
+    ],
+    "metric_differences": {
+      "call_agreed": {
+        "user_002": 0.0,
+        "user_001": -1.0,
+        "user_003": -1.0
+      },
+      "positive_reply": {
+        "user_002": 0.0,
+        "user_001": -1.0,
+        "user_003": -1.0
+      },
+      "no_explicit_decline": {
+        "user_002": 0.0,
+        "user_001": 0.0,
+        "user_003": 0.0
+      }
+    },
+    "downside_outcomes": {
+      "user_002": "measured secondary outcomes: positive_reply=true (strict maximum among candidates tested), no_explicit_decline=true",
+      "user_001": "measured secondary outcomes: positive_reply=false, no_explicit_decline=true",
+      "user_003": "measured secondary outcomes: positive_reply=false, no_explicit_decline=true"
+    },
+    "run_limitations": "Result provenance: live_model. This result identifies the best-performing action among the candidates tested under the declared evaluator metrics, computed only from recorded simulation traces; it is not a guarantee of real-world outcome. Ranking uses the declared metrics only: the primary metric (call_agreed) first, then each secondary metric compared descending in declared order (highest value first; polarity not inferred); any remaining exact tie is broken by candidate_id in ascending lexicographic order (code-owned final tie-break, applied in this ranking).",
+    "validation_status": {
+      "schema_validated": true,
+      "semantics_validated": true,
+      "ranked_by_declared_metrics_in_declared_order": true,
+      "all_branches_free_of_infrastructure_errors": true,
+      "tie_break_candidate_id_lexicographic": true,
+      "decided_by_metric": "call_agreed"
+    }
+  },
+  "recommendation_content_hash": "cb6948494ea25f54caaaf9252954a2c564f251b60a8632a9f7f6b4b84040142f",
+  "winner": "user_002",
+  "decided_by_metric": "call_agreed"
+}

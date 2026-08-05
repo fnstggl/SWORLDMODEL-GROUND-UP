@@ -1,0 +1,28 @@
+{
+  "claim": "this re-run reuses the pre-fix run's frozen inputs; every hash below was recomputed now and compared against the entry the pre-fix freeze manifest recorded",
+  "pre_fix_manifest": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_supplied/freeze_manifest.json",
+  "checks": [
+    {
+      "entry": "compiler_artifact_dir_aggregate",
+      "recorded_by_the_pre_fix_run": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+      "recomputed_now": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_supplied/compiler",
+      "match": true
+    },
+    {
+      "entry": "decision_problem",
+      "recorded_by_the_pre_fix_run": "03dddf3582901a8295bad046fa3927362c409d3bd619ac43659a01a76d901f5e",
+      "recomputed_now": "03dddf3582901a8295bad046fa3927362c409d3bd619ac43659a01a76d901f5e",
+      "source": "the payload this re-run is about to run",
+      "match": true
+    },
+    {
+      "entry": "evidence_manifest",
+      "recorded_by_the_pre_fix_run": "ab5df254ce26701a04776ad546333d2401d89dda3714abd57a3c14727cc93d61",
+      "recomputed_now": "ab5df254ce26701a04776ad546333d2401d89dda3714abd57a3c14727cc93d61",
+      "source": "the manifest this re-run is about to run",
+      "match": true
+    }
+  ],
+  "all_match": true
+}

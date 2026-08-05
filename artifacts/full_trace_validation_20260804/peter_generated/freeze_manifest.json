@@ -1,0 +1,179 @@
+{
+  "freeze_version": "freeze_manifest_v1",
+  "scenario_id": "peter_generated",
+  "note": "Frozen before any branch simulation. UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION",
+  "required_entries": [
+    "decision_problem",
+    "evidence_manifest",
+    "compiler_command_and_config",
+    "compiler_inputs",
+    "compiler_artifact_dir_aggregate",
+    "compiled_decision_world",
+    "concordia_initialization_plan",
+    "evaluator_spec",
+    "candidate_set",
+    "model_identities_and_params",
+    "simulation_limits",
+    "time_window",
+    "branch_seeds"
+  ],
+  "missing_required_entries": [],
+  "entry_order": [
+    "decision_problem",
+    "evidence_manifest",
+    "evidence_items",
+    "compiler_command_and_config",
+    "compiler_inputs",
+    "compiler_artifact_dir_aggregate",
+    "compiler_artifact_dir_per_file",
+    "compiled_decision_world",
+    "concordia_initialization_plan",
+    "concordia_initialization_plan_content_hash",
+    "evaluator_spec",
+    "model_identities_and_params",
+    "simulation_limits",
+    "engine_simulation_limits",
+    "time_window",
+    "candidate_generator_prompt",
+    "candidate_generator_config",
+    "candidate_set",
+    "branch_seeds"
+  ],
+  "entries": {
+    "decision_problem": {
+      "sha256": "0f953e857c0c78d85b6dc37ee367921e5b5ab02f4c460874e346dafc033b928e",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.935693Z",
+      "detail": null
+    },
+    "evidence_manifest": {
+      "sha256": "eb943353e4883115b541d0e4d439fa7cf6c3f6a250bb30f3d88fc3cb87fd0484",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.935802Z",
+      "detail": null
+    },
+    "evidence_items": {
+      "sha256": "f40da5c6448ce4cf56e194fda5b1160f29ed6c0be935f91704e1b20a9cc10f0b",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.935882Z",
+      "detail": null
+    },
+    "compiler_command_and_config": {
+      "sha256": "b83f2fd94abccbd2b1d9128d8f544f02734bf2a16a066f46b6122484644bdd6c",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.935904Z",
+      "detail": null
+    },
+    "compiler_inputs": {
+      "sha256": "fe5e722c097f568da121fe79f037a56dadbe3326bb8ecbba3f29283629267dfd",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.935972Z",
+      "detail": null
+    },
+    "compiler_artifact_dir_aggregate": {
+      "sha256": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+      "kind": "directory_aggregate",
+      "frozen_at": "2026-08-04T18:13:10.938149Z",
+      "detail": {
+        "path": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_supplied/compiler",
+        "file_count": 17
+      }
+    },
+    "compiler_artifact_dir_per_file": {
+      "sha256": "eb03fe7f4ef1b7a74832e9cb8db4233344369af50e640b277aef97616d3a374c",
+      "kind": "directory_per_file",
+      "frozen_at": "2026-08-04T18:13:10.938199Z",
+      "detail": {
+        "actor_initial_views.json": "4c6421a9009b74c48cdb5845af880078aa2ccbf304e505bd38031c9032b8ef78",
+        "call_1_prompt.txt": "386b89cfffafff4ecf229a1f6206e65bf9224f8243290b233f509d70a114ea8a",
+        "call_1_raw_response.txt": "6b3395697e0c0e26209b459176272eedd398c2e0520f4b0d84f6bdaac626c4a8",
+        "call_2_prompt.txt": "164527732ef9b01071f2a2450d666b2b5c15cc2e68d6da7d47f7540e554e817d",
+        "call_2_raw_response.txt": "5f3a8269c5d7e19265822088699fe278cbaf68638748b13c722362e90374319c",
+        "compiler_metrics.json": "e2dc15b1564658fef28cc6ef93df7cd48925f8551362a7c54265a5fff7848c47",
+        "final_scene_manifest.json": "097a37deae8fc21815337e44438eb163a469907468925a75bfcbc4e21fc0b45b",
+        "genesis_resolution_check.json": "4923610126d3f08adb2ff5c767616c22fd107a089db90d25e6be722ceb4e6559",
+        "initialized_world_snapshot.json": "998c8d4a0d2f301e8bc2c42c6994d135454bcca56efb2a2b2025357fb241938f",
+        "input.json": "e2557eed1c2dbd75c87536cef3218a8ca80623acd443c26d2c87dba88b244e34",
+        "llm_calls.jsonl": "2aa02ceb29523d865cb777b927050687d98e679bacc6e56369e31452bd3d29e8",
+        "normalization_report.json": "bca19ee5bd82e0cfb53688993f64f21b4f90c91219921fd8ff0cf5b4a6d9fc11",
+        "runtime_bindings.json": "cce1c21d9fac858dca0652463855f509c9a58ebf96189f4a2ce645d62d757640",
+        "scene_manifest.json": "37557f2f42ca7347e788e810512c0c84f7b1a8ff39b56931e6be5481e5d9d324",
+        "scene_review.json": "1d4a7f23ec99ad1ec9e54bfe5bf647cb1acd903cbf95ffd60127bd1e6edfc494",
+        "starting_event_ledger.jsonl": "c102cc378ac8ce50aeafd4309046291266801f0fbab90bac20e78561e395813f",
+        "validation_report.json": "92f2982cf448d6473ae58182bdfba1f8cb6bcad37a1dffec4e5f6010a29a0c6d"
+      }
+    },
+    "compiled_decision_world": {
+      "sha256": "4d5a4845fcab59706d11e0d28d1f8a3c549ba14059846790f033893ac37535ca",
+      "kind": "text",
+      "frozen_at": "2026-08-04T18:13:10.938322Z",
+      "detail": null
+    },
+    "concordia_initialization_plan": {
+      "sha256": "79779e0e2b2fd7f5c3ce85331e7c1e7041bbdaa1df4460130d4980163e652cff",
+      "kind": "text",
+      "frozen_at": "2026-08-04T18:13:10.938424Z",
+      "detail": null
+    },
+    "concordia_initialization_plan_content_hash": {
+      "sha256": "c16eaa9eca3611a28d90b37582b078f83df9ef8aef2509b30b309d2204f1b739",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.938512Z",
+      "detail": null
+    },
+    "evaluator_spec": {
+      "sha256": "875d662a8c7945b299d4b6eea83c9633289c82825ae48e95c448dbcff4a5abce",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.938528Z",
+      "detail": null
+    },
+    "model_identities_and_params": {
+      "sha256": "b6c412ba5d5e354a980a1972f72f8d326400fa1110880a08720bba1859e2c763",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.938577Z",
+      "detail": null
+    },
+    "simulation_limits": {
+      "sha256": "b481366c3e487defbf850d5fdb1e4ecc9e00f8c1cbb9ed06c906441baec557ed",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.938594Z",
+      "detail": null
+    },
+    "engine_simulation_limits": {
+      "sha256": "421fbf65ec42648251d0c6e57fa45fc38396454adc192fb74fd6a866d8b817bc",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.938608Z",
+      "detail": null
+    },
+    "time_window": {
+      "sha256": "2c3c732cb6accfd009a6d191d8b5b8ad2f09e61c040f696a784493d5002fc957",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.938619Z",
+      "detail": null
+    },
+    "candidate_generator_prompt": {
+      "sha256": "30e88096d134246adddbffb658c0e9672f91ecf311c60d3b2d794897a0bc0f4d",
+      "kind": "text",
+      "frozen_at": "2026-08-04T18:13:10.939025Z",
+      "detail": null
+    },
+    "candidate_generator_config": {
+      "sha256": "eb2e5b129f9cac867e03d0c0add8a6ba92f0f6ca315f2c369fdd415de04c69e5",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:10.939112Z",
+      "detail": null
+    },
+    "candidate_set": {
+      "sha256": "72b1abfa26779a4d849f4035585659c7dac9d04343b460bedb1f1ee04c29d2a4",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:15.540270Z",
+      "detail": null
+    },
+    "branch_seeds": {
+      "sha256": "a4ecf66a01f97060c394efa0bb678f0651a447c4ced21f63b6481cac3859ba85",
+      "kind": "json",
+      "frozen_at": "2026-08-04T18:13:15.540349Z",
+      "detail": null
+    }
+  }
+}

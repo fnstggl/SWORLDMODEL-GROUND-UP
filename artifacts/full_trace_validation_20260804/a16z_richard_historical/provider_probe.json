@@ -1,0 +1,34 @@
+{
+  "what_this_is": "one-token health probes issued OUTSIDE the simulation, before and after the branch run. They are not simulation content and are not in the call ledger; they are here because the ledger records the model id the harness REQUESTED and the provider may serve a different build under that id.",
+  "pre_run": {
+    "requested_model": "deepseek-chat",
+    "served_model_reported_by_provider": "deepseek-v4-flash",
+    "response_id": "0355c87e-1067-4f66-9dc2-f6aff931fba2",
+    "usage": {
+      "prompt_tokens": 5,
+      "completion_tokens": 1,
+      "total_tokens": 6,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 5
+    }
+  },
+  "post_run": {
+    "requested_model": "deepseek-chat",
+    "served_model_reported_by_provider": "deepseek-v4-flash",
+    "response_id": "584b87e7-b3d3-4fea-a575-81178293ecb1",
+    "usage": {
+      "prompt_tokens": 5,
+      "completion_tokens": 1,
+      "total_tokens": 6,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 5
+    }
+  },
+  "recorded_at": "2026-08-04T19:24:40Z"
+}

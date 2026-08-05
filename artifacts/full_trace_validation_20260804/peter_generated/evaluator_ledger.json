@@ -1,0 +1,390 @@
+{
+  "label": "UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION",
+  "scenario_id": "peter_generated",
+  "evaluator_spec": {
+    "primary_metric": "call_agreed",
+    "secondary_metrics": [
+      "positive_reply",
+      "no_explicit_decline"
+    ]
+  },
+  "status_rule": "call_agreed -> success; an explicit decline -> failure; neither by the cutoff -> the runner's default (cutoff when the step budget was exhausted, incomplete for a technical stop)",
+  "attribution_anchor": "Putative event to resolve:",
+  "recipient_actor": "Peter Thiel",
+  "measurement_limitation": "agreement is measured by explicit surface patterns over free live-model text; a recipient who agrees in wording no pattern covers is scored cutoff, not success",
+  "branches": [
+    {
+      "candidate_id": "gen_001",
+      "branch_id": "br_3f0bba61fe192370",
+      "committed_trace_ref": "branches/gen_001/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "success",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003",
+            "event:ev_0005"
+          ],
+          "cited_event_texts": [
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me a calendar invite for 20 minutes this week—I’ll come prepared to poke holes in the replay-test methodology, not the vision.”\n",
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me a calendar invite for 20 minutes this week—I’ll come prepared to poke holes in the replay-test methodology, not the vision.”\n"
+          ]
+        },
+        "positive_reply": {
+          "value": true,
+          "computed_from": [
+            "event:ev_0003",
+            "event:ev_0005"
+          ],
+          "cited_event_texts": [
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me a calendar invite for 20 minutes this week—I’ll come prepared to poke holes in the replay-test methodology, not the vision.”\n",
+            "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me a calendar invite for 20 minutes this week—I’ll come prepared to poke holes in the replay-test methodology, not the vision.”\n"
+          ]
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me a calendar invite for 20 minutes this week—I’ll come prepared to poke holes in the replay-test methodology, not the vision.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me a calendar invite for 20 minutes this week—I’ll come prepared to poke holes in the replay-test methodology, not the vision.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [
+              {
+                "index": 3,
+                "pattern": "\\b(?:happy|glad|willing|open|delighted)\\s+to\\s+(?:talk|speak|chat|connect|do\\s+(?:a|the)\\s+call|take\\s+(?:a|the)\\s+call|hop\\s+on)",
+                "matched_text": "Happy to take the call"
+              },
+              {
+                "index": 5,
+                "pattern": "\\b(?:happy|glad|willing|open|delighted)\\s+to\\s+(?:talk|speak|chat|connect|do\\s+(?:a|the)\\s+call|take\\s+(?:a|the)\\s+call|hop\\s+on)",
+                "matched_text": "Happy to take the call"
+              }
+            ],
+            "value": true
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [
+              {
+                "index": 3,
+                "pattern": "\\b(?:happy|glad|willing|open|delighted)\\s+to\\s+(?:talk|speak|chat|connect|do\\s+(?:a|the)\\s+call|take\\s+(?:a|the)\\s+call|hop\\s+on)",
+                "matched_text": "Happy to take the call"
+              },
+              {
+                "index": 5,
+                "pattern": "\\b(?:happy|glad|willing|open|delighted)\\s+to\\s+(?:talk|speak|chat|connect|do\\s+(?:a|the)\\s+call|take\\s+(?:a|the)\\s+call|hop\\s+on)",
+                "matched_text": "Happy to take the call"
+              }
+            ],
+            "value": true
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    },
+    {
+      "candidate_id": "gen_002",
+      "branch_id": "br_e3fb8b9ecc232cea",
+      "committed_trace_ref": "branches/gen_002/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "positive_reply": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel reads Beckett’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [],
+            "value": false
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [],
+            "value": false
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    },
+    {
+      "candidate_id": "gen_003",
+      "branch_id": "br_f5e425ea50233d7f",
+      "committed_trace_ref": "branches/gen_003/committed_events.jsonl",
+      "committed_event_count": 6,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "call_agreed": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "positive_reply": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "no_explicit_decline": {
+          "value": true,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "recipient_name": "Peter Thiel",
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 6,
+        "recipient_own_turns": [
+          {
+            "index": 3,
+            "event_id": "ev_0003",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          },
+          {
+            "index": 5,
+            "event_id": "ev_0005",
+            "content": "Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel with a short, direct response: “Send me the replay logs and the failure cases. I’ll give you 20 minutes on Thursday if the data holds up.”"
+          }
+        ],
+        "per_metric": {
+          "call_agreed": {
+            "pattern_kind": "agreement",
+            "hits": [],
+            "value": false
+          },
+          "_explicit_decline": {
+            "pattern_kind": "decline",
+            "hits": [],
+            "value": false
+          },
+          "positive_reply": {
+            "pattern_kind": "agreement_or_engagement",
+            "hits": [],
+            "value": false
+          },
+          "no_explicit_decline": {
+            "pattern_kind": "decline (inverted)",
+            "hits": [],
+            "value": true
+          }
+        }
+      },
+      "steps_completed": 4
+    }
+  ],
+  "ranking": {
+    "declared_order": [
+      "call_agreed",
+      "positive_reply",
+      "no_explicit_decline"
+    ],
+    "ranking_key": "primary metric first, then each secondary metric in declared order; ties broken by the declared candidate order",
+    "ranking": [
+      {
+        "candidate_id": "gen_001",
+        "metric_values": {
+          "call_agreed": true,
+          "positive_reply": true,
+          "no_explicit_decline": true
+        }
+      },
+      {
+        "candidate_id": "gen_002",
+        "metric_values": {
+          "call_agreed": false,
+          "positive_reply": false,
+          "no_explicit_decline": true
+        }
+      },
+      {
+        "candidate_id": "gen_003",
+        "metric_values": {
+          "call_agreed": false,
+          "positive_reply": false,
+          "no_explicit_decline": true
+        }
+      }
+    ],
+    "best_candidate_id": "gen_001",
+    "metric_differences": {
+      "call_agreed": {
+        "gen_001": 0.0,
+        "gen_002": -1.0,
+        "gen_003": -1.0
+      },
+      "positive_reply": {
+        "gen_001": 0.0,
+        "gen_002": -1.0,
+        "gen_003": -1.0
+      },
+      "no_explicit_decline": {
+        "gen_001": 0.0,
+        "gen_002": 0.0,
+        "gen_003": 0.0
+      }
+    },
+    "downside_outcomes": {
+      "gen_001": "measured secondary outcomes: positive_reply=true (strict maximum among candidates tested), no_explicit_decline=true",
+      "gen_002": "measured secondary outcomes: positive_reply=false, no_explicit_decline=true",
+      "gen_003": "measured secondary outcomes: positive_reply=false, no_explicit_decline=true"
+    },
+    "decided_by_metric": "call_agreed",
+    "tie_break_used": true,
+    "validation_status": {
+      "schema_validated": true,
+      "semantics_validated": true,
+      "ranked_by_declared_metrics_in_declared_order": true,
+      "all_branches_free_of_infrastructure_errors": true,
+      "tie_break_candidate_id_lexicographic": true,
+      "decided_by_metric": "call_agreed"
+    },
+    "run_limitations": "Result provenance: live_model. This result identifies the best-performing action among the candidates tested under the declared evaluator metrics, computed only from recorded simulation traces; it is not a guarantee of real-world outcome. Ranking uses the declared metrics only: the primary metric (call_agreed) first, then each secondary metric compared descending in declared order (highest value first; polarity not inferred); any remaining exact tie is broken by candidate_id in ascending lexicographic order (code-owned final tie-break, applied in this ranking).",
+    "final_recommendation_result": {
+      "contract_type": "recommendation_result",
+      "schema_version": 1,
+      "best_candidate_id": "gen_001",
+      "ranking": [
+        {
+          "candidate_id": "gen_001",
+          "metric_values": {
+            "call_agreed": true,
+            "positive_reply": true,
+            "no_explicit_decline": true
+          }
+        },
+        {
+          "candidate_id": "gen_002",
+          "metric_values": {
+            "call_agreed": false,
+            "positive_reply": false,
+            "no_explicit_decline": true
+          }
+        },
+        {
+          "candidate_id": "gen_003",
+          "metric_values": {
+            "call_agreed": false,
+            "positive_reply": false,
+            "no_explicit_decline": true
+          }
+        }
+      ],
+      "metric_differences": {
+        "call_agreed": {
+          "gen_001": 0.0,
+          "gen_002": -1.0,
+          "gen_003": -1.0
+        },
+        "positive_reply": {
+          "gen_001": 0.0,
+          "gen_002": -1.0,
+          "gen_003": -1.0
+        },
+        "no_explicit_decline": {
+          "gen_001": 0.0,
+          "gen_002": 0.0,
+          "gen_003": 0.0
+        }
+      },
+      "downside_outcomes": {
+        "gen_001": "measured secondary outcomes: positive_reply=true (strict maximum among candidates tested), no_explicit_decline=true",
+        "gen_002": "measured secondary outcomes: positive_reply=false, no_explicit_decline=true",
+        "gen_003": "measured secondary outcomes: positive_reply=false, no_explicit_decline=true"
+      },
+      "run_limitations": "Result provenance: live_model. This result identifies the best-performing action among the candidates tested under the declared evaluator metrics, computed only from recorded simulation traces; it is not a guarantee of real-world outcome. Ranking uses the declared metrics only: the primary metric (call_agreed) first, then each secondary metric compared descending in declared order (highest value first; polarity not inferred); any remaining exact tie is broken by candidate_id in ascending lexicographic order (code-owned final tie-break, applied in this ranking).",
+      "validation_status": {
+        "schema_validated": true,
+        "semantics_validated": true,
+        "ranked_by_declared_metrics_in_declared_order": true,
+        "all_branches_free_of_infrastructure_errors": true,
+        "tie_break_candidate_id_lexicographic": true,
+        "decided_by_metric": "call_agreed"
+      }
+    }
+  }
+}

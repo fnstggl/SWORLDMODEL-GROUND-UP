@@ -1,0 +1,110 @@
+{
+  "contract_type": "branch_result",
+  "schema_version": 1,
+  "branch_id": "br_8e3417c31c45ffa6",
+  "candidate_id": "user_006",
+  "world_id": "w_d53492bb3ba4",
+  "terminal_status": "cutoff",
+  "terminal_world_state": {
+    "steps_completed": 15,
+    "committed_event_count": 17,
+    "actor_memory_counts": {
+      "new_media_hiring_lead": 9,
+      "new_media_strategy_partner": 5,
+      "creative_production_lead": 5,
+      "people_and_compensation_partner": 8,
+      "richard_zheng": 4
+    }
+  },
+  "event_trace": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] [2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] The simulation window opens at 2025-07-01T16:00:00Z."
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $300,000 base salary, then sends a message to the. People and Compensation Partner is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and references against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs; I recommend we move forward with an offer at the top of the approved base salary range, pending final sign-off.”\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production workflow samples, then sends a brief note to the hiring lead: “I’ve reviewed his creative output and production pace—he’s a strong fit for our owned-channel needs. I’m ready to support the offer discussion whenever you are.”\n"
+    },
+    {
+      "event_id": "ev_0005",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for Richard Zheng at a $300,000 base salary, notes that no compensation bands or budget constraints are known, and sends a message to the. New Media Hiring Lead is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0006",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng reviews the a16z New Media mandate and his own track record, then drafts a concise one-page memo titled \"New Media: Owned Channels, Not Just Production\" and sends it to the a16z hiring lead with the note: \"Happy to discuss how this role can compound portfolio outcomes—my background in owned distribution and launch strategy is directly aligned. Let me know if you'd like a walkthrough.\"\n"
+    },
+    {
+      "event_id": "ev_0007",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at a $300,000 base salary, then sends a message to the. People and Compensation Partner is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0008",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and references against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs; I recommend we move forward with an offer at the top of the approved base salary range, pending final sign-off.”\n"
+    },
+    {
+      "event_id": "ev_0009",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production workflow samples, then sends a brief note to the hiring lead: “I’ve reviewed his creative output and production pace—he’s a strong fit for our owned-channel needs. I’m ready to support the offer discussion whenever you are.”\n"
+    },
+    {
+      "event_id": "ev_0010",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for Richard Zheng at a $300,000 base salary, notes that no compensation bands or budget constraints are known, and sends a message to the. New Media Hiring Lead is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0011",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng drafts the one-page memo, prints it to PDF, and sends it to the a16z hiring lead with the exact note: \"Happy to discuss how this role can compound portfolio outcomes—my background in owned distribution and launch strategy is directly aligned. Let me know if you'd like a walkthrough.\"\n"
+    },
+    {
+      "event_id": "ev_0012",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at a $300,000 base salary, then sends a message to the. People and Compensation Partner is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0013",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and references against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs; I recommend we move forward with an offer at the top of the approved base salary range, pending final sign-off.”\n"
+    },
+    {
+      "event_id": "ev_0014",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production workflow samples, then sends a brief note to the hiring lead: “I’ve reviewed his creative output and production pace—he’s a strong fit for our owned-channel needs. I’m ready to support the offer discussion whenever you are.”\n"
+    },
+    {
+      "event_id": "ev_0015",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for Richard Zheng at a $300,000 base salary, notes that no compensation bands or budget constraints are known, and sends a message to the. New Media Hiring Lead is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0016",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng opens his laptop, pulls up the a16z New Media mandate alongside his own portfolio of owned-channel launches, and drafts a tight one-page memo titled \"New Media: Owned Channels, Not Just Production,\" then sends it to the hiring lead with the note: \"Happy to discuss how this role can compound portfolio outcomes—my background in owned distribution and launch strategy is directly aligned. Let me know if you'd like a walkthrough.\"\n"
+    }
+  ],
+  "outcome_metrics": {
+    "valid_offer_accepted": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "salary_savings_vs_300k": {
+      "value": 0.0,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  },
+  "infrastructure_errors": [],
+  "token_stats": {},
+  "runtime_stats": {
+    "wall_clock_seconds": 44.807812570999886,
+    "steps_completed": 15
+  },
+  "artifact_paths": []
+}

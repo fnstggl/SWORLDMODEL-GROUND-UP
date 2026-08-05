@@ -1,0 +1,16 @@
+{
+  "candidates": [
+    {
+      "summary": "Send a concise, respectful email to Peter Thiel requesting a 20-minute call, accurately describing the 724% replay result, offering a one-page memo, and avoiding any investment ask or false urgency.",
+      "action": "Draft and send an email to Peter Thiel (using publicly available contact or through Founders Fund's general contact) within the window, ensuring the body is 45-85 words, includes the required elements, and makes a single clear request for a 20-minute call."
+    },
+    {
+      "summary": "Send a follow-up email if no response within a few days, reiterating the request concisely and politely, without adding pressure or new claims.",
+      "action": "If no reply from the first email within 3-4 days, send a brief follow-up email (also 45-85 words) that restates the request for a 20-minute call, mentions the memo offer, and respects his time."
+    },
+    {
+      "summary": "Leverage a public platform to get Peter Thiel's attention, such as posting a thoughtful technical analysis on X (Twitter) and tagging him, then following up with a direct message if possible.",
+      "action": "Post a concise technical thread on X about the replay results and the potential of Aurelius, tagging @PeterThiel, and then send a direct message (if allowed) requesting a 20-minute call, ensuring the message is professional and not public."
+    }
+  ]
+}

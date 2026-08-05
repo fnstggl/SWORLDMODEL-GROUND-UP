@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-6-counterfactual-branch-manager",
+  "git_sha": "a738fbe4ce494a39eacfbfa7aebe70e05bc23762",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "/home/user/engine-env/bin/python -m pytest tests/engine_counterfactuals -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T20:36:58+00:00",
+  "finished_at": "2026-08-04T20:37:08+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "sworldmodel/counterfactuals/manager.py": "a8080a1136282bb1ea365b61bd0d2b626a866b33759b4321800038cc3e43fd6b",
+    "sworldmodel/outcomes/ranking.py": "9fee5d98228286ff34dd61662cc3f7ba86e72efc526fdc8cddc7fb92341c1094",
+    "sworldmodel/outcomes/evaluator.py": "0c4eede78b4860b6c0e52881b7bbb496f89bcb2e3f02c82bb22d718d844e50b1"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T20:37:08+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": false,
+  "output_tail": ".......................................                                  [100%]\n39 passed in 8.49s\n"
+}

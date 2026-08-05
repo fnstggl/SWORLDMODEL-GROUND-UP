@@ -1,0 +1,8 @@
+{
+  "name": "sworldmodel-replay-viewer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Read-only static replay viewer over the frozen full-trace-validation artifacts. Presentation layer only; the artifacts are the source of truth.",
+  "type": "module",
+  "license": "SEE REPOSITORY"
+}

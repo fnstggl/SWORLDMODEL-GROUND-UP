@@ -15,7 +15,9 @@ else.  Module map:
 - ``ranking``   -- deterministic total order by the declared metrics in
   declared order (primary first, secondaries next, all descending,
   polarity not inferred; candidate_id only as the final disclosed
-  tie-break), producing the Phase 3 ``RecommendationResult``.
+  tie-break), producing the Phase 3 ``RecommendationResult`` -- and
+  REFUSING to produce one (``InterventionNotDeliveredError``) when every
+  branch whose delivery was measured failed to deliver its intervention.
 
 Pure stdlib; no LLM anywhere; nothing here overrides a measured value.
 """
@@ -23,9 +25,10 @@ Pure stdlib; no LLM anywhere; nothing here overrides a measured value.
 from .evaluator import evaluate_branch, evaluate_branches
 from .metrics import (WHOLE_TRACE_CITATION, count_metric, event_description,
                       exists_metric, matching_indices, substring_matcher)
-from .ranking import rank_branches
+from .ranking import InterventionNotDeliveredError, rank_branches
 
 __all__ = [
+    "InterventionNotDeliveredError",
     "WHOLE_TRACE_CITATION",
     "count_metric",
     "evaluate_branch",

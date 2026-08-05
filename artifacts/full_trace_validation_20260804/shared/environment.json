@@ -1,0 +1,9 @@
+{
+  "label": "UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION",
+  "harness_version": "full_trace_validation_v1",
+  "repository_sha": "7e30a8ea8ef3e8e171ed15c35f964284b9872e6e",
+  "python": "3.12.3 (main, Mar  3 2026, 12:15:18) [GCC 13.3.0]",
+  "python_executable": "/home/user/engine-env/bin/python",
+  "platform": "Linux-6.18.5-fc-v18-x86_64-with-glibc2.39",
+  "recorded_at": "2026-08-04T18:10:38Z"
+}

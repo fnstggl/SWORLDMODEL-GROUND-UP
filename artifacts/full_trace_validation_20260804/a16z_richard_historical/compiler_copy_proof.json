@@ -1,0 +1,54 @@
+{
+  "accepted_attempt": 1,
+  "source": "artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler_attempts/attempt_1",
+  "target": "artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler",
+  "per_file_sha256_source": {
+    "per_file": {
+      "actor_initial_views.json": "d7c33a147de92a8fc900fed636c5a2bf447ac42b2da63cff942499174450ace1",
+      "attempt_verdict.json": "d5a435442d918047c7e0f9393869a8e5329e3b5fbc0ef33ada197a4e066968a0",
+      "call_1_prompt.txt": "378519019996f99894f31faf41a717f265eeb69d13a25503e06dc92d27de1de2",
+      "call_1_raw_response.txt": "f02b97100afb913907fa1fcfc73095521b099cd4e4ec93ce3b61cb1cb2a7f2b3",
+      "call_2_prompt.txt": "4078fa7c06897981b31fdf0cdea3822569826b696ed599ac8535caecff3fd94d",
+      "call_2_raw_response.txt": "5f3a8269c5d7e19265822088699fe278cbaf68638748b13c722362e90374319c",
+      "compiler_metrics.json": "2b98058a3dbe318da81f80b6423098cef135b2beb7a4b98cc96f8e24e5bbea76",
+      "final_scene_manifest.json": "0d1844e03bf661a5f4dd5b9ba4847d29b57e3789ac5cd49ffc5bc60262da4d7a",
+      "genesis_resolution_check.json": "5a2c5983cf552893afaf319e80c35a164ec0888f371bfe79bb120afea55a2eca",
+      "initialized_world_snapshot.json": "7a1d63adbe05ca7400ee2a8ef51e76fd80cd791884ec9cd76f032c78b68e7cb6",
+      "input.json": "96cb86b8403110043ac07b07a6737cfe2341cb9b31a558ae1787cd764573a3ba",
+      "llm_calls.jsonl": "0b9358f180629a064ee4a18385d2e5a9d2b5dfe332cc6e34b8b15be6e87905ea",
+      "normalization_report.json": "b19e49aad48bce8996d3ae0def20103e41acecf26b4719dd0604960c1d212c23",
+      "runtime_bindings.json": "bb10e703295843a4f1ee57ffd4c369f591ed613ea82e758e9974715492c06911",
+      "scene_manifest.json": "9d01b47b9856d8939b662f1c703c5597ef59dc38be7f7b954004be247b31a504",
+      "scene_review.json": "1d4a7f23ec99ad1ec9e54bfe5bf647cb1acd903cbf95ffd60127bd1e6edfc494",
+      "starting_event_ledger.jsonl": "6c0d7890115409ed6abbd8a57b3809de03380f694668c3034ee51a84bac65961",
+      "validation_report.json": "92f2982cf448d6473ae58182bdfba1f8cb6bcad37a1dffec4e5f6010a29a0c6d"
+    },
+    "aggregate": "e550183449afce143735afe37115f9faa881df131194a1e1b2ccfb456c3d1961",
+    "file_count": 18
+  },
+  "per_file_sha256_target": {
+    "per_file": {
+      "actor_initial_views.json": "d7c33a147de92a8fc900fed636c5a2bf447ac42b2da63cff942499174450ace1",
+      "attempt_verdict.json": "d5a435442d918047c7e0f9393869a8e5329e3b5fbc0ef33ada197a4e066968a0",
+      "call_1_prompt.txt": "378519019996f99894f31faf41a717f265eeb69d13a25503e06dc92d27de1de2",
+      "call_1_raw_response.txt": "f02b97100afb913907fa1fcfc73095521b099cd4e4ec93ce3b61cb1cb2a7f2b3",
+      "call_2_prompt.txt": "4078fa7c06897981b31fdf0cdea3822569826b696ed599ac8535caecff3fd94d",
+      "call_2_raw_response.txt": "5f3a8269c5d7e19265822088699fe278cbaf68638748b13c722362e90374319c",
+      "compiler_metrics.json": "2b98058a3dbe318da81f80b6423098cef135b2beb7a4b98cc96f8e24e5bbea76",
+      "final_scene_manifest.json": "0d1844e03bf661a5f4dd5b9ba4847d29b57e3789ac5cd49ffc5bc60262da4d7a",
+      "genesis_resolution_check.json": "5a2c5983cf552893afaf319e80c35a164ec0888f371bfe79bb120afea55a2eca",
+      "initialized_world_snapshot.json": "7a1d63adbe05ca7400ee2a8ef51e76fd80cd791884ec9cd76f032c78b68e7cb6",
+      "input.json": "96cb86b8403110043ac07b07a6737cfe2341cb9b31a558ae1787cd764573a3ba",
+      "llm_calls.jsonl": "0b9358f180629a064ee4a18385d2e5a9d2b5dfe332cc6e34b8b15be6e87905ea",
+      "normalization_report.json": "b19e49aad48bce8996d3ae0def20103e41acecf26b4719dd0604960c1d212c23",
+      "runtime_bindings.json": "bb10e703295843a4f1ee57ffd4c369f591ed613ea82e758e9974715492c06911",
+      "scene_manifest.json": "9d01b47b9856d8939b662f1c703c5597ef59dc38be7f7b954004be247b31a504",
+      "scene_review.json": "1d4a7f23ec99ad1ec9e54bfe5bf647cb1acd903cbf95ffd60127bd1e6edfc494",
+      "starting_event_ledger.jsonl": "6c0d7890115409ed6abbd8a57b3809de03380f694668c3034ee51a84bac65961",
+      "validation_report.json": "92f2982cf448d6473ae58182bdfba1f8cb6bcad37a1dffec4e5f6010a29a0c6d"
+    },
+    "aggregate": "e550183449afce143735afe37115f9faa881df131194a1e1b2ccfb456c3d1961",
+    "file_count": 18
+  },
+  "byte_identical_copy": true
+}

@@ -27,7 +27,13 @@ captures everything the Phase 3 ``BranchResult`` builder needs:
   excerpts capped at 120 characters).  Recorded only for the DEFAULT
   builder-constructed guard: an explicitly injected ``guard_step`` owns
   its own reporting, and the identity guard never rewrites, so the list
-  is empty in both of those configurations.
+  is empty in both of those configurations;
+- ``unresolved_observers``: one record per game-master-authored observer
+  name that did NOT resolve to a roster entity (shape
+  ``{observer_name, normalized, reason, event_excerpt}``), read off the
+  builder's observer seam.  Upstream keys such a name into a queue
+  nobody reads and the event vanishes with no error; the seam records it
+  instead, and the record travels to the branch contract.
 
 Terminal-status rule (contract rule R3, CONTRACTS_DESIGN.md): an engine
 stop without an evaluator verdict is NEVER a failure.  The runner reports
@@ -281,6 +287,24 @@ def _verify_committed_stream_integrity(gm_memory_rows, *, steps_completed,
 _EXCERPT_LIMIT = 120
 
 
+def _unresolved_observers(built: BuiltBranch) -> list:
+    """Every game-master-named observer this branch could NOT resolve to a
+    roster entity, read off the builder's observer seam
+    (``builder.RosterValidatedMakeObservation``).
+
+    Empty for any configuration whose ``make_observation`` component does
+    not carry the seam -- the accessor is asked for, never assumed, so a
+    diagnostic read can never itself fail a run.  The list rides the
+    result next to ``guard_interventions`` and reaches the branch
+    contract through the counterfactual manager; upstream's own behaviour
+    (create a phantom queue key and drop the event) left no trace at all.
+    """
+    getter = getattr(built.make_observation, "unresolved_observers", None)
+    if getter is None:
+        return []
+    return [dict(entry) for entry in getter]
+
+
 def _validate_checkpoint_request(built: BuiltBranch, checkpoint_after,
                                  halt_at_checkpoint, checkpoint_identity,
                                  steps_already_completed) -> None:
@@ -476,6 +500,7 @@ def run_built_branch(built: BuiltBranch, *, capture_raw_log: bool = True,
         "raw_log": raw_log,
         "guard_interventions": (list(guard_interventions)
                                 if guard_interventions is not None else []),
+        "unresolved_observers": _unresolved_observers(built),
         "infrastructure_errors": infrastructure_errors,
         "token_stats": {},
         "runtime_stats": {

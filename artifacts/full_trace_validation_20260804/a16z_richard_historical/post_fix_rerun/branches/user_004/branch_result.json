@@ -1,0 +1,164 @@
+{
+  "contract_type": "branch_result",
+  "schema_version": 1,
+  "branch_id": "br_26fd2db994a9ace0",
+  "candidate_id": "user_004",
+  "world_id": "w_d53492bb3ba4",
+  "terminal_status": "cutoff",
+  "terminal_world_state": {
+    "steps_completed": 15,
+    "committed_event_count": 17,
+    "actor_memory_counts": {
+      "new_media_hiring_lead": 9,
+      "new_media_strategy_partner": 5,
+      "creative_production_lead": 5,
+      "people_and_compensation_partner": 8,
+      "richard_zheng": 4
+    }
+  },
+  "event_trace": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] [2025-07-01T16:00:00Z] The simulation begins with the hiring process for the New Media role in progress. No offer has been extended to Richard Zheng, and no compensation terms have been proposed or approved."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] The simulation window opens at 2025-07-01T16:00:00Z."
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $200,000 base salary, then sends it to the People and Compensation Partner for approval with the message: “Please approve the $200,000 base salary offer for Richard Zheng for the New Media role so we can move forward.”\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move to a formal offer discussion before the window closes, but I’ll defer to you on final terms.”\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to see how he handles tight-turnaround brand work. Happy to join a candidate debrief if useful.”\n"
+    },
+    {
+      "event_id": "ev_0005",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $200,000 base salary against the fixed package and market context, then replies to the New Media Hiring Lead: “I need to see the full package details and any benchmark data before I can approve this salary; please share the complete offer summary so I can assess it properly.”\n"
+    },
+    {
+      "event_id": "ev_0006",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng reviews the a16z New Media role description and the hiring timeline, then drafts a concise, direct email to the hiring lead—cc’ing no one—asking for a 30-minute call before the decision window closes, writing: “I’d like to align on scope and expectations for the New Media role before you finalize terms; I can make myself available any time this week.”\n"
+    },
+    {
+      "event_id": "ev_0007",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $200,000 base salary, then sends it to the People and Compensation Partner for approval with the message: “Please approve the $200,000 base salary offer for Richard Zheng for the New Media role so we can move forward.”\n"
+    },
+    {
+      "event_id": "ev_0008",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move to a formal offer discussion before the window closes, but I’ll defer to you on final terms.”\n"
+    },
+    {
+      "event_id": "ev_0009",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to see how he handles tight-turnaround brand work. Happy to join a candidate debrief if useful.”\n"
+    },
+    {
+      "event_id": "ev_0010",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner replies to the New Media Hiring Lead: “I need to see the full package details and any benchmark data before I can approve this salary; please share the complete offer summary so I can assess it properly.”\n"
+    },
+    {
+      "event_id": "ev_0011",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng opens his email draft, reviews the role description once more, and sends the concise message to the hiring lead with no cc, writing: “I’d like to align on scope and expectations for the New Media role before you finalize terms; I can make myself available any time this week.”\n"
+    },
+    {
+      "event_id": "ev_0012",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead compiles the complete offer summary—title, scope, reporting line, benefits, equity, and the proposed $200,000 base salary—along with market benchmark data for comparable New Media roles, and sends it to the People and Compensation Partner with the message: “Here is the full package summary and benchmark data for Richard Zheng’s offer; please review and let me know if you can approve the $200,000 base salary so we can proceed.”\n"
+    },
+    {
+      "event_id": "ev_0013",
+      "description": "[observation] [event] Event: Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and past campaign metrics against the fixed role scope, then sends a concise internal note to the hiring lead: “Richard’s track record in owned-channel growth and launch strategy aligns well with our portfolio needs—recommend we move to a formal offer discussion before the window closes, but I’ll defer to you on final terms.”\n"
+    },
+    {
+      "event_id": "ev_0014",
+      "description": "[observation] [event] Event: Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and production credits against the team’s current creative gaps, then sends a brief internal note to the hiring lead: “I’ve reviewed Richard’s work—strong on narrative and cross-platform execution, but I’d want to see how he handles tight-turnaround brand work. Happy to join a candidate debrief if useful.”\n"
+    },
+    {
+      "event_id": "ev_0015",
+      "description": "[observation] [event] Event: Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the full package summary and benchmark data, then replies to the New Media Hiring Lead: “Thank you for the complete details—based on the fixed package and market benchmarks, I approve the $200,000 base salary offer for Richard Zheng, so you can proceed with extending it.”\n"
+    },
+    {
+      "event_id": "ev_0016",
+      "description": "[observation] [event] Event: Putative event to resolve:  Richard Zheng: Richard Zheng sends the email to the hiring lead with no cc, writing exactly: “I’d like to align on scope and expectations for the New Media role before you finalize terms; I can make myself available any time this week.”\n"
+    }
+  ],
+  "outcome_metrics": {
+    "valid_offer_accepted": {
+      "value": false,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    },
+    "salary_savings_vs_300k": {
+      "value": 100000.0,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  },
+  "infrastructure_errors": [],
+  "token_stats": {},
+  "runtime_stats": {
+    "wall_clock_seconds": 48.85107890099971,
+    "steps_completed": 15
+  },
+  "artifact_paths": [],
+  "intervention_delivered": {
+    "status": "not_delivered",
+    "reason": "no_distinctive_fragment_reached_any_other_actor",
+    "insertion_actor": "new_media_hiring_lead",
+    "reached_actors": [],
+    "fragments_tested": 1,
+    "fragments_found": 0,
+    "reached_committed_world": false,
+    "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+  },
+  "unresolved_observers": [
+    {
+      "observer_name": "Hiring Lead",
+      "normalized": "Hiring Lead",
+      "reason": "no_roster_match",
+      "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+    },
+    {
+      "observer_name": "Hiring Lead",
+      "normalized": "Hiring Lead",
+      "reason": "no_roster_match",
+      "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+    },
+    {
+      "observer_name": "Hiring Lead",
+      "normalized": "Hiring Lead",
+      "reason": "no_roster_match",
+      "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+    },
+    {
+      "observer_name": "Hiring Lead",
+      "normalized": "Hiring Lead",
+      "reason": "no_roster_match",
+      "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+    },
+    {
+      "observer_name": "Hiring Lead",
+      "normalized": "Hiring Lead",
+      "reason": "no_roster_match",
+      "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+    },
+    {
+      "observer_name": "Hiring Lead",
+      "normalized": "Hiring Lead",
+      "reason": "no_roster_match",
+      "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+    },
+    {
+      "observer_name": "hiring lead",
+      "normalized": "hiring lead",
+      "reason": "no_roster_match",
+      "event_excerpt": "Putative event to resolve:  Richard Zheng: Richard Zheng sends the email to the hiring lead with no cc, writing exactly:"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "experiment_id": "peter_compile",
+  "ledger": {
+    "experiment_id": "peter_compile",
+    "records_written": 2,
+    "distinct_call_ids": 2,
+    "per_role": {
+      "compiler": 2
+    },
+    "records_with_error": 0,
+    "records_that_were_retries": 0,
+    "master_ledger": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/peter_supplied/compiler/llm_calls.jsonl"
+  },
+  "network_boundary": {
+    "request_count": 2,
+    "per_role": {
+      "compiler": 2
+    }
+  },
+  "seams": {
+    "compiler_transport": {
+      "invocations": 2,
+      "attempts": 2,
+      "failed_attempts": 0
+    }
+  },
+  "seam_attempt_total": 2,
+  "equality_proof": {
+    "claim": "every provider request issued at the network boundary produced exactly one ledger record with a distinct call_id, and every ledger record corresponds to one wrapper attempt",
+    "ledger_records_written": 2,
+    "ledger_distinct_call_ids": 2,
+    "network_boundary_requests": 2,
+    "seam_attempt_total": 2,
+    "all_equal": true
+  }
+}

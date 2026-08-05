@@ -1,0 +1,23 @@
+{
+  "candidate_id": "user_001",
+  "recipient_prompt_count": 2,
+  "recipient_first_turn_prompt_sha256": "7b76809d3822059ab152214997941045a4eb0c5ecbe8d557aa44fc14080d7683",
+  "recipient_first_turn_prompt_chars": 1045,
+  "candidate_fragments_tested": 6,
+  "candidate_fragments_found_in_recipient_prompts": 0,
+  "example_fragment_found": null,
+  "example_fragment_missing": "I built a supervisory optimizer for GPU fleets that produced 7.24× more SLA-safe goodput per dollar across 1.5M replayed production requests.",
+  "content_delivered_to_recipient": false,
+  "per_prompt_sha256": [
+    {
+      "step": 2,
+      "call_id": "settling_arm_a_rep_1-000002",
+      "sha256": "7b76809d3822059ab152214997941045a4eb0c5ecbe8d557aa44fc14080d7683"
+    },
+    {
+      "step": 4,
+      "call_id": "settling_arm_a_rep_1-000004",
+      "sha256": "233513e334db03aeb85e8018c08dd69df120a31fcc89c6d2afbd054b4707701a"
+    }
+  ]
+}

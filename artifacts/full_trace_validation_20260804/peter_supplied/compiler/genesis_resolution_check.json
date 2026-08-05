@@ -1,0 +1,10 @@
+{
+ "resolution": {
+  "question": "Will the following outcome occur before the cutoff? Peter Thiel explicitly agrees to a 20-minute call with Beckett Zahedi.",
+  "resolution": "Resolve YES only if the persistent event history shows that Peter Thiel explicitly agreed to a 20-minute call with Beckett Zahedi before 2026-08-11T18:10:38Z. Otherwise resolve NO at that cutoff.",
+  "cutoff": "2026-08-11T18:10:38Z",
+  "world_id": "w_a1b3e564888f"
+ },
+ "value_at_genesis": null,
+ "false_at_genesis": true
+}

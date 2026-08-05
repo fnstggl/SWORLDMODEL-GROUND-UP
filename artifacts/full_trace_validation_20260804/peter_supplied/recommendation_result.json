@@ -1,0 +1,62 @@
+{
+  "contract_type": "recommendation_result",
+  "schema_version": 1,
+  "best_candidate_id": "user_002",
+  "ranking": [
+    {
+      "candidate_id": "user_002",
+      "metric_values": {
+        "call_agreed": true,
+        "positive_reply": true,
+        "no_explicit_decline": true
+      }
+    },
+    {
+      "candidate_id": "user_001",
+      "metric_values": {
+        "call_agreed": false,
+        "positive_reply": false,
+        "no_explicit_decline": true
+      }
+    },
+    {
+      "candidate_id": "user_003",
+      "metric_values": {
+        "call_agreed": false,
+        "positive_reply": false,
+        "no_explicit_decline": true
+      }
+    }
+  ],
+  "metric_differences": {
+    "call_agreed": {
+      "user_002": 0.0,
+      "user_001": -1.0,
+      "user_003": -1.0
+    },
+    "positive_reply": {
+      "user_002": 0.0,
+      "user_001": -1.0,
+      "user_003": -1.0
+    },
+    "no_explicit_decline": {
+      "user_002": 0.0,
+      "user_001": 0.0,
+      "user_003": 0.0
+    }
+  },
+  "downside_outcomes": {
+    "user_002": "measured secondary outcomes: positive_reply=true (strict maximum among candidates tested), no_explicit_decline=true",
+    "user_001": "measured secondary outcomes: positive_reply=false, no_explicit_decline=true",
+    "user_003": "measured secondary outcomes: positive_reply=false, no_explicit_decline=true"
+  },
+  "run_limitations": "Result provenance: live_model. This result identifies the best-performing action among the candidates tested under the declared evaluator metrics, computed only from recorded simulation traces; it is not a guarantee of real-world outcome. Ranking uses the declared metrics only: the primary metric (call_agreed) first, then each secondary metric compared descending in declared order (highest value first; polarity not inferred); any remaining exact tie is broken by candidate_id in ascending lexicographic order (code-owned final tie-break, applied in this ranking).",
+  "validation_status": {
+    "schema_validated": true,
+    "semantics_validated": true,
+    "ranked_by_declared_metrics_in_declared_order": true,
+    "all_branches_free_of_infrastructure_errors": true,
+    "tie_break_candidate_id_lexicographic": true,
+    "decided_by_metric": "call_agreed"
+  }
+}

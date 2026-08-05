@@ -1,0 +1,120 @@
+{
+  "accepted": false,
+  "compiler_status": "failed",
+  "compiler_reason": "VALIDATION_FAILED: the question states the deadline 'before 1 July 2025' (2025-07-01), which is narrower than the compile cutoff 2025-07-10, but the resolution references neither: the cutoff must never silently replace the question's own window",
+  "compiled_cast_in_declaration_order": [
+    "New Media Hiring Lead",
+    "New Media Strategy Partner",
+    "Creative Production Lead",
+    "People and Compensation Partner",
+    "Richard Zheng"
+  ],
+  "checks": {
+    "compiler_status_ok": false,
+    "cast_is_exactly_the_declared_five": true,
+    "no_prewritten_outcome_in_starting_events": false,
+    "historical_cutoff_clean": true
+  },
+  "prewritten_outcome_findings": [
+    {
+      "starting_event_index": 0,
+      "pattern": "\\boffer\\s+(?:has\\s+been|was|is)\\s+(?:made|issued|extended|sent|prepared|approved|authoriz\\w+|accepted|declined|rejected)",
+      "matched_text": "offer has been prepared",
+      "description": "The simulation begins with the hiring process in its initial state: no offer has been prepared, authorized, issued, or discussed with Richard Zheng. All actors are aware of the role's purpose and the candidate's background as of the cutoff."
+    }
+  ],
+  "cutoff_scan": {
+    "cutoff_date": "2025-07-01",
+    "simulation_window_end": "2025-07-10",
+    "arms": {
+      "date": "every date-shaped token is resolved to a calendar day; a day after the window end is a violation",
+      "phrase": "narrow completed-state phrasings that presuppose the post-cutoff outcome"
+    },
+    "phrase_patterns": [
+      "\\b(?:has|had|have)\\s+(?:already\\s+)?joined\\b[^.!?]{0,40}a16z",
+      "\\balready\\s+(?:works?|working|joined|joins|employed)\\b[^.!?]{0,40}a16z",
+      "\\b(?:now|currently|today|since)\\s+(?:works?|working|employed|leads?|heads?|runs?|is\\s+(?:at|with|part\\s+of))\\b[^.!?]{0,40}a16z",
+      "\\bwas\\s+hired\\s+by\\b[^.!?]{0,40}a16z",
+      "\\b(?:has|had)\\s+been\\s+hired\\b[^.!?]{0,40}a16z",
+      "\\ba16z\\s+(?:hired|announced\\s+the\\s+hire\\s+of|brought\\s+on)\\b[^.!?]{0,40}(?:richard|zheng)",
+      "\\b(?:accepted|signed)\\s+(?:the\\s+)?a16z\\s+offer\\b",
+      "\\bhis\\s+(?:role|job|position|work)\\s+at\\s+a16z\\b",
+      "POST-CUTOFF\\s+CANARY"
+    ],
+    "surfaces_scanned": [
+      "final_scene_manifest"
+    ],
+    "surface_count": 1,
+    "per_surface": [
+      {
+        "surface": "final_scene_manifest",
+        "characters_scanned": 4241,
+        "violations": [],
+        "window_references": [],
+        "pre_cutoff_date_tokens": [
+          {
+            "surface": "final_scene_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              175,
+              185
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          },
+          {
+            "surface": "final_scene_manifest",
+            "matched_text": "2025-07-01",
+            "span": [
+              2438,
+              2448
+            ],
+            "resolved_day": "2025-07-01",
+            "granularity": "day",
+            "reason": "on or before the 2025-07-01 knowledge cutoff"
+          }
+        ],
+        "clean": true
+      }
+    ],
+    "violations": [],
+    "violation_count": 0,
+    "window_references": [],
+    "clean": true
+  },
+  "rejection_reasons": [
+    "compiler_status_ok",
+    "no_prewritten_outcome_in_starting_events"
+  ],
+  "attempt": 2,
+  "wall_seconds": 11.11,
+  "compiler_metrics": {
+    "semantic_calls": 2,
+    "semantic_slots": [
+      "call_1_scene",
+      "call_2_review"
+    ],
+    "provider_requests": 2,
+    "total_prompt_tokens": 8399,
+    "total_completion_tokens": 982,
+    "per_slot": {
+      "call_1_scene": {
+        "attempts": 1,
+        "duration_s": 9.366,
+        "prompt_tokens": 4205,
+        "completion_tokens": 964
+      },
+      "call_2_review": {
+        "attempts": 1,
+        "duration_s": 1.743,
+        "prompt_tokens": 4194,
+        "completion_tokens": 18
+      }
+    },
+    "wall_s": 11.11,
+    "compiler_version": "minimal_scene_v1",
+    "evidence_mode": "evidence_package"
+  },
+  "artifact_dir": "artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler_attempts/attempt_2"
+}

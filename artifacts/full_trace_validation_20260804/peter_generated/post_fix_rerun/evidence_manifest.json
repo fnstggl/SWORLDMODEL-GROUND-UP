@@ -1,0 +1,174 @@
+{
+  "manifest_version": "evidence_manifest_v1",
+  "experiment_id": "peter_generated",
+  "window": {
+    "start": "2026-08-04T18:10:38Z",
+    "cutoff": "2026-08-11T18:10:38Z"
+  },
+  "actor_names": [
+    "Beckett Zahedi",
+    "Peter Thiel"
+  ],
+  "classification_counts": {
+    "USER_SUPPLIED": 6,
+    "PUBLICLY_VERIFIED": 1,
+    "TEST_ASSUMPTION": 3,
+    "UNKNOWN": 3
+  },
+  "classification_rules": {
+    "USER_SUPPLIED": "asserted by the user of this experiment; treated as true inside the simulation, not independently verified here",
+    "PUBLICLY_VERIFIED": "stated by a dated public source published before the window opens",
+    "TEST_ASSUMPTION": "needed for the scene to exist; no source establishes it",
+    "UNKNOWN": "not known to anyone in this experiment; recorded so the gap is visible"
+  },
+  "notes": "Frozen before simulation and hashed into freeze_manifest.json. Private-context assignments were requested of the compiler; where the compiler placed a claim is recorded in the compiled world, not here.",
+  "items": [
+    {
+      "claim": "Beckett Zahedi is 17 and is starting Princeton in fall 2026.",
+      "source": "user-supplied decision problem (data/peter_problem.json)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": [
+        "Beckett Zahedi"
+      ],
+      "used_by_compiler": true,
+      "entered_context": "private:Beckett Zahedi"
+    },
+    {
+      "claim": "Beckett Zahedi is building Aurelius, a supervisory optimization system for GPU fleets.",
+      "source": "user-supplied decision problem (data/peter_problem.json)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": [
+        "Beckett Zahedi"
+      ],
+      "used_by_compiler": true,
+      "entered_context": "private:Beckett Zahedi"
+    },
+    {
+      "claim": "In replay tests over approximately 1.5 million public production requests, Aurelius produced approximately 724% more SLA-safe goodput per dollar.",
+      "source": "user-supplied decision problem (data/peter_problem.json)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": [
+        "Beckett Zahedi"
+      ],
+      "used_by_compiler": true,
+      "entered_context": "private:Beckett Zahedi"
+    },
+    {
+      "claim": "The 724% result has NOT been validated in a live production deployment and may not be represented as production-proven.",
+      "source": "user-supplied decision problem (data/peter_problem.json)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": [
+        "Beckett Zahedi"
+      ],
+      "used_by_compiler": true,
+      "entered_context": "private:Beckett Zahedi"
+    },
+    {
+      "claim": "Beckett Zahedi has never contacted Peter Thiel and has no known mutual introduction.",
+      "source": "user-supplied decision problem (data/peter_problem.json)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": [
+        "Beckett Zahedi",
+        "Peter Thiel"
+      ],
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "Beckett Zahedi wants criticism and a short technical conversation, not an immediate investment.",
+      "source": "user-supplied decision problem (data/peter_problem.json)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": [
+        "Beckett Zahedi"
+      ],
+      "used_by_compiler": true,
+      "entered_context": "private:Beckett Zahedi"
+    },
+    {
+      "claim": "Peter Thiel is a partner at Founders Fund, a cofounder of PayPal and of Palantir, and the founder of the Thiel Fellowship.",
+      "source": "public professional record (widely published biography)",
+      "date": "public record predating 2026-08-04",
+      "available_before_cutoff": true,
+      "classification": "PUBLICLY_VERIFIED",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "This simulation models exactly two actors: the sender and the recipient. No assistant, colleague, or intermediary exists in the modelled world.",
+      "source": "harness modelling decision (experiments/full_trace_validation)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "TEST_ASSUMPTION",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "The recipient reads and can answer a message inside the seven-day window (the simulation gives him turns).",
+      "source": "harness modelling decision (experiments/full_trace_validation)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "TEST_ASSUMPTION",
+      "who_may_know": "all",
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "Peter Thiel's actual inbox behaviour, screening rules, assistant arrangements, and calendar availability in this window.",
+      "source": "no source; not knowable from public biography",
+      "date": "n/a",
+      "available_before_cutoff": false,
+      "classification": "UNKNOWN",
+      "who_may_know": [
+        "Peter Thiel"
+      ],
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "Peter Thiel's private opinions about GPU-fleet scheduling, about this specific claim, and about unsolicited cold email from teenagers.",
+      "source": "no source; not knowable from public biography",
+      "date": "n/a",
+      "available_before_cutoff": false,
+      "classification": "UNKNOWN",
+      "who_may_know": [
+        "Peter Thiel"
+      ],
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "Whether the 724% replay result would survive independent technical scrutiny.",
+      "source": "not established by this experiment",
+      "date": "n/a",
+      "available_before_cutoff": false,
+      "classification": "UNKNOWN",
+      "who_may_know": "all",
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "The decision window runs from 2026-08-04T18:10:38Z to 2026-08-11T18:10:38Z (the actual UTC run start plus seven days).",
+      "source": "harness modelling decision (experiments/full_trace_validation)",
+      "date": "2026-08-04 (supplied to this experiment)",
+      "available_before_cutoff": true,
+      "classification": "TEST_ASSUMPTION",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    }
+  ]
+}

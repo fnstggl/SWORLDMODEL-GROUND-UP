@@ -39,6 +39,14 @@ Guarantees (directive, "Exact compiler-to-Concordia mapping requirement"):
   visible to no actor; the frozen contract requires at least one
   observer per starting event.  Such input is refused with an error
   naming this narrowing -- never mapped lossily.
+- **Recorded, non-blocking hygiene.**  A starting event whose
+  DESCRIPTION names a declared actor its ``visible_to`` leaves out is
+  recorded as a labeled warning (:func:`visibility_incoherence_warnings`,
+  :data:`VISIBILITY_WARNING_LABEL`) on ``AdaptedScene.warnings`` and in
+  the sidecar -- never refused.  The shape is legitimate in worlds that
+  deliberately narrate a one-sided act, and it is also the exact shape
+  of the delivery defect the 2026-08-04 under-the-hood validation found,
+  so it is surfaced rather than either ignored or rejected.
 
 Input surfaces:
 
@@ -101,17 +109,107 @@ OPTIONAL_JSON_ARTIFACT_FILES = ("scene_manifest.json",
 
 _ID_CLEAN_RE = re.compile(r"[^a-z0-9]+")
 
+#: label every visibility-incoherence finding carries.  HEURISTIC by
+#: construction (see :func:`visibility_incoherence_warnings`) and recorded
+#: as a warning, never a refusal.
+VISIBILITY_WARNING_LABEL = "heuristic_visibility_incoherence"
+
 
 @dataclass(frozen=True)
 class AdaptedScene:
     """One adapter result: the validated contract world, the code-owned
-    name-to-identifier binding, and the sidecar of every piece of compile
+    name-to-identifier binding, the sidecar of every piece of compile
     metadata the contract does not express (adapter-owned provenance; the
-    caller persists it alongside the world if durability is wanted)."""
+    caller persists it alongside the world if durability is wanted), and
+    the recorded non-blocking warnings (also carried in the sidecar)."""
 
     world: CompiledDecisionWorld
     actor_id_by_name: dict
     sidecar: dict
+    warnings: tuple = ()
+
+
+def _names_an_actor(description: str, name: str) -> bool:
+    """Whole-token occurrence of ``name`` inside ``description``.
+
+    Deliberately narrow: the EXACT declared name only, bounded by
+    non-alphanumeric characters on both sides (so "Ada" does not match
+    inside "Adalyn" and "Duty Officer" does not match "Deputy Duty
+    Officers"), case-sensitive because both strings come from the same
+    manifest.  No first-name, nickname, initial, or fuzzy matching --
+    an over-eager rule would flood every world with warnings and train
+    readers to ignore them.
+    """
+    if not name:
+        return False
+    start = 0
+    while True:
+        index = description.find(name, start)
+        if index == -1:
+            return False
+        before = description[index - 1] if index > 0 else " "
+        after_index = index + len(name)
+        after = (description[after_index]
+                 if after_index < len(description) else " ")
+        if not before.isalnum() and not after.isalnum():
+            return True
+        start = index + 1
+
+
+def visibility_incoherence_warnings(events, actor_names,
+                                    actor_id_by_name=None) -> tuple:
+    """Starting events whose DESCRIPTION names an actor their
+    ``visible_to`` leaves out.
+
+    Why this is worth recording (2026-08-04 under-the-hood validation).
+    A compiled cold-outreach world routinely ships a send event described
+    as "A sends the prepared message to B" with ``visible_to: [A]`` --
+    the production compiler's own prompt exemplar teaches that shape --
+    so B is narrated as a participant in an event B never observes.  The
+    event is then delivered to A only, A's model is told the send already
+    happened, and the content can reach B only if A's own model chooses
+    to restate it.  Nothing in the chain (scene validation, this adapter,
+    the planner) noticed the mismatch.
+
+    Why a WARNING and not a refusal.  The shape is legitimate in worlds
+    where the description deliberately narrates a one-sided act (a
+    private note ABOUT someone, an unsent draft, an observation of a
+    third party).  Refusing would reject those worlds outright.  The
+    finding is recorded, labeled :data:`VISIBILITY_WARNING_LABEL`, and
+    left for the reader.
+
+    ``events`` are the mapped starting-event payloads (description +
+    resolved ``visible_to`` ids), ``actor_names`` maps actor_id -> name.
+    Returns a deterministic tuple ordered by (event index, actor id).
+    """
+    del actor_id_by_name  # accepted for call-site symmetry; unused
+    findings: list = []
+    for index, event in enumerate(events):
+        visible = set(event["visible_to"])
+        description = event["description"]
+        for actor_id in sorted(actor_names):
+            if actor_id in visible:
+                continue
+            name = actor_names[actor_id]
+            if not _names_an_actor(description, name):
+                continue
+            findings.append({
+                "label": VISIBILITY_WARNING_LABEL,
+                "event_index": index,
+                "actor_id": actor_id,
+                "actor_name": name,
+                "visible_to": list(event["visible_to"]),
+                "detail": (
+                    f"starting event {index} names {name!r} in its "
+                    "description but its visible_to does not include "
+                    f"{actor_id!r}, so that actor is narrated as part of "
+                    "an event it never observes. Heuristic and "
+                    "non-blocking: a deliberately one-sided narration is "
+                    "legitimate, but a send/receive event that should "
+                    "have reached the named actor is a delivery defect "
+                    "this warning is the only trace of."),
+            })
+    return tuple(findings)
 
 
 def _sha256_text(text: str) -> str:
@@ -364,8 +462,17 @@ def adapt_compiled_scene(
     validate_semantics(world)
 
     # ---- sidecar: everything the contract does not express -----------
+    # Non-blocking hygiene (R2): record, never refuse.  Computed after
+    # the contract gate so it reads the RESOLVED identifiers.
+    warnings = visibility_incoherence_warnings(
+        events_payload,
+        {actor_id_by_name[actor["name"]]: actor["name"]
+         for actor in manifest["actors"]})
+
     sidecar = {
         "adapter_version": ADAPTER_VERSION,
+        "warnings": [dict(entry) for entry in warnings],
+        "warning_counts": {VISIBILITY_WARNING_LABEL: len(warnings)},
         "compile_inputs": {
             "question": question_checked,
             "start": start,
@@ -403,7 +510,8 @@ def adapt_compiled_scene(
 
     return AdaptedScene(world=world,
                         actor_id_by_name=dict(actor_id_by_name),
-                        sidecar=sidecar)
+                        sidecar=sidecar,
+                        warnings=warnings)
 
 
 def adapt_compiled_artifacts(out_dir, *, insertion_actor: str,

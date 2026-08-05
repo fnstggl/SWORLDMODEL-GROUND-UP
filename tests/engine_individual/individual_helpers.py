@@ -61,7 +61,8 @@ from sworldmodel.counterfactuals import run_candidates_detailed
 from sworldmodel.decision.contracts import (DecisionProblem,
                                             RecommendationResult,
                                             SCHEMA_VERSION)
-from sworldmodel.outcomes import evaluate_branches, exists_metric
+from sworldmodel.outcomes import (InterventionNotDeliveredError,
+                                  evaluate_branches, exists_metric)
 from sworldmodel.reporting import (build_recommendation_report,
                                    build_trace_report)
 
@@ -218,7 +219,12 @@ def anchored_predicates() -> dict:
 @dataclass(frozen=True)
 class SliceOutcome:
     """Everything one full slice pass produced (route -> manager ->
-    outcomes -> both reports)."""
+    outcomes -> both reports).
+
+    ``recommendation`` / ``report`` are ``None`` and ``delivery_refusal``
+    carries the refusal message when ranking legitimately refused to name
+    a winner because no measured branch delivered its intervention (see
+    ``run_slice(allow_delivery_refusal=True)``)."""
 
     fx: object
     problem: DecisionProblem
@@ -229,11 +235,13 @@ class SliceOutcome:
     report: dict
     trace: dict
     capture: dict
+    delivery_refusal: str = None
 
 
 def run_slice(model_factory_builder, *, actions=None, seed=SEED,
               max_steps=MAX_STEPS, provenance_label="deterministic",
-              permission=False, generator_model=None) -> SliceOutcome:
+              permission=False, generator_model=None,
+              allow_delivery_refusal=False) -> SliceOutcome:
     """One complete slice pass on a FRESH fixture load: frozen fixture ->
     DecisionProblem -> route (``prepare_decision_inputs``) ->
     ``run_candidates_detailed`` -> cited outcome evaluation -> the
@@ -241,6 +249,16 @@ def run_slice(model_factory_builder, *, actions=None, seed=SEED,
 
     ``model_factory_builder(fx, capture)`` returns the manager's
     ``model_factory(candidate, branch_seed)``.
+
+    ``allow_delivery_refusal=True`` keeps the pass alive when ranking
+    REFUSES because no measured branch delivered its intervention
+    (``outcomes.ranking.InterventionNotDeliveredError``): the outcome
+    then carries ``recommendation``/``report`` as ``None`` and the
+    refusal message in ``delivery_refusal``, so a leg whose sender cannot
+    propagate the candidate BY CONSTRUCTION (the content-blind
+    hash-derived mock) can still assert its own mechanics.  The default
+    is ``False``: any other leg must keep producing a ranking, and a
+    silent switch to the refused shape would hide a regression.
     """
     fx = load_fixture_one()
     problem = make_slice_problem(fx, actions=actions,
@@ -259,17 +277,27 @@ def run_slice(model_factory_builder, *, actions=None, seed=SEED,
         run.results, anchored_predicates(),
         evaluator_spec=inputs.evaluator_spec,
         status_rule=fixture_status_rule, registry=inputs.registry)
-    report = build_recommendation_report(
-        problem, inputs.candidates, run, evaluated,
-        inputs.evaluator_spec, provenance_label=provenance_label,
-        registry=inputs.registry)
     trace = build_trace_report(run, evaluated)
-    recommendation = RecommendationResult.from_dict(
-        report["recommendation"])
+    report = None
+    recommendation = None
+    refusal = None
+    try:
+        report = build_recommendation_report(
+            problem, inputs.candidates, run, evaluated,
+            inputs.evaluator_spec, provenance_label=provenance_label,
+            registry=inputs.registry)
+    except InterventionNotDeliveredError as exc:
+        if not allow_delivery_refusal:
+            raise
+        refusal = str(exc)
+    if report is not None:
+        recommendation = RecommendationResult.from_dict(
+            report["recommendation"])
     return SliceOutcome(fx=fx, problem=problem, inputs=inputs, run=run,
                         evaluated=tuple(evaluated),
                         recommendation=recommendation, report=report,
-                        trace=trace, capture=capture)
+                        trace=trace, capture=capture,
+                        delivery_refusal=refusal)
 
 
 def scripted_factory_builder(fx, capture):

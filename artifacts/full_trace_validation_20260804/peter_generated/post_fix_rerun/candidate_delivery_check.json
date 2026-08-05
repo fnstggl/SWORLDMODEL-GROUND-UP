@@ -1,0 +1,89 @@
+{
+  "scenario_id": "peter_generated",
+  "recipient_actor": "Peter Thiel",
+  "per_branch": [
+    {
+      "candidate_id": "gen_001",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+      "recipient_first_turn_prompt_chars": 813,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Draft and send an email to Peter Thiel at Founders Fund (or his public contact) within the window, with subject 'Request for 20-minute call from a 17-year-old builder', body between 45-85 words, accurately describing the 724% result as replay-based, not production, making a single clear request for a 20-minute call, not asking for investment, not using urgency or manipulation, and offering a one-page technical memo.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_generated-000004",
+          "sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_generated-000008",
+          "sha256": "dca6efd3092dfd461ef5dfffc05a8b759f84790fb6eddb3210c4fed0831cac9d"
+        }
+      ]
+    },
+    {
+      "candidate_id": "gen_002",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "cdad399fbe44f783a35e7ed9f7e5a7319f6298ac75d901fbbdaf292369a2b484",
+      "recipient_first_turn_prompt_chars": 1241,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "If no response by 2026-08-07, send a brief follow-up email to Peter Thiel, within the window, reiterating the request for a 20-minute call, keeping the same constraints, and not adding new claims.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_generated-000012",
+          "sha256": "cdad399fbe44f783a35e7ed9f7e5a7319f6298ac75d901fbbdaf292369a2b484"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_generated-000016",
+          "sha256": "3cbe6f8c7c135f20856be649eacb49d7599a5cd5c73d67677eac308d4fa030f1"
+        }
+      ]
+    },
+    {
+      "candidate_id": "gen_003",
+      "recipient_prompt_count": 2,
+      "recipient_first_turn_prompt_sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+      "recipient_first_turn_prompt_chars": 813,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Post a public tweet or LinkedIn message to Peter Thiel (if public contact available) within the window, with a concise request for a 20-minute call, accurately describing the replay result, not asking for investment, and offering a memo, while respecting all constraints.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 2,
+          "call_id": "peter_generated-000020",
+          "sha256": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+        },
+        {
+          "step": 4,
+          "call_id": "peter_generated-000024",
+          "sha256": "a6b35c821174d2c3747f377edce7f306383449dcd3919acf03e6313b34548708"
+        }
+      ]
+    }
+  ],
+  "recipient_first_turn_prompt_sha256_by_candidate": {
+    "gen_001": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd",
+    "gen_002": "cdad399fbe44f783a35e7ed9f7e5a7319f6298ac75d901fbbdaf292369a2b484",
+    "gen_003": "00ceb11d5022c25099171ea6a9a337e44f054f29774035866ec554e197702cdd"
+  },
+  "distinct_recipient_first_turn_prompts": 2,
+  "branch_count": 3,
+  "verdict": "no_candidate_text_reached_the_recipient",
+  "interpretation": "no distinctive candidate text reached the recipient, although the recipient's first-turn prompts did differ; any measured difference must be traced to that other difference, not to the candidate content.",
+  "private_context_leak_check": {
+    "prompts_checked": 12,
+    "leaks_found": 0,
+    "findings": []
+  }
+}

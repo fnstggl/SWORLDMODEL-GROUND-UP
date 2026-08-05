@@ -1,0 +1,873 @@
+{
+  "scenario_id": "a16z_richard_historical",
+  "pre_fix": {
+    "directory": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical",
+    "guard": {
+      "per_branch": {
+        "user_001": 4,
+        "user_002": 0,
+        "user_003": 5,
+        "user_004": 2,
+        "user_005": 3,
+        "user_006": 6
+      },
+      "total": 20,
+      "records": [
+        {
+          "branch": "user_001",
+          "step": 4,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the fixed package p",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the fixed package p"
+        },
+        {
+          "branch": "user_001",
+          "step": 9,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner sends a concise reply to th",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner sends a concise reply to th"
+        },
+        {
+          "branch": "user_001",
+          "step": 11,
+          "active": "New Media Hiring Lead",
+          "affected": [
+            "People and Compensation Partner"
+          ],
+          "original_excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the People and Compensation Partner’s l",
+          "rewritten_excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the. People and Compensation Partner is"
+        },
+        {
+          "branch": "user_001",
+          "step": 14,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner sends a concise reply to th",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner sends a concise reply to th"
+        },
+        {
+          "branch": "user_003",
+          "step": 4,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $150,0",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $150,0"
+        },
+        {
+          "branch": "user_003",
+          "step": 5,
+          "active": "Richard Zheng",
+          "affected": [
+            "New Media Strategy Partner"
+          ],
+          "original_excerpt": "Putative event to resolve:  Richard Zheng: Richard Zheng reviews the latest observation and, seeing no offer or formal d",
+          "rewritten_excerpt": "Putative event to resolve:  Richard Zheng: Richard Zheng reviews the latest observation and, seeing no offer or formal d"
+        },
+        {
+          "branch": "user_003",
+          "step": 9,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $150,0",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $150,0"
+        },
+        {
+          "branch": "user_003",
+          "step": 14,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $150,0",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $150,0"
+        },
+        {
+          "branch": "user_003",
+          "step": 15,
+          "active": "Richard Zheng",
+          "affected": [
+            "New Media Strategy Partner"
+          ],
+          "original_excerpt": "Putative event to resolve:  Richard Zheng: Richard Zheng sends a brief, direct email to the New Media Strategy Partner: ",
+          "rewritten_excerpt": "Putative event to resolve:  Richard Zheng: Richard Zheng sends a brief, direct email to the. New Media Strategy Partner "
+        },
+        {
+          "branch": "user_004",
+          "step": 4,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer mem",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer mem"
+        },
+        {
+          "branch": "user_004",
+          "step": 9,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer mem",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer mem"
+        },
+        {
+          "branch": "user_005",
+          "step": 4,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $250,0",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $250,0"
+        },
+        {
+          "branch": "user_005",
+          "step": 9,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $250,0",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $250,0"
+        },
+        {
+          "branch": "user_005",
+          "step": 14,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $250,0",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the proposed $250,0"
+        },
+        {
+          "branch": "user_006",
+          "step": 1,
+          "active": "New Media Hiring Lead",
+          "affected": [
+            "People and Compensation Partner"
+          ],
+          "original_excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts th",
+          "rewritten_excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts th"
+        },
+        {
+          "branch": "user_006",
+          "step": 4,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for"
+        },
+        {
+          "branch": "user_006",
+          "step": 6,
+          "active": "New Media Hiring Lead",
+          "affected": [
+            "People and Compensation Partner"
+          ],
+          "original_excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts th",
+          "rewritten_excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts th"
+        },
+        {
+          "branch": "user_006",
+          "step": 9,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for"
+        },
+        {
+          "branch": "user_006",
+          "step": 11,
+          "active": "New Media Hiring Lead",
+          "affected": [
+            "People and Compensation Partner"
+          ],
+          "original_excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts th",
+          "rewritten_excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the fixed package details and drafts th"
+        },
+        {
+          "branch": "user_006",
+          "step": 14,
+          "active": "People and Compensation Partner",
+          "affected": [
+            "New Media Hiring Lead"
+          ],
+          "original_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for",
+          "rewritten_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer for"
+        }
+      ]
+    },
+    "branches": {
+      "user_001": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 17
+      },
+      "user_002": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 17
+      },
+      "user_003": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 17
+      },
+      "user_004": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 17
+      },
+      "user_005": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 17
+      },
+      "user_006": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": null,
+        "intervention_delivered_reason": null,
+        "intervention_delivered_field_present": false,
+        "unresolved_observers": null,
+        "unresolved_observer_count": null,
+        "unresolved_observers_field_present": false,
+        "committed_event_count": 17
+      }
+    },
+    "ranking": {
+      "outcome": "PRODUCED",
+      "reason": null,
+      "best_candidate_id": "user_001"
+    },
+    "delivery": {
+      "check": "offer_delivery_check.json",
+      "verdict": "no_salary_figure_reached_the_subject",
+      "distinct_recipient_first_turn_prompts": 2
+    },
+    "cutoff": {
+      "enforced_stages": [
+        "pre_compile",
+        "pre_simulation",
+        "post_run_prompts"
+      ],
+      "overall_clean": true,
+      "pre_simulation_clean": true,
+      "pre_simulation_surface_count": 12,
+      "post_run_prompts_clean": true,
+      "post_run_prompt_violations": 0,
+      "post_run_response_findings": 0,
+      "canary_rejected": true,
+      "pre_compile_stage": null
+    },
+    "branch_input_isolation": {
+      "verdict": "only_the_salary_differs",
+      "claim": "across the five offer branches the ONLY difference in the simulation input is the annual base salary figure"
+    },
+    "instrumentation": {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/instrumentation_a16z_richard_historical.json",
+      "live_calls": 180,
+      "errors": 0,
+      "retries": 0,
+      "per_role": {
+        "actor": 90,
+        "game_master": 90
+      },
+      "all_equal": true
+    }
+  },
+  "post_fix": {
+    "directory": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/post_fix_rerun",
+    "guard": {
+      "per_branch": {
+        "user_001": 0,
+        "user_002": 0,
+        "user_003": 0,
+        "user_004": 0,
+        "user_005": 0,
+        "user_006": 0
+      },
+      "total": 0,
+      "records": []
+    },
+    "branches": {
+      "user_001": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner acknowledges the Hiring Lea"
+          }
+        ],
+        "unresolved_observer_count": 7,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 17
+      },
+      "user_002": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio aga"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio aga"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio aga"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          }
+        ],
+        "unresolved_observer_count": 6,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 17
+      },
+      "user_003": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          }
+        ],
+        "unresolved_observer_count": 6,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 17
+      },
+      "user_004": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Richard Zheng: Richard Zheng sends the email to the hiring lead with no cc, writing exactly:"
+          }
+        ],
+        "unresolved_observer_count": 7,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 17
+      },
+      "user_005": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the draft offer, no"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          }
+        ],
+        "unresolved_observer_count": 7,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 17
+      },
+      "user_006": {
+        "terminal_status": "cutoff",
+        "intervention_delivered": "not_delivered",
+        "intervention_delivered_reason": "no_distinctive_fragment_reached_any_other_actor",
+        "intervention_delivered_field_present": true,
+        "unresolved_observers": [
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          },
+          {
+            "observer_name": "hiring lead",
+            "normalized": "hiring lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  New Media Strategy Partner: New Media Strategy Partner reviews Richard Zheng’s portfolio and"
+          },
+          {
+            "observer_name": "Hiring Lead",
+            "normalized": "Hiring Lead",
+            "reason": "no_roster_match",
+            "event_excerpt": "Putative event to resolve:  Creative Production Lead: Creative Production Lead reviews Richard Zheng’s portfolio and pro"
+          }
+        ],
+        "unresolved_observer_count": 6,
+        "unresolved_observers_field_present": true,
+        "committed_event_count": 17
+      }
+    },
+    "ranking": {
+      "outcome": "REFUSED",
+      "reason": "refusing to rank: not one of the 6 measured branches delivered its intervention to any actor other than the insertion actor, so every branch ran the counterfactual's independent variable at the same (undelivered) value and the measured differences cannot have been caused by the candidates. A winner computed from these branches would be an artifact of model sampling on identical downstream context, not a comparison. Per-branch delivery: user_001: not_delivered (no_distinctive_fragment_reached_any_other_actor); user_002: not_delivered (no_distinctive_fragment_reached_any_other_actor); user_003: not_delivered (no_distinctive_fragment_reached_any_other_actor); user_004: not_delivered (no_distinctive_fragment_reached_any_other_actor); user_005: not_delivered (no_distinctive_fragment_reached_any_other_actor); user_006: not_delivered (no_distinctive_fragment_reached_any_other_actor). Resolve the delivery failure (or run branches whose intervention reaches the world) and rank again; nothing is repaired or ranked silently here.",
+      "best_candidate_id": null
+    },
+    "delivery": {
+      "check": "offer_delivery_check.json",
+      "verdict": "offers_never_reached_the_subject",
+      "distinct_recipient_first_turn_prompts": 1
+    },
+    "cutoff": {
+      "enforced_stages": [
+        "pre_compile",
+        "pre_simulation",
+        "post_run_prompts"
+      ],
+      "overall_clean": true,
+      "pre_simulation_clean": true,
+      "pre_simulation_surface_count": 12,
+      "post_run_prompts_clean": true,
+      "post_run_prompt_violations": 0,
+      "post_run_response_findings": 0,
+      "canary_rejected": true,
+      "pre_compile_stage": {
+        "enforced_by": "the original compile phase, which this re-run does NOT repeat: it reuses that phase's frozen compiler artifact directory byte-for-byte, verified by frozen_input_verification.json",
+        "recorded_in": "artifacts/full_trace_validation_20260804/a16z_richard_historical/historical_cutoff_validation.json"
+      }
+    },
+    "branch_input_isolation": {
+      "verdict": "only_the_salary_differs",
+      "claim": "across the five offer branches the ONLY difference in the simulation input is the annual base salary figure"
+    },
+    "instrumentation": {
+      "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/post_fix_rerun/instrumentation_a16z_richard_historical.json",
+      "live_calls": 180,
+      "errors": 0,
+      "retries": 0,
+      "per_role": {
+        "actor": 90,
+        "game_master": 90
+      },
+      "all_equal": true
+    }
+  },
+  "guard_interventions_pre": 20,
+  "guard_interventions_post": 0,
+  "guard_interventions_removed": 20,
+  "unresolved_observers_pre": {
+    "measured": false,
+    "total": 0,
+    "by_name": {},
+    "by_reason": {}
+  },
+  "unresolved_observers_post": {
+    "measured": true,
+    "total": 39,
+    "by_name": {
+      "Hiring Lead": 24,
+      "hiring lead": 15
+    },
+    "by_reason": {
+      "no_roster_match": 39
+    }
+  },
+  "frozen_input_comparison": {
+    "entries": [
+      {
+        "entry": "decision_problem",
+        "pre_fix": "60fb4a87770875fb9bbdd7a2f3949bca051ffbb32258d2eb72d55284ce9fad14",
+        "post_fix": "60fb4a87770875fb9bbdd7a2f3949bca051ffbb32258d2eb72d55284ce9fad14",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "evidence_manifest",
+        "pre_fix": "08e85f0b1dee9ec32d4d153c22fa043a9ee30c92b3ea37edb7e6524afe4f612a",
+        "post_fix": "08e85f0b1dee9ec32d4d153c22fa043a9ee30c92b3ea37edb7e6524afe4f612a",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "compiler_command_and_config",
+        "pre_fix": "a053e0ecf1de74d3ca3d3922a78fb9332e507f9f8586aabacd0cbfa18993d23f",
+        "post_fix": "a053e0ecf1de74d3ca3d3922a78fb9332e507f9f8586aabacd0cbfa18993d23f",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "compiler_inputs",
+        "pre_fix": "2a17e9b7fff5849cd6119ccecd66940113ee18cc67d712b5615ce671f115d668",
+        "post_fix": "2a17e9b7fff5849cd6119ccecd66940113ee18cc67d712b5615ce671f115d668",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "compiler_artifact_dir_aggregate",
+        "pre_fix": "e550183449afce143735afe37115f9faa881df131194a1e1b2ccfb456c3d1961",
+        "post_fix": "e550183449afce143735afe37115f9faa881df131194a1e1b2ccfb456c3d1961",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "compiled_decision_world",
+        "pre_fix": "ddd2bf9d1a4725f056f3c0cdf7e2f7ad25102ac4c6ed1509f69e1018fbd7c6b1",
+        "post_fix": "ddd2bf9d1a4725f056f3c0cdf7e2f7ad25102ac4c6ed1509f69e1018fbd7c6b1",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "concordia_initialization_plan",
+        "pre_fix": "15e2834ce006b79bf015266c7d6ab110ba2f7d820d67ec1f84f0759a2268165f",
+        "post_fix": "15e2834ce006b79bf015266c7d6ab110ba2f7d820d67ec1f84f0759a2268165f",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "concordia_initialization_plan_content_hash",
+        "pre_fix": "39df9ca4c2490f7742a8e8598b2ef1b4415e2c5ca141777e691d4ab301ec3e91",
+        "post_fix": "39df9ca4c2490f7742a8e8598b2ef1b4415e2c5ca141777e691d4ab301ec3e91",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "evaluator_spec",
+        "pre_fix": "5fec7f8e04f36948b7616f11a43e052ea33fa90c6dc9fc0025c40095f4846ec5",
+        "post_fix": "5fec7f8e04f36948b7616f11a43e052ea33fa90c6dc9fc0025c40095f4846ec5",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "simulation_limits",
+        "pre_fix": "8dfb750444f51294c1bca99e09986ab74a14bcc8c97817395daa1d9d98f8d342",
+        "post_fix": "8dfb750444f51294c1bca99e09986ab74a14bcc8c97817395daa1d9d98f8d342",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "time_window",
+        "pre_fix": "d5fbdda25d096fb1fc67c97ab0cc3305ea33f22370e4fb9b0cfb1f600fccddb8",
+        "post_fix": "d5fbdda25d096fb1fc67c97ab0cc3305ea33f22370e4fb9b0cfb1f600fccddb8",
+        "identical": true,
+        "recorded_by_both": true
+      },
+      {
+        "entry": "branch_seeds",
+        "pre_fix": "eab7f7c6b7642a4029cd692c775fc4f1254823fee965515eea160934460ebe58",
+        "post_fix": "eab7f7c6b7642a4029cd692c775fc4f1254823fee965515eea160934460ebe58",
+        "identical": true,
+        "recorded_by_both": true
+      }
+    ],
+    "all_identical": true,
+    "entries_that_differ": []
+  },
+  "notes": [
+    "Guard interventions split by class -- pre-fix: 19 determined-recipient (the class D3 closed), 1 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 20 total. Post-fix: 0 determined-recipient (the class D3 closed), 0 possessive nominalization (a documented deliberate conservatism in the guard's own docstring, NOT a defect), 0 unclassifiable from the 120-character excerpt the runner records, 0 other, 0 total. The class is decided by the guard's INPUT (a possessive `<Name>'s <act noun>` is a possessive case even when its rewrite happens to end in a dangling determiner), and by the UNTRUNCATED pre-guard text reconstructed from the step ledger wherever one is recoverable (20 of 20 pre-fix records).",
+    "Attribution by REPLAY, not by subtraction: 19 of 20 pre-fix interventions are explained by the D3 fix -- their reconstructed pre-guard text passes the CURRENT guard byte-identically. 1 still rewrite under the current guard and are therefore NOT attributable to D3; their absence from the re-run is live sampling. Still rewritten: `user_001` step 11.",
+    "The guard did not fire at all in the re-run, so every pre-fix rewrite is gone. That the COUNT fell to zero is not by itself evidence about the cause; the replay line above is.",
+    "A pre-fix determined-recipient rewrite, verbatim from the guard ledger: `Putative event to resolve:  Richard Zheng: Richard Zheng sends a brief, direct email to the. New Media Strategy Partner ` -- the sentence was cut at the determiner and the active actor's own content after it was deleted.",
+    "A pre-fix POSSESSIVE rewrite, verbatim from the guard ledger: `Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the People and Compensation Partner’s l` -- this is the documented stateless conservatism, NOT the class D3 closed, and the current guard still rewrites it.",
+    "Live model sampling is not reproducible at temperature 0, so any change in terminal status or committed text between the two runs is sampling variation on identical inputs unless it is one of the engine behaviours listed above.",
+    "The narrative UNDER_THE_HOOD_REPORT.md is not regenerated for a re-run: it renders the whole artifact root including the compile phase, which a re-run deliberately does not repeat. This document is the re-run's narrative; the pre-fix report is unchanged and still describes the pre-fix run."
+  ],
+  "guard_class_census": {
+    "pre_fix": {
+      "determined_recipient_object_slot_the_D3_fix_closed": 19,
+      "possessive_nominalization_documented_conservatism": 1,
+      "unclassifiable_from_the_120_character_excerpt": 0,
+      "other": 0,
+      "total": 20,
+      "classified_from_untruncated_text": 20,
+      "classified_by_replaying_through_the_current_guard": true,
+      "examples_determined": [
+        "Putative event to resolve:  Richard Zheng: Richard Zheng sends a brief, direct email to the. New Media Strategy Partner ",
+        "Putative event to resolve:  People and Compensation Partner: People and Compensation Partner reviews the fixed package p"
+      ],
+      "examples_possessive": [
+        "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the People and Compensation Partner’s l"
+      ]
+    },
+    "post_fix": {
+      "determined_recipient_object_slot_the_D3_fix_closed": 0,
+      "possessive_nominalization_documented_conservatism": 0,
+      "unclassifiable_from_the_120_character_excerpt": 0,
+      "other": 0,
+      "total": 0,
+      "classified_from_untruncated_text": 0,
+      "classified_by_replaying_through_the_current_guard": false,
+      "examples_determined": [],
+      "examples_possessive": []
+    }
+  },
+  "d3_replay_attribution": {
+    "method": "every pre-fix intervention's untruncated pre-guard text, reconstructed from the step ledger, replayed through the CURRENT guard",
+    "pre_fix_interventions": 20,
+    "explained_by_the_D3_fix": 19,
+    "still_rewritten_by_the_current_guard": 1,
+    "unreplayable_no_recorded_raw_response": 0,
+    "still_rewritten_records": [
+      {
+        "branch": "user_001",
+        "step": 11,
+        "active": "New Media Hiring Lead",
+        "excerpt": "Putative event to resolve:  New Media Hiring Lead: New Media Hiring Lead reviews the People and Compensation Partner’s latest reply, then sends a concise confir"
+      }
+    ],
+    "note": "a record the current guard still rewrites did NOT disappear because of the fix; its absence from the re-run is live sampling"
+  },
+  "frozen_input_verification": {
+    "claim": "this re-run reuses the pre-fix run's frozen inputs; every hash below was recomputed now and compared against the entry the pre-fix freeze manifest recorded",
+    "pre_fix_manifest": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/freeze_manifest.json",
+    "checks": [
+      {
+        "entry": "compiler_artifact_dir_aggregate",
+        "recorded_by_the_pre_fix_run": "e550183449afce143735afe37115f9faa881df131194a1e1b2ccfb456c3d1961",
+        "recomputed_now": "e550183449afce143735afe37115f9faa881df131194a1e1b2ccfb456c3d1961",
+        "source": "/home/user/SWORLDMODEL-GROUND-UP/artifacts/full_trace_validation_20260804/a16z_richard_historical/compiler",
+        "match": true
+      },
+      {
+        "entry": "decision_problem",
+        "recorded_by_the_pre_fix_run": "60fb4a87770875fb9bbdd7a2f3949bca051ffbb32258d2eb72d55284ce9fad14",
+        "recomputed_now": "60fb4a87770875fb9bbdd7a2f3949bca051ffbb32258d2eb72d55284ce9fad14",
+        "source": "the payload this re-run is about to run",
+        "match": true
+      },
+      {
+        "entry": "evidence_manifest",
+        "recorded_by_the_pre_fix_run": "08e85f0b1dee9ec32d4d153c22fa043a9ee30c92b3ea37edb7e6524afe4f612a",
+        "recomputed_now": "08e85f0b1dee9ec32d4d153c22fa043a9ee30c92b3ea37edb7e6524afe4f612a",
+        "source": "the manifest this re-run is about to run",
+        "match": true
+      }
+    ],
+    "all_match": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "method": "one actor model call per engine step; a game master call takes the current step number, and an actor call that arrives when the current step already has one advances the cursor",
+  "actor_calls_recorded": 4,
+  "cursor_final_step": 4,
+  "steps_completed_reported_by_runner": 4,
+  "raw_log_entries": 4,
+  "consistent": true
+}

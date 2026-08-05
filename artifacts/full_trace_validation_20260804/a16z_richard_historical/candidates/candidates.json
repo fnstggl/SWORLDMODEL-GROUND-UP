@@ -1,0 +1,86 @@
+[
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "user_001",
+    "summary": "Do not make Richard Zheng an employment offer during the simulation window.",
+    "action": "Do not make Richard Zheng an employment offer during the simulation window.",
+    "decision_owner": "new_media_hiring_lead",
+    "timing": "2025-07-01T16:00:00Z",
+    "constraints": [],
+    "provenance": {
+      "source": "user_supplied",
+      "generator_config_hash": ""
+    }
+  },
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "user_002",
+    "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+    "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+    "decision_owner": "new_media_hiring_lead",
+    "timing": "2025-07-01T16:00:00Z",
+    "constraints": [],
+    "provenance": {
+      "source": "user_supplied",
+      "generator_config_hash": ""
+    }
+  },
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "user_003",
+    "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+    "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+    "decision_owner": "new_media_hiring_lead",
+    "timing": "2025-07-01T16:00:00Z",
+    "constraints": [],
+    "provenance": {
+      "source": "user_supplied",
+      "generator_config_hash": ""
+    }
+  },
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "user_004",
+    "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+    "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+    "decision_owner": "new_media_hiring_lead",
+    "timing": "2025-07-01T16:00:00Z",
+    "constraints": [],
+    "provenance": {
+      "source": "user_supplied",
+      "generator_config_hash": ""
+    }
+  },
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "user_005",
+    "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+    "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+    "decision_owner": "new_media_hiring_lead",
+    "timing": "2025-07-01T16:00:00Z",
+    "constraints": [],
+    "provenance": {
+      "source": "user_supplied",
+      "generator_config_hash": ""
+    }
+  },
+  {
+    "contract_type": "intervention_candidate",
+    "schema_version": 1,
+    "candidate_id": "user_006",
+    "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000.",
+    "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000.",
+    "decision_owner": "new_media_hiring_lead",
+    "timing": "2025-07-01T16:00:00Z",
+    "constraints": [],
+    "provenance": {
+      "source": "user_supplied",
+      "generator_config_hash": ""
+    }
+  }
+]

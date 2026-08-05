@@ -1,0 +1,82 @@
+{
+  "contract_type": "branch_result",
+  "schema_version": 1,
+  "branch_id": "br_f5e425ea50233d7f",
+  "candidate_id": "gen_003",
+  "world_id": "w_1659bd83ab0a",
+  "terminal_status": "success",
+  "terminal_world_state": {
+    "steps_completed": 4,
+    "committed_event_count": 6,
+    "actor_memory_counts": {
+      "beckett_zahedi": 6,
+      "peter_thiel": 3
+    }
+  },
+  "event_trace": [
+    {
+      "event_id": "ev_0000",
+      "description": "[observation] [event] [2026-08-04T18:10:38Z] Beckett Zahedi sends the prepared message to Peter Thiel."
+    },
+    {
+      "event_id": "ev_0001",
+      "description": "[observation] [event] The simulation window opens at 2026-08-04T18:10:38Z."
+    },
+    {
+      "event_id": "ev_0002",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi waits for Peter Thiel’s reply to the email, and in the meantime drafts a short, public LinkedIn post tagging Peter Thiel that says: “Peter, I’m a 17-year-old building Aurelius, a GPU fleet optimizer. In replay over 1.5M production requests it showed ~724% better SLA-safe goodput per dollar, but it’s not yet production-proven. I’d value 20 minutes of your criticism, not investment. Happy to send a memo first.” Beckett holds off posting it until checking whether Peter responds to the email, to avoid redundancy.\n"
+    },
+    {
+      "event_id": "ev_0003",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me the replay-test details and your core assumptions beforehand—I’ll come with questions, not praise.”\n"
+    },
+    {
+      "event_id": "ev_0004",
+      "description": "[observation] [event] Event: Putative event to resolve:  Beckett Zahedi: Beckett Zahedi reads. Peter Thiel is now able to observe this and to respond in their own turn.\n"
+    },
+    {
+      "event_id": "ev_0005",
+      "description": "[observation] [event] Event: Putative event to resolve:  Peter Thiel: Peter Thiel reads Beckett Zahedi’s message once, then replies via the same channel: “Happy to take the call. Send me the replay-test details and your core assumptions beforehand—I’ll come with questions, not praise.”\n"
+    }
+  ],
+  "outcome_metrics": {
+    "call_agreed": {
+      "value": true,
+      "computed_from": [
+        "event:ev_0003",
+        "event:ev_0005"
+      ]
+    },
+    "positive_reply": {
+      "value": true,
+      "computed_from": [
+        "event:ev_0003",
+        "event:ev_0005"
+      ]
+    },
+    "no_explicit_decline": {
+      "value": true,
+      "computed_from": [
+        "state:committed_event_count"
+      ]
+    }
+  },
+  "infrastructure_errors": [],
+  "token_stats": {},
+  "runtime_stats": {
+    "wall_clock_seconds": 13.196049574000426,
+    "steps_completed": 4
+  },
+  "artifact_paths": [],
+  "intervention_delivered": {
+    "status": "not_delivered",
+    "reason": "no_distinctive_fragment_reached_any_other_actor",
+    "insertion_actor": "beckett_zahedi",
+    "reached_actors": [],
+    "fragments_tested": 1,
+    "fragments_found": 0,
+    "reached_committed_world": false,
+    "method": "distinctive candidate fragments (>= 24 chars, sentence/line runs, longest 12) minus every fragment already present in the branch's pre-run context, searched in each non-insertion actor's own observation stream"
+  },
+  "unresolved_observers": []
+}

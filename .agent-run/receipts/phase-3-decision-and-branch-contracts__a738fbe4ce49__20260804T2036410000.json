@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "phase-3-decision-and-branch-contracts",
+  "git_sha": "a738fbe4ce494a39eacfbfa7aebe70e05bc23762",
+  "worktree": "/home/user/SWORLDMODEL-GROUND-UP",
+  "command": "python3 -m pytest tests/test_decision_contracts.py tests/test_fixture_loader.py -q",
+  "exit_code": 0,
+  "started_at": "2026-08-04T20:36:40+00:00",
+  "finished_at": "2026-08-04T20:36:41+00:00",
+  "artifact_paths": [],
+  "configuration_hashes": {
+    "sworldmodel/decision/contracts.py": "dc3b7cd3f1e47fd753f44ca0389dd7ffb0d96c50ee77621d3e3cf835e69a88e3",
+    "sworldmodel/decision/validation.py": "b22a86a6c3db11ff0286e542cb5b946e7cfeba4313f3227d4388dca57f4c6858",
+    "sworldmodel/decision/fixture_loader.py": "8ae1fadb3d41da919ab2de6d718591fffcb9a9ad969600fb05e53531f7b28680"
+  },
+  "valid": true,
+  "recorded_at": "2026-08-04T20:36:41+00:00",
+  "git_branch": "claude/full-under-hood-simulation-audit",
+  "worktree_clean": true,
+  "output_tail": "........................................................................ [ 43%]\n........................................................................ [ 86%]\n.......................                                                  [100%]\n167 passed in 0.46s\n"
+}

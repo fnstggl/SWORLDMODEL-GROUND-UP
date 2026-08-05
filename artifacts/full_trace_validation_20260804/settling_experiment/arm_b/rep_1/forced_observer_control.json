@@ -1,0 +1,44 @@
+{
+  "what_this_is": "the ONE piece of text this experiment supplies. The game master's observer-ROUTING answer is forced to the full roster so the known observer-routing defect (D1, closed at c5a81214) cannot confound the measurement. Every actor turn is a live provider completion; no other game-master call was intercepted.",
+  "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+  "roster_broadcast": [
+    "Beckett Zahedi",
+    "Peter Thiel"
+  ],
+  "interceptions": [
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 1,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "ne final time, confirms the subject line and body are accurate and that the \"not production-validated\" caveat is prominent, then clicks send to Peter Thiel through the established email channel, and immediately begins drafting the one-page technical memo to have it ready if Peter responds.\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 2,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "you 20 minutes on Thursday.”\nEvent that occurred: Putative event to resolve:  Peter Thiel: Peter Thiel reads the email once, notes the explicit caveat that the results are not production-proven, and replies with a single line: “Send the one-page memo; I’ll give you 20 minutes on Thursday.”\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 3,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "ne final time, confirms the subject line and body are accurate and that the \"not production-validated\" caveat is prominent, then clicks send to Peter Thiel through the established email channel, and immediately begins drafting the one-page technical memo to have it ready if Peter responds.\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 4,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "vent that occurred: Putative event to resolve:  Peter Thiel: Peter Thiel opens the email from Beckett Zahedi, reads it once, notes the explicit caveat that the results are not production-proven, and replies with a single line: “Send the one-page memo; I’ll give you 20 minutes on Thursday.”\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    }
+  ],
+  "interception_count": 4,
+  "control_actually_fired": true
+}

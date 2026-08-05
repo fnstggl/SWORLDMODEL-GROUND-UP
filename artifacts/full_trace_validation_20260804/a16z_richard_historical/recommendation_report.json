@@ -1,0 +1,364 @@
+{
+  "report_kind": "decision_recommendation_report",
+  "report_version": "recommendation_report_v1",
+  "problem": {
+    "contract_type": "decision_problem",
+    "schema_version": 1,
+    "problem_id": "a16z_richard_zheng_historical_hiring_test",
+    "decision_owner": "New Media Hiring Lead",
+    "desired_outcome": "Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+    "success_criteria": "Success occurs only if the required internal approvers authorize the offer, the New Media Hiring Lead issues the offer, and Richard Zheng's own actor explicitly accepts it before the cutoff. Richard's acceptance may not be narrated by the Game Master or decided by another actor. Among successful branches, the branch with the greatest salary savings relative to a $300,000 annual base salary ranks first.",
+    "constraints": [
+      "Use only information available on or before July 1, 2025.",
+      "Use exactly five actors.",
+      "The same title, role scope, reporting line, benefits, equity treatment, creative autonomy, resources, and start expectations must remain constant across every salary branch.",
+      "Only annual base salary may differ across the salary branches.",
+      "The no-offer branch is the baseline.",
+      "An offer is invalid unless the People and Compensation Partner and New Media Hiring Lead authorize it.",
+      "Only Richard Zheng's actor may accept, reject, or counter the offer.",
+      "Do not treat reported independent project revenue as equivalent to annual salary or personal income.",
+      "The claim that Richard previously earned approximately $100,000 per video shoot and managed eight shoots simultaneously is user-supplied and unverified; preserve that label.",
+      "Do not invent actual a16z salary bands, internal budgets, private opinions, or hiring deliberations.",
+      "Any necessary internal compensation ceiling must be labeled as a test assumption rather than a historical fact."
+    ],
+    "time_horizon": {
+      "start": "2025-07-01T16:00:00Z",
+      "cutoff": "2025-07-10T12:00:00Z"
+    },
+    "relevant_context": "This is a historical counterfactual frozen on July 1, 2025. The cast is: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The hiring lead owns the hiring action. The strategy and creative actors advise but cannot independently issue an offer. The compensation actor can approve or reject compensation terms but cannot decide whether Richard accepts. Richard alone decides whether to accept, reject, counter, or delay. Richard is described by user-supplied and publicly available pre-cutoff information as a recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, an independent creative and media operator, and a worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Preserve source dates and confidence. Do not include his later a16z employment or later a16z work. Public evidence indicates a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The exact real hiring committee and private internal facts are unknown.",
+    "candidate_interventions": [
+      "Do not make Richard Zheng an employment offer during the simulation window.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+      "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000."
+    ],
+    "candidate_generation_permission": false
+  },
+  "problem_content_hash": "60fb4a87770875fb9bbdd7a2f3949bca051ffbb32258d2eb72d55284ce9fad14",
+  "world_id": "w_d53492bb3ba4",
+  "base_plan_id": "p_94ddfcb342b412f6",
+  "base_plan_content_hash": "15e2834ce006b79bf015266c7d6ab110ba2f7d820d67ec1f84f0759a2268165f",
+  "base_snapshot_id": "s_4c8c19fead263a36",
+  "evaluator_spec": {
+    "primary_metric": "valid_offer_accepted",
+    "secondary_metrics": [
+      "salary_savings_vs_300k"
+    ]
+  },
+  "candidates": [
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_001",
+      "summary": "Do not make Richard Zheng an employment offer during the simulation window.",
+      "action": "Do not make Richard Zheng an employment offer during the simulation window.",
+      "decision_owner": "new_media_hiring_lead",
+      "timing": "2025-07-01T16:00:00Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    },
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_002",
+      "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+      "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+      "decision_owner": "new_media_hiring_lead",
+      "timing": "2025-07-01T16:00:00Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    },
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_003",
+      "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+      "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+      "decision_owner": "new_media_hiring_lead",
+      "timing": "2025-07-01T16:00:00Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    },
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_004",
+      "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+      "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+      "decision_owner": "new_media_hiring_lead",
+      "timing": "2025-07-01T16:00:00Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    },
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_005",
+      "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+      "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+      "decision_owner": "new_media_hiring_lead",
+      "timing": "2025-07-01T16:00:00Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    },
+    {
+      "contract_type": "intervention_candidate",
+      "schema_version": 1,
+      "candidate_id": "user_006",
+      "summary": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000.",
+      "action": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000.",
+      "decision_owner": "new_media_hiring_lead",
+      "timing": "2025-07-01T16:00:00Z",
+      "constraints": [],
+      "provenance": {
+        "source": "user_supplied",
+        "generator_config_hash": ""
+      }
+    }
+  ],
+  "candidate_content_hashes": {
+    "user_001": "9c4116802e84862e74c6433c0e49fa7030ad3b4912dcecf790951791af58b615",
+    "user_002": "1a6ff4dd1710b4857135af9c3453b8d8b94eafe044421ae1ff34a732d59c7b5e",
+    "user_003": "37da2bd720dfb3fe6bd7a93fb792b8cd9497fe5be4cb66f32b0b479ce7d1bf5c",
+    "user_004": "3ee1c11bdb39e96618778ca80c176d40d574716ffcdde72c73bd2e2412a6a117",
+    "user_005": "93404fc514beb4cb6386b350c8b0b5ebe6ef36fb5c9f7d5e4dd742f261f08168",
+    "user_006": "1ca878826a32c376d59d5bc704aa7f986cdc52ad8aa4aa2aa127ac3d1e03c9eb"
+  },
+  "branch_evaluations": [
+    {
+      "candidate_id": "user_001",
+      "branch_id": "br_2db163e3d45c2c04",
+      "branch_seed": 3730100026622196392,
+      "terminal_status": "cutoff",
+      "outcome_metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "salary_savings_vs_300k": {
+          "value": 300000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 17
+    },
+    {
+      "candidate_id": "user_002",
+      "branch_id": "br_190714ef5350ddf1",
+      "branch_seed": 3050423627235183378,
+      "terminal_status": "cutoff",
+      "outcome_metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "salary_savings_vs_300k": {
+          "value": 200000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 17
+    },
+    {
+      "candidate_id": "user_003",
+      "branch_id": "br_31985e007dc3038a",
+      "branch_seed": 529045976225751459,
+      "terminal_status": "cutoff",
+      "outcome_metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "salary_savings_vs_300k": {
+          "value": 150000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 17
+    },
+    {
+      "candidate_id": "user_004",
+      "branch_id": "br_26fd2db994a9ace0",
+      "branch_seed": 3124904629372606018,
+      "terminal_status": "cutoff",
+      "outcome_metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "salary_savings_vs_300k": {
+          "value": 100000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 17
+    },
+    {
+      "candidate_id": "user_005",
+      "branch_id": "br_eab9041fc4bab07c",
+      "branch_seed": 12998584638823785985,
+      "terminal_status": "cutoff",
+      "outcome_metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "salary_savings_vs_300k": {
+          "value": 50000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 17
+    },
+    {
+      "candidate_id": "user_006",
+      "branch_id": "br_8e3417c31c45ffa6",
+      "branch_seed": 10998551863365380041,
+      "terminal_status": "cutoff",
+      "outcome_metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        },
+        "salary_savings_vs_300k": {
+          "value": 0.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ]
+        }
+      },
+      "infrastructure_errors": [],
+      "committed_event_count": 17
+    }
+  ],
+  "recommendation": {
+    "contract_type": "recommendation_result",
+    "schema_version": 1,
+    "best_candidate_id": "user_001",
+    "ranking": [
+      {
+        "candidate_id": "user_001",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 300000.0
+        }
+      },
+      {
+        "candidate_id": "user_002",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 200000.0
+        }
+      },
+      {
+        "candidate_id": "user_003",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 150000.0
+        }
+      },
+      {
+        "candidate_id": "user_004",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 100000.0
+        }
+      },
+      {
+        "candidate_id": "user_005",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 50000.0
+        }
+      },
+      {
+        "candidate_id": "user_006",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 0.0
+        }
+      }
+    ],
+    "metric_differences": {
+      "valid_offer_accepted": {
+        "user_001": 0.0,
+        "user_002": 0.0,
+        "user_003": 0.0,
+        "user_004": 0.0,
+        "user_005": 0.0,
+        "user_006": 0.0
+      },
+      "salary_savings_vs_300k": {
+        "user_001": 0.0,
+        "user_002": -100000.0,
+        "user_003": -150000.0,
+        "user_004": -200000.0,
+        "user_005": -250000.0,
+        "user_006": -300000.0
+      }
+    },
+    "downside_outcomes": {
+      "user_001": "measured secondary outcomes: salary_savings_vs_300k=300000.0 (strict maximum among candidates tested)",
+      "user_002": "measured secondary outcomes: salary_savings_vs_300k=200000.0",
+      "user_003": "measured secondary outcomes: salary_savings_vs_300k=150000.0",
+      "user_004": "measured secondary outcomes: salary_savings_vs_300k=100000.0",
+      "user_005": "measured secondary outcomes: salary_savings_vs_300k=50000.0",
+      "user_006": "measured secondary outcomes: salary_savings_vs_300k=0.0 (strict minimum among candidates tested)"
+    },
+    "run_limitations": "Result provenance: live_model. This result identifies the best-performing action among the candidates tested under the declared evaluator metrics, computed only from recorded simulation traces; it is not a guarantee of real-world outcome. Ranking uses the declared metrics only: the primary metric (valid_offer_accepted) first, then each secondary metric compared descending in declared order (highest value first; polarity not inferred); any remaining exact tie is broken by candidate_id in ascending lexicographic order (code-owned final tie-break; not needed in this ranking).",
+    "validation_status": {
+      "schema_validated": true,
+      "semantics_validated": true,
+      "ranked_by_declared_metrics_in_declared_order": true,
+      "all_branches_free_of_infrastructure_errors": true,
+      "decided_by_metric": "salary_savings_vs_300k"
+    }
+  },
+  "recommendation_content_hash": "5d53cae54fce12943509a743544d324572bb53c333df2bced0217e104681aea8",
+  "winner": "user_001",
+  "decided_by_metric": "salary_savings_vs_300k"
+}

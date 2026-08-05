@@ -1,0 +1,1030 @@
+{
+  "label": "UNCALIBRATED LIVE-MODEL EXPLORATORY SIMULATION",
+  "scenario_id": "a16z_richard_historical",
+  "evaluator_spec": {
+    "primary_metric": "valid_offer_accepted",
+    "secondary_metrics": [
+      "salary_savings_vs_300k"
+    ]
+  },
+  "status_rule": "valid_offer_accepted -> success; otherwise the subject's OWN explicit refusal -> failure; otherwise the runner's default (cutoff when the step budget was exhausted, incomplete for a technical stop). R3: the engine never decides success or failure itself.",
+  "attribution_anchor": "Putative event to resolve:",
+  "subject_actor": "Richard Zheng",
+  "compensation_approver": "People and Compensation Partner",
+  "hiring_lead": "New Media Hiring Lead",
+  "primary_metric_rule": "valid_offer_accepted is true only when the compensation approver's OWN committed turn authorizes, the hiring lead's OWN committed turn issues the offer, and the subject's OWN committed turn accepts at a strictly later trace position. Game-master narration and any other actor's paraphrase fail the attribution anchor and can never satisfy it.",
+  "secondary_metric_rule": "salary_savings_vs_300k is CODE-OWNED: the user's declared mapping applied to the branch's declared candidate. It is never parsed from model text and is never read from the trace; its citation is the scan bound only because the contract requires every metric to cite something.",
+  "code_owned_salary_mapping": {
+    "no_offer": 300000,
+    "offer_100k": 200000,
+    "offer_150k": 150000,
+    "offer_200k": 100000,
+    "offer_250k": 50000,
+    "offer_300k": 0
+  },
+  "candidate_key_by_id": {
+    "user_001": "no_offer",
+    "user_002": "offer_100k",
+    "user_003": "offer_150k",
+    "user_004": "offer_200k",
+    "user_005": "offer_250k",
+    "user_006": "offer_300k"
+  },
+  "measurement_limitation": "approval, offer issuance, acceptance and refusal are read by explicit surface patterns over free live-model text; an actor who accepts in wording no pattern covers is scored as not accepting",
+  "branches": [
+    {
+      "candidate_id": "user_001",
+      "candidate_key": "no_offer",
+      "declared_salary": null,
+      "branch_id": "br_2db163e3d45c2c04",
+      "branch_seed": 3730100026622196392,
+      "committed_trace_ref": "branches/user_001/committed_events.jsonl",
+      "committed_event_count": 17,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "salary_savings_vs_300k": {
+          "value": 300000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 17,
+        "own_turns_by_actor": {
+          "People and Compensation Partner": [
+            {
+              "index": 5,
+              "event_id": "ev_0005",
+              "content": "People and Compensation Partner reviews the fixed package parameters for the New Media role and sends a concise message to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 10,
+              "event_id": "ev_0010",
+              "content": "People and Compensation Partner sends a concise reply to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 15,
+              "event_id": "ev_0015",
+              "content": "People and Compensation Partner sends a concise reply to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            }
+          ],
+          "New Media Hiring Lead": [
+            {
+              "index": 2,
+              "event_id": "ev_0002",
+              "content": "New Media Hiring Lead reviews the candidate file for Richard Zheng and notes internally that no offer may be extended during the window, so they schedule a brief check-in with the People and Compensation Partner to confirm the role’s fixed package parameters and flag that they will hold all offer discussions until after the decision window closes."
+            },
+            {
+              "index": 7,
+              "event_id": "ev_0007",
+              "content": "New Media Hiring Lead reviews the People and Compensation Partner’s message confirming the fixed package parameters, then replies concisely: “Thanks—understood, I’ll hold all offer discussions for Richard Zheng until after the decision window closes on July 10.”"
+            },
+            {
+              "index": 12,
+              "event_id": "ev_0012",
+              "content": "New Media Hiring Lead reviews the. People and Compensation Partner is now able to observe this and to respond in their own turn."
+            }
+          ],
+          "Richard Zheng": [
+            {
+              "index": 6,
+              "event_id": "ev_0006",
+              "content": "Richard Zheng reviews the a16z New Media mandate against his own track record, then drafts a concise, direct email to the hiring lead—not asking for an offer, but offering a 30-minute working session to map how his production and distribution playbook could accelerate three specific portfolio companies, attaching a one-page case study from his UNHRD and SpaceX work, and closing with: “Happy to align on scope and value before any numbers are discussed.”"
+            },
+            {
+              "index": 11,
+              "event_id": "ev_0011",
+              "content": "Richard Zheng opens his laptop, pulls up the a16z New Media mandate alongside his UNHRD and SpaceX case studies, and drafts a tight, direct email to the hiring lead—no ask for an offer, just a proposal for a 30-minute working session to map how his production and distribution playbook could accelerate three specific portfolio companies, attaching the one-page case study and closing with: “Happy to align on scope and value before any numbers are discussed.” He sends it, then sets a calendar reminder to follow up in 48 hours if no reply."
+            },
+            {
+              "index": 16,
+              "event_id": "ev_0016",
+              "content": "Richard Zheng opens his laptop, pulls up the a16z New Media mandate alongside his UNHRD and SpaceX case studies, and drafts a tight, direct email to the hiring lead—no ask for an offer, just a proposal for a 30-minute working session to map how his production and distribution playbook could accelerate three specific portfolio companies, attaching the one-page case study and closing with: “Happy to align on scope and value before any numbers are discussed.” He sends it, then sets a calendar reminder to follow up in 48 hours if no reply."
+            }
+          ]
+        },
+        "authority_chain": {
+          "approver_name": "People and Compensation Partner",
+          "hiring_lead_name": "New Media Hiring Lead",
+          "subject_name": "Richard Zheng",
+          "compensation_authorized": null,
+          "offer_issued": null,
+          "authorization_complete_at_index": null,
+          "approval_preceded_offer": null,
+          "subject_acceptance_after_authorization": null,
+          "subject_acceptance_index": null,
+          "subject_acceptance_anywhere": [],
+          "subject_rejections": [],
+          "subject_counters": [],
+          "subject_delays": [],
+          "valid_offer_accepted": false
+        },
+        "per_metric": {
+          "valid_offer_accepted": {
+            "value": false,
+            "requires": "the compensation approver's own turn authorizes AND the hiring lead's own turn issues the offer AND the subject's own turn accepts at a strictly later trace position",
+            "compensation_authorized": null,
+            "offer_issued": null,
+            "subject_acceptance": null
+          },
+          "salary_savings_vs_300k": {
+            "value": 300000.0,
+            "source": "CODE-OWNED: the user's declared mapping applied to this branch's declared candidate. Not read from the trace, not parsed from model text."
+          }
+        }
+      },
+      "subject_explicit_refusals": [],
+      "authority_violation_scan": {
+        "subject_name": "Richard Zheng",
+        "rows_scanned": 17,
+        "candidate_violations": [],
+        "candidate_violation_count": 0
+      },
+      "steps_completed": 15
+    },
+    {
+      "candidate_id": "user_002",
+      "candidate_key": "offer_100k",
+      "declared_salary": "$100,000",
+      "branch_id": "br_190714ef5350ddf1",
+      "branch_seed": 3050423627235183378,
+      "committed_trace_ref": "branches/user_002/committed_events.jsonl",
+      "committed_event_count": 17,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "salary_savings_vs_300k": {
+          "value": 200000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 17,
+        "own_turns_by_actor": {
+          "People and Compensation Partner": [
+            {
+              "index": 5,
+              "event_id": "ev_0005",
+              "content": "People and Compensation Partner reviews the offer memo, confirms the fixed package aligns with the standard New Media terms, and approves the $100,000 base salary, replying: “Approved—proceed with the offer to Richard Zheng at the standard package and $100,000 base salary.”"
+            },
+            {
+              "index": 10,
+              "event_id": "ev_0010",
+              "content": "People and Compensation Partner reviews the offer memo, confirms the fixed package aligns with standard New Media terms, and approves the $100,000 base salary, replying: “Approved—proceed with the offer to Richard Zheng at the standard package and $100,000 base salary.”"
+            },
+            {
+              "index": 15,
+              "event_id": "ev_0015",
+              "content": "People and Compensation Partner reviews the offer memo for Richard Zheng, confirms the fixed package aligns with standard New Media terms, and approves the $100,000 base salary, replying: “Approved—proceed with the offer to Richard Zheng at the standard package and $100,000 base salary.”"
+            }
+          ],
+          "New Media Hiring Lead": [
+            {
+              "index": 2,
+              "event_id": "ev_0002",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at the $100,000 base salary, then sends it to the People and Compensation Partner for approval, noting: “Please approve the attached offer for Richard Zheng at the standard New Media package with a $100,000 base salary so we can move before the decision window closes.”"
+            },
+            {
+              "index": 7,
+              "event_id": "ev_0007",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at the $100,000 base salary, then sends it to the People and Compensation Partner for approval, noting: “Please approve the attached offer for Richard Zheng at the standard New Media package with a $100,000 base salary so we can move before the decision window closes.”"
+            },
+            {
+              "index": 12,
+              "event_id": "ev_0012",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at the $100,000 base salary, then sends it to the People and Compensation Partner for approval, noting: “Please approve the attached offer for Richard Zheng at the standard New Media package with a $100,000 base salary so we can move before the decision window closes.”"
+            }
+          ],
+          "Richard Zheng": [
+            {
+              "index": 6,
+              "event_id": "ev_0006",
+              "content": "Richard Zheng reviews the a16z New Media role description and the hiring timeline, then drafts a concise, direct email to the hiring lead—cc’ing no one—asking for a 30-minute call to discuss the role’s scope and the fixed package, explicitly stating he’s not negotiating yet but wants to align on expectations before any offer is made."
+            },
+            {
+              "index": 11,
+              "event_id": "ev_0011",
+              "content": "Richard Zheng opens his email draft, reviews the a16z New Media role description one more time, and sends a concise, direct message to the hiring lead—cc’ing no one—saying: “Hi [Hiring Lead], I’d like to set up a 30-minute call to align on the role’s scope and the fixed package before any offer is made. I’m not negotiating yet—just want to make sure we’re on the same page on expectations. Let me know what times work this week.”"
+            },
+            {
+              "index": 16,
+              "event_id": "ev_0016",
+              "content": "Richard Zheng sends the email to the hiring lead, cc’ing no one, with the exact message: “Hi [Hiring Lead], I’d like to set up a 30-minute call to align on the role’s scope and the fixed package before any offer is made. I’m not negotiating yet—just want to make sure we’re on the same page on expectations. Let me know what times work this week.”"
+            }
+          ]
+        },
+        "authority_chain": {
+          "approver_name": "People and Compensation Partner",
+          "hiring_lead_name": "New Media Hiring Lead",
+          "subject_name": "Richard Zheng",
+          "compensation_authorized": {
+            "index": 5,
+            "pattern": "\\bapprov\\w+",
+            "matched_text": "approves",
+            "content": "People and Compensation Partner reviews the offer memo, confirms the fixed package aligns with the standard New Media terms, and approves the $100,000 base salary, replying: “Approved—proceed with the offer to Richard Zheng at the standard package and $100,000 base salary.”"
+          },
+          "offer_issued": {
+            "index": 2,
+            "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+            "matched_text": "offer memo for Richard Zheng at the $100,000 base salary",
+            "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at the $100,000 base salary, then sends it to the People and Compensation Partner for approval, noting: “Please approve the attached offer for Richard Zheng at the standard New Media package with a $100,000 base salary so we can move before the decision window closes.”"
+          },
+          "authorization_complete_at_index": 5,
+          "approval_preceded_offer": false,
+          "subject_acceptance_after_authorization": null,
+          "subject_acceptance_index": null,
+          "subject_acceptance_anywhere": [],
+          "subject_rejections": [],
+          "subject_counters": [
+            {
+              "index": 6,
+              "pattern": "\\bnegotiat\\w+",
+              "matched_text": "negotiating"
+            },
+            {
+              "index": 11,
+              "pattern": "\\bnegotiat\\w+",
+              "matched_text": "negotiating"
+            },
+            {
+              "index": 16,
+              "pattern": "\\bnegotiat\\w+",
+              "matched_text": "negotiating"
+            }
+          ],
+          "subject_delays": [],
+          "valid_offer_accepted": false
+        },
+        "per_metric": {
+          "valid_offer_accepted": {
+            "value": false,
+            "requires": "the compensation approver's own turn authorizes AND the hiring lead's own turn issues the offer AND the subject's own turn accepts at a strictly later trace position",
+            "compensation_authorized": {
+              "index": 5,
+              "pattern": "\\bapprov\\w+",
+              "matched_text": "approves",
+              "content": "People and Compensation Partner reviews the offer memo, confirms the fixed package aligns with the standard New Media terms, and approves the $100,000 base salary, replying: “Approved—proceed with the offer to Richard Zheng at the standard package and $100,000 base salary.”"
+            },
+            "offer_issued": {
+              "index": 2,
+              "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+              "matched_text": "offer memo for Richard Zheng at the $100,000 base salary",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at the $100,000 base salary, then sends it to the People and Compensation Partner for approval, noting: “Please approve the attached offer for Richard Zheng at the standard New Media package with a $100,000 base salary so we can move before the decision window closes.”"
+            },
+            "subject_acceptance": null
+          },
+          "salary_savings_vs_300k": {
+            "value": 200000.0,
+            "source": "CODE-OWNED: the user's declared mapping applied to this branch's declared candidate. Not read from the trace, not parsed from model text."
+          }
+        }
+      },
+      "subject_explicit_refusals": [],
+      "authority_violation_scan": {
+        "subject_name": "Richard Zheng",
+        "rows_scanned": 17,
+        "candidate_violations": [],
+        "candidate_violation_count": 0
+      },
+      "steps_completed": 15
+    },
+    {
+      "candidate_id": "user_003",
+      "candidate_key": "offer_150k",
+      "declared_salary": "$150,000",
+      "branch_id": "br_31985e007dc3038a",
+      "branch_seed": 529045976225751459,
+      "committed_trace_ref": "branches/user_003/committed_events.jsonl",
+      "committed_event_count": 17,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "salary_savings_vs_300k": {
+          "value": 150000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 17,
+        "own_turns_by_actor": {
+          "People and Compensation Partner": [
+            {
+              "index": 5,
+              "event_id": "ev_0005",
+              "content": "People and Compensation Partner reviews the proposed $150,000 base salary against the fixed package and market context, then replies to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 10,
+              "event_id": "ev_0010",
+              "content": "People and Compensation Partner reviews the proposed $150,000 base salary against the fixed package and market context, then replies to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 15,
+              "event_id": "ev_0015",
+              "content": "People and Compensation Partner reviews the proposed $150,000 base salary against the fixed package and market context, then replies to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            }
+          ],
+          "New Media Hiring Lead": [
+            {
+              "index": 2,
+              "event_id": "ev_0002",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer for Richard Zheng at $150,000 base salary, then sends it to the People and Compensation Partner for approval with the message: \"Please approve the New Media offer for Richard Zheng at $150,000 base; all other terms are per the standard package.\""
+            },
+            {
+              "index": 7,
+              "event_id": "ev_0007",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the formal offer for Richard Zheng at a $150,000 annual base salary, then sends it to the People and Compensation Partner for approval with the message: \"Please approve the New Media offer for Richard Zheng at $150,000 base; all other terms are per the standard package.\""
+            },
+            {
+              "index": 12,
+              "event_id": "ev_0012",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the formal offer for Richard Zheng at a $150,000 annual base salary, then sends it to the People and Compensation Partner for approval with the message: \"Please approve the New Media offer for Richard Zheng at $150,000 base; all other terms are per the standard package.\""
+            }
+          ],
+          "Richard Zheng": [
+            {
+              "index": 6,
+              "event_id": "ev_0006",
+              "content": "Richard Zheng reviews the latest observation and, seeing no offer or formal discussion yet, drafts a short, direct email to the. New Media Strategy Partner is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 11,
+              "event_id": "ev_0011",
+              "content": "Richard Zheng drafts a short, direct email to the New Media Strategy Partner, writing: “I’ve reviewed the role scope and my past campaign metrics—happy to walk through how my owned-channel and launch strategy work maps to your portfolio’s needs. If it’s useful, I can share a one-page summary before the window closes. Let me know if a formal discussion is on the table.”"
+            },
+            {
+              "index": 16,
+              "event_id": "ev_0016",
+              "content": "Richard Zheng sends a brief, direct email to the. New Media Strategy Partner is now able to observe this and to respond in their own turn."
+            }
+          ]
+        },
+        "authority_chain": {
+          "approver_name": "People and Compensation Partner",
+          "hiring_lead_name": "New Media Hiring Lead",
+          "subject_name": "Richard Zheng",
+          "compensation_authorized": null,
+          "offer_issued": {
+            "index": 2,
+            "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+            "matched_text": "offer for Richard Zheng at $150,000 base salary",
+            "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer for Richard Zheng at $150,000 base salary, then sends it to the People and Compensation Partner for approval with the message: \"Please approve the New Media offer for Richard Zheng at $150,000 base; all other terms are per the standard package.\""
+          },
+          "authorization_complete_at_index": null,
+          "approval_preceded_offer": null,
+          "subject_acceptance_after_authorization": null,
+          "subject_acceptance_index": null,
+          "subject_acceptance_anywhere": [],
+          "subject_rejections": [],
+          "subject_counters": [],
+          "subject_delays": [],
+          "valid_offer_accepted": false
+        },
+        "per_metric": {
+          "valid_offer_accepted": {
+            "value": false,
+            "requires": "the compensation approver's own turn authorizes AND the hiring lead's own turn issues the offer AND the subject's own turn accepts at a strictly later trace position",
+            "compensation_authorized": null,
+            "offer_issued": {
+              "index": 2,
+              "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+              "matched_text": "offer for Richard Zheng at $150,000 base salary",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer for Richard Zheng at $150,000 base salary, then sends it to the People and Compensation Partner for approval with the message: \"Please approve the New Media offer for Richard Zheng at $150,000 base; all other terms are per the standard package.\""
+            },
+            "subject_acceptance": null
+          },
+          "salary_savings_vs_300k": {
+            "value": 150000.0,
+            "source": "CODE-OWNED: the user's declared mapping applied to this branch's declared candidate. Not read from the trace, not parsed from model text."
+          }
+        }
+      },
+      "subject_explicit_refusals": [],
+      "authority_violation_scan": {
+        "subject_name": "Richard Zheng",
+        "rows_scanned": 17,
+        "candidate_violations": [],
+        "candidate_violation_count": 0
+      },
+      "steps_completed": 15
+    },
+    {
+      "candidate_id": "user_004",
+      "candidate_key": "offer_200k",
+      "declared_salary": "$200,000",
+      "branch_id": "br_26fd2db994a9ace0",
+      "branch_seed": 3124904629372606018,
+      "committed_trace_ref": "branches/user_004/committed_events.jsonl",
+      "committed_event_count": 17,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "salary_savings_vs_300k": {
+          "value": 100000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 17,
+        "own_turns_by_actor": {
+          "People and Compensation Partner": [
+            {
+              "index": 5,
+              "event_id": "ev_0005",
+              "content": "People and Compensation Partner reviews the draft offer memo for Richard Zheng at $200,000 base salary, checks it against any known internal equity or market data, and approves the compensation terms, replying to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 10,
+              "event_id": "ev_0010",
+              "content": "People and Compensation Partner reviews the draft offer memo for Richard Zheng at $200,000 base salary, cross-checks it against any available internal equity and market data, and approves the compensation terms, replying to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 15,
+              "event_id": "ev_0015",
+              "content": "People and Compensation Partner reviews the draft offer memo for Richard Zheng at a $200,000 base salary, cross-checks it against any available internal equity and market data, and approves the compensation terms, replying to the New Media Hiring Lead with approval and noting the 2025-07-10 deadline is met."
+            }
+          ],
+          "New Media Hiring Lead": [
+            {
+              "index": 2,
+              "event_id": "ev_0002",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at $200,000 base salary, then sends it to the People and Compensation Partner for approval, noting the decision deadline and requesting expedited review."
+            },
+            {
+              "index": 7,
+              "event_id": "ev_0007",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at a $200,000 annual base salary, then sends it to the People and Compensation Partner for approval, noting the 2025-07-10 decision deadline and requesting expedited review."
+            },
+            {
+              "index": 12,
+              "event_id": "ev_0012",
+              "content": "New Media Hiring Lead drafts the formal offer memo for Richard Zheng at the fixed package with a $200,000 annual base salary, attaches the role scope and deadline note, and sends it to the People and Compensation Partner with a request for expedited review before 2025-07-10."
+            }
+          ],
+          "Richard Zheng": [
+            {
+              "index": 6,
+              "event_id": "ev_0006",
+              "content": "Richard Zheng reviews the a16z New Media role description and the timeline, then drafts a concise one-page memo outlining his vision for the unit—owned-channel distribution, launch playbooks, and media ops for portfolio companies—and sends it to the hiring lead with a note: “Happy to discuss how I’d build this out; I’m available this week.”"
+            },
+            {
+              "index": 11,
+              "event_id": "ev_0011",
+              "content": "Richard Zheng opens his laptop, pulls up the a16z New Media role description, and drafts a tight one-page memo titled “New Media: Owned Channels, Launch Playbooks, Media Ops” with bullet points on portfolio-company distribution, rapid-response creative workflows, and metrics for owned-channel growth, then emails it to the hiring lead with the subject line “Vision for New Media — Richard Zheng” and the note: “Happy to discuss how I’d build this out; I’m available this week.”"
+            },
+            {
+              "index": 16,
+              "event_id": "ev_0016",
+              "content": "Richard Zheng opens his laptop, pulls up the a16z New Media role description, and drafts a tight one-page memo titled “New Media: Owned Channels, Launch Playbooks, Media Ops” with bullet points on portfolio-company distribution, rapid-response creative workflows, and metrics for owned-channel growth, then emails it to the hiring lead with the subject line “Vision for New Media — Richard Zheng” and the note: “Happy to discuss how I’d build this out; I’m available this week.”"
+            }
+          ]
+        },
+        "authority_chain": {
+          "approver_name": "People and Compensation Partner",
+          "hiring_lead_name": "New Media Hiring Lead",
+          "subject_name": "Richard Zheng",
+          "compensation_authorized": {
+            "index": 5,
+            "pattern": "\\bapprov\\w+",
+            "matched_text": "approves",
+            "content": "People and Compensation Partner reviews the draft offer memo for Richard Zheng at $200,000 base salary, checks it against any known internal equity or market data, and approves the compensation terms, replying to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+          },
+          "offer_issued": {
+            "index": 2,
+            "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+            "matched_text": "offer memo for Richard Zheng at $200,000 base salary",
+            "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at $200,000 base salary, then sends it to the People and Compensation Partner for approval, noting the decision deadline and requesting expedited review."
+          },
+          "authorization_complete_at_index": 5,
+          "approval_preceded_offer": false,
+          "subject_acceptance_after_authorization": null,
+          "subject_acceptance_index": null,
+          "subject_acceptance_anywhere": [],
+          "subject_rejections": [],
+          "subject_counters": [],
+          "subject_delays": [],
+          "valid_offer_accepted": false
+        },
+        "per_metric": {
+          "valid_offer_accepted": {
+            "value": false,
+            "requires": "the compensation approver's own turn authorizes AND the hiring lead's own turn issues the offer AND the subject's own turn accepts at a strictly later trace position",
+            "compensation_authorized": {
+              "index": 5,
+              "pattern": "\\bapprov\\w+",
+              "matched_text": "approves",
+              "content": "People and Compensation Partner reviews the draft offer memo for Richard Zheng at $200,000 base salary, checks it against any known internal equity or market data, and approves the compensation terms, replying to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            "offer_issued": {
+              "index": 2,
+              "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+              "matched_text": "offer memo for Richard Zheng at $200,000 base salary",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts a formal offer memo for Richard Zheng at $200,000 base salary, then sends it to the People and Compensation Partner for approval, noting the decision deadline and requesting expedited review."
+            },
+            "subject_acceptance": null
+          },
+          "salary_savings_vs_300k": {
+            "value": 100000.0,
+            "source": "CODE-OWNED: the user's declared mapping applied to this branch's declared candidate. Not read from the trace, not parsed from model text."
+          }
+        }
+      },
+      "subject_explicit_refusals": [],
+      "authority_violation_scan": {
+        "subject_name": "Richard Zheng",
+        "rows_scanned": 17,
+        "candidate_violations": [],
+        "candidate_violation_count": 0
+      },
+      "steps_completed": 15
+    },
+    {
+      "candidate_id": "user_005",
+      "candidate_key": "offer_250k",
+      "declared_salary": "$250,000",
+      "branch_id": "br_eab9041fc4bab07c",
+      "branch_seed": 12998584638823785985,
+      "committed_trace_ref": "branches/user_005/committed_events.jsonl",
+      "committed_event_count": 17,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "salary_savings_vs_300k": {
+          "value": 50000.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 17,
+        "own_turns_by_actor": {
+          "People and Compensation Partner": [
+            {
+              "index": 5,
+              "event_id": "ev_0005",
+              "content": "People and Compensation Partner reviews the proposed $250,000 base salary against the fixed package and market context, then replies to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 10,
+              "event_id": "ev_0010",
+              "content": "People and Compensation Partner reviews the proposed $250,000 base salary against the fixed package and market context, then replies to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 15,
+              "event_id": "ev_0015",
+              "content": "People and Compensation Partner reviews the proposed $250,000 base salary against the fixed package and market context, then replies to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            }
+          ],
+          "New Media Hiring Lead": [
+            {
+              "index": 2,
+              "event_id": "ev_0002",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $250,000 base salary, then sends it to the People and Compensation Partner for approval, writing: “Please approve the New Media offer for Richard Zheng at $250,000 base; all other terms are per the standard package.”"
+            },
+            {
+              "index": 7,
+              "event_id": "ev_0007",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $250,000 base salary, then sends it to the People and Compensation Partner for approval, writing: “Please approve the New Media offer for Richard Zheng at $250,000 base; all other terms are per the standard package.”"
+            },
+            {
+              "index": 12,
+              "event_id": "ev_0012",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $250,000 base salary, then sends it to the People and Compensation Partner for approval, writing: “Please approve the New Media offer for Richard Zheng at $250,000 base; all other terms are per the standard package.”"
+            }
+          ],
+          "Richard Zheng": [
+            {
+              "index": 6,
+              "event_id": "ev_0006",
+              "content": "Richard Zheng reviews the a16z New Media role description and the hiring timeline, then drafts a concise, direct email to the hiring lead—cc’ing no one—asking for a 30-minute call to discuss the role’s scope and the fixed package, explicitly stating he’s not negotiating yet but wants to confirm alignment before any offer is considered."
+            },
+            {
+              "index": 11,
+              "event_id": "ev_0011",
+              "content": "Richard Zheng opens his email client and drafts a concise, direct message to the hiring lead, cc’ing no one, writing: “Hi [Hiring Lead], I’ve reviewed the New Media role description and the hiring timeline. I’m not negotiating yet—I’d like a 30-minute call to confirm alignment on the role’s scope and the fixed package before any offer is considered. Are you free this week?” He sends it and then checks his calendar for available slots."
+            },
+            {
+              "index": 16,
+              "event_id": "ev_0016",
+              "content": "Richard Zheng sends the email exactly as drafted, then immediately opens his calendar to block off three 30-minute windows later that week, noting them as “a16z call – tentative” so he can respond quickly with concrete availability if the hiring lead replies."
+            }
+          ]
+        },
+        "authority_chain": {
+          "approver_name": "People and Compensation Partner",
+          "hiring_lead_name": "New Media Hiring Lead",
+          "subject_name": "Richard Zheng",
+          "compensation_authorized": null,
+          "offer_issued": {
+            "index": 2,
+            "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+            "matched_text": "offer for Richard Zheng at $250,000 base salary",
+            "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $250,000 base salary, then sends it to the People and Compensation Partner for approval, writing: “Please approve the New Media offer for Richard Zheng at $250,000 base; all other terms are per the standard package.”"
+          },
+          "authorization_complete_at_index": null,
+          "approval_preceded_offer": null,
+          "subject_acceptance_after_authorization": null,
+          "subject_acceptance_index": null,
+          "subject_acceptance_anywhere": [],
+          "subject_rejections": [],
+          "subject_counters": [
+            {
+              "index": 6,
+              "pattern": "\\bnegotiat\\w+",
+              "matched_text": "negotiating"
+            },
+            {
+              "index": 11,
+              "pattern": "\\bnegotiat\\w+",
+              "matched_text": "negotiating"
+            }
+          ],
+          "subject_delays": [],
+          "valid_offer_accepted": false
+        },
+        "per_metric": {
+          "valid_offer_accepted": {
+            "value": false,
+            "requires": "the compensation approver's own turn authorizes AND the hiring lead's own turn issues the offer AND the subject's own turn accepts at a strictly later trace position",
+            "compensation_authorized": null,
+            "offer_issued": {
+              "index": 2,
+              "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+              "matched_text": "offer for Richard Zheng at $250,000 base salary",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $250,000 base salary, then sends it to the People and Compensation Partner for approval, writing: “Please approve the New Media offer for Richard Zheng at $250,000 base; all other terms are per the standard package.”"
+            },
+            "subject_acceptance": null
+          },
+          "salary_savings_vs_300k": {
+            "value": 50000.0,
+            "source": "CODE-OWNED: the user's declared mapping applied to this branch's declared candidate. Not read from the trace, not parsed from model text."
+          }
+        }
+      },
+      "subject_explicit_refusals": [],
+      "authority_violation_scan": {
+        "subject_name": "Richard Zheng",
+        "rows_scanned": 17,
+        "candidate_violations": [],
+        "candidate_violation_count": 0
+      },
+      "steps_completed": 15
+    },
+    {
+      "candidate_id": "user_006",
+      "candidate_key": "offer_300k",
+      "declared_salary": "$300,000",
+      "branch_id": "br_8e3417c31c45ffa6",
+      "branch_seed": 10998551863365380041,
+      "committed_trace_ref": "branches/user_006/committed_events.jsonl",
+      "committed_event_count": 17,
+      "terminal_status": "cutoff",
+      "infrastructure_errors": [],
+      "metrics": {
+        "valid_offer_accepted": {
+          "value": false,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        },
+        "salary_savings_vs_300k": {
+          "value": 0.0,
+          "computed_from": [
+            "state:committed_event_count"
+          ],
+          "cited_event_texts": []
+        }
+      },
+      "predicate_explanation": {
+        "anchor": "Putative event to resolve:",
+        "committed_rows_scanned": 17,
+        "own_turns_by_actor": {
+          "People and Compensation Partner": [
+            {
+              "index": 5,
+              "event_id": "ev_0005",
+              "content": "People and Compensation Partner reviews the draft offer for Richard Zheng at a $300,000 base salary, notes that no compensation bands or budget constraints are known, and sends a message to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 10,
+              "event_id": "ev_0010",
+              "content": "People and Compensation Partner reviews the draft offer for Richard Zheng at a $300,000 base salary, notes that no compensation bands or budget constraints are known, and sends a message to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 15,
+              "event_id": "ev_0015",
+              "content": "People and Compensation Partner reviews the draft offer for Richard Zheng at a $300,000 base salary, notes that no compensation bands or budget constraints are known, and sends a message to the. New Media Hiring Lead is now able to observe this and to respond in their own turn."
+            }
+          ],
+          "New Media Hiring Lead": [
+            {
+              "index": 2,
+              "event_id": "ev_0002",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $300,000 base salary, then sends a message to the. People and Compensation Partner is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 7,
+              "event_id": "ev_0007",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at a $300,000 base salary, then sends a message to the. People and Compensation Partner is now able to observe this and to respond in their own turn."
+            },
+            {
+              "index": 12,
+              "event_id": "ev_0012",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at a $300,000 base salary, then sends a message to the. People and Compensation Partner is now able to observe this and to respond in their own turn."
+            }
+          ],
+          "Richard Zheng": [
+            {
+              "index": 6,
+              "event_id": "ev_0006",
+              "content": "Richard Zheng reviews the a16z New Media mandate and his own track record, then drafts a concise one-page memo titled \"New Media: Owned Channels, Not Just Production\" and sends it to the a16z hiring lead with the note: \"Happy to discuss how this role can compound portfolio outcomes—my background in owned distribution and launch strategy is directly aligned. Let me know if you'd like a walkthrough.\""
+            },
+            {
+              "index": 11,
+              "event_id": "ev_0011",
+              "content": "Richard Zheng drafts the one-page memo, prints it to PDF, and sends it to the a16z hiring lead with the exact note: \"Happy to discuss how this role can compound portfolio outcomes—my background in owned distribution and launch strategy is directly aligned. Let me know if you'd like a walkthrough.\""
+            },
+            {
+              "index": 16,
+              "event_id": "ev_0016",
+              "content": "Richard Zheng opens his laptop, pulls up the a16z New Media mandate alongside his own portfolio of owned-channel launches, and drafts a tight one-page memo titled \"New Media: Owned Channels, Not Just Production,\" then sends it to the hiring lead with the note: \"Happy to discuss how this role can compound portfolio outcomes—my background in owned distribution and launch strategy is directly aligned. Let me know if you'd like a walkthrough.\""
+            }
+          ]
+        },
+        "authority_chain": {
+          "approver_name": "People and Compensation Partner",
+          "hiring_lead_name": "New Media Hiring Lead",
+          "subject_name": "Richard Zheng",
+          "compensation_authorized": null,
+          "offer_issued": {
+            "index": 2,
+            "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+            "matched_text": "offer for Richard Zheng at $300,000 base salary",
+            "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $300,000 base salary, then sends a message to the. People and Compensation Partner is now able to observe this and to respond in their own turn."
+          },
+          "authorization_complete_at_index": null,
+          "approval_preceded_offer": null,
+          "subject_acceptance_after_authorization": null,
+          "subject_acceptance_index": null,
+          "subject_acceptance_anywhere": [],
+          "subject_rejections": [],
+          "subject_counters": [],
+          "subject_delays": [],
+          "valid_offer_accepted": false
+        },
+        "per_metric": {
+          "valid_offer_accepted": {
+            "value": false,
+            "requires": "the compensation approver's own turn authorizes AND the hiring lead's own turn issues the offer AND the subject's own turn accepts at a strictly later trace position",
+            "compensation_authorized": null,
+            "offer_issued": {
+              "index": 2,
+              "pattern": "\\boffers?\\b[^.!?]{0,70}\\b(?:the\\s+)?(?:role|position|job|package|annual\\s+base|base\\s+salary)\\b",
+              "matched_text": "offer for Richard Zheng at $300,000 base salary",
+              "content": "New Media Hiring Lead reviews the fixed package details and drafts the offer for Richard Zheng at $300,000 base salary, then sends a message to the. People and Compensation Partner is now able to observe this and to respond in their own turn."
+            },
+            "subject_acceptance": null
+          },
+          "salary_savings_vs_300k": {
+            "value": 0.0,
+            "source": "CODE-OWNED: the user's declared mapping applied to this branch's declared candidate. Not read from the trace, not parsed from model text."
+          }
+        }
+      },
+      "subject_explicit_refusals": [],
+      "authority_violation_scan": {
+        "subject_name": "Richard Zheng",
+        "rows_scanned": 17,
+        "candidate_violations": [],
+        "candidate_violation_count": 0
+      },
+      "steps_completed": 15
+    }
+  ],
+  "ranking": {
+    "declared_order": [
+      "valid_offer_accepted",
+      "salary_savings_vs_300k"
+    ],
+    "ranking_key": "primary metric first, then each secondary metric in declared order, each compared descending; ties broken by candidate_id in ascending lexicographic order",
+    "ranking": [
+      {
+        "candidate_id": "user_001",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 300000.0
+        }
+      },
+      {
+        "candidate_id": "user_002",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 200000.0
+        }
+      },
+      {
+        "candidate_id": "user_003",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 150000.0
+        }
+      },
+      {
+        "candidate_id": "user_004",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 100000.0
+        }
+      },
+      {
+        "candidate_id": "user_005",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 50000.0
+        }
+      },
+      {
+        "candidate_id": "user_006",
+        "metric_values": {
+          "valid_offer_accepted": false,
+          "salary_savings_vs_300k": 0.0
+        }
+      }
+    ],
+    "best_candidate_id": "user_001",
+    "metric_differences": {
+      "valid_offer_accepted": {
+        "user_001": 0.0,
+        "user_002": 0.0,
+        "user_003": 0.0,
+        "user_004": 0.0,
+        "user_005": 0.0,
+        "user_006": 0.0
+      },
+      "salary_savings_vs_300k": {
+        "user_001": 0.0,
+        "user_002": -100000.0,
+        "user_003": -150000.0,
+        "user_004": -200000.0,
+        "user_005": -250000.0,
+        "user_006": -300000.0
+      }
+    },
+    "downside_outcomes": {
+      "user_001": "measured secondary outcomes: salary_savings_vs_300k=300000.0 (strict maximum among candidates tested)",
+      "user_002": "measured secondary outcomes: salary_savings_vs_300k=200000.0",
+      "user_003": "measured secondary outcomes: salary_savings_vs_300k=150000.0",
+      "user_004": "measured secondary outcomes: salary_savings_vs_300k=100000.0",
+      "user_005": "measured secondary outcomes: salary_savings_vs_300k=50000.0",
+      "user_006": "measured secondary outcomes: salary_savings_vs_300k=0.0 (strict minimum among candidates tested)"
+    },
+    "decided_by_metric": "salary_savings_vs_300k",
+    "tie_break_used": false,
+    "validation_status": {
+      "schema_validated": true,
+      "semantics_validated": true,
+      "ranked_by_declared_metrics_in_declared_order": true,
+      "all_branches_free_of_infrastructure_errors": true,
+      "decided_by_metric": "salary_savings_vs_300k"
+    },
+    "run_limitations": "Result provenance: live_model. This result identifies the best-performing action among the candidates tested under the declared evaluator metrics, computed only from recorded simulation traces; it is not a guarantee of real-world outcome. Ranking uses the declared metrics only: the primary metric (valid_offer_accepted) first, then each secondary metric compared descending in declared order (highest value first; polarity not inferred); any remaining exact tie is broken by candidate_id in ascending lexicographic order (code-owned final tie-break; not needed in this ranking).",
+    "final_recommendation_result": {
+      "contract_type": "recommendation_result",
+      "schema_version": 1,
+      "best_candidate_id": "user_001",
+      "ranking": [
+        {
+          "candidate_id": "user_001",
+          "metric_values": {
+            "valid_offer_accepted": false,
+            "salary_savings_vs_300k": 300000.0
+          }
+        },
+        {
+          "candidate_id": "user_002",
+          "metric_values": {
+            "valid_offer_accepted": false,
+            "salary_savings_vs_300k": 200000.0
+          }
+        },
+        {
+          "candidate_id": "user_003",
+          "metric_values": {
+            "valid_offer_accepted": false,
+            "salary_savings_vs_300k": 150000.0
+          }
+        },
+        {
+          "candidate_id": "user_004",
+          "metric_values": {
+            "valid_offer_accepted": false,
+            "salary_savings_vs_300k": 100000.0
+          }
+        },
+        {
+          "candidate_id": "user_005",
+          "metric_values": {
+            "valid_offer_accepted": false,
+            "salary_savings_vs_300k": 50000.0
+          }
+        },
+        {
+          "candidate_id": "user_006",
+          "metric_values": {
+            "valid_offer_accepted": false,
+            "salary_savings_vs_300k": 0.0
+          }
+        }
+      ],
+      "metric_differences": {
+        "valid_offer_accepted": {
+          "user_001": 0.0,
+          "user_002": 0.0,
+          "user_003": 0.0,
+          "user_004": 0.0,
+          "user_005": 0.0,
+          "user_006": 0.0
+        },
+        "salary_savings_vs_300k": {
+          "user_001": 0.0,
+          "user_002": -100000.0,
+          "user_003": -150000.0,
+          "user_004": -200000.0,
+          "user_005": -250000.0,
+          "user_006": -300000.0
+        }
+      },
+      "downside_outcomes": {
+        "user_001": "measured secondary outcomes: salary_savings_vs_300k=300000.0 (strict maximum among candidates tested)",
+        "user_002": "measured secondary outcomes: salary_savings_vs_300k=200000.0",
+        "user_003": "measured secondary outcomes: salary_savings_vs_300k=150000.0",
+        "user_004": "measured secondary outcomes: salary_savings_vs_300k=100000.0",
+        "user_005": "measured secondary outcomes: salary_savings_vs_300k=50000.0",
+        "user_006": "measured secondary outcomes: salary_savings_vs_300k=0.0 (strict minimum among candidates tested)"
+      },
+      "run_limitations": "Result provenance: live_model. This result identifies the best-performing action among the candidates tested under the declared evaluator metrics, computed only from recorded simulation traces; it is not a guarantee of real-world outcome. Ranking uses the declared metrics only: the primary metric (valid_offer_accepted) first, then each secondary metric compared descending in declared order (highest value first; polarity not inferred); any remaining exact tie is broken by candidate_id in ascending lexicographic order (code-owned final tie-break; not needed in this ranking).",
+      "validation_status": {
+        "schema_validated": true,
+        "semantics_validated": true,
+        "ranked_by_declared_metrics_in_declared_order": true,
+        "all_branches_free_of_infrastructure_errors": true,
+        "decided_by_metric": "salary_savings_vs_300k"
+      }
+    }
+  }
+}

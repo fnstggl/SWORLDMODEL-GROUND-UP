@@ -1,0 +1,613 @@
+{
+  "scenario_id": "a16z_richard_historical",
+  "subject_actor": "Richard Zheng",
+  "baseline_candidate_id": "user_001",
+  "per_branch": [
+    {
+      "candidate_id": "user_001",
+      "recipient_prompt_count": 3,
+      "recipient_first_turn_prompt_sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "recipient_first_turn_prompt_chars": 1366,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Do not make Richard Zheng an employment offer during the simulation window.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 5,
+          "call_id": "a16z_richard_historical-000009",
+          "sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632"
+        },
+        {
+          "step": 10,
+          "call_id": "a16z_richard_historical-000019",
+          "sha256": "235c6a17aeef42429421055f24e72d9da5b1e8951c159c07cc6a60d598ac0926"
+        },
+        {
+          "step": 15,
+          "call_id": "a16z_richard_historical-000029",
+          "sha256": "44a98afd03d98de96db63da1a68b825ff660c60ca1553615748968df44c84b4d"
+        }
+      ],
+      "declared_salary": null,
+      "salary_surface_forms_tested": [],
+      "salary_found_in_subject_prompts": [],
+      "salary_found_in_subject_observations": [],
+      "salary_found_in_committed_events": [],
+      "salary_also_present_in_no_offer_baseline_prompts": [],
+      "salary_also_present_in_static_world_context": [],
+      "contaminated_token": false,
+      "offer_reached_the_subject": false,
+      "offer_reached_the_world": false,
+      "subject_prompt_count": 3,
+      "subject_observation_count": 3
+    },
+    {
+      "candidate_id": "user_002",
+      "recipient_prompt_count": 3,
+      "recipient_first_turn_prompt_sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "recipient_first_turn_prompt_chars": 1366,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 5,
+          "call_id": "a16z_richard_historical-000039",
+          "sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632"
+        },
+        {
+          "step": 10,
+          "call_id": "a16z_richard_historical-000049",
+          "sha256": "bafef4c4cb2118bf9b1bef2101307fc755af2eabc6aba6118f4567e02f1523fa"
+        },
+        {
+          "step": 15,
+          "call_id": "a16z_richard_historical-000059",
+          "sha256": "1736d0a87120a2180d96bcd0c9dce265024da337a1dc0f5718823657fcd08e30"
+        }
+      ],
+      "declared_salary": "$100,000",
+      "salary_surface_forms_tested": [
+        "100 thousand",
+        "$100,000",
+        "100,000",
+        "100000",
+        "$100K",
+        "$100k",
+        "100k",
+        "100K"
+      ],
+      "salary_found_in_subject_prompts": [
+        "$100,000",
+        "100,000"
+      ],
+      "salary_found_in_subject_observations": [],
+      "salary_found_in_committed_events": [
+        "$100,000",
+        "100,000"
+      ],
+      "salary_also_present_in_no_offer_baseline_prompts": [
+        "$100,000",
+        "100,000"
+      ],
+      "salary_also_present_in_static_world_context": [
+        "$100,000",
+        "100,000"
+      ],
+      "contaminated_token": true,
+      "offer_reached_the_subject": false,
+      "offer_reached_the_world": false,
+      "subject_prompt_count": 3,
+      "subject_observation_count": 3
+    },
+    {
+      "candidate_id": "user_003",
+      "recipient_prompt_count": 3,
+      "recipient_first_turn_prompt_sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "recipient_first_turn_prompt_chars": 1366,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 5,
+          "call_id": "a16z_richard_historical-000069",
+          "sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632"
+        },
+        {
+          "step": 10,
+          "call_id": "a16z_richard_historical-000079",
+          "sha256": "790386d150e4abeaa72b8a69cd24d81f7650176c1cce23c71b41857fa07517c0"
+        },
+        {
+          "step": 15,
+          "call_id": "a16z_richard_historical-000089",
+          "sha256": "65abd0ec922a5f53b4b27f2f33aad43bcd687e53b1dda88cf0022e741fd71c40"
+        }
+      ],
+      "declared_salary": "$150,000",
+      "salary_surface_forms_tested": [
+        "150 thousand",
+        "$150,000",
+        "150,000",
+        "150000",
+        "$150K",
+        "$150k",
+        "150k",
+        "150K"
+      ],
+      "salary_found_in_subject_prompts": [],
+      "salary_found_in_subject_observations": [],
+      "salary_found_in_committed_events": [
+        "$150,000",
+        "150,000"
+      ],
+      "salary_also_present_in_no_offer_baseline_prompts": [],
+      "salary_also_present_in_static_world_context": [],
+      "contaminated_token": false,
+      "offer_reached_the_subject": false,
+      "offer_reached_the_world": true,
+      "subject_prompt_count": 3,
+      "subject_observation_count": 3
+    },
+    {
+      "candidate_id": "user_004",
+      "recipient_prompt_count": 3,
+      "recipient_first_turn_prompt_sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "recipient_first_turn_prompt_chars": 1366,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 5,
+          "call_id": "a16z_richard_historical-000099",
+          "sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632"
+        },
+        {
+          "step": 10,
+          "call_id": "a16z_richard_historical-000109",
+          "sha256": "44fff3912abfa06e499e39021ea5b5a7eda35b05e051a7f832eb13d4b0db79f9"
+        },
+        {
+          "step": 15,
+          "call_id": "a16z_richard_historical-000119",
+          "sha256": "f0e27844a64759f5adfb1a21515d5f5421dd6cb96271b1baab67a09929262f20"
+        }
+      ],
+      "declared_salary": "$200,000",
+      "salary_surface_forms_tested": [
+        "200 thousand",
+        "$200,000",
+        "200,000",
+        "200000",
+        "$200k",
+        "$200K",
+        "200K",
+        "200k"
+      ],
+      "salary_found_in_subject_prompts": [],
+      "salary_found_in_subject_observations": [],
+      "salary_found_in_committed_events": [
+        "$200,000",
+        "200,000"
+      ],
+      "salary_also_present_in_no_offer_baseline_prompts": [],
+      "salary_also_present_in_static_world_context": [],
+      "contaminated_token": false,
+      "offer_reached_the_subject": false,
+      "offer_reached_the_world": true,
+      "subject_prompt_count": 3,
+      "subject_observation_count": 3
+    },
+    {
+      "candidate_id": "user_005",
+      "recipient_prompt_count": 3,
+      "recipient_first_turn_prompt_sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "recipient_first_turn_prompt_chars": 1366,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 5,
+          "call_id": "a16z_richard_historical-000129",
+          "sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632"
+        },
+        {
+          "step": 10,
+          "call_id": "a16z_richard_historical-000139",
+          "sha256": "248dac7e778c8bf1ca2dc89ea02e0f4302728d0d861a313d1180f132edcd2040"
+        },
+        {
+          "step": 15,
+          "call_id": "a16z_richard_historical-000149",
+          "sha256": "3a7cec5b3a3b42c5f344df7d36e98282178ebd4cfae8bfd6e95e58ff14941c81"
+        }
+      ],
+      "declared_salary": "$250,000",
+      "salary_surface_forms_tested": [
+        "250 thousand",
+        "$250,000",
+        "250,000",
+        "250000",
+        "$250k",
+        "$250K",
+        "250k",
+        "250K"
+      ],
+      "salary_found_in_subject_prompts": [],
+      "salary_found_in_subject_observations": [],
+      "salary_found_in_committed_events": [
+        "$250,000",
+        "250,000",
+        "$250K",
+        "250K"
+      ],
+      "salary_also_present_in_no_offer_baseline_prompts": [],
+      "salary_also_present_in_static_world_context": [],
+      "contaminated_token": false,
+      "offer_reached_the_subject": false,
+      "offer_reached_the_world": true,
+      "subject_prompt_count": 3,
+      "subject_observation_count": 3
+    },
+    {
+      "candidate_id": "user_006",
+      "recipient_prompt_count": 3,
+      "recipient_first_turn_prompt_sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "recipient_first_turn_prompt_chars": 1366,
+      "candidate_fragments_tested": 1,
+      "candidate_fragments_found_in_recipient_prompts": 0,
+      "example_fragment_found": null,
+      "example_fragment_missing": "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000.",
+      "content_delivered_to_recipient": false,
+      "per_prompt_sha256": [
+        {
+          "step": 5,
+          "call_id": "a16z_richard_historical-000159",
+          "sha256": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632"
+        },
+        {
+          "step": 10,
+          "call_id": "a16z_richard_historical-000169",
+          "sha256": "bccd624f95849a4cffb964a22e1715b7b82ac71403ac7e832ed1a560ec238cfd"
+        },
+        {
+          "step": 15,
+          "call_id": "a16z_richard_historical-000179",
+          "sha256": "8efdb74b66e270c6d7af30ed17db558682cb2b818ba41e913dda0d165858e938"
+        }
+      ],
+      "declared_salary": "$300,000",
+      "salary_surface_forms_tested": [
+        "300 thousand",
+        "$300,000",
+        "300,000",
+        "300000",
+        "$300k",
+        "$300K",
+        "300k",
+        "300K"
+      ],
+      "salary_found_in_subject_prompts": [],
+      "salary_found_in_subject_observations": [],
+      "salary_found_in_committed_events": [
+        "$300,000",
+        "300,000",
+        "$300k",
+        "300k"
+      ],
+      "salary_also_present_in_no_offer_baseline_prompts": [],
+      "salary_also_present_in_static_world_context": [],
+      "contaminated_token": false,
+      "offer_reached_the_subject": false,
+      "offer_reached_the_world": true,
+      "subject_prompt_count": 3,
+      "subject_observation_count": 3
+    }
+  ],
+  "subject_first_turn_prompt_sha256_by_candidate": {
+    "user_001": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+    "user_002": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+    "user_003": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+    "user_004": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+    "user_005": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+    "user_006": "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632"
+  },
+  "subject_all_prompt_sha256_by_candidate": {
+    "user_001": [
+      "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "235c6a17aeef42429421055f24e72d9da5b1e8951c159c07cc6a60d598ac0926",
+      "44a98afd03d98de96db63da1a68b825ff660c60ca1553615748968df44c84b4d"
+    ],
+    "user_002": [
+      "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "bafef4c4cb2118bf9b1bef2101307fc755af2eabc6aba6118f4567e02f1523fa",
+      "1736d0a87120a2180d96bcd0c9dce265024da337a1dc0f5718823657fcd08e30"
+    ],
+    "user_003": [
+      "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "790386d150e4abeaa72b8a69cd24d81f7650176c1cce23c71b41857fa07517c0",
+      "65abd0ec922a5f53b4b27f2f33aad43bcd687e53b1dda88cf0022e741fd71c40"
+    ],
+    "user_004": [
+      "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "44fff3912abfa06e499e39021ea5b5a7eda35b05e051a7f832eb13d4b0db79f9",
+      "f0e27844a64759f5adfb1a21515d5f5421dd6cb96271b1baab67a09929262f20"
+    ],
+    "user_005": [
+      "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "248dac7e778c8bf1ca2dc89ea02e0f4302728d0d861a313d1180f132edcd2040",
+      "3a7cec5b3a3b42c5f344df7d36e98282178ebd4cfae8bfd6e95e58ff14941c81"
+    ],
+    "user_006": [
+      "0ee52ee5503656d4b654af91ad23e63752e8d8727c9703460fe8a5746b155632",
+      "bccd624f95849a4cffb964a22e1715b7b82ac71403ac7e832ed1a560ec238cfd",
+      "8efdb74b66e270c6d7af30ed17db558682cb2b818ba41e913dda0d165858e938"
+    ]
+  },
+  "distinct_subject_first_turn_prompts": 1,
+  "distinct_subject_full_prompt_sequences": 6,
+  "branch_count": 6,
+  "offer_branches_whose_salary_reached_the_subject": [],
+  "offer_branches_whose_salary_reached_the_world": [
+    "user_003",
+    "user_004",
+    "user_005",
+    "user_006"
+  ],
+  "verdict": "offers_never_reached_the_subject",
+  "interpretation": "NO offer branch's salary figure ever appeared in a prompt sent to the subject's model, AND the subject's first-turn prompt was byte-identical in every branch. Any difference the metrics report therefore cannot have been caused by the offers: the run measures live-model sampling variation on one identical prompt. THIS IS NOT A HIRING RESULT and the ranking is not evidence that one salary is better than another.",
+  "private_context_leak_check": {
+    "prompts_checked": 90,
+    "leaks_found": 36,
+    "findings": [
+      {
+        "step": 2,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 3,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 7,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 8,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 12,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 13,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 2,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 3,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 7,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 8,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 12,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 13,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 2,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 3,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 7,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 8,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 12,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 13,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 2,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 3,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 7,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 8,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 12,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 13,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 2,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 3,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 7,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 8,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 12,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 13,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 2,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 3,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 7,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 8,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 12,
+        "prompt_owner": "New Media Strategy Partner",
+        "leaked_from": "Creative Production Lead",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      },
+      {
+        "step": 13,
+        "prompt_owner": "Creative Production Lead",
+        "leaked_from": "New Media Strategy Partner",
+        "fragment": "Aware of Richard Zheng's background as described in the evidence package."
+      }
+    ]
+  },
+  "distinctive_private_context_leak_check": {
+    "method": "only private-context fragments owned by exactly one actor are tested, so byte-identical boilerplate the compiler gave two actors cannot register as a leak",
+    "prompts_checked": 90,
+    "leaks_found": 0,
+    "findings": [],
+    "shared_boilerplate_fragments": [
+      "Advisory role in the hiring process.",
+      "Aware of Richard Zheng's background as described in the evidence package.",
+      "No private information about compensation or internal deliberations."
+    ],
+    "shared_boilerplate_fragment_count": 3,
+    "distinctive_fragment_counts": {
+      "Creative Production Lead": 1,
+      "New Media Hiring Lead": 4,
+      "New Media Strategy Partner": 1,
+      "People and Compensation Partner": 4,
+      "Richard Zheng": 4
+    }
+  }
+}

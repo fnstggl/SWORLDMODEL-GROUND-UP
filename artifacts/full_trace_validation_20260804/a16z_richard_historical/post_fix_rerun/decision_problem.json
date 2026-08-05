@@ -1,0 +1,35 @@
+{
+  "contract_type": "decision_problem",
+  "schema_version": 1,
+  "problem_id": "a16z_richard_zheng_historical_hiring_test",
+  "decision_owner": "New Media Hiring Lead",
+  "desired_outcome": "Make a valid offer that Richard Zheng accepts while minimizing annual base salary.",
+  "success_criteria": "Success occurs only if the required internal approvers authorize the offer, the New Media Hiring Lead issues the offer, and Richard Zheng's own actor explicitly accepts it before the cutoff. Richard's acceptance may not be narrated by the Game Master or decided by another actor. Among successful branches, the branch with the greatest salary savings relative to a $300,000 annual base salary ranks first.",
+  "constraints": [
+    "Use only information available on or before July 1, 2025.",
+    "Use exactly five actors.",
+    "The same title, role scope, reporting line, benefits, equity treatment, creative autonomy, resources, and start expectations must remain constant across every salary branch.",
+    "Only annual base salary may differ across the salary branches.",
+    "The no-offer branch is the baseline.",
+    "An offer is invalid unless the People and Compensation Partner and New Media Hiring Lead authorize it.",
+    "Only Richard Zheng's actor may accept, reject, or counter the offer.",
+    "Do not treat reported independent project revenue as equivalent to annual salary or personal income.",
+    "The claim that Richard previously earned approximately $100,000 per video shoot and managed eight shoots simultaneously is user-supplied and unverified; preserve that label.",
+    "Do not invent actual a16z salary bands, internal budgets, private opinions, or hiring deliberations.",
+    "Any necessary internal compensation ceiling must be labeled as a test assumption rather than a historical fact."
+  ],
+  "time_horizon": {
+    "start": "2025-07-01T16:00:00Z",
+    "cutoff": "2025-07-10T12:00:00Z"
+  },
+  "relevant_context": "This is a historical counterfactual frozen on July 1, 2025. The cast is: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The hiring lead owns the hiring action. The strategy and creative actors advise but cannot independently issue an offer. The compensation actor can approve or reject compensation terms but cannot decide whether Richard accepts. Richard alone decides whether to accept, reject, counter, or delay. Richard is described by user-supplied and publicly available pre-cutoff information as a recent high-school graduate with experience as Head of Marketing at Aviato, founder of UNHRD, an independent creative and media operator, and a worker on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX. Preserve source dates and confidence. Do not include his later a16z employment or later a16z work. Public evidence indicates a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies. The exact real hiring committee and private internal facts are unknown.",
+  "candidate_interventions": [
+    "Do not make Richard Zheng an employment offer during the simulation window.",
+    "Offer Richard Zheng the fixed New Media role package at an annual base salary of $100,000.",
+    "Offer Richard Zheng the fixed New Media role package at an annual base salary of $150,000.",
+    "Offer Richard Zheng the fixed New Media role package at an annual base salary of $200,000.",
+    "Offer Richard Zheng the fixed New Media role package at an annual base salary of $250,000.",
+    "Offer Richard Zheng the fixed New Media role package at an annual base salary of $300,000."
+  ],
+  "candidate_generation_permission": false
+}

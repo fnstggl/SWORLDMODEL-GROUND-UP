@@ -9,6 +9,10 @@ explicit failure reporting.  Module map:
 - ``branch``   -- apply exactly one ``InterventionCandidate`` at the plan's
   single code-owned insertion boundary; ``diff_plans`` proves the branch
   differs nowhere else; code-owned ``branch_id`` derivation.
+- ``delivery`` -- did a branch's own candidate text reach any actor other
+  than the insertion actor?  Computed per branch from that branch's own
+  recorded artifacts and carried on the ``BranchResult`` as the additive
+  ``intervention_delivered`` fact.
 - ``manager``  -- ``run_candidates``: serial, seeded, isolated execution of
   every candidate branch into Phase 3 ``BranchResult`` objects.
 
@@ -20,6 +24,9 @@ here, and the engine-facing backend (``sworldmodel.backends`` --
 
 from .branch import (apply_intervention, derive_branch_id, diff_plans,
                      insertion_path_prefix)
+from .delivery import (candidate_fragments,
+                       compute_intervention_delivery,
+                       delivery_status)
 from .manager import (CounterfactualRun, run_candidates,
                       run_candidates_detailed)
 from .snapshot import (build_base_plan, build_base_snapshot,
@@ -30,7 +37,10 @@ __all__ = [
     "apply_intervention",
     "build_base_plan",
     "build_base_snapshot",
+    "candidate_fragments",
+    "compute_intervention_delivery",
     "derive_branch_id",
+    "delivery_status",
     "derive_branch_seed",
     "diff_plans",
     "insertion_path_prefix",

@@ -362,9 +362,13 @@ class DistributedBranchAgent(AgentBase):
                 and raw.get("checkpoint") is not None \
                 and not raw.get("infrastructure_errors"):
             return raw, None
+        # candidate + plan are passed so the distributed worker computes
+        # the SAME additive delivery fact the local manager computes; the
+        # Stage A equivalence gate compares the two result sets.
         result = _result_from_runner(raw, spec["branch_id"],
                                      candidate.candidate_id,
-                                     spec["world_id"])
+                                     spec["world_id"],
+                                     candidate=candidate, plan=plan)
         return raw, result
 
     def _execution_info(self, started: float, stopped: float,

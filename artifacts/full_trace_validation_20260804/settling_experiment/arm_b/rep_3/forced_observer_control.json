@@ -1,0 +1,44 @@
+{
+  "what_this_is": "the ONE piece of text this experiment supplies. The game master's observer-ROUTING answer is forced to the full roster so the known observer-routing defect (D1, closed at c5a81214) cannot confound the measurement. Every actor turn is a live provider completion; no other game-master call was intercepted.",
+  "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+  "roster_broadcast": [
+    "Beckett Zahedi",
+    "Peter Thiel"
+  ],
+  "interceptions": [
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 1,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "di reviews the drafted email one final time, confirms the subject line and the explicit caveat that the results are replay-only and not production-proven, then sends it to Peter Thiel through the established channel, noting in his own calendar to follow up if no reply arrives by August 10.\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 2,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "hiel: Peter Thiel reads Beckett Zahedi’s email, notes the explicit caveat that the replay results are not production-proven, and replies within the hour with a short, direct message: “Send me the replay logs and the test harness. I’ll take a look this week—call me Thursday at 4pm Pacific.”\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 3,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "i: Beckett reads the email one final time, confirms the subject line and the explicit caveat that the results are replay-only and not production-proven, then sends it to Peter Thiel through the established channel, and adds a calendar reminder to follow up if no reply arrives by August 10.\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    },
+    {
+      "branch_id": "br_79ff51835d0e968a",
+      "step": 4,
+      "intercepted_question": "Which entities are aware of the event? Answer with a comma-separated list of entity names.",
+      "forced_answer": "Beckett Zahedi, Peter Thiel",
+      "prompt_tail": "mail from Beckett Zahedi, scans the subject line and the explicit caveat that the replay results are not production-proven, then replies within the hour with a short, direct message: “Send me the replay logs and the test harness. I’ll take a look this week—call me Thursday at 4pm Pacific.”\nQuestion: Which entities are aware of the event? Answer with a comma-separated list of entity names.\nAnswer: ",
+      "provider_called": false
+    }
+  ],
+  "interception_count": 4,
+  "control_actually_fired": true
+}

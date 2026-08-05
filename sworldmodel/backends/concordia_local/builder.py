@@ -11,7 +11,11 @@ Uses only the audited public upstream APIs (CONCORDIA_AUDIT.md sections A,
   by this baseline).
 - game master: ``EntityAgentWithLogging`` with ``SwitchAct`` and the
   EXPLICIT component roster named by ``plan.gm_config['component_roster']``:
-  ``MakeObservation(allow_llm_fallback=False)`` with the plan's initial
+  :class:`RosterValidatedMakeObservation` (an
+  ``allow_llm_fallback=False`` ``MakeObservation`` subclass that resolves
+  every game-master-authored observer name against the branch roster and
+  RECORDS the ones that do not resolve instead of letting upstream key
+  them into a queue nobody reads) with the plan's initial
   observations pre-queued, ``NextActingInFixedOrder`` (deterministic
   baseline) or ``NextActing`` where the plan says the model chooses,
   ``FixedActionSpec`` for the fixed free-form call to action,
@@ -94,9 +98,156 @@ _REQUIRED_ROSTER = ("memory", "observation_to_memory", "make_observation",
 PRIVATE_SETUP_LABEL = "Private setup"
 SHARED_SETUP_LABEL = "Shared setup"
 
+#: upstream's broadcast keyword: ``ObservationQueue.add`` fans an event
+#: out to every player when the entity name casefolds to exactly this
+#: (make_observation.py at the pinned SHA).  Preserved verbatim.
+OBSERVER_BROADCAST_KEYWORD = "all"
+
+#: boundary characters stripped from a game-master-authored observer name
+#: before matching.  Upstream's call site already strips ``' .,'``
+#: (event_resolution.py); this superset additionally removes the mention
+#: sigil and quoting/bracketing punctuation a free-text answer picks up.
+_OBSERVER_STRIP_CHARS = " \t\r\n.,;:!?'\"“”‘’`()[]{}<>*_-@#"
+
+#: excerpt cap for the event text recorded next to an unresolved observer
+_OBSERVER_EXCERPT_LIMIT = 120
+
+
+def normalize_observer_name(text: str) -> str:
+    """Conservative normalization of one game-master-authored observer
+    name: outer whitespace and boundary punctuation (including a leading
+    ``@``) removed.  Interior bytes are untouched -- nothing is
+    abbreviated, expanded, or guessed."""
+    if not isinstance(text, str):
+        return ""
+    return text.strip().strip(_OBSERVER_STRIP_CHARS).strip()
+
+
+def _fold_observer_name(text: str) -> str:
+    """Case- and whitespace-insensitive comparison form of a name."""
+    return " ".join(normalize_observer_name(text).split()).casefold()
+
 
 class PlanBuildError(ValueError):
     """A plan cannot be built as declared; nothing is repaired silently."""
+
+
+class ObserverRoutingError(RuntimeError):
+    """An observer-routing request the seam refuses to honor."""
+
+
+class RosterValidatedMakeObservation(
+        gm_components.make_observation.MakeObservation):
+    """``MakeObservation`` that never drops an observer name SILENTLY.
+
+    Defect closed (2026-08-04 under-the-hood validation).  Upstream
+    ``EventResolution`` asks the game-master model, in free text, "Which
+    entities are aware of the event?" and hands each comma-separated
+    fragment to ``ObservationQueue.add`` (event_resolution.py at the
+    pinned SHA).  ``ObservationQueue.add`` CREATES A KEY for whatever
+    string it is given, so a name that does not match a roster entity
+    lands in a phantom queue nobody ever reads: the event is dropped with
+    no error and no record.  Verified directly against the pinned
+    upstream -- ``add("@PeterThiel", ...)`` then
+    ``get_and_clear("Peter Thiel")`` returns ``[]``.  In the live runs
+    this killed the one branch whose sender actually enacted its
+    candidate.
+
+    The seam is OURS, not upstream's: this subclass is what the builder
+    rosters, so ``add_to_queue`` -- the single entry point upstream uses
+    -- resolves the name against the branch's own roster first:
+
+    - exact match on the name as given, then on the normalized form
+      (:func:`normalize_observer_name`), then a case- and
+      whitespace-folded match that is used only when it is UNAMBIGUOUS;
+    - upstream's ``all`` broadcast keyword keeps its upstream meaning;
+    - anything else is RECORDED VERBATIM in :attr:`unresolved_observers`
+      and not enqueued.
+
+    Deliberately NOT fuzzy: no prefix, token-overlap, or edit-distance
+    matching.  Delivering an event to the wrong actor is a worse failure
+    than not delivering it, and the recorded evidence makes the
+    non-delivery visible instead of silent.  Delivery semantics are
+    therefore unchanged; only the silence is.
+    """
+
+    def __init__(self, *args, roster_names, **kwargs):
+        super().__init__(*args, **kwargs)
+        names = tuple(roster_names)
+        if not names:
+            raise ObserverRoutingError(
+                "roster_names must name at least one entity: an observer "
+                "seam with no roster can resolve nothing")
+        self._roster_names = names
+        self._exact = {name: name for name in names}
+        folded: dict = {}
+        for name in names:
+            folded.setdefault(_fold_observer_name(name), []).append(name)
+        self._folded = folded
+        self._unresolved_observers: list = []
+
+    @property
+    def roster_names(self) -> tuple:
+        return self._roster_names
+
+    @property
+    def unresolved_observers(self) -> list:
+        """Every non-resolving observer name this branch saw, in order."""
+        return [dict(entry) for entry in self._unresolved_observers]
+
+    def resolve_observer_name(self, entity_name):
+        """``(canonical_name | None, reason)`` for one observer name.
+
+        ``canonical_name`` is always a roster name (or upstream's
+        broadcast keyword); ``reason`` names the resolution path taken so
+        an unresolved record says WHY.
+        """
+        if not isinstance(entity_name, str):
+            return None, "not_a_string"
+        if entity_name in self._exact:
+            return self._exact[entity_name], "exact"
+        normalized = normalize_observer_name(entity_name)
+        if not normalized:
+            return None, "blank_after_normalization"
+        if normalized in self._exact:
+            return self._exact[normalized], "exact_after_normalization"
+        folded = _fold_observer_name(normalized)
+        if folded == OBSERVER_BROADCAST_KEYWORD:
+            return OBSERVER_BROADCAST_KEYWORD, "broadcast_keyword"
+        matches = self._folded.get(folded, ())
+        if len(matches) == 1:
+            return matches[0], "case_folded"
+        if len(matches) > 1:
+            return None, "ambiguous_roster_match"
+        return None, "no_roster_match"
+
+    def add_to_queue(self, entity_name, event: str):
+        """Roster-validated enqueue: resolved names route exactly as
+        upstream routes them; a non-resolving name is recorded, never
+        silently keyed into a queue nobody reads."""
+        resolved, reason = self.resolve_observer_name(entity_name)
+        if resolved is None:
+            raw = entity_name if isinstance(entity_name, str) \
+                else repr(entity_name)
+            self._unresolved_observers.append({
+                "observer_name": raw,
+                "normalized": normalize_observer_name(raw),
+                "reason": reason,
+                "event_excerpt": (event or "")[:_OBSERVER_EXCERPT_LIMIT],
+            })
+            return
+        super().add_to_queue(resolved, event)
+
+    def get_state(self):
+        state = dict(super().get_state())
+        state["unresolved_observers"] = [
+            dict(entry) for entry in self._unresolved_observers]
+        return state
+
+    def set_state(self, state) -> None:
+        super().set_state(state)
+        restored = state.get("unresolved_observers", ())
+        self._unresolved_observers = [dict(entry) for entry in restored]
 
 
 def identity_guard_step(document, event_statement: str,
@@ -123,7 +274,7 @@ class BuiltBranch:
     actor_memory_lists: dict      # actor_id -> the plain backing list
     game_master: object
     gm_memory_list: list          # the shared GM backing list
-    make_observation: object      # MakeObservation (queue handle)
+    make_observation: object      # RosterValidatedMakeObservation handle
     terminate: object             # Terminate (programmatic stop handle)
     guard_step: Callable
     neutral_premise: str
@@ -373,10 +524,11 @@ def build_branch(
 
     # ---------------- game master ----------------
     gm_memory_list: list = []
-    make_observation = gm_components.make_observation.MakeObservation(
+    make_observation = RosterValidatedMakeObservation(
         model=gm_model,
         player_names=list(names_in_order),
         allow_llm_fallback=False,
+        roster_names=tuple(names_in_order),
     )
     terminate = gm_components.terminate.Terminate()
     if acting_order == "fixed":

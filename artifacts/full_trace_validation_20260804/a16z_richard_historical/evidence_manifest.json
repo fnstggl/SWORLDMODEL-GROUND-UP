@@ -1,0 +1,204 @@
+{
+  "manifest_version": "evidence_manifest_v1",
+  "experiment_id": "a16z_richard_historical",
+  "window": {
+    "start": "2025-07-01T16:00:00Z",
+    "cutoff": "2025-07-10T12:00:00Z"
+  },
+  "actor_names": [
+    "Creative Production Lead",
+    "New Media Hiring Lead",
+    "New Media Strategy Partner",
+    "People and Compensation Partner",
+    "Richard Zheng"
+  ],
+  "classification_counts": {
+    "USER_SUPPLIED": 7,
+    "PUBLICLY_VERIFIED": 0,
+    "TEST_ASSUMPTION": 5,
+    "UNKNOWN": 5
+  },
+  "classification_rules": {
+    "USER_SUPPLIED": "asserted by the user of this experiment; treated as true inside the simulation, not independently verified here",
+    "PUBLICLY_VERIFIED": "stated by a dated public source published before the window opens",
+    "TEST_ASSUMPTION": "needed for the scene to exist; no source establishes it",
+    "UNKNOWN": "not known to anyone in this experiment; recorded so the gap is visible"
+  },
+  "notes": "Frozen before simulation and hashed into freeze_manifest.json. There are no PUBLICLY_VERIFIED items: this run did not consult a dated public source, because doing so from outside the counterfactual would risk importing material published after the 2025-07-01 cutoff. Private-context assignments were REQUESTED of the compiler; where the compiler actually placed a claim is recorded in the compiled world, not here.",
+  "items": [
+    {
+      "claim": "Richard Zheng is a recent high-school graduate.",
+      "source": "user-supplied decision problem (data/a16z_problem.json)",
+      "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "Richard Zheng has been Head of Marketing at Aviato.",
+      "source": "user-supplied decision problem (data/a16z_problem.json)",
+      "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "Richard Zheng is the founder of UNHRD.",
+      "source": "user-supplied decision problem (data/a16z_problem.json)",
+      "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "Richard Zheng is an independent creative and media operator.",
+      "source": "user-supplied decision problem (data/a16z_problem.json)",
+      "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "Richard Zheng has worked on projects involving TIME, the United Nations, Forbes, Fidelity, Cluely, Browserbase, Z Fellows, Axiom Space, and SpaceX.",
+      "source": "user-supplied decision problem (data/a16z_problem.json)",
+      "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "UNVERIFIED USER CLAIM, label preserved: Richard Zheng previously earned approximately $100,000 per video shoot and managed eight shoots simultaneously. This is reported project revenue and must NOT be treated as equivalent to an annual salary or to personal income.",
+      "source": "user-supplied decision problem (data/a16z_problem.json) (explicitly flagged unverified by the user)",
+      "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": [
+        "Richard Zheng"
+      ],
+      "used_by_compiler": true,
+      "entered_context": "private:Richard Zheng"
+    },
+    {
+      "claim": "a16z New Media is intended to provide in-house creative production, owned-channel distribution, launch strategy, and media support for portfolio companies.",
+      "source": "user-supplied decision problem (data/a16z_problem.json); the user attributes this to public evidence, which this harness did not independently check",
+      "date": "asserted by the user of this experiment as known at the 2025-07-01 boundary; not independently verified here",
+      "available_before_cutoff": true,
+      "classification": "USER_SUPPLIED",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "This simulation models exactly five actors: New Media Hiring Lead; New Media Strategy Partner; Creative Production Lead; People and Compensation Partner; Richard Zheng. The first four are ROLE-BASED STAND-INS supplied by this test because the real hiring committee is not public. They are not real people and no claim is made that a16z has such roles.",
+      "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+      "date": "declared before the run",
+      "available_before_cutoff": true,
+      "classification": "TEST_ASSUMPTION",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "Declared authority model: the New Media Hiring Lead owns the hiring action; the People and Compensation Partner owns compensation approval; the strategy and creative actors advise only; Richard Zheng alone decides whether to accept, reject, counter, or delay. This is a test setup, not a description of a16z.",
+      "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+      "date": "declared before the run",
+      "available_before_cutoff": true,
+      "classification": "TEST_ASSUMPTION",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "The role package -- title, role scope, reporting line, benefits, equity treatment, creative autonomy, resources and start expectations -- is held FIXED and unspecified across every branch; only annual base salary varies.",
+      "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+      "date": "declared before the run",
+      "available_before_cutoff": true,
+      "classification": "TEST_ASSUMPTION",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "The decision window runs from 2025-07-01T16:00:00Z to 2025-07-10T12:00:00Z, and every actor is available to act inside it (the simulation gives each one turns).",
+      "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+      "date": "declared before the run",
+      "available_before_cutoff": true,
+      "classification": "TEST_ASSUMPTION",
+      "who_may_know": "all",
+      "used_by_compiler": true,
+      "entered_context": "shared"
+    },
+    {
+      "claim": "Any internal compensation ceiling, budget limit, or salary band that appears anywhere in this run is a TEST ASSUMPTION authored inside the simulation, never a historical fact about a16z.",
+      "source": "harness modelling decision (experiments/full_trace_validation/scenario_a16z.py)",
+      "date": "declared before the run",
+      "available_before_cutoff": true,
+      "classification": "TEST_ASSUMPTION",
+      "who_may_know": "all",
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "The real a16z New Media hiring committee, its membership, its internal authority chain, and its decision process.",
+      "source": "no source; not knowable from public biography",
+      "date": "n/a",
+      "available_before_cutoff": false,
+      "classification": "UNKNOWN",
+      "who_may_know": "all",
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "a16z's actual salary bands, compensation budget, and any internal compensation ceiling for this role.",
+      "source": "no source; not knowable from public biography",
+      "date": "n/a",
+      "available_before_cutoff": false,
+      "classification": "UNKNOWN",
+      "who_may_know": "all",
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "Richard Zheng's actual compensation expectations, reservation price, competing options, financial position, and private preferences in this window.",
+      "source": "no source; not knowable from public biography",
+      "date": "n/a",
+      "available_before_cutoff": false,
+      "classification": "UNKNOWN",
+      "who_may_know": [
+        "Richard Zheng"
+      ],
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "The private opinions of any real person at a16z about Richard Zheng, and any real internal deliberation about hiring him.",
+      "source": "no source; not knowable from public biography",
+      "date": "n/a",
+      "available_before_cutoff": false,
+      "classification": "UNKNOWN",
+      "who_may_know": "all",
+      "used_by_compiler": false,
+      "entered_context": "none"
+    },
+    {
+      "claim": "Whether any employment offer was in fact made to Richard Zheng on or before 2025-07-01, and on what terms.",
+      "source": "no source; not knowable from public biography",
+      "date": "n/a",
+      "available_before_cutoff": false,
+      "classification": "UNKNOWN",
+      "who_may_know": "all",
+      "used_by_compiler": false,
+      "entered_context": "none"
+    }
+  ]
+}
