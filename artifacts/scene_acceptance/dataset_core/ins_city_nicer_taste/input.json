@@ -1,8 +1,0 @@
-{
- "question": "Is Lisbon a nicer city than Porto?",
- "start": "2026-09-05T09:00:00+01:00",
- "cutoff": "2026-09-19T09:00:00+01:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

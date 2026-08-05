@@ -95,7 +95,7 @@ def judge_user_prompt(resolution: str, now: str, events: list, *,
 
 
 def make_validator(known_event_ids, now: datetime, cutoff: datetime, *,
-                   final: bool = False):
+                   final: bool = False, truncated: bool = False):
     """Code-side enforcement of what the judge is permitted to conclude."""
 
     def validate(obj) -> dict:
@@ -122,6 +122,14 @@ def make_validator(known_event_ids, now: datetime, cutoff: datetime, *,
         if status == "YES" and not ids:
             raise ResolutionError(
                 "YES must cite at least one committed event that produced it")
+        if status == "NO_AT_CUTOFF" and truncated:
+            # A run that stopped early may never answer NO, whatever the
+            # clock reads.  The clock test below is not enough on its own:
+            # a step ceiling that happens to land ON the cutoff instant
+            # passed it, and reported a budget artifact as a deadline.
+            raise ResolutionError(
+                "this run did not reach the horizon, so no NO may be "
+                "claimed over the time it did not simulate")
         if status == "NO_AT_CUTOFF" and now < cutoff:
             raise ResolutionError(
                 f"NO_AT_CUTOFF is not permitted before the cutoff "

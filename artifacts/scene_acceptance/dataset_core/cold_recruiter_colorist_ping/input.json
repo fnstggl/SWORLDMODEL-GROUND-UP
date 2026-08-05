@@ -1,8 +1,0 @@
-{
- "question": "A recruiter from Torchlight Media is sending Petra Kovac, a senior colorist who is happily employed elsewhere, a first-contact message about an opening. Will Petra reply at all within five business days?",
- "start": "2026-09-07T10:00:00+02:00",
- "cutoff": "2026-09-14T18:00:00+02:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

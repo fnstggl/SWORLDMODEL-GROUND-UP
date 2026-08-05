@@ -1,8 +1,0 @@
-{
- "question": "Freelance journalist Anouk Visser is cold-emailing the founder of Veldt Solar to invite her onto a new energy podcast. Will Anouk receive any reply within two weeks?",
- "start": "2026-08-05T09:00:00+02:00",
- "cutoff": "2026-08-19T09:00:00+02:00",
- "context": "Anouk's podcast has not launched yet; she has nine thousand newsletter subscribers and her email asks for thirty minutes, offering questions in advance and a publication date.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

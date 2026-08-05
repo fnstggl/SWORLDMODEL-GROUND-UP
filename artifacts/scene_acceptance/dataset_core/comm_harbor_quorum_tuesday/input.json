@@ -1,8 +1,0 @@
-{
- "question": "The Marlin Bay harbor advisory committee needs five of its nine members present to act. Will it reach quorum at its rescheduled Tuesday evening meeting?",
- "start": "2026-08-09T08:00:00-07:00",
- "cutoff": "2026-08-11T21:00:00-07:00",
- "context": "The reschedule landed on a school-holiday week; two members are traveling, three others have already confirmed, and the chair has never missed a session.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

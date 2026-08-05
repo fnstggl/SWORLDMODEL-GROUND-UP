@@ -1,8 +1,0 @@
-{
- "question": "Would the 2019 merger between Aldergate Rail and Valdoria Metro have closed if the CFO had not resigned that autumn?",
- "start": "2026-09-01T09:00:00+00:00",
- "cutoff": "2026-10-01T09:00:00+00:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

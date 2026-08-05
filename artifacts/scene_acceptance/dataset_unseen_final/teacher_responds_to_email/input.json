@@ -1,8 +1,0 @@
-{
- "question": "Does teacher Ms. Laura Kim respond to parent John's email about the field trip by August 25, 2026?",
- "start": "2026-08-20T10:00:00-04:00",
- "cutoff": "2026-08-25T23:59:00-04:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

@@ -1,8 +1,0 @@
-{
- "question": "Will the stock price of XYZ Corp increase by more than 5% on September 1, 2026?",
- "start": "2026-09-01T09:30:00-04:00",
- "cutoff": "2026-09-01T16:00:00-04:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

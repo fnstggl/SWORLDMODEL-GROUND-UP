@@ -1,8 +1,0 @@
-{
- "question": "Will Harborview Credit Union's security team approve or reject analyst Dev Patel's software-exception request within their published five-business-day service window?",
- "start": "2026-08-10T10:00:00-08:00",
- "cutoff": "2026-08-17T17:00:00-08:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

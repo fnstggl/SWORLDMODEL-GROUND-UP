@@ -1,0 +1,10 @@
+run                          terminal       ev mech  act woke wakes  calls  exact chk
+cold_email                   NO_AT_CUTOFF    3    2 2/2     1    17     87   True ok
+delayed_response             NO_AT_CUTOFF    8    6 2/2     1    34    157   True ok
+group_coordination           UNRESOLVED     56   28 4/4     4   237    858   True ok
+lease_return                 YES             8    3 1/2     2     4     43   True ok
+plumber_confirm              YES             2    1 1/1     1     2     10   True ok
+
+5 runs | 77 events | machinery 40/77 (52%)
+terminals: 2 YES, 2 NO_AT_CUTOFF, 1 other
+replay exact: 5/5; model calls during replay: 0

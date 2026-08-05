@@ -1,2 +1,0 @@
-{"call_id":"c1","explanation":"No event shows Mark Cuban sending a response to Jordan Reyes's email, and the cutoff has not passed yet.","final":false,"kind":"terminal_check","status":"UNRESOLVED","supporting_event_ids":[],"t":"2026-07-27T14:00:00+00:00"}
-{"call_id":"c13","explanation":"The only committed event is Jordan Reyes sending an email, but there is no event showing Mark Cuban actually sent a response before the deadline.","final":true,"kind":"terminal_check","status":"NO_AT_CUTOFF","supporting_event_ids":[],"t":"2026-08-10T14:00:00+00:00"}

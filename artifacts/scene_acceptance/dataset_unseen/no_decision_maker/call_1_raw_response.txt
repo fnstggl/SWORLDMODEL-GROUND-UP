@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "Apple Inc. is a publicly traded company. Its stock price on 2026-08-01 is determined by market trading. The question asks whether the stock price will exceed $200 by October 1, 2026. No individual or organization is identified as having the ability to unilaterally decide or guarantee the stock price outcome.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question refers to a market price determined by collective trading, not a decision by any identifiable actor or group that can be simulated as a social scene."
-}

@@ -1,8 +1,0 @@
-{
- "question": "Will at least 200 of the 5,000 newsletter subscribers Tidepool emails on launch morning click through to join the beta waitlist within 72 hours?",
- "start": "2026-09-22T08:00:00-07:00",
- "cutoff": "2026-09-25T08:00:00-07:00",
- "context": "The newsletter's typical click-through is six percent; the beta email includes a personal note from the founder, and the waitlist link sits above the fold.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

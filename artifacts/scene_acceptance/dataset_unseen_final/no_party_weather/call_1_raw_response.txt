@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "The question asks about a weather event in London on September 15, 2026. Weather is a physical process, not a social decision. No social actors are involved.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question asks about a natural weather event, which is not a social decision or action that can be simulated through actor choices and interactions."
-}

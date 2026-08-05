@@ -1,8 +1,0 @@
-{
- "question": "Nimbus Freight's tracking portal has been down since 06:00. Will the company email affected enterprise customers an incident notice before noon?",
- "start": "2026-08-21T06:00:00+02:00",
- "cutoff": "2026-08-21T12:00:00+02:00",
- "context": "The status page already acknowledges the outage; Nimbus's incident runbook requires customer email within four hours, but the communications lead is at an offsite all morning.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

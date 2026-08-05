@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "The question is a general inquiry with no specific context, actors, or events provided.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question does not identify any actor, event, or observable resolution condition."
-}

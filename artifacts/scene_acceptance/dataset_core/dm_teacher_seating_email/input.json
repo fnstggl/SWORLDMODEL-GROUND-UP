@@ -1,8 +1,0 @@
-{
- "question": "Will Mr. Abernathy, a year-five teacher at Petersfield Primary, respond to parent Chioma Eze's email about her son's seating change before the weekend?",
- "start": "2026-09-16T08:00:00+01:00",
- "cutoff": "2026-09-19T08:00:00+01:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

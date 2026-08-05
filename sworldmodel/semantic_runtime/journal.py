@@ -23,11 +23,11 @@ OP_EVENT = "journal.event"
 OP_OBSERVED = "journal.observed"
 OP_PROFILE = "semantic.actor_profile"
 OP_ACTOR_CALL = "semantic.actor_call"
+OP_ATTEMPT = "semantic.attempt"
 OP_WORLD_CALL = "semantic.world_call"
 OP_TERMINAL = "semantic.terminal_check"
 OP_HORIZON = "semantic.horizon_reached"
 OP_CONTINUITY = "semantic.continuity_review"
-OP_EVENT_REVIEW = "semantic.event_review"
 OP_VERIFY = "semantic.terminal_verification"
 OP_TURN_ABANDONED = "semantic.actor_turn_abandoned"
 
@@ -47,7 +47,7 @@ class Journal:
 
     # -- commit -------------------------------------------------------
     def commit(self, envelope: dict, *, cause: int, source: str,
-               trajectory_id: str) -> dict:
+               trajectory_id: str, attempt_id: str | None = None) -> dict:
         """Commit one concrete event.  ``cause`` is the ledger seq of the
         record that produced it -- every committed event has a causal
         trigger, enforced by the kernel itself after genesis."""
@@ -58,6 +58,7 @@ class Journal:
             "for": list(envelope["for"]),
             "observed": bool(envelope["observed"]),
             "source": source,
+            "attempt_id": attempt_id,
             "trajectory_id": trajectory_id,
         }, cause)
         return {"event_id": eid, "seq": seq,
@@ -129,6 +130,7 @@ class Journal:
             # remained something nobody was aware of.
             seen += [a for a in observed_it if a not in seen]
             out.append({"event_id": d["event_id"], "seq": r["seq"], "t": r["t"],
+                        "attempt_id": d.get("attempt_id"),
                         "description": d["description"], "for": audience,
                         "observed": bool(d["observed"]), "observed_by": seen,
                         "source": d.get("source", ""), "cause": r["cause"]})

@@ -1,8 +1,0 @@
-{
- "question": "Sanjay handed in his notice at Nimbus Freight this morning. Will his manager come back with a counteroffer within five working days?",
- "start": "2026-07-27T11:00:00+05:30",
- "cutoff": "2026-08-03T18:00:00+05:30",
- "context": "Sanjay leads the only team that understands the legacy routing system; his manager has lost two engineers this year and has an open requisition she has struggled to fill. Sanjay's outside offer is a thirty percent bump.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

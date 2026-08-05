@@ -1,3 +1,0 @@
-{"about":"starting_event","actor":"mark_cuban","due":"2026-07-27T16:00:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Mark might check his email later; revisit to see if he notices the email.","t":"2026-07-27T14:00:00+00:00"}
-{"about":"event_consequence","actor":"mark_cuban","due":"2026-07-27T16:00:05+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Check if Mark Cuban has checked his email and seen the cold email.","t":"2026-07-27T14:00:05+00:00"}
-{"about":"pending_progression","actor":"mark_cuban","due":"2026-07-27T20:00:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Check if Mark Cuban has checked his email and noticed the message.","t":"2026-07-27T16:00:00+00:00"}

@@ -1,8 +1,0 @@
-{
- "question": "Ashvale University's annual-fund caller will phone alumna Dr. Renata Sousa, who has never donated, with a first-time ask. Will Renata make any pledge by the end of the month?",
- "start": "2026-10-01T18:00:00-03:00",
- "cutoff": "2026-10-31T21:00:00-03:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

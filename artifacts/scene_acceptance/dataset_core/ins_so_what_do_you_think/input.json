@@ -1,8 +1,0 @@
-{
- "question": "So, what do you think?",
- "start": "2026-08-20T14:00:00-03:00",
- "cutoff": "2026-08-21T14:00:00-03:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

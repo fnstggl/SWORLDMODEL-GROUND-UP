@@ -1,8 +1,0 @@
-{
- "question": "Will Veldt Solar's legal team clear the revised supplier contract for signature within ten working days of receiving it today?",
- "start": "2026-08-18T11:00:00+02:00",
- "cutoff": "2026-09-01T17:00:00+02:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

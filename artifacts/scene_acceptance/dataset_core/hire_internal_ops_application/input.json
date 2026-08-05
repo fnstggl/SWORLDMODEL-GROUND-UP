@@ -1,8 +1,0 @@
-{
- "question": "Will warehouse supervisor Dmytro formally apply for the newly posted operations-manager role at his own company before applications close in three weeks?",
- "start": "2026-08-17T09:00:00+02:00",
- "cutoff": "2026-09-07T17:00:00+02:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

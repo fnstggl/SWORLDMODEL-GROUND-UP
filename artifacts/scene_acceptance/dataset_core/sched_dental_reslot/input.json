@@ -1,8 +1,0 @@
-{
- "question": "Priya needs to move her Thursday dental cleaning because of a work trip. Will she and the Maple Row Dental front desk agree on a new slot by Wednesday noon?",
- "start": "2026-08-10T08:00:00-04:00",
- "cutoff": "2026-08-12T12:00:00-04:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

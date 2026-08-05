@@ -1,7 +1,0 @@
-{
- "verdict": "REVIEW_ERROR",
- "worst_severity": "NONE",
- "defects": [],
- "error": "fidelity: provider request failed after 2 attempts: Unterminated string starting at: line 8 column 17 (char 154)",
- "id": "hire_studio_decision_promised"
-}

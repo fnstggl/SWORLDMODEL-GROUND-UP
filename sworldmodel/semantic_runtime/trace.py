@@ -8,6 +8,7 @@ requested or stored.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 
@@ -46,6 +47,15 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
     # the ledger is the authoritative artifact, so it is written FIRST:
     # nothing later may be able to lose it
     _write_jsonl(os.path.join(out_dir, "ledger.jsonl"), world.records)
+    # ... and a digest OF it, so that "this run replayed exactly" is a
+    # property anyone can re-derive from disk rather than a boolean sitting
+    # in a file beside the ledger.  A reviewer rewrote every event
+    # description and every terminal record in a run and the checker still
+    # reported exact=True, because no semantic op has a kernel reducer and
+    # the state hash therefore does not cover the journal at all.
+    with open(os.path.join(out_dir, "ledger_digest.txt"), "w") as f:
+        f.write(hashlib.sha256(
+            canonical_json(world.records).encode()).hexdigest() + "\n")
     j("compiled_scene.json", scene)
     j("initial_actor_states.json",
       {aid: {"name": st.name,
@@ -79,9 +89,10 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
     _write_jsonl(os.path.join(out_dir, "actor_continuity_reviews.jsonl"),
                  trace.of("continuity_review") + trace.of(
                      "actor_response_rejected"))
-    _write_jsonl(os.path.join(out_dir, "event_quality_reviews.jsonl"),
-                 trace.of("event_review") + trace.of("event_rejected")
-                 + trace.of("event_abandoned"))
+    # what code refused, and why -- there is no semantic gate left to log
+    _write_jsonl(os.path.join(out_dir, "structural_refusals.jsonl"),
+                 trace.of("restatement_refused")
+                 + trace.of("choice_returned_to_its_owner"))
     # Every place code overruled the model.  These were emitted into the
     # trace and persisted nowhere, which is precisely backwards: they are
     # the moments a reader most needs, because they are where the record
@@ -92,13 +103,15 @@ def write_artifacts(out_dir: str, *, scene: dict, world, journal, bindings,
                  [dict(e, override=e["kind"]) for k in
                   ("event_abandoned", "duplicate_event_dropped",
                    "duration_floored", "actor_turn_abandoned",
-                   "group_observation_split", "progression_skipped")
+                   "group_observation_split", "progression_skipped",
+                   "restatement_refused", "ordered_after_earlier_attempt",
+                   "choice_returned_to_its_owner", "wake_beyond_cutoff")
                   for e in trace.of(k)])
     _write_jsonl(os.path.join(out_dir, "grounded_wakes.jsonl"),
                  trace.of("wake_scheduled"))
     _write_jsonl(os.path.join(out_dir, "review_exchanges.jsonl"),
                  [c for c in caller.calls
-                  if c["role"] in ("continuity", "event_review", "verifier")])
+                  if c["role"] in ("continuity", "verifier")])
     j("compile_runtime_bindings.json",
       {k: v for k, v in bindings.items() if k != "actor_ids"} |
       {"actor_ids": bindings.get("actor_ids", {}),

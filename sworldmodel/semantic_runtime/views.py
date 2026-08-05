@@ -44,7 +44,23 @@ def build_view(world, journal: Journal, actor_id: str, *,
                trigger_event_ids=()) -> dict:
     """The complete and only input a given actor's model receives."""
     st = world.actors[actor_id]
-    observed = journal.observed_by(actor_id)
+    # What they have observed -- but NOT the world's account of the far
+    # end of something they sent.
+    #
+    # The author of an event is recorded as having observed it, because a
+    # person knows what they did and the judge needs that (a man's own
+    # confirming text once read as observed by nobody, and the judge
+    # answered that he never confirmed).  But the world writes the sending
+    # and where it landed in one event, so granting the whole text handed a
+    # woman, as authoritative observed fact, that her message had not been
+    # delivered because the other person's phone was off -- the one thing
+    # she could not know.
+    #
+    # They still know they did it: their own attempt is rendered below,
+    # from their own call records.  What is withheld is the world's
+    # description of the far end.
+    observed = [e for e in journal.observed_by(actor_id)
+                if actor_id in e["for"]]
     memories = [{"t": m.t.isoformat(), "kind": m.kind, "content": m.content}
                 for m in st.memories if m.kind == "private"]
     # What this person has already decided and attempted, read from their

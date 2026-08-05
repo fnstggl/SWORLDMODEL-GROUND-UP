@@ -1,8 +1,0 @@
-{
- "question": "Will the board of directors of Apex Dynamics approve the merger with Zenith Corp at the September 12 meeting?",
- "start": "2026-08-15T09:00:00-04:00",
- "cutoff": "2026-09-12T23:59:00-04:00",
- "context": "Apex Dynamics, a mid-sized robotics firm, has been in merger talks with Zenith Corp for three months. The board is divided, with CEO Jane Holloway pushing for approval and CFO Mark Torres expressing concerns about valuation. The meeting is scheduled for September 12 at 10 AM Eastern.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

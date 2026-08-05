@@ -28,24 +28,12 @@ from sworldmodel.simclock import iso, parse_iso
 from . import actor_mind, resolution as resolution_mod, world_mind
 from .envelope import (EnvelopeError, contained, parse_duration,
                        validate_event)
-from .journal import (Journal, OP_ACTOR_CALL, OP_CONTINUITY,
-                      OP_EVENT_REVIEW, OP_HORIZON, OP_TERMINAL,
-                      OP_TURN_ABANDONED, OP_VERIFY,
-                      OP_WORLD_CALL)
+from .journal import (Journal, OP_ACTOR_CALL, OP_ATTEMPT, OP_CONTINUITY,
+                      OP_HORIZON, OP_TERMINAL, OP_TURN_ABANDONED,
+                      OP_VERIFY, OP_WORLD_CALL)
 from .llm import (CallBudgetExceeded, MAX_RETRIES_PER_CALL, RESERVED_FINAL_CALLS,
                   RuntimeCaller, RuntimeTechnicalFailure)
 from .views import build_view, render_view
-
-class ActorGroundingError(ValueError):
-    """An actor's reply does not follow from what that person has, and one
-    targeted correction did not fix it.  Nothing is committed, and code
-    does not invent a replacement decision."""
-
-
-class EventGroundingError(ValueError):
-    """A proposed event is not a real thing that happened, and one targeted
-    correction did not fix it."""
-
 
 #: How many events may share one exact instant before code stops
 #: accepting "no time at all" for the next one.  A hundred events on a
@@ -90,8 +78,12 @@ class SemanticTrajectory:
     #: running    -- still going
     #: resolved   -- committed events satisfy the resolution
     #: cutoff     -- the trajectory reached the horizon and did not
-    #: incomplete -- it ran out of steps or calls first, so the horizon was
-    #:               never reached and no NO may be claimed
+    #: incomplete_empty_queue -- nothing was scheduled and the horizon was
+    #:               never reached, so most of the window was never lived
+    #: incomplete_step_limit  -- ran out of steps first
+    #: incomplete_call_limit  -- ran out of calls first
+    #: incomplete_review_failure -- a read-only check could not be settled
+    #: (all four: the horizon was never reached, so no NO may be claimed)
     #: disagreement -- two independent readings of the record disagreed at
     #:               the horizon, so no answer is claimed
     #: failed     -- a technical failure.  No RESPONSE is ever partially
@@ -151,11 +143,16 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: middle of a task, and people who quietly stopped being asked
     #: anything at all.  Time passing is not a reason to think about
     #: something again.  These five are:
-    WAKE_PROVENANCE = ("actor_plan",        # they said they would
-                       "observed_event",    # something reached them
-                       "world_process",     # the world said it would happen
-                       "known_deadline",    # a deadline they know is close
-                       "action_completion")  # what they started is done
+    #: Exactly what the scheduler can produce, and nothing aspirational.
+    #: Three further names were declared here and wired to nothing --
+    #: across 1,087 wakes in the shipped corpus not one carried them --
+    #: while two independent reviewers pointed out that a vocabulary
+    #: advertising coverage it does not have is worse than a short one.
+    #: What those names described still happens; it happens as an
+    #: immediate turn rather than as a scheduled wake, which is why they
+    #: never appeared.
+    WAKE_PROVENANCE = ("actor_plan",       # they said they would
+                       "world_process")    # the world said it would happen
 
     #: What was last asked about somebody's unopened items: the instant it
     #: was asked at, how much had happened by then, and which items.
@@ -193,6 +190,21 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     #: moved to reach it.
     last_call: dict = {"at": None}
 
+    #: Whether the loop stopped because the future it could see lay beyond
+    #: the deadline -- the horizon honestly reached -- rather than because
+    #: there was no future at all.
+    reached_horizon: dict = {"yes": False}
+
+    #: Somebody's own stated next move lies past the deadline.  Two
+    #: reviewers independently found that the beyond-cutoff signal was
+    #: computed and thrown away, which left NO_AT_CUTOFF reachable only
+    #: when the last scheduled instant happened to divide the window
+    #: exactly -- a wake every two days over a fortnight answered NO, and
+    #: every three days answered incomplete, with identical world
+    #: behaviour.  The horizon is a fact about the state, not about
+    #: arithmetic.
+    intends_after_cutoff: dict = {"yes": False}
+
     #: one pending wake per (actor, what it is about, what it is for).  A
     #: newer wake for the same purpose replaces the older one rather than
     #: stacking behind it.
@@ -211,6 +223,15 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         delta = after if isinstance(after, timedelta) else parse_duration(after)
         due = world.clock.now + delta
         if due > cutoff or due <= world.clock.now:
+            # A "later" that falls past the deadline is not nothing: it is
+            # somebody saying their next move is after the question closes,
+            # which is precisely the evidence that nothing more happens
+            # inside the window.  It used to be dropped silently, and the
+            # run then reported that nothing had been scheduled.
+            if due > cutoff:
+                note("wake_beyond_cutoff", actor=actor_id, t=_iso_now(world),
+                     due=iso(due), reason=reason, provenance=provenance)
+                intends_after_cutoff["yes"] = True
             return False
         key = (actor_id, about, provenance)
         old = pending_wakes.get(key)
@@ -232,7 +253,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
     # ---------------------------------------------------------------
     def world_step(*, trigger_kind: str, trigger_text: str, cause: int,
                    actor_id: str | None = None, concerns=(),
-                   self_act_of=None, intention: str | None = None) -> dict | None:
+                   self_act_of=None, intention: str | None = None,
+                   attempt_id: str | None = None, not_before=None) -> dict | None:
         """One immediate-consequence adjudication.  Commits at most one
         event (scheduled at its own instant) and any wakes.  Returns the
         parsed judgment, or None if the world declined to act."""
@@ -250,6 +272,12 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # as authoritative observed fact, that her offer had reached the
         # other party's phone and he had not looked at it.
         did_it = actor_id if trigger_kind == "actor_intention" else None
+        # Whose turn this adjudication belongs to, for the identity guard.
+        # The guard used to be gated on did_it, so it ran on attempts only
+        # -- and 37% of committed events came in through starting_event and
+        # pending_progression, where the world could write a named person's
+        # decision as history before that person had ever been consulted.
+        adjudicating_for = actor_id
         if trigger_kind == "actor_intention":
             self_act_of = actor_id
         user = world_mind.world_user_prompt(
@@ -289,78 +317,86 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                for e in world.queue.pending() if e.kind == K_EVENT])
         validator = world_mind.make_world_validator(
             set(actor_ids), already_committed=already)
-        ask = user
-        for attempt in range(2):
-            out = caller.ask("world", world_mind.WORLD_SYSTEM, ask, validator,
-                             sim_time=_iso_now(world), trigger=trigger_kind)
-            traj.world_calls += 1
-            since_actor["n"] += 1
-            parsed = out["parsed"]
-            envelope = parsed["event_checked"]
-            if envelope is None:
-                break                       # nothing to review
-            verdict = _event_review(envelope, trigger_kind=trigger_kind,
-                                    trigger_text=trigger_text,
-                                    intention=intention, cause=cause,
-                                    acting=did_it)
-            if verdict["verdict"] == "PASS":
-                break
-            note("event_rejected", t=_iso_now(world), call_id=out["call_id"],
-                 attempt=attempt, verdict=verdict["verdict"],
-                 reason=verdict["reason"], rejected=envelope["description"])
-            if verdict["verdict"] == "ACTOR_TURN_REQUIRED":
-                # The world has written somebody's choice.  It is theirs to
-                # make, so it goes back to THEM -- and "them" is the person
-                # this step is about, not the person the event was heading
-                # towards.  Handing it to the audience sent a rejected
-                # "Marcus replies to Dana" to Dana, and a rejected "the
-                # representative greets Ethel" to Ethel: in both the actual
-                # decider was never asked, and the decision the review had
-                # correctly protected simply did not happen.
-                #
-                # The old filter was inert as well.  journal.observed_by(a)
-                # is everything a has ever observed, so its truthiness only
-                # said "has this person ever observed anything at all",
-                # never the comment's claim that they had the observation
-                # that would let them choose.
-                who = ([actor_id] if actor_id
-                       else list(envelope["for"]))
-                if who and attempt == 0:
-                    world.apply(OP_WORLD_CALL,
-                                {"call_id": out["call_id"],
-                                 "trigger": trigger_kind,
-                                 "judgment": parsed["judgment"],
-                                 "handed_to": who[0],
-                                 "trajectory_id": tid}, cause)
-                    actor_step(who[0], cause=cause)
-                    return None
-            if attempt:
-                # One correction was not enough.  The world does not get to
-                # commit it, and the run does not die over it either: what
-                # the world could not say happened, did not happen.
-                note("event_abandoned", t=_iso_now(world),
-                     call_id=out["call_id"], reason=verdict["reason"],
+        # ONE call.  No semantic gate, no correction loop.
+        #
+        # There used to be a read-only reviewer here that judged whether a
+        # proposed event "is a real thing that happened", with one
+        # correction and then destruction.  It held two rules no act done
+        # through a device could satisfy at once -- atomic got "the machine
+        # is the one acting", combined got "several stages at once" -- so
+        # the decisive act of a scenario was deleted, the person was then
+        # refused by the OTHER reviewer for repeating it, the queue
+        # emptied, and the absence of the act that had just been destroyed
+        # became the final answer.  In one run it PASSed and REVISEd the
+        # byte-identical string four calls apart.  The same lease scene on
+        # byte-identical evidence answered YES three times and NO three
+        # times, and the flip was the reviewer, not the world.
+        #
+        # Everything it was legitimately catching -- schema, actor ids,
+        # duplicates, impossible durations, unknown fields -- is decidable
+        # and is decided in make_world_validator, in code, the same way
+        # every time.  What is left over is realism judgment, and that
+        # belongs offline where it can be wrong without deleting anybody's
+        # afternoon.
+        out = caller.ask("world", world_mind.WORLD_SYSTEM, user, validator,
+                         sim_time=_iso_now(world), trigger=trigger_kind)
+        traj.world_calls += 1
+        since_actor["n"] += 1
+        parsed = out["parsed"]
+        envelope = parsed["event_checked"]
+
+        # A restatement that nothing changed is not an event.
+        #
+        # This used to say "the attention question may only be answered
+        # with attention", and it deleted 58 world answers across eleven
+        # runs -- among them "Marcus Bell replies to Dana Whitfield that
+        # the hall is confirmed for the 14th", which is the decisive act of
+        # that scenario, and "Ethel calls the vendor's support line".  I
+        # removed a model's power to delete a valid action and handed a
+        # slightly narrower version of it to code, which a reviewer caught
+        # and which is the same mistake.
+        #
+        # What is genuinely not an event is the item's own state narrated
+        # again: nobody did it (`by` is null) and nobody's notice reached
+        # anything.  If a PERSON did something, it happened, whatever
+        # question prompted the answer.
+        if envelope is not None and trigger_kind == "pending_progression" \
+                and actor_id and envelope.get("by") is None \
+                and not (envelope["observed"] and actor_id in envelope["for"]):
+            note("restatement_refused", t=_iso_now(world),
+                 call_id=out["call_id"], actor=actor_id,
+                 rejected=envelope["description"])
+            parsed = dict(parsed, event_checked=None, event=None)
+            envelope = None
+
+        # The one boundary code still enforces on the world's answer, and
+        # it is enforced by IDENTITY rather than by opinion: an attempt
+        # belongs to exactly one person, and a consequence in which
+        # somebody ELSE makes a voluntary choice is that person's turn to
+        # take, not this one's to record.
+        if envelope is not None and adjudicating_for is not None:
+            # Only where there IS somebody whose turn this is.  A starting
+            # event has no adjudicating actor -- it is the scene's own
+            # premise unfolding -- so there is no attempt for `by` to
+            # contradict, and routing every authored event there deleted
+            # the premise itself.  That leaves starting events unguarded;
+            # they are 9 of 195 committed events in the corpus and they
+            # come from the frozen compiler, and the report says so rather
+            # than claiming otherwise.
+            by = envelope.get("by")
+            chooser = (by if by and by != adjudicating_for else None)
+            if chooser is not None:
+                note("choice_returned_to_its_owner", t=_iso_now(world),
+                     call_id=out["call_id"], actor=chooser,
                      rejected=envelope["description"])
-                parsed = dict(parsed, event_checked=None, event=None)
-                envelope = None
-                break
-            # Rewording the same fragment is the failure mode here: a run
-            # proposed "she prints it from her printer", was told the
-            # machine is not the one acting, and came back with "she
-            # prints it from the message".  Both were refused, the whole
-            # attempt was destroyed, and a woman who meant to sign a
-            # document and send it back did nothing for two days.  What
-            # the reviewer wants is the thing the fragment ADDS UP TO.
-            ask = (user + f"\n\nYOUR PROPOSED EVENT WAS REJECTED\n"
-                          f"{contained(verdict['reason'])}\n"
-                          f"Answer again for the same trigger.  Do not "
-                          f"reword what you just said: if it was refused "
-                          f"as machinery or as one fragment of something "
-                          f"larger, give the thing it ADDS UP TO -- what "
-                          f"the person was actually doing, finished, in "
-                          f"one event, at the time it would really take.  "
-                          f"\"event\": null is a correct answer only when "
-                          f"nothing has genuinely changed.")
+                world.apply(OP_WORLD_CALL,
+                            {"call_id": out["call_id"],
+                             "trigger": trigger_kind,
+                             "judgment": parsed["judgment"],
+                             "handed_to": chooser,
+                             "trajectory_id": tid}, cause)
+                actor_step(chooser, cause=cause)
+                return None
         wakes = parsed["wakes_checked"]
         if parsed.get("duplicate_dropped"):
             note("duplicate_event_dropped", call_id=out["call_id"],
@@ -374,6 +410,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
              trigger=trigger_kind, trigger_text=trigger_text,
              judgment=parsed["judgment"],
              event=parsed["event"], wakes=parsed["wakes"])
+        landed_at = None
         if envelope is not None:
             delta = parse_duration(envelope["after"])
             if crowded and not delta.total_seconds():
@@ -383,6 +420,19 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 note("duration_floored", call_id=out["call_id"],
                      t=_iso_now(world), description=envelope["description"])
             due = world.clock.now + delta
+            # A person doing two things does the first one first.  Within
+            # one turn each attempt lands no earlier than the one before
+            # it: the intentions were dispatched in order, but the events
+            # they produced fired from a time-ordered queue, so a shorter
+            # second attempt overtook a longer first.  A woman transferred
+            # 400 pounds thirty seconds BEFORE the check she had made it
+            # conditional on -- and that check then said the money had not
+            # arrived.  Ordering is code's, and this is what it is for.
+            if not_before is not None and due < not_before:
+                due = not_before
+                note("ordered_after_earlier_attempt", call_id=out["call_id"],
+                     t=_iso_now(world), due=iso(due),
+                     description=envelope["description"])
             if due <= cutoff:
                 world.schedule(K_EVENT,
                                {"envelope": dict(envelope),
@@ -393,8 +443,10 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 "concerns": list(concerns),
                                 "self_act_of": self_act_of,
                                 "did_it": did_it,
+                                "attempt_id": attempt_id,
                                 "source": f"world_call:{out['call_id']}"},
                                due, wseq)
+                landed_at = due
             else:
                 note("event_beyond_cutoff", call_id=out["call_id"],
                      due=iso(due), description=envelope["description"])
@@ -405,52 +457,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
             _schedule_wake(w["actor"], after=w["after"], reason=w["reason"],
                            provenance="world_process",
                            about=trigger_kind, cause=wseq)
+        parsed = dict(parsed, landed_at=landed_at)
         return parsed
-
-    def _event_review(envelope: dict, *, trigger_kind: str,
-                      trigger_text: str, intention, cause: int,
-                      acting: str | None = None) -> dict:
-        """Read-only: is this a real thing that happened?
-
-        It proposes nothing and never sees the resolution.  It exists
-        because instruction did not work: the world was told not to
-        narrate interface mechanics, given the exact counter-example, and
-        half of every committed event in six live runs was still somebody
-        operating a phone.
-        """
-        out = caller.ask("event_review", world_mind.EVENT_REVIEW_SYSTEM,
-                         world_mind.event_review_user_prompt(
-                             now=_iso_now(world),
-                             journal_text=journal.render_for_world(limit=12),
-                             trigger_kind=trigger_kind,
-                             trigger_text=trigger_text,
-                             intention=intention, event=envelope,
-                             acting=acting),
-                         world_mind.validate_event_review,
-                         sim_time=_iso_now(world),
-                         trigger=f"event_review:{trigger_kind}")
-        traj.review_calls += 1
-        world.apply(OP_EVENT_REVIEW,
-                    {"call_id": out["call_id"], "trigger": trigger_kind,
-                     "verdict": out["parsed"]["verdict"],
-                     "reason": out["parsed"]["reason"],
-                     "description": envelope["description"],
-                     "trajectory_id": tid}, cause)
-        verdict = out["parsed"]
-        if verdict["verdict"] == "ACTOR_TURN_REQUIRED" \
-                and trigger_kind == "actor_intention":
-            # This IS their choice: the trigger is the attempt their own
-            # model just made.  Handing it back to them asks them to
-            # decide something they have decided, and a live run stalled
-            # exactly there -- a man who had said "I reply confirming the
-            # appointment" was never allowed to have replied.
-            verdict = {"verdict": "PASS",
-                       "reason": (f"the choice is already theirs: "
-                                  f"{verdict['reason']}")}
-        note("event_review", t=_iso_now(world), call_id=out["call_id"],
-             description=envelope["description"], trigger=trigger_kind,
-             **verdict)
-        return verdict
 
     def actor_step(actor_id: str, *, cause: int, trigger_event_ids=(),
                    force: bool = False) -> None:
@@ -483,6 +491,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         held = [m["content"] for m in view["private_memories"]]
         base = actor_mind.actor_user_prompt(rendered)
         user, parsed, out = base, None, None
+        first = None            # what they said before any correction
         for attempt in range(2):
             out = caller.ask("actor", actor_mind.ACTOR_SYSTEM, user,
                              lambda o: actor_mind.validate_actor_response(
@@ -491,30 +500,45 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                              trigger=f"actor:{actor_id}")
             traj.actor_calls += 1
             parsed = out["parsed"]
+            if first is None:
+                first, first_out = parsed, out
             verdict = _continuity_review(actor_id, rendered, parsed,
                                          cause=cause)
             if verdict["verdict"] == "PASS":
                 break
+            # A REFUSED TURN IS STILL A TURN.
+            #
+            # This used to abandon the turn on a second failure, and the
+            # abandonment was the second half of the chain that produced
+            # the shipped runtime's worst answers: the event reviewer
+            # deleted a woman's attempt to sign and return a lease, she
+            # attempted it again, and this reviewer refused her for
+            # repeating -- so she did nothing for two days and the
+            # absence became the answer.  It also invented calendar facts
+            # and fed them back into the person's next prompt.
+            #
+            # It gets ONE correction, and if the correction does not
+            # satisfy it the ORIGINAL reply stands.  A read-only check
+            # that cannot be satisfied must not be able to silence
+            # somebody; the record notes that it objected, and the person
+            # still gets to have said what they said.
             note("actor_response_rejected", actor=actor_id,
                  t=_iso_now(world), call_id=out["call_id"], attempt=attempt,
                  reason=verdict["reason"], rejected=parsed)
             if attempt:
-                # A second failure is a structured failure -- of the TURN,
-                # not of the run.  Code does not invent a replacement
-                # decision and does not ask the world to invent one: this
-                # person simply did not say anything usable, which is
-                # recorded, and the situation carries on without them for
-                # now.  Ending the trajectory here threw away
-                # twenty-five committed steps over one sentence.
-                world.apply(OP_TURN_ABANDONED,
+                world.apply(OP_CONTINUITY,
                             {"call_id": out["call_id"], "actor": actor_id,
+                             "verdict": "OVERRULED",
                              "reason": verdict["reason"],
                              "trajectory_id": tid}, cause)
-                note("actor_turn_abandoned", actor=actor_id,
-                     t=_iso_now(world), call_id=out["call_id"],
-                     reason=verdict["reason"])
-                traj.abandoned_turns += 1
-                return
+                # ... and it is the FIRST reply that stands, not the
+                # corrected one.  Breaking here with the retry in hand kept
+                # the more distorted of the two: a reply rewritten under an
+                # instruction naming a contradiction, which the reviewer
+                # then refused anyway.  A reviewer that cannot be satisfied
+                # must not get to choose the version either.
+                parsed, out = first, first_out
+                break
             user = (base + f"\n\nYOUR PREVIOUS REPLY DID NOT FOLLOW FROM WHAT "
                            f"YOU HAVE\n{contained(verdict['reason'])}\n"
                            f"Reply again, as this person, fixing exactly "
@@ -546,11 +570,31 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                            reason=parsed["next_wake"]["reason"],
                            provenance="actor_plan",
                            about=f"plan:{out['call_id']}", cause=aseq)
-        # each intention is judged separately: no batching of futures
-        for intent in parsed["intentions"]:
-            world_step(trigger_kind="actor_intention",
-                       trigger_text=f"{actor_id} attempts: {intent}",
-                       cause=aseq, actor_id=actor_id, intention=intent)
+        # Each intention becomes a CODE-OWNED OBJECT before it reaches the
+        # world, and the consequence the world returns is stamped with its
+        # id.  Previously the world received prose and returned prose, and
+        # nothing bound a committed consequence to the attempt it came
+        # from -- so a YES could rest on a chain whose decisive step was
+        # never taken by anybody.  No batching of futures: one attempt,
+        # one adjudication.
+        # ... in the order the person stated them.  A later attempt lands
+        # no earlier than the one before it, because a person doing two
+        # things does the first one first -- and because the second is
+        # often conditional on the first.
+        floor = None
+        for n, intent in enumerate(parsed["intentions"]):
+            attempt_id = f"a{out['call_id']}.{n}"
+            aid_seq = world.apply(OP_ATTEMPT, {
+                "attempt_id": attempt_id, "actor": actor_id,
+                "description": contained(intent),
+                "trajectory_id": tid}, aseq)
+            result = world_step(
+                trigger_kind="actor_intention",
+                trigger_text=f"{actor_id} attempts: {intent}",
+                cause=aid_seq, actor_id=actor_id, intention=intent,
+                attempt_id=attempt_id, not_before=floor)
+            if result and result.get("landed_at") is not None:
+                floor = result["landed_at"]
 
     def _continuity_review(actor_id: str, rendered: str, parsed: dict,
                            *, cause: int) -> dict:
@@ -687,40 +731,27 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                 cause=rec["seq"], actor_id=aid,
                 concerns=[rec["event_id"]])
 
-        if not envelope.get("follow_up"):
-            # the world says this event is finished in itself.  Nothing
-            # further is asked of it: what happens next is somebody's
-            # decision, or a later thing already scheduled, or nothing.
-            env_chain["depth"] = 0
-            # ... and if the thing that just finished was this person's
-            # OWN doing, the decision is theirs and it is due now.  That is
-            # what "action_completion" means, and like the arrival rule it
-            # was in the vocabulary and wired to nothing.
-            #
-            # Doing something is almost never the whole of what someone
-            # meant to do.  A man who checks the booking system checks it
-            # IN ORDER TO answer the question he was asked; a live run left
-            # him at exactly that point on Monday morning and jumped to
-            # Friday's deadline, and the honest record said he never
-            # replied.  He was never asked again.
-            #
-            # Only when the world says the event is finished.  While it
-            # says something still follows -- follow_up -- the person is in
-            # the middle of one long thing, and asking them after every
-            # fragment of it is what turned another run into a supervisor
-            # reading a thesis one page at a time.  Which of the two this
-            # is, is the world's judgment, not a counter's.
-            if self_act_of:
-                actor_step(self_act_of, cause=rec["seq"])
-            return
-        if env_chain["depth"] >= MAX_ENV_CHAIN:
-            env_chain["depth"] = 0
-            return
-        env_chain["depth"] += 1
-        world_step(trigger_kind="event_consequence",
-                   trigger_text=envelope["description"], cause=rec["seq"],
-                   actor_id=envelope["for"][0] if envelope["for"] else None,
-                   concerns=[rec["event_id"]], self_act_of=self_act_of)
+        # THE TRANSPORT CHAIN IS GONE.
+        #
+        # "follow_up" meant "this event leaves something in transit", and
+        # the consequence chain it drove is where the arrivals, the
+        # notifications, the buzzing phones and the still-unread messages
+        # came from -- 44% of the merged corpus was that chain talking to
+        # itself.  Delivery is not a story; it is the state of an item, and
+        # the item already carries it: who it reached is ``for``, whether
+        # they have seen it is ``observed_by``.  Nothing needs to narrate
+        # that, so nothing is asked to.
+        #
+        # What survives is the part that was always real: when the thing
+        # that just happened was somebody's OWN doing, the next decision is
+        # theirs and it is due now.  A man who checks a booking system
+        # checks it IN ORDER TO answer the question he was asked, and a
+        # live run left him at exactly that point on Monday morning and
+        # jumped to Friday's deadline.
+        env_chain["depth"] = 0
+        if self_act_of:
+            actor_step(self_act_of, cause=rec["seq"])
+        return
 
     # ---------------------------------------------------------------
     def judge(*, final: bool, cause: int, reserved: bool = False) -> dict:
@@ -734,7 +765,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         events = journal.events()
         validator = resolution_mod.make_validator(
             {e["event_id"] for e in events}, world.clock.now, cutoff,
-            final=final)
+            final=final, truncated=not final)
         out = caller.ask("judge", resolution_mod.JUDGE_SYSTEM,
                          resolution_mod.judge_user_prompt(
                              resolution, _iso_now(world),
@@ -802,18 +833,27 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                                 "trajectory_id": tid}, cause)
         return out["parsed"]
 
-    def finish(reason: str, *, truncated: bool = False) -> SemanticTrajectory:
+    def finish(reason: str, *, incomplete: str = "") -> SemanticTrajectory:
         """The one way a run ends without failing.
 
         A run that actually reached the cutoff is judged AT the cutoff, and
-        that judgment is YES or NO.  A run that stopped early because it
-        ran out of steps or calls is a different thing entirely: the
-        trajectory never reached the horizon, so nothing is known about
-        what would have happened in the time that was not simulated.  Such
-        a run is reported as incomplete and may still return YES on what it
-        did commit -- but it may never return NO, because that would turn a
-        budget artifact into an answer.
+        that judgment is YES or NO.  A run that stopped early is a
+        different thing entirely: the trajectory never reached the horizon,
+        so nothing is known about what would have happened in the time that
+        was not simulated.  Such a run is reported as incomplete and may
+        still return YES on what it did commit -- but it may never return
+        NO, because that would turn a budget artifact into an answer.
+
+        ``incomplete`` names WHY, and an empty queue is one of the reasons.
+        It did not used to be.  Every NO in the shipped corpus -- eleven of
+        eleven -- was produced by the queue running dry and the clock then
+        being advanced across a window nobody had lived: a cold email
+        jumped its whole fortnight in a single record after one step.  An
+        empty queue with days left is not evidence that nothing happens.
+        It is evidence that nothing was scheduled, which is a fact about
+        the scheduler.
         """
+        truncated = bool(incomplete)
         if not truncated and world.clock.now < cutoff:
             world.clock.advance_to(cutoff)
             # the advance itself is recorded.  A clock moved without a
@@ -834,7 +874,7 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         elif answer["status"] == "YES":
             traj.status = "resolved"
         else:
-            traj.status = "incomplete" if truncated else "cutoff"
+            traj.status = incomplete if truncated else "cutoff"
         traj.reason = reason
         return traj
 
@@ -871,28 +911,26 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         while traj.steps < max_steps and not caller.budget_exhausted():
             ev = world.queue.peek()
             if ev is None or ev.t > cutoff:
-                # Nothing grounded is waiting to happen.  Code does not
-                # invent activity to fill the gap -- that is what the
-                # widening poll did, and it produced 3:50 a.m.
-                # reconsiderations of nothing.
+                # Two situations the merged runtime treated alike, and
+                # they are not alike.
                 #
-                # But an empty queue with days still on the clock is not
-                # evidence that nothing happens.  It is evidence that
-                # nobody was asked.  Eleven of eleven NO answers in one
-                # corpus stopped this way rather than at the horizon: a
-                # cold email jumped its entire fortnight in a single
-                # record after one step, and a woman one step from sending
-                # a signed lease stopped two and a half days early -- and
-                # each was reported as though the time had been lived
-                # through and nothing had come of it.
+                # The queue is EMPTY: nothing will ever happen again, so
+                # the rest of the window is not going to be simulated by
+                # anybody.  Eleven of eleven NO answers in the shipped
+                # corpus stopped this way and were reported as deadlines
+                # that had passed -- a cold email jumped its whole
+                # fortnight in one record after a single step.  That is
+                # incomplete, and it is settled below rather than here.
                 #
-                # So before the world goes quiet, everyone still in it is
-                # asked once more.  Code decides only THAT they are asked;
-                # whether they come back to this, and when, is theirs to
-                # say, and it is said the same way it always is -- their
-                # own next_wake.  If nobody schedules anything, the
-                # silence is now their answer rather than the scheduler's,
-                # and the horizon may honestly be claimed.
+                # The next thing is BEYOND THE CUTOFF: the world has said
+                # what the future holds and none of it lands before the
+                # deadline.  Nothing more happens in the window because
+                # nothing more was going to, which is the horizon honestly
+                # reached, and NO is available.
+                #
+                # Before either, everyone still in the situation is asked
+                # once more.  Code decides only THAT they are asked; when
+                # they come back is theirs to say, in their own next_wake.
                 if world.clock.now < cutoff \
                         and last_call["at"] != world.clock.now:
                     last_call["at"] = world.clock.now
@@ -902,6 +940,29 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     for aid in actor_ids:
                         actor_step(aid, cause=here, force=True)
                     continue
+                # THE HORIZON, DEFINED BY THE STATE.
+                #
+                # Nothing lands before the deadline, everyone still in the
+                # situation has been asked at this instant, and nobody
+                # intends anything before it.  That is the window lived
+                # out: what remains is time in which nothing was going to
+                # happen, which is a real thing that happens.
+                #
+                # Not "did the clock land on the cutoff second".  That is
+                # what it used to be, and it made the honest NO a matter of
+                # whether the wake interval divided the window.
+                # A KNOWN future beyond the deadline is not an empty
+                # queue: somebody has said what happens next and it happens
+                # after the question closes, so nothing more lands inside
+                # the window and NO is available.
+                #
+                # A queue that is simply empty stays INCOMPLETE, per the
+                # rule.  Two reviewers argued that is too strict -- three
+                # runs that lived 92-99% of their windows and had every
+                # actor decline were refused a NO -- and that disagreement
+                # is recorded in the report rather than resolved here.
+                reached_horizon["yes"] = (ev is not None
+                                          or intends_after_cutoff["yes"])
                 break
             ev = world.queue.pop()
             if ev.t > world.clock.now:
@@ -929,7 +990,8 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
                     envelope = dict(envelope, observed=False)
                 rec = journal.commit(envelope, cause=fired,
                                      source=ev.data.get("source", "scheduled"),
-                                     trajectory_id=tid)
+                                     trajectory_id=tid,
+                                     attempt_id=ev.data.get("attempt_id"))
                 note("committed_event", **rec)
                 # A person knows what they themselves just did, whoever it
                 # was addressed to.  Requiring them to be among the people
@@ -1042,11 +1104,23 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         if traj.steps >= max_steps:
             return finish(f"step ceiling {max_steps} reached at "
                           f"{_iso_now(world)}, before the cutoff",
-                          truncated=True)
+                          incomplete="incomplete_step_limit")
         if caller.budget_exhausted():
             return finish(f"call ceiling {caller.max_calls} reached at "
                           f"{_iso_now(world)}, before the cutoff",
-                          truncated=True)
+                          incomplete="incomplete_call_limit")
+        if world.clock.now < cutoff and not reached_horizon["yes"]:
+            # THE RULE.  The queue emptied and the horizon never arrived,
+            # so the rest of the window was never simulated and nothing
+            # may be claimed about it.  Not a sweep, not a mitigation: a
+            # status.  (A run whose next scheduled thing falls beyond the
+            # cutoff is the other case and keeps its NO -- there, the
+            # world said what the future held and none of it landed
+            # before the deadline.)
+            return finish(f"nothing further was scheduled at "
+                          f"{_iso_now(world)}, and the cutoff "
+                          f"{iso(cutoff)} was never reached",
+                          incomplete="incomplete_empty_queue")
         return finish("")
     except CallBudgetExceeded as e:
         # the backstop is a horizon, not a failure: calls are held in
@@ -1056,14 +1130,14 @@ def run_trajectory(world, journal: Journal, bindings: dict, resolution: str,
         # answer NO over time it never simulated.
         try:
             return finish(f"call ceiling reached mid-step at "
-                          f"{_iso_now(world)}: {e}", truncated=True)
+                          f"{_iso_now(world)}: {e}",
+                          incomplete="incomplete_call_limit")
         except (EnvelopeError, RuntimeTechnicalFailure, CallBudgetExceeded,
                 ValueError) as e2:
             traj.status = "failed"
             traj.reason = f"{type(e2).__name__} after budget horizon: {e2}"
             return traj
-    except (EnvelopeError, ActorGroundingError, EventGroundingError,
-            RuntimeTechnicalFailure, ValueError) as e:
+    except (EnvelopeError, RuntimeTechnicalFailure, ValueError) as e:
         traj.status = "failed"
         traj.reason = f"{type(e).__name__}: {e}"
         return traj

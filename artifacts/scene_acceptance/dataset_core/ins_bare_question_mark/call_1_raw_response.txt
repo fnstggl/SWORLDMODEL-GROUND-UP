@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "No question was provided.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: No question was provided to simulate."
-}

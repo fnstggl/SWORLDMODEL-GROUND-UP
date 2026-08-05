@@ -1,8 +1,0 @@
-{
- "question": "Will the five students in the actuarial study group agree tonight on who presents which chapter at Saturday's session?",
- "start": "2026-08-19T19:00:00+08:00",
- "cutoff": "2026-08-19T23:00:00+08:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

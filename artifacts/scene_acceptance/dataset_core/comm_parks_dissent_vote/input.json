@@ -1,8 +1,0 @@
-{
- "question": "Will at least one member of Riverton's parks committee vote against the skate-park relocation when it comes up at Thursday's session?",
- "start": "2026-09-14T09:00:00-06:00",
- "cutoff": "2026-09-17T22:00:00-06:00",
- "context": "The relocation has been through two noisy public-comment periods; two committee members live near the proposed site, and the local paper ran letters both for and against last week.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

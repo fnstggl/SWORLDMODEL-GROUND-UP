@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "The question asks for the capital of Kyrgyzstan, a factual lookup with no social decision or interaction.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question is a factual lookup, not a social simulation with an observable YES/NO resolution."
-}

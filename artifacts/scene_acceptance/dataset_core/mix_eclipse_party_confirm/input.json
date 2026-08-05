@@ -1,8 +1,0 @@
-{
- "question": "A partial solar eclipse is scheduled over Marlin Bay on the 12th. Will the astronomy club's president confirm by the 10th whether the pier viewing party is going ahead?",
- "start": "2026-08-01T09:00:00-07:00",
- "cutoff": "2026-08-10T21:00:00-07:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

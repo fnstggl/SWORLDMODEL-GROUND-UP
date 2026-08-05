@@ -1,0 +1,4 @@
+{"about":"starting_event","actor":"aisha_okafor","due":"2026-09-08T10:00:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Check if Aisha has now attended to the lease email.","t":"2026-09-08T08:00:00+00:00"}
+{"about":"event_consequence","actor":"aisha_okafor","due":"2026-09-08T08:03:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Check if Aisha proceeds to email the scanned lease back to Tomas.","t":"2026-09-08T08:02:00+00:00"}
+{"about":"pending_progression","actor":"aisha_okafor","due":"2026-09-08T08:03:30+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Check if Aisha proceeds to email the scanned lease to Tomas.","t":"2026-09-08T08:03:00+00:00"}
+{"about":"actor_intention","actor":"tomas_herrera","due":"2026-09-08T08:05:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"The email should arrive in Tomas's inbox shortly.","t":"2026-09-08T08:03:00+00:00"}

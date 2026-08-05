@@ -1,3 +1,20 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Generated evaluation runs.  These are EVIDENCE, not source.
+#
+# PR #5 added more than a thousand of them to the production diff, which
+# made the change unreviewable and told a reader nothing they could not
+# regenerate.  Compact machine-generated summaries live in
+# artifacts/history/ and artifacts/final_v6/SUMMARY.txt; the evaluator
+# scripts that produce them are under evaluation/; and every deleted tree
+# remains in git history at the commit that produced it.
+artifacts/simulations_v*/
+artifacts/scene_acceptance/
+artifacts/matched_pairs/*/actor_*.jsonl
+artifacts/matched_pairs/*/world_*.jsonl
+artifacts/matched_pairs/*/review_*.jsonl
+artifacts/matched_pairs/*/*.md
+artifacts/baseline_main/*/
+artifacts/final_v*/*/

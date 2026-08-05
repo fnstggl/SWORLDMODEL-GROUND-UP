@@ -1,8 +1,0 @@
-{
- "question": "Will this 12-volt battery still start the truck after sitting in an unheated garage at minus 20 Celsius for six weeks?",
- "start": "2026-12-01T08:00:00-06:00",
- "cutoff": "2027-01-12T08:00:00-06:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

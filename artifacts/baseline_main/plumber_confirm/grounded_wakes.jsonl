@@ -1,0 +1,2 @@
+{"about":"starting_event","actor":"sam_okonjo","due":"2026-07-28T14:00:00+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Sam has until 6pm to respond; check if he has acted.","t":"2026-07-28T08:00:00+00:00"}
+{"about":"event_consequence","actor":"sam_okonjo","due":"2026-07-28T08:00:35+00:00","kind":"wake_scheduled","provenance":"world_process","reason":"Check if Bristol Plumbing has responded or if the message delivery status changes.","t":"2026-07-28T08:00:30+00:00"}

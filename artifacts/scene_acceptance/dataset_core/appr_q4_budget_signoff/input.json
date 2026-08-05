@@ -1,8 +1,0 @@
-{
- "question": "Will Ostara Foods' CFO approve the marketing team's revised Q4 budget before the leadership offsite on the 21st?",
- "start": "2026-09-08T09:00:00+01:00",
- "cutoff": "2026-09-21T09:00:00+01:00",
- "context": "The revision is eight percent below the original ask after the CFO's pushback; the CMO and CFO meet weekly and work together decently, and the offsite agenda already lists the campaign as a topic.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

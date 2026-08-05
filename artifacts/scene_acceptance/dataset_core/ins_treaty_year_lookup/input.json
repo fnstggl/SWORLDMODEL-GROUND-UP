@@ -1,8 +1,0 @@
-{
- "question": "In what year was the Peace of Westphalia signed?",
- "start": "2026-09-10T10:00:00+02:00",
- "cutoff": "2026-09-11T10:00:00+02:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

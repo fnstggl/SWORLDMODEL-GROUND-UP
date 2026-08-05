@@ -149,7 +149,7 @@ def validate_event(proposed, known_actor_ids) -> dict:
     if not isinstance(proposed, dict):
         raise EnvelopeError("event must be an object")
     unknown = set(proposed) - {"description", "for", "observed", "after",
-                               "follow_up"}
+                               "follow_up", "by"}
     if unknown:
         raise EnvelopeError(
             f"event has fields the model may not write: {sorted(unknown)} "
@@ -165,6 +165,20 @@ def validate_event(proposed, known_actor_ids) -> dict:
     follow_up = proposed.get("follow_up", False)
     if not isinstance(follow_up, bool):
         raise EnvelopeError("event.follow_up must be true or false")
+    # WHOSE action this is, if it is anybody's.  Null means the
+    # environment did it -- a train is late, a shop closes, something
+    # arrives.  An actor id means that person acted, and code checks that
+    # against whose attempt was being adjudicated: the world resolving
+    # Ada's attempt may not decide that BO chose something, because that
+    # is Bo's turn to take.  Identity, not keywords.
+    by = proposed.get("by")
+    if by is not None:
+        if not isinstance(by, str):
+            raise EnvelopeError("event.by must be an actor id or null")
+        by = by.strip()
+        if by not in known_actor_ids:
+            raise EnvelopeError(
+                f"event.by names {by!r}, who is not in this situation")
     audience = proposed["for"]
     if not isinstance(audience, list) \
             or any(not isinstance(a, str) for a in audience):
@@ -183,7 +197,7 @@ def validate_event(proposed, known_actor_ids) -> dict:
                                       field="event.description"),
             "for": clean_for, "observed": proposed["observed"],
             "after": proposed["after"].strip(), "follow_up": follow_up,
-            "delta": delta}
+            "by": by, "delta": delta}
 
 
 def validate_wakes(proposed, known_actor_ids) -> list:

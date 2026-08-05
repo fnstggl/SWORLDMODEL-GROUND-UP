@@ -1,8 +1,0 @@
-{
- "question": "A one-star review of the Copper Kettle bistro went up on a major review site last night. Will the owner post a public reply within a week?",
- "start": "2026-08-30T09:00:00-04:00",
- "cutoff": "2026-09-06T09:00:00-04:00",
- "context": "Owner Marguerite replies to most reviews within days, usually defensively; the review complains about a 45-minute wait on a night the bistro was short two servers.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

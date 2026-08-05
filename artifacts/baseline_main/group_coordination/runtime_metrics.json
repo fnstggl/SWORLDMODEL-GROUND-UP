@@ -1,0 +1,58 @@
+{
+ "provider_calls": 858,
+ "by_role": {
+  "judge": {
+   "calls": 58,
+   "retries": 1,
+   "wall_s": 91.98,
+   "input_tokens": 112676,
+   "output_tokens": 3338
+  },
+  "world": {
+   "calls": 299,
+   "retries": 0,
+   "wall_s": 637.22,
+   "input_tokens": 1152187,
+   "output_tokens": 32697
+  },
+  "event_review": {
+   "calls": 93,
+   "retries": 0,
+   "wall_s": 142.52,
+   "input_tokens": 174133,
+   "output_tokens": 4068
+  },
+  "actor": {
+   "calls": 204,
+   "retries": 0,
+   "wall_s": 373.84,
+   "input_tokens": 832736,
+   "output_tokens": 16181
+  },
+  "continuity": {
+   "calls": 204,
+   "retries": 0,
+   "wall_s": 332.37,
+   "input_tokens": 743682,
+   "output_tokens": 9216
+  }
+ },
+ "total_input_tokens": 3015414,
+ "total_output_tokens": 65500,
+ "total_wall_s": 1577.89,
+ "status": "incomplete",
+ "answer": {
+  "status": "UNRESOLVED",
+  "supporting_event_ids": [],
+  "explanation": "No committed event shows that all four housemates have collectively agreed on a host; only Ines and Bea have exchanged messages, and Tomas and Kwame have not observed any agreement."
+ },
+ "reason": "step ceiling 250 reached at 2026-10-09T12:00:40+00:00, before the cutoff",
+ "steps": 250,
+ "world_calls": 299,
+ "actor_calls": 204,
+ "judge_calls": 57,
+ "review_calls": 297,
+ "abandoned_turns": 2,
+ "committed_events": 56,
+ "ledger_records": 1511
+}

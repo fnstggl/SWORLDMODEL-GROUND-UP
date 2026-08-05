@@ -1,8 +1,0 @@
-{
- "question": "Opening night of Petersfield Secondary's play is Friday at 19:00. Will the parents' group have collected for the cast flowers and handed them over backstage before curtain?",
- "start": "2026-11-16T09:00:00+00:00",
- "cutoff": "2026-11-20T19:00:00+00:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

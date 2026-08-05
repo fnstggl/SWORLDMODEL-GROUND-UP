@@ -77,6 +77,21 @@ def check_ledger_integrity(records: list) -> list:
 
     by_event = {r["data"]["event_id"]: r["data"]
                 for r in records if r.get("op") == OP_EVENT}
+    # An event id must be minted once.  Duplicating one let a forger
+    # rewrite an event and have every id-existence check resolve against
+    # whichever copy came last.
+    seen_ids: set = set()
+    for r in records:
+        if r.get("op") == OP_EVENT:
+            eid = r["data"].get("event_id")
+            if eid in seen_ids:
+                problems.append(f"event id {eid!r} is minted twice")
+            seen_ids.add(eid)
+    # The own-doing exemption is tied to a real attempt by that person,
+    # not to a free-text string: four words used to switch off the only
+    # ledger rule guarding the information boundary.
+    by_attempt = {r["data"]["attempt_id"]: r["data"]["actor"]
+                  for r in records if r.get("op") == "semantic.attempt"}
     for r in records:
         if r.get("op") == OP_OBSERVED:
             d = r["data"]
@@ -85,7 +100,9 @@ def check_ledger_integrity(records: list) -> list:
                 problems.append(f"seq {r['seq']} records an observation of "
                                 f"{d.get('event_id')!r}, which does not exist")
             elif d.get("actor") not in ev.get("for", []) \
-                    and d.get("source") != "own_doing":
+                    and not (d.get("source") == "own_doing"
+                             and by_attempt.get(ev.get("attempt_id"))
+                             == d.get("actor")):
                 # An observation has to be of something that reached the
                 # person -- unless they are the one who DID it, in which
                 # case they were its author rather than its recipient and

@@ -1,8 +1,0 @@
-{
- "question": "Does department manager Karen Wu decide to promote analyst Tom Brown to senior analyst by September 25, 2026, after reviewing his performance review submitted on September 1?",
- "start": "2026-09-01T00:00:00-07:00",
- "cutoff": "2026-09-25T23:59:00-07:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

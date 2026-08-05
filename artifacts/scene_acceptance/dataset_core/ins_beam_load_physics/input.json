@@ -1,8 +1,0 @@
-{
- "question": "Will a four-meter Douglas-fir beam spanning three meters between posts hold a 40-pounds-per-square-foot snow load without sagging?",
- "start": "2026-11-01T08:00:00-07:00",
- "cutoff": "2027-01-31T18:00:00-07:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

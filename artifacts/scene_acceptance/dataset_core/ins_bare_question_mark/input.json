@@ -1,8 +1,0 @@
-{
- "question": "?",
- "start": "2026-08-01T09:00:00+00:00",
- "cutoff": "2026-08-08T09:00:00+00:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

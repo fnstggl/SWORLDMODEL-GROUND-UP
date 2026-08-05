@@ -1,6 +1,0 @@
-{
-  "actors": [],
-  "shared_context": "The company is a business entity. The next quarter is Q4 2026, starting October 1, 2026 and ending December 31, 2026. The question asks whether 'things get better' for the company, which is vague and lacks specific observable criteria.",
-  "starting_events": [],
-  "resolution": "UNRESOLVABLE: The question does not specify what 'better' means in observable terms, nor does it identify any decision-maker or action that could be measured."
-}

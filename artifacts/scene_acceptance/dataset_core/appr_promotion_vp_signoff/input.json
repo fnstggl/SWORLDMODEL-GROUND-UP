@@ -1,8 +1,0 @@
-{
- "question": "Will manager Rosa Maria's promotion case for her report Jonas clear calibration and receive VP sign-off before promotion letters go out on November 15?",
- "start": "2026-10-05T09:00:00-08:00",
- "cutoff": "2026-11-15T09:00:00-08:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

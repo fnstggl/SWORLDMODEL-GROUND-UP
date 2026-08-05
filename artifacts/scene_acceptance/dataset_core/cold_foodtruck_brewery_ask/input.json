@@ -1,8 +1,0 @@
-{
- "question": "Food-truck owner Bao Tran plans to approach three brewery managers in person this Saturday about parking on their lots. Will he get a yes from at least one of them before the day ends?",
- "start": "2026-08-08T10:00:00-05:00",
- "cutoff": "2026-08-08T20:00:00-05:00",
- "context": "Bao runs a well-reviewed banh mi truck and wants a regular weekend spot; two of the three breweries on his list already host rotating food trucks, and the third never has.",
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}

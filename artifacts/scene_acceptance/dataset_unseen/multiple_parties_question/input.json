@@ -1,8 +1,0 @@
-{
- "question": "Will the foreign ministers of Japan, South Korea, and China issue a joint statement condemning North Korea's missile test before the UN General Assembly in September?",
- "start": "2026-08-01T00:00:00+09:00",
- "cutoff": "2026-09-20T23:59:00+09:00",
- "context": null,
- "evidence": null,
- "compiler_version": "minimal_scene_v1"
-}
